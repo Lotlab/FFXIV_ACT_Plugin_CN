@@ -26,9 +26,11 @@ cp "$PLUGIN_DLL" "$STAGE/FFXIV_ACT_Plugin.dll"
 
 # deucalion ships as a versioned distributable next to the plugin; the file name
 # pattern is what ACT_PluginUpdate.FinalizeDeucalionDistrib() and
-# DeucalionInjector look for.
+# DeucalionInjector look for.  Machina.FFXIV already copies them to the build
+# output as deucalion-<version>.dll.
 shopt -s nullglob
-for src in "$ROOT"/third_party/machina/Machina.FFXIV/Deucalion/Distrib/*.dll; do
+for src in "$(dirname "$PLUGIN_DLL")"/deucalion-*.dll \
+           "$ROOT"/third_party/machina/Machina.FFXIV/Deucalion/Distrib/*.dll; do
   base="$(basename "$src")"                 # deucalion-1.5.0.dll
   cp "$src" "$STAGE/${base%.dll}.distrib.dll"
 done
@@ -36,5 +38,11 @@ done
 mkdir -p "$OUT"
 ARCHIVE="$OUT/FFXIV_ACT_Plugin_${VERSION}_CN.zip"
 rm -f "$ARCHIVE"
-(cd "$STAGE" && zip -q -9 "$ARCHIVE" ./*)
+python3 - "$ARCHIVE" "$STAGE" <<'PY'
+import os, sys, zipfile
+archive, stage = sys.argv[1], sys.argv[2]
+with zipfile.ZipFile(archive, "w", zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+    for name in sorted(os.listdir(stage)):
+        z.write(os.path.join(stage, name), name)
+PY
 echo "$ARCHIVE"

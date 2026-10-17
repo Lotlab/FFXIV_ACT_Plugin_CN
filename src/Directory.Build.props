@@ -6,7 +6,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <Nullable>disable</Nullable>
+    <Nullable>annotations</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
     <Deterministic>true</Deterministic>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
@@ -21,7 +21,7 @@
        redistributable from this repository; scripts/fetch-deps.sh downloads the
        matching release into lib/. -->
   <PropertyGroup>
-    <ActReferenceDir Condition="'$(ActReferenceDir)' == ''">$(MSBuildThisFileDirectory)lib</ActReferenceDir>
+    <ActReferenceDir Condition="$(ActReferenceDir) == ''">$(MSBuildThisFileDirectory)../lib</ActReferenceDir>
     <ActAssemblyPath>$(ActReferenceDir)/Advanced Combat Tracker.exe</ActAssemblyPath>
   </PropertyGroup>
 

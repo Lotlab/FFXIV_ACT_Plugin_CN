@@ -14,17 +14,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Machina: see stage 1 - the upstream 2.4.7.1/2.3.1.3 binaries that the
-         reference build embedded, kept in lib/ until they are replaced by the
-         Lotlab fork. -->
-    <Reference Include="Machina">
-      <HintPath>$(ActReferenceDir)/machina/Machina.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Machina.FFXIV">
-      <HintPath>$(ActReferenceDir)/machina/Machina.FFXIV.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+    <ProjectReference Include="../../third_party/machina/Machina/Machina.csproj" />
+    <ProjectReference Include="../../third_party/machina/Machina.FFXIV/Machina.FFXIV.csproj" />
   </ItemGroup>
 
 </Project>
