@@ -2,3 +2,7 @@
 	path = third_party/machina
 	url = https://github.com/Lotlab/machina.git
 	branch = feature/oodle-state-recovery
+[submodule "third_party/Unscrambler"]
+	path = third_party/Unscrambler
+	url = https://github.com/perchbirdd/Unscrambler.git
+	branch = main

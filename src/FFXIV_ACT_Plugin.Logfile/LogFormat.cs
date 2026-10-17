@@ -22,10 +22,10 @@ public class LogFormat : ILogFormat
 		return ((FormattableString)$"Detected Process ID: {processId.GetValueOrDefault()}, Client Mode: {clientMode}, IsAdmin: {isAdministrator}, Game Version: {gameVersion}").ToString(CultureInfo.InvariantCulture);
 	}
 
-	public string FormatMemorySettings(int ProcessID, string LogFileFolder, bool LogAllNetworkData, bool DisableCombatLog, Region RegionID)
+	public string FormatMemorySettings(int ProcessID, string LogFileFolder, bool LogAllNetworkData, bool DisableCombatLog, Region RegionID, string NetworkIP, bool UseWinPCap, bool UseSocketFilter, bool UseDeucalion)
 	{
 		//IL_0029: Unknown result type (might be due to invalid IL or missing references)
-		return ((FormattableString)$"Selected Process ID: {ProcessID}, Dump All Network Data: {LogAllNetworkData}, Disable Combat Log: {DisableCombatLog}, Region: {RegionID}").ToString(CultureInfo.InvariantCulture);
+		return ((FormattableString)$"Selected Process ID: {ProcessID}, Dump All Network Data: {LogAllNetworkData}, Disable Combat Log: {DisableCombatLog}, Region: {RegionID}, Selected IP: {NetworkIP}, WinPcap: {UseWinPCap}, Socket Filter: {UseSocketFilter}, Deucalion: {UseDeucalion}").ToString(CultureInfo.InvariantCulture);
 	}
 
 	public string FormatParseSettings(bool DisableDamageShield, bool DisableCombinePets, Language LanguageID, ParseFilterMode ParseFilter, bool SimulateIndividualDoTCrits, bool ShowRealDoTTicks)

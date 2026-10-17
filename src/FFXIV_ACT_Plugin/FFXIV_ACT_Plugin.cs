@@ -138,6 +138,7 @@ public class FFXIV_ACT_Plugin : IActPluginV1, IDisposable
 		_iocContainer.Register<ISignatureManager, SignatureManager>().AsSingleton();
 		_iocContainer.Register<IScanMemory, ScanMemory>().AsSingleton();
 		_iocContainer.Register<IScanPackets, ScanPackets>().AsSingleton();
+		_iocContainer.Register<INetworkPacketUnscrambler, NetworkPacketUnscrambler>().AsSingleton();
 		_iocContainer.Register<PacketHandlerMediator>().AsSingleton();
 		_iocContainer.Register<DataEventProcessor>().AsSingleton();
 		_iocContainer.Register<IReadCombatant, ReadCombatant>().AsSingleton();

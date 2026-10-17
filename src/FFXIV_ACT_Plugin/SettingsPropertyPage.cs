@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
@@ -12,6 +13,7 @@ using FFXIV_ACT_Plugin.Common;
 using FFXIV_ACT_Plugin.Config;
 using FFXIV_ACT_Plugin.Logfile;
 using FFXIV_ACT_Plugin.Memory.MemoryReader;
+using Machina.Infrastructure;
 
 namespace FFXIV_ACT_Plugin;
 
@@ -109,6 +111,18 @@ public class SettingsPropertyPage : UserControl
 
 	private Label label3;
 
+	private Label label4;
+
+	private ComboBox cboFilterIP;
+
+	private Button cboRefreshNetwork;
+
+	private CheckBox chkUsePcap;
+
+	private CheckBox chkUseDeucalion;
+
+	private CheckBox chkDisableSocketFilter;
+
 	public ParseSettings ParseSettings
 	{
 		get
@@ -170,6 +184,10 @@ public class SettingsPropertyPage : UserControl
 		xmlSettings.AddControlSetting(((Control)chkShowDebug).Name, (Control)(object)chkShowDebug);
 		xmlSettings.AddControlSetting(((Control)chkEnableBenchmark).Name, (Control)(object)chkEnableBenchmark);
 		xmlSettings.AddControlSetting(((Control)cboRegion).Name, (Control)(object)cboRegion);
+		xmlSettings.AddControlSetting(((Control)cboFilterIP).Name, (Control)(object)cboFilterIP);
+		xmlSettings.AddControlSetting(((Control)chkUsePcap).Name, (Control)(object)chkUsePcap);
+		xmlSettings.AddControlSetting(((Control)chkDisableSocketFilter).Name, (Control)(object)chkDisableSocketFilter);
+		xmlSettings.AddControlSetting(((Control)chkUseDeucalion).Name, (Control)(object)chkUseDeucalion);
 		return xmlSettings;
 	}
 
@@ -177,6 +195,7 @@ public class SettingsPropertyPage : UserControl
 	{
 		RefreshProcessList();
 		cboProcessID.SelectedItem = "自动识别";
+		RefreshNetworkList();
 		if (File.Exists(settingsFile))
 		{
 			using XmlTextReader xmlTextReader = new XmlTextReader(new FileStream(settingsFile, FileMode.Open, FileAccess.Read, FileShare.ReadWrite));
@@ -201,6 +220,10 @@ public class SettingsPropertyPage : UserControl
 		if (cboParseFilter.SelectedItem == null)
 		{
 			((ListControl)cboParseFilter).SelectedIndex = 0;
+		}
+		if (cboFilterIP.SelectedItem == null || cboFilterIP.SelectedItem.ToString() == "")
+		{
+			cboFilterIP.SelectedItem = "不过滤[默认]";
 		}
 		if (string.IsNullOrWhiteSpace(((Control)txtLogFileDirectory).Text))
 		{
@@ -267,6 +290,55 @@ public class SettingsPropertyPage : UserControl
 		{
 			cboProcessID.Items.Add((object)item.ToString(CultureInfo.InvariantCulture));
 		}
+	}
+
+	/// <summary>
+	/// Lists the machine's own addresses so the capture can be pinned to one
+	/// network interface.
+	/// </summary>
+	private void RefreshNetworkList()
+	{
+		cboFilterIP.Items.Clear();
+		cboFilterIP.Items.Add((object)"不过滤[默认]");
+		foreach (string item in InterfaceHelper.GetNetworkInterfaceIPs().ToList())
+		{
+			cboFilterIP.Items.Add((object)item);
+		}
+	}
+
+	private void cboRefreshNetwork_Click(object sender, EventArgs e)
+	{
+		object selectedItem = cboFilterIP.SelectedItem;
+		RefreshNetworkList();
+		if (cboFilterIP.Items.Contains(selectedItem))
+		{
+			cboFilterIP.SelectedItem = selectedItem;
+		}
+		else
+		{
+			cboFilterIP.SelectedItem = "不过滤[默认]";
+		}
+	}
+
+	private void cboFilterIP_SelectedIndexChanged(object sender, EventArgs e)
+	{
+		OnDataCollectionSettingsChanged(GetDataCollectionSettings());
+	}
+
+	private void chkDisableSocketFilter_CheckedChanged(object sender, EventArgs e)
+	{
+		OnDataCollectionSettingsChanged(GetDataCollectionSettings());
+	}
+
+	private void chkUsePcap_CheckedChanged(object sender, EventArgs e)
+	{
+		OnDataCollectionSettingsChanged(GetDataCollectionSettings());
+	}
+
+	private void chkUseDeucalion_CheckedChanged(object sender, EventArgs e)
+	{
+		((Control)chkUsePcap).Enabled = !chkUseDeucalion.Checked;
+		OnDataCollectionSettingsChanged(GetDataCollectionSettings());
 	}
 
 	private void cboProcessID_SelectedIndexChanged(object sender, EventArgs e)
@@ -419,6 +491,10 @@ public class SettingsPropertyPage : UserControl
 		e.LogAllNetworkData = chkLogAllNetwork.Checked;
 		e.DisableCombatLog = chkDisableCombatLog.Checked;
 		e.RegionID = (Config.Region)(((ListControl)cboRegion).SelectedIndex + 1);
+		e.NetworkIP = ((cboFilterIP.SelectedItem == null || cboFilterIP.SelectedItem.ToString() == "不过滤[默认]") ? "" : cboFilterIP.SelectedItem.ToString());
+		e.UseWinPCap = chkUsePcap.Checked && !chkUseDeucalion.Checked;
+		e.UseSocketFilter = !chkDisableSocketFilter.Checked;
+		e.UseDeucalion = chkUseDeucalion.Checked;
 		return e;
 	}
 
@@ -469,7 +545,7 @@ public class SettingsPropertyPage : UserControl
 		if (m_Initialized)
 		{
 			_settingsManager.DataCollectionSettings = settings;
-			string text = _logFormat.FormatMemorySettings(settings.ProcessID, settings.LogFileFolder, settings.LogAllNetworkData, settings.DisableCombatLog, settings.RegionID);
+			string text = _logFormat.FormatMemorySettings(settings.ProcessID, settings.LogFileFolder, settings.LogAllNetworkData, settings.DisableCombatLog, settings.RegionID, settings.NetworkIP ?? "", settings.UseWinPCap, settings.UseSocketFilter, settings.UseDeucalion);
 			_logOutput.WriteLine((LogMessageType)249, DateTime.MinValue, text);
 		}
 	}
@@ -492,7 +568,7 @@ public class SettingsPropertyPage : UserControl
 	private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{
 		//IL_000b: Unknown result type (might be due to invalid IL or missing references)
-		MessageBox.Show("The ACT FFXIV Plugin is Copyright © 2025 Ravahn.\r\n\r\nThis software makes use of libraries covered under the MIT License: \r\n\r\nCostura/Fody: https://github.com/Fody/Costura\r\n\r\nFody: https://github.com/Fody/Fody\r\n\r\nMicrosoft.MinIoc: https://github.com/microsoft/MinIoC", "版权信息", (MessageBoxButtons)0);
+		MessageBox.Show("The ACT FFXIV Plugin is Copyright © 2025 Ravahn.\r\n\r\nThis software makes use of libraries covered under the MIT License: \r\n\r\nCostura/Fody: https://github.com/Fody/Costura\r\n\r\nFody: https://github.com/Fody/Fody\r\n\r\nMicrosoft.MinIoc: https://github.com/microsoft/MinIoC\r\n\r\nUnscrambler (WTFPL): https://github.com/perchbirdd/Unscrambler\r\n\r\nMachina (GPLv3): https://github.com/Lotlab/machina", "版权信息", (MessageBoxButtons)0);
 	}
 
 	private void InitializeComponent()
@@ -592,6 +668,12 @@ public class SettingsPropertyPage : UserControl
 		groupBox3 = new GroupBox();
 		cboRegion = new ComboBox();
 		label3 = new Label();
+		label4 = new Label();
+		cboFilterIP = new ComboBox();
+		cboRefreshNetwork = new Button();
+		chkUsePcap = new CheckBox();
+		chkUseDeucalion = new CheckBox();
+		chkDisableSocketFilter = new CheckBox();
 		chkDisableCombatLog = new CheckBox();
 		cmdResetLogPath = new Button();
 		chkLogAllNetwork = new CheckBox();
@@ -718,7 +800,7 @@ public class SettingsPropertyPage : UserControl
 		((Control)label1).Size = new Size(90, 13);
 		((Control)label1).TabIndex = 83;
 		((Control)label1).Text = "调试信息";
-		((Control)cmdValidateAddress).Location = new Point(293, 99);
+		((Control)cmdValidateAddress).Location = new Point(293, 177);
 		((Control)cmdValidateAddress).Name = "cmdValidateAddress";
 		((Control)cmdValidateAddress).Size = new Size(132, 23);
 		((Control)cmdValidateAddress).TabIndex = 61;
@@ -772,9 +854,15 @@ public class SettingsPropertyPage : UserControl
 		((Control)groupBox3).Controls.Add((Control)(object)label7);
 		((Control)groupBox3).Controls.Add((Control)(object)cmdValidateAddress);
 		((Control)groupBox3).Controls.Add((Control)(object)cboProcessID);
+		((Control)groupBox3).Controls.Add((Control)(object)cboFilterIP);
+		((Control)groupBox3).Controls.Add((Control)(object)label4);
+		((Control)groupBox3).Controls.Add((Control)(object)cboRefreshNetwork);
+		((Control)groupBox3).Controls.Add((Control)(object)chkUsePcap);
+		((Control)groupBox3).Controls.Add((Control)(object)chkUseDeucalion);
+		((Control)groupBox3).Controls.Add((Control)(object)chkDisableSocketFilter);
 		((Control)groupBox3).Location = new Point(14, 11);
 		((Control)groupBox3).Name = "groupBox3";
-		((Control)groupBox3).Size = new Size(445, 129);
+		((Control)groupBox3).Size = new Size(445, 200);
 		((Control)groupBox3).TabIndex = 60;
 		groupBox3.TabStop = false;
 		((Control)groupBox3).Text = "FFXIV解析插件";
@@ -793,12 +881,56 @@ public class SettingsPropertyPage : UserControl
 		((Control)label3).TabIndex = 93;
 		((Control)label3).Text = "FFXIV游戏区域";
 		((Control)chkDisableCombatLog).AutoSize = true;
-		((Control)chkDisableCombatLog).Location = new Point(6, 99);
+		((Control)chkDisableCombatLog).Location = new Point(16, 177);
 		((Control)chkDisableCombatLog).Name = "chkDisableCombatLog";
 		((Control)chkDisableCombatLog).Size = new Size(152, 17);
 		((Control)chkDisableCombatLog).TabIndex = 92;
 		((Control)chkDisableCombatLog).Text = "不解析聊天日志 [仅用于保护隐私]";
 		((ButtonBase)chkDisableCombatLog).UseVisualStyleBackColor = true;
+		((Control)label4).AutoSize = true;
+		((Control)label4).Location = new Point(16, 86);
+		((Control)label4).Name = "label4";
+		((Control)label4).Size = new Size(89, 13);
+		((Control)label4).TabIndex = 95;
+		((Control)label4).Text = "本机IP过滤：";
+		cboFilterIP.DropDownStyle = (ComboBoxStyle)2;
+		((ListControl)cboFilterIP).FormattingEnabled = true;
+		((Control)cboFilterIP).Location = new Point(141, 83);
+		((Control)cboFilterIP).Name = "cboFilterIP";
+		((Control)cboFilterIP).Size = new Size(146, 21);
+		((Control)cboFilterIP).TabIndex = 96;
+		cboFilterIP.SelectedIndexChanged += cboFilterIP_SelectedIndexChanged;
+		((Control)cboRefreshNetwork).Location = new Point(293, 83);
+		((Control)cboRefreshNetwork).Name = "cboRefreshNetwork";
+		((Control)cboRefreshNetwork).Size = new Size(132, 23);
+		((Control)cboRefreshNetwork).TabIndex = 97;
+		((Control)cboRefreshNetwork).Text = "刷新网卡列表";
+		((ButtonBase)cboRefreshNetwork).UseVisualStyleBackColor = true;
+		((Control)cboRefreshNetwork).Click += cboRefreshNetwork_Click;
+		((Control)chkUsePcap).AutoSize = true;
+		((Control)chkUsePcap).Location = new Point(16, 114);
+		((Control)chkUsePcap).Name = "chkUsePcap";
+		((Control)chkUsePcap).Size = new Size(257, 17);
+		((Control)chkUsePcap).TabIndex = 98;
+		((Control)chkUsePcap).Text = "使用Npcap捕获游戏数据 [需要安装驱动]";
+		((ButtonBase)chkUsePcap).UseVisualStyleBackColor = true;
+		chkUsePcap.CheckedChanged += chkUsePcap_CheckedChanged;
+		((Control)chkUseDeucalion).AutoSize = true;
+		((Control)chkUseDeucalion).Location = new Point(16, 135);
+		((Control)chkUseDeucalion).Name = "chkUseDeucalion";
+		((Control)chkUseDeucalion).Size = new Size(224, 17);
+		((Control)chkUseDeucalion).TabIndex = 99;
+		((Control)chkUseDeucalion).Text = "使用进程注入捕获游戏数据 [更稳定]";
+		((ButtonBase)chkUseDeucalion).UseVisualStyleBackColor = true;
+		chkUseDeucalion.CheckedChanged += chkUseDeucalion_CheckedChanged;
+		((Control)chkDisableSocketFilter).AutoSize = true;
+		((Control)chkDisableSocketFilter).Location = new Point(16, 156);
+		((Control)chkDisableSocketFilter).Name = "chkDisableSocketFilter";
+		((Control)chkDisableSocketFilter).Size = new Size(209, 17);
+		((Control)chkDisableSocketFilter).TabIndex = 100;
+		((Control)chkDisableSocketFilter).Text = "禁用高性能网络数据过滤器 [正常时请勿勾选]";
+		((ButtonBase)chkDisableSocketFilter).UseVisualStyleBackColor = true;
+		chkDisableSocketFilter.CheckedChanged += chkDisableSocketFilter_CheckedChanged;
 		((Control)cmdResetLogPath).Location = new Point(424, 53);
 		((Control)cmdResetLogPath).Name = "cmdResetLogPath";
 		((Control)cmdResetLogPath).Size = new Size(132, 23);
@@ -815,7 +947,7 @@ public class SettingsPropertyPage : UserControl
 		((ButtonBase)chkLogAllNetwork).UseVisualStyleBackColor = true;
 		chkLogAllNetwork.CheckedChanged += chkLogAllNetwork_CheckedChanged;
 		((Control)chkShowDebug).AutoSize = true;
-		((Control)chkShowDebug).Location = new Point(34, 234);
+		((Control)chkShowDebug).Location = new Point(34, 305);
 		((Control)chkShowDebug).Name = "chkShowDebug";
 		((Control)chkShowDebug).Size = new Size(180, 17);
 		((Control)chkShowDebug).TabIndex = 79;
@@ -831,7 +963,7 @@ public class SettingsPropertyPage : UserControl
 		((Control)grpDebug).Controls.Add((Control)(object)chkSimulateDoTCrits);
 		((Control)grpDebug).Controls.Add((Control)(object)chkLogAllNetwork);
 		((Control)grpDebug).Controls.Add((Control)(object)chkGraphPotency);
-		((Control)grpDebug).Location = new Point(14, 258);
+		((Control)grpDebug).Location = new Point(14, 329);
 		((Control)grpDebug).Name = "grpDebug";
 		((Control)grpDebug).Size = new Size(937, 330);
 		((Control)grpDebug).TabIndex = 75;
@@ -848,14 +980,14 @@ public class SettingsPropertyPage : UserControl
 		((Control)groupBox2).Controls.Add((Control)(object)cmdChangeFolder);
 		((Control)groupBox2).Controls.Add((Control)(object)txtLogFileDirectory);
 		((Control)groupBox2).Controls.Add((Control)(object)cmdOpenExportFolder);
-		((Control)groupBox2).Location = new Point(14, 146);
+		((Control)groupBox2).Location = new Point(14, 217);
 		((Control)groupBox2).Name = "groupBox2";
 		((Control)groupBox2).Size = new Size(700, 83);
 		((Control)groupBox2).TabIndex = 87;
 		groupBox2.TabStop = false;
 		((Control)groupBox2).Text = "日志文件路径";
 		((Control)linkLabel1).AutoSize = true;
-		((Control)linkLabel1).Location = new Point(532, 235);
+		((Control)linkLabel1).Location = new Point(532, 306);
 		((Control)linkLabel1).Name = "linkLabel1";
 		((Control)linkLabel1).Size = new Size(90, 13);
 		((Control)linkLabel1).TabIndex = 88;
@@ -872,7 +1004,7 @@ public class SettingsPropertyPage : UserControl
 		((Control)this).Controls.Add((Control)(object)lblEventRollover);
 		((Control)this).Controls.Add((Control)(object)chkShowDebug);
 		((Control)this).Name = "SettingsPropertyPage";
-		((Control)this).Size = new Size(969, 601);
+		((Control)this).Size = new Size(969, 672);
 		((Control)groupBox1).ResumeLayout(false);
 		((Control)groupBox1).PerformLayout();
 		((Control)groupBox3).ResumeLayout(false);

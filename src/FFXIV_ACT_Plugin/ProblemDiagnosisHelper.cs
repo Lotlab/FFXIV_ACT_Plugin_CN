@@ -30,7 +30,9 @@ public class ProblemDiagnosisHelper
 
 	private readonly IReadAntiVirus _readAntiVirus;
 
-	public ProblemDiagnosisHelper(ISettingsMediator settingsManager, IProcessManager processManager, IReadProcesses readProceses, ISignatureManager signatureManager, IScanPackets scanPackets, IMobArrayProcessor mobArrayProcessor, IReadAntiVirus readAntiVirus)
+	private readonly INetworkPacketUnscrambler _unscrambler;
+
+	public ProblemDiagnosisHelper(ISettingsMediator settingsManager, IProcessManager processManager, IReadProcesses readProceses, ISignatureManager signatureManager, IScanPackets scanPackets, IMobArrayProcessor mobArrayProcessor, IReadAntiVirus readAntiVirus, INetworkPacketUnscrambler unscrambler)
 	{
 		_settingsManager = settingsManager;
 		_processManager = processManager;
@@ -39,6 +41,7 @@ public class ProblemDiagnosisHelper
 		_scanPackets = scanPackets;
 		_mobArrayProcessor = mobArrayProcessor;
 		_readAntiVirus = readAntiVirus;
+		_unscrambler = unscrambler;
 	}
 
 	public void Diagnose(bool isAutomatedScan)
@@ -107,7 +110,7 @@ public class ProblemDiagnosisHelper
 			}
 			else
 			{
-				text = "游戏数据捕获失败：没有接收到任何数据。" + Environment.NewLine + "如果问题持续出现，请重启游戏再试，如果仍然如此，请查看ACT“关于”页面中的“帮助文档”链接。" + Environment.NewLine + "其他游戏的反作弊软件可能干扰了正常解析，请使用管理员模式运行后再试。" + Environment.NewLine + "最后一条注入日志是：" + DeucalionInjector.LastInjectionError;
+				text = "游戏数据捕获失败：没有接收到任何数据。" + Environment.NewLine + "如果问题持续出现，请重启游戏再试，如果仍然如此，请查看ACT“关于”页面中的“帮助文档”链接。" + Environment.NewLine + "其他游戏的反作弊软件可能干扰了正常解析，请使用管理员模式运行后再试。" + CaptureHint();
 			}
 		}
 		catch (Exception ex)
@@ -121,5 +124,28 @@ public class ProblemDiagnosisHelper
 		((Control)val.TrayText).Text = text;
 		((Control)val.TrayTitle).Text = "FFXIV解析插件游戏数据解析测试";
 		val.ShowTraySlider();
+	}
+
+	/// <summary>
+	/// Extra detail about the capture mode, so a failed test says which path was
+	/// used and whether packet deobfuscation is available.
+	/// </summary>
+	private string CaptureHint()
+	{
+		DataCollectionSettingsEventArgs settings = _settingsManager.DataCollectionSettings;
+		if (settings == null)
+		{
+			return string.Empty;
+		}
+		if (settings.UseDeucalion)
+		{
+			return Environment.NewLine + "最后一条注入日志是：" + DeucalionInjector.LastInjectionError;
+		}
+		string hint = Environment.NewLine + (settings.UseWinPCap ? "当前使用Npcap捕获游戏数据，请确认已安装Npcap驱动。" : "当前使用原始套接字捕获游戏数据。");
+		if (_unscrambler == null || _unscrambler.Enabled)
+		{
+			return hint;
+		}
+		return hint + Environment.NewLine + "反混淆未启用：" + _unscrambler.LastError;
 	}
 }

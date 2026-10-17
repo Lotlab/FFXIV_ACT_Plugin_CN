@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Unscrambler/FFXIV_ACT_Plugin.Unscrambler.csproj" />
     <ProjectReference Include="../../third_party/machina/Machina/Machina.csproj" />
     <ProjectReference Include="../../third_party/machina/Machina.FFXIV/Machina.FFXIV.csproj" />
   </ItemGroup>

@@ -20,7 +20,7 @@ public class SettingsMediator : ISettingsMediator
 		}
 		set
 		{
-			bool num = _dataCollectionSettings != null && (value?.LogFileFolder != _dataCollectionSettings?.LogFileFolder || value?.ProcessID != _dataCollectionSettings?.ProcessID || value?.RegionID != _dataCollectionSettings?.RegionID);
+			bool num = _dataCollectionSettings != null && (value?.LogFileFolder != _dataCollectionSettings?.LogFileFolder || value?.ProcessID != _dataCollectionSettings?.ProcessID || value?.RegionID != _dataCollectionSettings?.RegionID || value?.NetworkIP != _dataCollectionSettings?.NetworkIP || value?.UseWinPCap != _dataCollectionSettings?.UseWinPCap || value?.UseSocketFilter != _dataCollectionSettings?.UseSocketFilter || value?.UseDeucalion != _dataCollectionSettings?.UseDeucalion);
 			_dataCollectionSettings = value;
 			if (num)
 			{

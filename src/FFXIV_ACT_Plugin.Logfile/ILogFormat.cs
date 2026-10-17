@@ -32,7 +32,7 @@ public interface ILogFormat
 
 	string FormatUIntArray(params uint[] param);
 
-	string FormatMemorySettings(int ProcessID, string LogFileFolder, bool LogAllNetworkData, bool DisableCombatLog, Region RegionID);
+	string FormatMemorySettings(int ProcessID, string LogFileFolder, bool LogAllNetworkData, bool DisableCombatLog, Region RegionID, string NetworkIP, bool UseWinPCap, bool UseSocketFilter, bool UseDeucalion);
 
 	string FormatParseSettings(bool DisableDamageShield, bool DisableCombinePets, Language LanguageID, ParseFilterMode ParseFilter, bool SimulateIndividualDoTCrits, bool ShowRealDoTTicks);
 

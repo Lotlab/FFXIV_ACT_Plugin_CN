@@ -19,11 +19,13 @@ src/
   FFXIV_ACT_Plugin.Config/     settings mediator
   FFXIV_ACT_Plugin.Logfile/    ACT log-line formatting
   FFXIV_ACT_Plugin.Memory/     process memory scanning
-  FFXIV_ACT_Plugin.Network/    packet handlers
+  FFXIV_ACT_Plugin.Network/    packet capture, deobfuscation, packet handlers
   FFXIV_ACT_Plugin.Parse/      combat log parsing / DoT simulation
   FFXIV_ACT_Plugin.Resource/   game data tables (actions, statuses, zones, ...)
+  FFXIV_ACT_Plugin.Unscrambler/ Unscrambler compiled for .NET Framework
 third_party/
   machina/                     Lotlab fork, branch feature/oodle-state-recovery
+  Unscrambler/                 perchbirdd/Unscrambler, branch main
 ```
 
 ## Building
@@ -39,8 +41,9 @@ from NuGet, so the build works on Linux/macOS as well as Windows.
 
 The plugin project uses [Costura.Fody](https://github.com/Fody/Costura) to embed
 every managed dependency — including the Machina libraries built from
-`third_party/machina` — into `FFXIV_ACT_Plugin.dll`, so the build output is the
-single redistributable file that ACT loads.
+`third_party/machina` and the Unscrambler library built from
+`third_party/Unscrambler` — into `FFXIV_ACT_Plugin.dll`, so the build output is
+the single redistributable file that ACT loads.
 
 `Advanced Combat Tracker.exe` is only a compile-time reference; the plugin is
 loaded *by* ACT, so it is never embedded.
@@ -53,6 +56,37 @@ scripts/package.sh             # writes artifacts/FFXIV_ACT_Plugin_<version>_CN.
 
 The archive contains `FFXIV_ACT_Plugin.dll` and the `deucalion-<version>.distrib.dll`
 files that `DeucalionInjector` loads from the plugin directory.
+
+## Packet capture and deobfuscation
+
+The settings window offers both capture paths that the plugin has historically
+supported:
+
+| setting | effect |
+| --- | --- |
+| `本机IP过滤` | capture on one local address instead of every interface |
+| `使用Npcap捕获游戏数据` | capture with the Npcap driver instead of a raw socket |
+| `使用进程注入捕获游戏数据` | capture by injecting deucalion into the game process |
+| `禁用高性能网络数据过滤器` | stop filtering capture down to the game server |
+
+Deucalion reads packets after the client has already deobfuscated them. With
+either of the two plain capture modes the plugin sees scrambled data instead, so
+`NetworkPacketUnscrambler` reverses the obfuscation before the packet handlers
+run, using [Unscrambler](https://github.com/perchbirdd/Unscrambler).
+
+Since 7.4 the keys are derived from a zone-down packet rather than from
+`InitZone`, and the derivation tables live in the client executable. The
+Unscrambler project publishes table blobs for the global client only, so the CN
+constants and the tables are handled differently:
+
+* `src/FFXIV_ACT_Plugin.Unscrambler/Constants/GameConstants.CN.cs` carries the CN
+  client's constants, extracted from the official `Unscrambler.XIV.CN` packages.
+  One entry per CN patch; add a new one when the client is updated.
+* The derivation tables are read out of the client's `.rdata` at capture start,
+  using the RVAs from those constants.
+* The client version comes from `ffxivgame.ver`, so an unrecognised client simply
+  leaves deobfuscation switched off (and says so in the problem diagnosis) rather
+  than corrupting packets.
 
 ## Notes on the restoration
 

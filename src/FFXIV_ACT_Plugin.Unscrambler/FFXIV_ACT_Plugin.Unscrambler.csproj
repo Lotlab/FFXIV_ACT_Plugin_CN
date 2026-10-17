@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    The Unscrambler library (https://github.com/perchbirdd/Unscrambler) is
+    compiled here from its own sources rather than consumed as a package: the
+    published Unscrambler.XIV / Unscrambler.XIV.CN packages only ship a net10.0
+    assembly, which a net48 host such as ACT cannot load.
+
+    Nothing in the library depends on net10.0 other than Span/BitConverter
+    overloads and the Index/Range types used by the `x[a..b]` syntax, so the
+    same sources compile against .NET Framework with the shims in Compat/.
+  -->
+  <PropertyGroup>
+    <AssemblyName>Unscrambler</AssemblyName>
+    <RootNamespace>Unscrambler</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The upstream library sources, minus the global-client constants
+         (Constants/Versions) and the per-version table binaries (Data):
+         the CN constants live in Constants/GameConstants.CN.cs and the tables
+         are read from the game executable at runtime. -->
+    <Compile Include="../../third_party/Unscrambler/Unscrambler/**/*.cs"
+             Exclude="../../third_party/Unscrambler/Unscrambler/Constants/Versions/**/*.cs;
+                      ../../third_party/Unscrambler/Unscrambler/Data/**/*.cs">
+      <Link>Unscrambler/%(RecursiveDir)%(Filename)%(Extension)</Link>
+    </Compile>
+    <Compile Include="Compat/*.cs" />
+    <Compile Include="Constants/*.cs" />
+    <Compile Include="GlobalUsings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Span<T>, Memory<T> and ReadOnlySpan<T> for .NET Framework. -->
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>
