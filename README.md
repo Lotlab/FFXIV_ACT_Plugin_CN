@@ -94,6 +94,24 @@ artifacts/bin/Release/
    * 删除了 `src/FFXIV_ACT_Plugin/Costura/`、`ProcessedByFody.cs` 与 10 个
      `costura.*.compressed` 资源；
    * 删除了构造函数里的 `AssemblyLoader.Attach();` 调用（原处保留了说明注释）。
+
+   **注意这不是“必须去掉才能编译”的改动。** `Attach()` 只是注册
+   `AssemblyResolve` 事件，而该事件仅在常规探测失败后才触发；同级程序集都在插件目录时
+   Costura 根本不会被调用，保留它并不会让新编译的子工程失效。移除它的理由是**让仓库内
+   的源码成为唯一真相来源**：
+
+   * `Costura/AssemblyLoader.cs` 是 Costura.Fody 编译期织入产物的反编译结果，不是插件
+     源码；
+   * 那 10 个 `costura.*.compressed` 是不透明的原始二进制（约 3.2 MB）。若保留，仓库里
+     会同时存在两份同名子程序集——一份由 `src/` 编译、一份是内嵌原件——读者无法判断
+     实际运行的是哪一份，改动 `src/` 也可能因部署方式不同而毫无效果；
+   * Costura 会把一部分运行行为交给没有对应源码的二进制，破坏“产物可由仓库源码解释”
+     这一验收前提。
+
+   代价是**失去单文件投放**：原来只需一个 `FFXIV_ACT_Plugin.dll`，现在必须把 §2 列出的
+   8 个 DLL 一起放进 ACT 插件目录。若确实需要单文件分发，正确做法是在主工程重新启用
+   Costura.Fody（`PackageReference` + `FodyWeavers.xml`），由它在构建时把
+   `ProjectReference` 的输出重新织入，而不是把反编译出来的 `AssemblyLoader.cs` 放回去。
 2. **去重内嵌资源。**
    原始 `FFXIV_ACT_Plugin.Resource.dll` 中
    `...Generated.ActionList_Chinese.txt` 与 `...Generated.StatusList_Chinese.txt`
