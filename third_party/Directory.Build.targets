@@ -1,0 +1,20 @@
+<Project>
+
+  <!--
+    Third-party build settings that have to be applied *after* the project body,
+    which is why this is a Directory.Build.targets and not a .props file.
+
+    The machina projects turn on `EnforceCodeStyleInBuild`/`EnableNETAnalyzers`, and
+    building them as part of our solution would otherwise emit 200+ IDE0073 style
+    warnings that bury the handful of warnings from our own code.  They are build-time
+    diagnostics only - turning them off changes nothing about the produced assemblies.
+
+    third_party/machina is a submodule: do not add build files to it.
+  -->
+  <PropertyGroup>
+    <EnforceCodeStyleInBuild>false</EnforceCodeStyleInBuild>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+  </PropertyGroup>
+
+</Project>

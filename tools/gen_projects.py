@@ -50,30 +50,56 @@ COSTURA_REFERENCES = """  <ItemGroup>
   </ItemGroup>
 
   <!--
-    Stage the woven DLL on its own, so the single-file deliverable is not mixed in
-    with the sibling project outputs that share artifacts/bin.  This directory is
-    exactly what gets copied into ACT's plugin folder (plus the deucalion DLLs).
+    Stage the deployable plugin folder.
+
+    The managed plugin is one self-contained DLL, but that is not the whole story:
+    Machina.FFXIV's DeucalionInjector loads a native `deucalion-<version>.dll` from the
+    plugin folder at runtime, and this build of the plugin has no updater that could
+    fetch one (ACT_PluginUpdate.UpdateCheckClicked_Version is empty in the CN build).
+    Those DLLs ride along as Content items of the machina submodule, so they are staged
+    next to the plugin.
   -->
-  <Target Name="StageSingleFilePlugin" AfterTargets="Build">
+  <Target Name="StagePluginFolder" AfterTargets="Build">
     <PropertyGroup>
-      <SingleFileStageDir>$(RepoRoot)artifacts\\dist\\$(Configuration)\\</SingleFileStageDir>
+      <PluginStageDir>$(RepoRoot)artifacts\\dist\\$(Configuration)\\</PluginStageDir>
     </PropertyGroup>
-    <RemoveDir Directories="$(SingleFileStageDir)" />
-    <MakeDir Directories="$(SingleFileStageDir)" />
-    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SingleFileStageDir)" />
-    <Message Importance="high" Text="Single-file plugin staged: $(SingleFileStageDir)$(TargetFileName)" />
+    <RemoveDir Directories="$(PluginStageDir)" />
+    <MakeDir Directories="$(PluginStageDir)" />
+    <ItemGroup>
+      <!-- whatever the pinned machina revision ships; these are the same binaries the
+           shipped plugin zip contained -->
+      <DeucalionPayload Include="$(RepoRoot)third_party\\machina\\Machina.FFXIV\\Deucalion\\Distrib\\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginStageDir)" />
+    <Copy SourceFiles="@(DeucalionPayload)" DestinationFolder="$(PluginStageDir)"
+          Condition="'@(DeucalionPayload)' != ''" />
+    <Message Importance="high" Text="Plugin staged: $(PluginStageDir)" />
   </Target>
 """
 
-# third-party binaries that live in refs/ -> (file name, copy local?)
-# Advanced Combat Tracker is the *host* process assembly: it must never be copied or
-# embedded.  Everything else has to be copy-local so Costura.Fody embeds it, which is
-# what makes single-file deployment work.
-THIRDPARTY = {
-    "Advanced Combat Tracker": ("Advanced Combat Tracker.exe", False),
-    "Machina": ("Machina.dll", True),
-    "Machina.FFXIV": ("Machina.FFXIV.dll", True),
-    "Newtonsoft.Json": ("Newtonsoft.Json.dll", True),
+# How each third-party reference recorded in the decompiled projects is satisfied.
+#
+# ilspycmd emitted `<Reference><HintPath>` items pointing at the folder the input DLLs
+# had been unpacked into.  Every one of them is now provided by a package manager or by
+# a source tree:
+#
+#   * Advanced Combat Tracker -> nuget.org `AdvancedCombatTracker`.  It is the *host*
+#     process assembly, so it must be referenced at compile time but never copied next
+#     to the plugin nor woven in by Costura; ExcludeAssets=runtime does exactly that.
+#   * Newtonsoft.Json -> nuget.org.  13.0.1 is byte-identical to the assembly the
+#     shipped plugin embedded, and being copy-local is what makes Costura weave it in.
+#   * Machina / Machina.FFXIV -> ProjectReference into the third_party/machina
+#     submodule, pinned to the commit that produces 2.3.1.3 / 2.4.7.1.
+THIRDPARTY_PACKAGES = {
+    # ilspycmd reference name -> (package id, version, compile-only?)
+    "Advanced Combat Tracker": ("AdvancedCombatTracker", "3.8.4.287", True),
+    "Newtonsoft.Json": ("Newtonsoft.Json", "13.0.1", False),
+}
+
+THIRDPARTY_PROJECTS = {
+    # ilspycmd reference name -> path as seen from src/<project>/
+    "Machina": r"..\..\third_party\machina\Machina\Machina.csproj",
+    "Machina.FFXIV": r"..\..\third_party\machina\Machina.FFXIV\Machina.FFXIV.csproj",
 }
 
 # framework references that the .NET Framework SDK provides by default
@@ -91,18 +117,23 @@ def collect_references(text):
         if name in MAP.values():
             project_refs.append(
                 '    <ProjectReference Include="..\\%s\\%s.csproj" />' % (name, name))
-        elif name in THIRDPARTY:
-            file_name, copy_local = THIRDPARTY[name]
-            note = ("" if copy_local else
-                    "      <!-- host assembly: never copy or embed -->\n")
-            third_party.append(
-                "    <Reference Include=\"%s\">\n"
-                "      <HintPath>$(RefsDir)%s</HintPath>\n"
-                "      <SpecificVersion>false</SpecificVersion>\n"
-                "%s"
-                "      <Private>%s</Private>\n"
-                "    </Reference>" % (name, file_name, note,
-                                      "true" if copy_local else "false"))
+        elif name in THIRDPARTY_PROJECTS:
+            project_refs.append(
+                '    <ProjectReference Include="%s" />' % THIRDPARTY_PROJECTS[name])
+        elif name in THIRDPARTY_PACKAGES:
+            package_id, version, compile_only = THIRDPARTY_PACKAGES[name]
+            if compile_only:
+                third_party.append(
+                    "    <!-- host process assembly: compile-time reference only, never\n"
+                    "         copied next to the plugin nor woven in by Costura -->\n"
+                    "    <PackageReference Include=\"%s\" Version=\"%s\">\n"
+                    "      <ExcludeAssets>runtime</ExcludeAssets>\n"
+                    "      <PrivateAssets>all</PrivateAssets>\n"
+                    "    </PackageReference>" % (package_id, version))
+            else:
+                third_party.append(
+                    '    <PackageReference Include="%s" Version="%s" />'
+                    % (package_id, version))
         else:
             raise SystemExit("unmapped hint-path reference %r" % name)
     for name in PLAIN_REF_RE.findall(text):

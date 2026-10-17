@@ -14,8 +14,6 @@
     <RootNamespace>PluginLoadTest</RootNamespace>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
-    <!-- this harness loads the plugin via reflection; it needs no refs/ -->
-    <NeedsPluginReferences>false</NeedsPluginReferences>
     <!-- keep this harness out of the plugin output folder -->
     <BaseOutputPath>$(RepoRoot)artifacts\loadtest\</BaseOutputPath>
     <BaseIntermediateOutputPath>$(RepoRoot)artifacts\obj\PluginLoadTest\</BaseIntermediateOutputPath>

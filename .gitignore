@@ -2,10 +2,7 @@
 artifacts/
 *.binlog
 
-# --- reference assemblies (produced by tools/fetch_references.py) -----------
-# This repository intentionally contains no binaries: the four compile-time
-# reference assemblies are materialised on demand, see README section 2.
-refs/
+# --- the shipped distribution (never committed, see README) -----------------
 reference/
 
 # --- decompiler working tree ------------------------------------------------
@@ -24,7 +21,7 @@ reference/
 packages/
 *.nupkg
 
-# --- Rust (third_party/deucalion) -------------------------------------------
+# --- Rust submodule build output (third_party/deucalion) --------------------
 third_party/deucalion/*/target/
 
 # --- submodule build output (third_party/machina) ---------------------------

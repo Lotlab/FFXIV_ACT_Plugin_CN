@@ -5,11 +5,11 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Advanced Combat Tracker">
-      <HintPath>$(RefsDir)Advanced Combat Tracker.exe</HintPath>
-      <SpecificVersion>false</SpecificVersion>
-      <!-- host assembly: never copy or embed -->
-      <Private>false</Private>
-    </Reference>
+    <!-- host process assembly: compile-time reference only, never
+         copied next to the plugin nor woven in by Costura -->
+    <PackageReference Include="AdvancedCombatTracker" Version="3.8.4.287">
+      <ExcludeAssets>runtime</ExcludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>

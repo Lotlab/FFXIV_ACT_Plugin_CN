@@ -8,11 +8,7 @@
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>$(RefsDir)Newtonsoft.Json.dll</HintPath>
-      <SpecificVersion>false</SpecificVersion>
-      <Private>true</Private>
-    </Reference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" />
