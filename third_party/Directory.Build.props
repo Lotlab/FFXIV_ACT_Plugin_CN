@@ -1,0 +1,14 @@
+<Project>
+
+  <!--
+    Stop the repository's build settings from leaking into third-party source trees.
+
+    MSBuild walks up from each project until it finds a Directory.Build.props and uses
+    only that one, so this empty file shields everything under third_party/ from the
+    root Directory.Build.props (which pins net48, redirects the output folders and adds
+    a reference check that only makes sense for our own projects).
+
+    third_party/machina is a submodule: do not add build files to it.
+  -->
+
+</Project>

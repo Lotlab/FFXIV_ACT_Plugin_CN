@@ -27,6 +27,10 @@ packages/
 # --- Rust (third_party/deucalion) -------------------------------------------
 third_party/deucalion/*/target/
 
+# --- submodule build output (third_party/machina) ---------------------------
+third_party/machina/*/bin/
+third_party/machina/*/obj/
+
 # --- Python tooling ---------------------------------------------------------
 __pycache__/
 *.py[cod]

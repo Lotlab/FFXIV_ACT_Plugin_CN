@@ -38,6 +38,7 @@ src/
   FFXIV_ACT_Plugin.Network/         网络包捕获与解析（Machina / Deucalion）
   FFXIV_ACT_Plugin.Parse/           战斗日志解析
   FFXIV_ACT_Plugin.Resource/        内置资源（技能/状态/地图/副本等多语言表）
+third_party/machina/                git 子模块：ravahn/machina @ v2.4.7.1，见 §2
 third_party/deucalion/              vendored 的上游 Rust 源码，见 §6
 tools/                              反编译、引用获取与校验脚本，见 §5
   PluginLoadTest/                   单文件投放的加载测试
@@ -65,14 +66,21 @@ python tools/fetch_references.py
 
 | 文件 | 版本 | 来源 |
 | --- | --- | --- |
-| `Advanced Combat Tracker.exe` | 3.8.4.287 | nuget.org `AdvancedCombatTracker` |
-| `Machina.dll` | 2.3.1.3 | 发行包内嵌的 Costura 载荷 |
-| `Machina.FFXIV.dll` | 2.4.7.1 | 发行包内嵌的 Costura 载荷 |
-| `Newtonsoft.Json.dll` | 13.0.0.0 | 发行包内嵌的 Costura 载荷（与 nuget 13.0.1 逐字节相同） |
+| `Advanced Combat Tracker.exe` | 3.8.4.287 | nuget.org `AdvancedCombatTracker`（仅编译期引用） |
+| `Machina.dll` | 2.3.1.3 | 由 `third_party/machina` 子模块源码编译 |
+| `Machina.FFXIV.dll` | 2.4.7.1 | 由 `third_party/machina` 子模块源码编译 |
+| `Newtonsoft.Json.dll` | 13.0.0.0 | nuget.org 13.0.1（与原内嵌件逐字节相同） |
 
-发行包默认从上述 TundraWork release 自动下载并校验 sha256；也可以自己给：
+默认路径不需要任何二进制输入，也不需要下载发行包：
 
 ```powershell
+python tools/fetch_references.py
+```
+
+其他来源（用于对照）：
+
+```powershell
+python tools/fetch_references.py --from-distribution   # 用发行包内嵌的原版 fork 程序集
 python tools/fetch_references.py --archive path/to/FFXIV_ACT_Plugin_3.0.2.1_CN.zip
 python tools/fetch_references.py --from-dir D:/Some/PluginFolder   # 从已有安装目录拷
 python tools/fetch_references.py --check                           # 只报告现状
@@ -85,21 +93,35 @@ error DSH0001: Reference assemblies are missing from ...\refs\.
               Run: python tools/fetch_references.py  (see README section 2).
 ```
 
-### 为什么 `Machina` 不能直接用 NuGet 上的同版本号
+### `Machina` / `Machina.FFXIV` 从子模块源码编译
 
-`Machina` 2.3.1.3 和 `Machina.FFXIV` 2.4.7.1 是**中文分支自己的构建**，公开渠道拿不到：
+两者由 git 子模块 [ravahn/machina](https://github.com/ravahn/machina) 编译，固定在
+产出所需版本的提交：
 
-* nuget.org 上 `Machina.FFXIV` 的 2.4.x 只有 2.4.3.3、2.4.7.6/7/8/9、2.4.8.1，
-  **没有 2.4.7.1**；把 2.4.7.6 拿来替换会有 82 处声明差异，而且恰好缺了本插件用到的
-  中文客户端类型（`Headers.Chinese.Server_SkillType`、
-  `Headers.Chinese.Server_StatusEffectListForay3`、`FFXIVNetworkMonitor.DUMB_DEUCALION_CONNECTION`）；
-  其他镜像（nuget.azure.cn、MyGet/ravahn、GitHub Packages）同样没有。
-* nuget.org 上 `Machina` 2.3.1.3 虽然版本号一致，但缺少
-  `Machina.Infrastructure.ConcurrentList`，且用 `_monitorTask` 取代了 `_processThread`。
+```
+ravahn/machina @ 7a1e7c4620fbbf40d68927239413848a0f50b423   "v2.4.7.1"
+  Machina/Machina.csproj         -> 2.3.1.3   (netstandard2.0)
+  Machina.FFXIV/Machina.FFXIV.csproj -> 2.4.7.1 (netstandard2.0)
+```
 
-所以只能从发行包取。这两个程序集对应的上游源码是 `ravahn/machina` 的 commit
-`7a1e7c4620fbbf40d68927239413848a0f50b423`（`<Version>2.4.7.1</Version>`，
-netstandard2.0，需 `-p:SignAssembly=false`），需要自行构建时可用。
+两个工程都是 SDK 风格；签名只发生在 `NuGet` 配置下，因此 `Release` 产物是**未签名**的，
+与原插件编译时一致（原内嵌件的 `PublicKeyToken` 都是 `null`）。`Machina` 在其它配置下会
+引用仓库里没有的 `.snk`，所以只能走 `Release`。
+[`third_party/Directory.Build.props`](third_party/Directory.Build.props) 是一份空文件，
+用来阻止本仓库根部的构建设置（net48、统一输出目录等）渗进子模块。
+
+克隆后如果子模块是空的，脚本会自动 `git submodule update --init`。
+
+> **保真度说明：** 原版插件内嵌的其实是**中文分支自己的 fork 构建**——该 fork 给
+> `Machina.FFXIV` 增加了 `Headers.Chinese.Server_SkillType`、
+> `Headers.Chinese.Server_StatusEffectListForay3`，并替换了 `Server_ActionEffect*` 的字段名；
+> 给 `Machina` 增加了 `Infrastructure.ConcurrentList`。这些改动**不在上游仓库里**，其源码也
+> 未公开（`TundraWork/FFXIV_ACT_Plugin_CN` 只是发布宿主，只有一个 README 和 SDK 压缩包）。
+> 因此用上游源码编译出来的程序集与原内嵌件有 82 + 37 处声明差异。
+>
+> 插件自身的源码没有引用这些成员（它绑定的是上游也有的 `Headers.Server_StatusEffectListForay3`），
+> 所以能正常编译运行；受影响的只有简体中文客户端下这两种包的解码路径。需要与原版逐位一致时，
+> 用 `--from-distribution` 切换到发行包内嵌的 fork 程序集即可。
 
 ### 第二步：编译
 
@@ -190,7 +212,7 @@ PASS - 10 assemblies resolved from the embedded resources, nothing on disk
 
 | 脚本 | 作用 |
 | --- | --- |
-| [`tools/fetch_references.py`](tools/fetch_references.py) | 获取编译所需的四个引用程序集到 `refs/`（见 §2） |
+| [`tools/fetch_references.py`](tools/fetch_references.py) | 获取编译所需的四个引用程序集到 `refs/`：Machina 由子模块源码编译，其余取自 nuget.org，`--from-distribution` 可切换到发行包内嵌的原版 fork 程序集（见 §2） |
 | [`tools/decompile.py`](tools/decompile.py) | 解压发行包 → 用 `ilspycmd --resource` + zlib 解出 10 个 Costura 内嵌程序集 → 用 `ilspycmd -p` 把 8 个托管程序集反编译成可编译工程（输出到 `.work/out/`） |
 | [`tools/gen_projects.py`](tools/gen_projects.py) | 把 ilspycmd 生成的工程改写成最终的 `src/**/*.csproj`：同级程序集改为 `ProjectReference`，第三方程序集改为指向 `refs/` 的 copy-local `Reference`（以便 Costura 织入），并写入 Costura.Fody 配置、单文件 staging 目标与资源去重 |
 | [`tools/verify_reconstruction.py`](tools/verify_reconstruction.py) | 校验：把原始 DLL 与重新编译出的 DLL 的元数据表（TypeDef / MethodDef / Field / Property / Event / ManifestResource）逐表比对 |
@@ -292,6 +314,8 @@ cargo build --release --locked -p deucalion # 只编译库，产物更小
 
 * `src/` 的 C# 源码是 [TundraWork/FFXIV_ACT_Plugin_CN](https://github.com/TundraWork/FFXIV_ACT_Plugin_CN)
   release `26.6.9.0` 二进制的反编译产物。
+* `third_party/machina/` 为 [ravahn/machina](https://github.com/ravahn/machina) 的 git
+  子模块（固定在上表提交），许可证见该目录下的 `LICENSE.md`。
 * `third_party/deucalion/` 为 [ff14wed/deucalion](https://github.com/ff14wed/deucalion)
   上游 GPL-3.0 源码，许可证见各版本目录下的 `LICENSE.md`。
 * 编译用外部程序集（ACT、Machina、Machina.FFXIV、Newtonsoft.Json）由
