@@ -39,7 +39,7 @@ src/
   FFXIV_ACT_Plugin.Unscrambler/     Unscrambler 的 net48 编译工程（见 §4）
 third_party/
   Directory.Build.props/.targets    隔离与降噪，见 §2
-  machina/                          子模块：Lotlab/machina @ feature/oodle-state-recovery
+  machina/                          子模块：Lotlab/machina @ feature/oodle-state-recovery-7.57
   Unscrambler/                      子模块：perchbirdd/Unscrambler @ main（密钥推导算法）
   Unscrambler.CN/                   子模块：Latihas/Unscrambler @ main（CN 常量 + 内嵌密钥表）
   deucalion/1.5.0/ 1.2.1/           子模块：ff14wed/deucalion @ 对应 tag
@@ -69,7 +69,7 @@ git submodule update --init --recursive
 dotnet build FFXIV_ACT_Plugin.sln -c Release
 ```
 
-当前状态：**0 error / 4 warning**（两个 `CS0169`、两个 `CS0414`，都是反编译代码里未被使用
+当前状态：**0 error / 2 warning**（一个 `CS0169`、一个 `CS0414`，都是反编译代码里未被使用
 的字段，与原始二进制行为一致）。
 
 ### 依赖是怎么接上的
@@ -78,7 +78,7 @@ dotnet build FFXIV_ACT_Plugin.sln -c Release
 | --- | --- | --- |
 | `Advanced Combat Tracker` | `PackageReference` `AdvancedCombatTracker` 3.8.4.287 | 宿主进程程序集：`ExcludeAssets=runtime`，只在编译期引用，不会拷到插件旁边、也不会被 Costura 织入 |
 | `Newtonsoft.Json` | `PackageReference` 13.0.1 | 其 `net45` 程序集与原插件内嵌的**逐字节相同**（md5 `081d9558…`），copy-local 以便被织入 |
-| `Machina` / `Machina.FFXIV` | `ProjectReference` → `third_party/machina` 子模块 | **Lotlab fork**，分支 `feature/oodle-state-recovery`（见 §7）。两个都是 netstandard2.0，Release 构建未签名 |
+| `Machina` / `Machina.FFXIV` | `ProjectReference` → `third_party/machina` 子模块 | **Lotlab fork**，分支 `feature/oodle-state-recovery-7.57`（见 §7）。两个都是 netstandard2.0，Release 构建未签名 |
 | `Unscrambler` | `ProjectReference` → `src/FFXIV_ACT_Plugin.Unscrambler`（源码来自 `third_party/Unscrambler.CN` + `third_party/Unscrambler`） | 官方包只有 net10.0 程序集，net48 无法加载，因此在本地按源码编译：CN fork 提供常量、内嵌表和 `IUnscrambler`，上游提供密钥推导算法（见 §4） |
 | `WindowsFirewallHelper` | `PackageReference` 1.6.3.46 | “修复防火墙规则”按钮用；2.7.2.6 用的是 1.6.3.40 |
 | `Fody` / `Costura.Fody` | `PackageReference` | 单文件打包，见 §5 |
@@ -131,7 +131,7 @@ bundled assemblies
   OK   FFXIV_ACT_Plugin.Common          v3.0.0.0  <embedded>
   ...  (8 个 FFXIV_ACT_Plugin.* 全部 <embedded>)
   OK   Machina                          v2.3.1.3  <embedded>
-  OK   Machina.FFXIV                    v2.4.6.9  <embedded>
+  OK   Machina.FFXIV                    v2.4.8.1  <embedded>
   OK   Unscrambler                      <embedded>
   OK   WindowsFirewallHelper            <embedded>
   OK   Newtonsoft.Json                  v13.0.0.0 <embedded>
@@ -208,9 +208,9 @@ Unscrambler 官方程序集只针对 net10.0，ACT（net48）无法加载，因�
 > 常量/表，或者回退到“官方 CN NuGet 常量 + 运行时读 exe”的方案。
 
 > 提示：Machina 的 opcode 表（`Headers/Opcodes/Chinese.txt`）与 Unscrambler 的 CN 常量
-> 来源不同，需要各自随补丁更新。当前固定的 machina 提交对应 CN `2026.05.25`
-> （`StatusEffectList = 0x295`），而 CN fork 的常量是 `2026.10.06`。客户端比插件新时
-> 反混淆仍然可用，但包处理器要等 machina 的 opcode 更新后才会认识新包。
+> 来源不同，需要各自随补丁更新。当前 `feature/oodle-state-recovery-7.57` 基于上游
+> `ravahn/machina` 的 `e92320c`（v2.4.8.1，CN 7.57，`StatusEffectList = 0x2CE`），
+> 与 CN fork 的常量 `2026.10.06` 对齐。
 
 ## 5. 相对原始二进制所做的改动
 
@@ -322,8 +322,9 @@ FFXIV_ACT_Plugin.Resource  types=59    methods=350   fields=173   synth=3    OK
 
 ### `Machina` 的说明
 
-`third_party/machina` 固定为 **Lotlab/machina** 的 `feature/oodle-state-recovery`
-（commit `32f5239`）。相对上游 `ravahn/machina`，这个分支带来两件事：
+`third_party/machina` 固定为 **Lotlab/machina** 的 `feature/oodle-state-recovery-7.57`
+（基于上游 `ravahn/machina` 的 `e92320c` v2.4.8.1，重放 VLAN、Oodle 非托管缓冲、Oodle
+状态恢复三个提交）。相对上游 `ravahn/machina`，这个分支带来两件事：
 
 * **Oodle 状态恢复**：丢失 Oodle 解压状态（切图、字典重训）时，从游戏进程内存读回
   zone / chat 两个通道的 Oodle state 交给本地解码器，使非注入抓包不必等下一个训练包；
@@ -333,11 +334,11 @@ FFXIV_ACT_Plugin.Resource  types=59    methods=350   fields=173   synth=3    OK
   `Server_StatusEffectList*` 等）以及中文 opcode 表，这正是 3.0.2.1 内嵌 Machina 的
   分支特性。
 
-原版插件内嵌的 Machina 与上游仍有声明差异（CN fork 还给 `Machina.FFXIV` 增加了
+原版插件内嵌的 Machina 与上游声明一致（CN fork 还给 `Machina.FFXIV` 增加了
 `Headers.Chinese.Server_SkillType`、`Headers.Chinese.Server_StatusEffectListForay3`
-并替换了 `Server_ActionEffect*` 的字段名），fork 源码未公开。插件本身的源码没有引用
-这些成员（`StatusEffectListForay3` 处理器绑定的是根命名空间下的 Global 布局，与 CN
-布局一致），因此用公开的 Lotlab 分支编译可以通过、加载测试也通过。
+并替换了 `Server_ActionEffect*` 的字段名，这些在 `e92320c` 中已经包含）。插件本身的
+源码没有引用这些成员（`StatusEffectListForay3` 处理器绑定的是根命名空间下的 Global
+布局，与 CN 布局一致），因此用公开的 Lotlab 分支编译可以通过、加载测试也通过。
 
 ## 7. `deucalion`（Rust 原生 DLL）
 
@@ -372,7 +373,7 @@ Windows SDK（`build.rs` 跑 `winres` 需要 `rc.exe`）。详见
 * `src/` 的 C# 源码是 [TundraWork/FFXIV_ACT_Plugin_CN](https://github.com/TundraWork/FFXIV_ACT_Plugin_CN)
   release `26.6.9.0` 二进制的反编译产物。
 * `third_party/machina/` 为 [Lotlab/machina](https://github.com/Lotlab/machina)
-  子模块，分支 `feature/oodle-state-recovery`，上游为
+  子模块，分支 `feature/oodle-state-recovery-7.57`，上游为
   [ravahn/machina](https://github.com/ravahn/machina)（GPL-3.0，许可证见该目录下
   `LICENSE.md`）。
 * `third_party/Unscrambler.CN/` 为 [Latihas/Unscrambler](https://github.com/Latihas/Unscrambler)

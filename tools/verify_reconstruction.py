@@ -108,6 +108,9 @@ FEATURE_MEMBERS = {
         "FFXIV_ACT_Plugin.Network.ScanPackets::_unscrambler",
         "FFXIV_ACT_Plugin.Network.ScanPackets::_unscramblePackets",
     },
+    "FFXIV_ACT_Plugin.Parse": {
+        "FFXIV_ACT_Plugin.Parse.Job::Bst",      # 7.57 Beastmaster class job
+    },
 }
 
 # Properties have no owner in the dumped table, so they are matched by name.
@@ -247,6 +250,8 @@ def allowed_delta(assembly, table, name):
         if assembly == "FFXIV_ACT_Plugin" and name.startswith("costura."):
             return True
         if assembly == "FFXIV_ACT_Plugin.Resource" and name.endswith("_Chinese.txt"):
+            return True
+        if assembly == "FFXIV_ACT_Plugin.Resource" and name == "FFXIV_ACT_Plugin.Resource.Definitions.Beastmaster.json":
             return True
     if table == "Property" and name in FEATURE_PROPERTIES.get(assembly, ()):
         return True

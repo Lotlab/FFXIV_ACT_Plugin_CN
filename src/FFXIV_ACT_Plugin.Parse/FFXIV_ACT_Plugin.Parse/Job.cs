@@ -44,5 +44,6 @@ public enum Job : byte
 	Rpr,
 	Sge,
 	Vpr,
-	Pct
+	Pct,
+	Bst
 }

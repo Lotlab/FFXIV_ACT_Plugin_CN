@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Beastmaster.json" />
     <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Bard.json" />
     <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.BlackMage.json" />
     <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.BlueMage.json" />
@@ -91,6 +92,7 @@
     <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Korean.txt" />
     <None Remove="FFXIV_ACT_Plugin.Resource.Generated.WorldList_English.txt" />
     <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Beastmaster.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Beastmaster.json" />
     <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Bard.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Bard.json" />
     <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.BlackMage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.BlackMage.json" />
     <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.BlueMage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.BlueMage.json" />

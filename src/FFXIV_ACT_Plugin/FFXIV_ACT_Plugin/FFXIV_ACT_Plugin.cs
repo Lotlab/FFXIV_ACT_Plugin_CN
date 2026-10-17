@@ -62,7 +62,7 @@ public class FFXIV_ACT_Plugin : IActPluginV1, IDisposable
 		{
 			VerifyAssemblyVersions();
 			ConfigureIOC();
-			OpcodeManager.Instance.SetRegion(GameRegion.Global);
+			OpcodeManager.Instance.SetRegion(GameRegion.Chinese);
 			_iocContainer.Resolve<ResourceManager>().LoadResources();
 			DataSubscription = _iocContainer.Resolve<DataSubscription>();
 			DataRepository = _iocContainer.Resolve<IDataRepository>();

@@ -1,7 +1,7 @@
 [submodule "third_party/machina"]
 	path = third_party/machina
 	url = https://github.com/Lotlab/machina.git
-	branch = feature/oodle-state-recovery
+	branch = feature/oodle-state-recovery-7.57
 [submodule "third_party/deucalion/1.5.0"]
 	path = third_party/deucalion/1.5.0
 	url = https://github.com/ff14wed/deucalion.git
