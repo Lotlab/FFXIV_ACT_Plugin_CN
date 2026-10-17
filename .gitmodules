@@ -1,9 +1,18 @@
 [submodule "third_party/machina"]
 	path = third_party/machina
-	url = https://github.com/ravahn/machina.git
+	url = https://github.com/Lotlab/machina.git
+	branch = feature/oodle-state-recovery
 [submodule "third_party/deucalion/1.5.0"]
 	path = third_party/deucalion/1.5.0
 	url = https://github.com/ff14wed/deucalion.git
 [submodule "third_party/deucalion/1.2.1"]
 	path = third_party/deucalion/1.2.1
 	url = https://github.com/ff14wed/deucalion.git
+[submodule "third_party/Unscrambler"]
+	path = third_party/Unscrambler
+	url = https://github.com/perchbirdd/Unscrambler.git
+	branch = main
+[submodule "third_party/Unscrambler.CN"]
+	path = third_party/Unscrambler.CN
+	url = https://github.com/Latihas/Unscrambler.git
+	branch = main

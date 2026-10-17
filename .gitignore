@@ -28,6 +28,14 @@ third_party/deucalion/*/target/
 third_party/machina/*/bin/
 third_party/machina/*/obj/
 
+# --- submodule build output (third_party/Unscrambler) -----------------------
+# Its net10.0 projects are not built here (the sources are compiled by
+# src/FFXIV_ACT_Plugin.Unscrambler), but keep the tree clean if they ever are.
+third_party/Unscrambler/*/bin/
+third_party/Unscrambler/*/obj/
+third_party/Unscrambler.CN/*/bin/
+third_party/Unscrambler.CN/*/obj/
+
 # --- Python tooling ---------------------------------------------------------
 __pycache__/
 *.py[cod]

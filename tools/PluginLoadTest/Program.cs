@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -24,9 +25,19 @@ namespace PluginLoadTest
         /// <summary>
         /// Bundled assemblies that the plugin uses indirectly, so they never show up in
         /// its own AssemblyRef table but must still be reachable from the embedded
-        /// resources: Network needs Machina, Resource needs Newtonsoft.Json.
+        /// resources: Network needs Machina and Unscrambler, Resource needs Newtonsoft.Json.
         /// </summary>
-        private static readonly string[] TransitivelyBundled = { "Machina", "Newtonsoft.Json" };
+        private static readonly string[] TransitivelyBundled = { "Machina", "Newtonsoft.Json", "Unscrambler", "WindowsFirewallHelper" };
+
+        /// <summary>
+        /// Copy-local dependencies that must be embedded for Unscrambler to run on a
+        /// machine that has no NuGet package cache or GAC copy of System.Memory.
+        /// </summary>
+        private static readonly string[] UnscramblerDependencies =
+        {
+            "Unscrambler", "System.Memory", "System.Buffers",
+            "System.Numerics.Vectors", "System.Runtime.CompilerServices.Unsafe",
+        };
 
         private static int _failures;
 
@@ -108,6 +119,10 @@ namespace PluginLoadTest
                 // FFXIV_ACT_Plugin.Resource deserialises its job definitions with it.
                 Console.WriteLine();
                 CheckNewtonsoftWorks();
+
+                // Prove the packet deobfuscation stack is self-contained too.
+                Console.WriteLine();
+                CheckUnscramblerWorks(resources);
 
                 Console.WriteLine();
                 if (_failures == 0 && bundled.Count > 0)
@@ -201,6 +216,56 @@ namespace PluginLoadTest
             catch (Exception ex)
             {
                 Fail("Newtonsoft.Json is not usable: " + ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Loads the deobfuscation dependencies from the embedded resources and
+        /// touches the generated constants, so a missing System.Memory or an
+        /// empty/broken constants table fails the packaging test.
+        /// </summary>
+        private static void CheckUnscramblerWorks(string[] resources)
+        {
+            var embedded = new HashSet<string>(resources, StringComparer.OrdinalIgnoreCase);
+            foreach (var name in UnscramblerDependencies)
+            {
+                var payload = "costura." + name.ToLowerInvariant() + ".dll.compressed";
+                if (!embedded.Contains(payload))
+                {
+                    Fail("missing embedded payload " + payload);
+                }
+            }
+
+            foreach (var name in UnscramblerDependencies)
+            {
+                try
+                {
+                    var loaded = Assembly.Load(new AssemblyName(name));
+                    if (!string.IsNullOrEmpty(loaded.Location))
+                    {
+                        Fail(name + " resolved from " + loaded.Location + " - it must come from the plugin");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Fail(name + " did not resolve: " + ex.GetType().Name);
+                }
+            }
+
+            try
+            {
+                var constantsType = Type.GetType("Unscrambler.Constants.VersionConstants, Unscrambler", true);
+                var constants = (IDictionary)constantsType.GetProperty("Constants").GetValue(null, null);
+                if (constants == null || constants.Count == 0)
+                {
+                    Fail("Unscrambler has no client constants after loading");
+                    return;
+                }
+                Console.WriteLine("  OK   {0,-32} {1} CN client version(s)", "Unscrambler constants", constants.Count);
+            }
+            catch (Exception ex)
+            {
+                Fail("Unscrambler constants are not usable: " + ex.Message);
             }
         }
 

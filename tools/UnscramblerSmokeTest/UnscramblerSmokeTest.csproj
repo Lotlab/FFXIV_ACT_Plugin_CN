@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    End-to-end smoke test for the packet deobfuscation introduced with the
+    non-injection capture modes.
+
+    It builds a synthetic PE image that carries the six key derivation tables at
+    the RVAs of a real CN client version, puts an ffxivgame.ver next to it and
+    drives NetworkPacketUnscrambler through initialisation, key generation and
+    one unscramble.  That exercises the net48 Span/BitConverter shims, the PE
+    RVA mapping and the generated CN constants without needing the game.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>UnscramblerSmokeTest</AssemblyName>
+    <RootNamespace>UnscramblerSmokeTest</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <BaseOutputPath>$(RepoRoot)artifacts\smoketest\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(RepoRoot)artifacts\obj\UnscramblerSmokeTest\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\FFXIV_ACT_Plugin.Network\FFXIV_ACT_Plugin.Network.csproj" />
+  </ItemGroup>
+
+</Project>

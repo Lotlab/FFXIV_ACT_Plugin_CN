@@ -71,6 +71,8 @@ SYNTHESIZED = re.compile(
 # listed here allows its fields, methods and properties through as well.
 FEATURE_TYPES = {
     "FFXIV_ACT_Plugin.Network": {
+        "INetworkPacketUnscrambler",
+        "NetworkPacketUnscrambler",
         "FirewallManager",              # restored 2.7.2.6 raw-socket helper
     },
 }
@@ -78,6 +80,8 @@ FEATURE_TYPES = {
 # Members added to pre-existing types.
 FEATURE_MEMBERS = {
     "FFXIV_ACT_Plugin": {
+        "FFXIV_ACT_Plugin.ProblemDiagnosisHelper::_unscrambler",
+        "FFXIV_ACT_Plugin.ProblemDiagnosisHelper::CaptureHint",
         "FFXIV_ACT_Plugin.SettingsPropertyPage::label4",
         "FFXIV_ACT_Plugin.SettingsPropertyPage::cboFilterIP",
         "FFXIV_ACT_Plugin.SettingsPropertyPage::cboRefreshNetwork",
@@ -100,10 +104,16 @@ FEATURE_MEMBERS = {
         "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseSocketFilter",
         "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseDeucalion",
     },
+    "FFXIV_ACT_Plugin.Network": {
+        "FFXIV_ACT_Plugin.Network.ScanPackets::_unscrambler",
+        "FFXIV_ACT_Plugin.Network.ScanPackets::_unscramblePackets",
+    },
 }
 
 # Properties have no owner in the dumped table, so they are matched by name.
-FEATURE_PROPERTIES = {}
+FEATURE_PROPERTIES = {
+    "FFXIV_ACT_Plugin.Network": {"Enabled", "GameVersion", "LastError"},
+}
 
 
 def is_synthesized(name):

@@ -11,6 +11,8 @@
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Logfile\FFXIV_ACT_Plugin.Logfile.csproj" />
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Memory\FFXIV_ACT_Plugin.Memory.csproj" />
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Resource\FFXIV_ACT_Plugin.Resource.csproj" />
+    <!-- Deobfuscates packet-capture traffic (see NetworkPacketUnscrambler). -->
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Unscrambler\FFXIV_ACT_Plugin.Unscrambler.csproj" />
   </ItemGroup>
   <ItemGroup>
     <!-- Re-creates the ACT firewall exception for the raw-socket capture path. -->

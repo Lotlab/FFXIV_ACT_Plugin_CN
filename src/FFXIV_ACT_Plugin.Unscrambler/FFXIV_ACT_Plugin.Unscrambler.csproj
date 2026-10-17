@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    Unscrambler targets net10.0 and its NuGet packages only ship a net10.0
+    assembly, which a .NET Framework 4.8 host (ACT) cannot load.  The library
+    only needs Span<T>, a couple of BitConverter overloads and Index/Range, so
+    its sources are compiled here against net48 with the shims under Compat/.
+
+    Two submodules are combined here:
+
+      third_party/Unscrambler.CN  Latihas/Unscrambler, the CN fork.  It carries
+                                  the CN client constants, the six key
+                                  derivation tables as embedded resources and
+                                  the IUnscrambler implementation.
+
+      third_party/Unscrambler     perchbirdd/Unscrambler.  The CN fork does not
+                                  contain the key derivation code because its
+                                  consumer (IINACT) reads the live keys out of
+                                  the game process.  An external packet capture
+                                  has no such keys, so the client-independent
+                                  Derivation/ + KeyGeneratorFactory from
+                                  upstream is compiled in as well; it derives
+                                  the keys from the server's initialiser packet
+                                  using the CN tables embedded above.
+  -->
+  <PropertyGroup>
+    <AssemblyName>Unscrambler</AssemblyName>
+    <RootNamespace>Unscrambler</RootNamespace>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <!-- The upstream sources use nullable annotations without a #nullable directive. -->
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- CN fork: constants, opcode utility, unscrambler and its factory. -->
+    <Compile Include="..\..\third_party\Unscrambler.CN\Unscrambler\Constants\**\*.cs" />
+    <Compile Include="..\..\third_party\Unscrambler.CN\Unscrambler\OpcodeUtility.cs" />
+    <Compile Include="..\..\third_party\Unscrambler.CN\Unscrambler\Unscramble\**\*.cs" />
+    <Compile Include="..\..\third_party\Unscrambler.CN\Unscrambler\UnscramblerFactory.cs" />
+
+    <!-- Upstream: the client-independent key derivation algorithm. -->
+    <Compile Include="..\..\third_party\Unscrambler\Unscrambler\Derivation\**\*.cs" />
+    <Compile Include="..\..\third_party\Unscrambler\Unscrambler\KeyGeneratorFactory.cs" />
+
+    <Compile Include="Compat\*.cs" />
+    <Compile Include="GlobalUsings.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The CN fork's table blobs, addressed by KeyGenerator* as
+         "<game version>.<name>.bin".  They live in the CN submodule, so this
+         repository still contains no binaries. -->
+    <EmbeddedResource Include="..\..\third_party\Unscrambler.CN\Unscrambler\Data\**\*.bin">
+      <LogicalName>$([System.String]::Copy('%(RecursiveDir)%(Filename)%(Extension)').Replace('\', '.').Replace('/', '.'))</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Span<T> / ReadOnlySpan<T> for .NET Framework. -->
+    <PackageReference Include="System.Memory" Version="4.5.5" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

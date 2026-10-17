@@ -23,7 +23,16 @@ public class ScanPackets : IScanPackets, IDisposable
 
 	private readonly DataEvent _dataEvent;
 
+	private readonly INetworkPacketUnscrambler _unscrambler;
+
 	private FFXIVNetworkMonitor _monitor;
+
+	/// <summary>
+	/// True while capturing with a plain socket/Npcap monitor, i.e. while the
+	/// packets still carry the client obfuscation.  Deucalion already delivers
+	/// plaintext, so unscrambling must stay off in that mode.
+	/// </summary>
+	private bool _unscramblePackets;
 
 	private DateTime _lastDataProcessedTimestamp = DateTime.MinValue;
 
@@ -31,12 +40,13 @@ public class ScanPackets : IScanPackets, IDisposable
 
 	private bool disposedValue;
 
-	public ScanPackets(ISettingsMediator settingsManager, IProcessManager processManager, DataEvent dataEvent, PacketHandlerMediator packetHandlerMediator)
+	public ScanPackets(ISettingsMediator settingsManager, IProcessManager processManager, DataEvent dataEvent, PacketHandlerMediator packetHandlerMediator, INetworkPacketUnscrambler unscrambler)
 	{
 		_settingsMediator = settingsManager;
 		_processManager = processManager;
 		_dataEvent = dataEvent;
 		_packetHandlerMediator = packetHandlerMediator;
+		_unscrambler = unscrambler;
 		_processManager.ProcessChanged += OnProcessChanged;
 	}
 
@@ -93,6 +103,13 @@ public class ScanPackets : IScanPackets, IDisposable
 					_monitor.OodlePath = (gameFile.EndsWith("\\ffxiv.exe", StringComparison.OrdinalIgnoreCase) ? gameFile.Replace("\\ffxiv.exe", "\\ffxiv_dx11.exe") : gameFile);
 				}
 				_monitor.UseDeucalion = settings.UseDeucalion;
+				// Deucalion reads the packets after the game has already deobfuscated
+				// them; only a plain capture needs the obfuscation reversed.
+				_unscramblePackets = !settings.UseDeucalion;
+				if (_unscramblePackets)
+				{
+					_unscrambler.Initialize(gameFile);
+				}
 				_monitor.MessageReceivedEventHandler = (TCPConnection connection, long epoch, byte[] message) =>
 				{
 					NetworkMessageReceived(connection, epoch, message);
@@ -112,6 +129,7 @@ public class ScanPackets : IScanPackets, IDisposable
 
 	public void StopScan()
 	{
+		_unscramblePackets = false;
 		if (_monitor != null)
 		{
 			_monitor.Stop();
@@ -126,6 +144,11 @@ public class ScanPackets : IScanPackets, IDisposable
 		_lastDataReceivedTimestamp = DateTime.UtcNow;
 		try
 		{
+			// Reverses the client-side obfuscation before the handlers see the packet.
+			if (_unscramblePackets && _unscrambler != null && _unscrambler.Enabled)
+			{
+				_unscrambler.TryUnscramble(message);
+			}
 			if (_packetHandlerMediator.ProcessPacket(epoch, message))
 			{
 				_lastDataProcessedTimestamp = DateTime.UtcNow;
@@ -202,6 +225,7 @@ public class ScanPackets : IScanPackets, IDisposable
 			{
 				_processManager.ProcessChanged -= OnProcessChanged;
 				_monitor?.Dispose();
+				_unscrambler?.Dispose();
 			}
 			disposedValue = true;
 		}
