@@ -117,6 +117,7 @@ artifacts/bin/Release/
 | [`tools/decompile.py`](tools/decompile.py) | 解压 `reference/` 的 zip → 用 `ilspycmd --resource` + zlib 解出 10 个 Costura 内嵌程序集 → 用 `ilspycmd -p` 把 8 个托管程序集反编译成可编译工程（输出到 `.work/out/`） |
 | [`tools/gen_projects.py`](tools/gen_projects.py) | 把 ilspycmd 生成的工程改写成最终的 `src/**/*.csproj`：同级程序集改为 `ProjectReference`，第三方程序集改为指向 `refs/` 的 `Reference`，并处理资源去重、设计器资源嵌入 |
 | [`tools/verify_reconstruction.py`](tools/verify_reconstruction.py) | 校验：把原始 DLL 与重新编译出的 DLL 的元数据表（TypeDef / MethodDef / Field / Property / Event / ManifestResource）逐表比对 |
+| [`tools/compare_pe_flags.py`](tools/compare_pe_flags.py) | 校验：比对原始与重新编译产物的 PE / CLR 头标志（目标平台、ILONLY、32 位优先、强名称等） |
 | [`tools/analyze_build.py`](tools/analyze_build.py) | 汇总 `dotnet build` 的报错/告警 |
 
 复现步骤（需要 `dotnet tool install -g ilspycmd`）：
@@ -126,6 +127,7 @@ python tools/decompile.py
 python tools/gen_projects.py
 dotnet build FFXIV_ACT_Plugin.sln -c Release
 python tools/verify_reconstruction.py
+python tools/compare_pe_flags.py
 ```
 
 校验结果：
@@ -155,6 +157,13 @@ FFXIV_ACT_Plugin.Resource  types=59    methods=350   fields=173   synth=3    OK
   `FFXIV_ACT_Plugin.Resource.dll` 由 9223168 变为 8356864，正好等于去掉的那份重复
   `Chinese` 资源；主程序集变小则是因为不再内嵌 10 个 Costura 负载）。
 
+另外 `tools/compare_pe_flags.py` 确认 8 个程序集的 PE / CLR 头标志（`PE32`/`PE32+`、
+ILONLY、32 位必需/优先、强名称签名等）与原始完全一致：
+
+```
+8/8 assemblies with identical PE/CLR flags
+```
+
 ## 5. `deucalion`（Rust 原生 DLL）
 
 `reference/` 里的 `deucalion-<版本>.distrib.dll` 是 **Rust 编译出的原生 DLL**，
@@ -171,17 +180,33 @@ FFXIV_ACT_Plugin.Resource  types=59    methods=350   fields=173   synth=3    OK
 构建方式（需要 **nightly** Rust + MSVC + Windows SDK）：
 
 ```powershell
-cd third_party/deucalion/1.5.0/deucalion
-cargo build --release        # 产物 target/release/deucalion.dll
+rustup toolchain install nightly
+cd third_party/deucalion/1.5.0
+cargo build --release --locked -p deucalion     # -> target/release/deucalion.dll
 ```
 
-注意两点：
+两个版本都已在本仓库内**实际编译通过**（rustc 1.97.1-nightly、x86_64-pc-windows-msvc）：
+
+| 版本 | 产物 | 大小 |
+| --- | --- | --- |
+| 1.5.0 | `deucalion/1.5.0/target/release/deucalion.dll` | 2,376,192 B |
+| 1.2.1 | `deucalion/1.2.1/target/release/deucalion.dll` | 2,366,976 B |
+
+三点需要注意：
 
 * `deucalion/src/lib.rs` 使用 `#![feature(link_llvm_intrinsics)]`，**必须用 nightly**。
 * `deucalion/build.rs` 通过 `vergen-git2` 读取 git 提交信息并 `?` 传播错误，
   所以**在没有 `.git` 的源码压缩包里直接 `cargo build` 会失败**。本仓库把源码放进
   了自己的 git 仓库，因此在仓库内构建可以正常工作；若单独拷贝该目录，请先
   `git init && git add -A && git commit`，或自行修改 `build.rs`。
+* 上游没有提交 `Cargo.lock`。按今天的 crates.io 解析会把 `tokio-util` 拉到
+  `0.7.20`，它新增的 `impl Encoder<Bytes> for LengthDelimitedCodec` 会让
+  `deucalion/src/rpc.rs:97` 的 `encode(data.into(), dst)` 产生 `E0283`/`E0284`
+  二义性错误。本仓库在每个版本目录下提交了一份 `Cargo.lock`，把 `tokio-util`
+  钉回该版本发布时的 `0.7.16` / `0.7.14`，因此可以直接 `cargo build`。
+
+重新编译出的 DLL **不是逐字节相同**的（上游 release 用的是更早的 nightly 与当时的
+依赖版本），但源码未作任何修改且可正常编译链接。
 
 详见 [`third_party/deucalion/README.md`](third_party/deucalion/README.md)。
 

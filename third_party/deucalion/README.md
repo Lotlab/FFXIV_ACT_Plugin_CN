@@ -31,8 +31,8 @@ profile, crate or `.cargo/config.toml` upstream.
 ## Building
 
 ```powershell
-cd 1.5.0/deucalion
-cargo build --release      # -> target/release/deucalion.dll
+cd 1.5.0
+cargo build --release -p deucalion      # -> target/release/deucalion.dll
 ```
 
 Requirements and gotchas:
@@ -52,6 +52,31 @@ The upstream CI recipe (`.github/workflows/release.yml`) is:
 `cargo build --release` at the repo root, then again inside `deucalion/` (the CI notes
 that building inside its own directory yields a smaller binary), then
 `rustc shims/bcryptprimitives.rs -Copt-level=3 -Clto=fat --out-dir target/release`.
+
+### Verified builds in this repository
+
+```
+rustup toolchain install nightly          # rustc 1.97.1-nightly, x86_64-pc-windows-msvc
+cd 1.5.0
+cargo build --release --locked -p deucalion   # -> target/release/deucalion.dll
+cd ../1.2.1
+cargo build --release --locked -p deucalion   # -> target/release/deucalion.dll
+```
+
+Upstream commits **no `Cargo.lock`**, so dependency versions float. With today's
+crates.io the resolution pulls `tokio-util 0.7.20`, whose additional
+`impl Encoder<Bytes> for LengthDelimitedCodec` makes
+`self.ld_codec.encode(data.into(), dst)` at `deucalion/src/rpc.rs:97` ambiguous, and the
+build fails with `E0283` / `E0284` — for both tags. The `Cargo.lock` committed next to
+each source tree pins `tokio-util` back to the version that tag was released with
+(`0.7.16` for 1.5.0, `0.7.14` for 1.2.1), so a plain `cargo build --release` works.
+(To redo it by hand: `cargo update -p tokio-util --precise <version>`.)
+
+The rebuilds are **not byte-identical** to the released `.distrib.dll` files: upstream's
+assets were produced by older nightlies (1.95.0-nightly 2026-01-26 for 1.5.0,
+1.88.0-nightly 2025-04-07 for 1.2.1) against the dependency versions current at those
+dates. The vendored sources are unmodified and both crates build and link cleanly into
+x86-64 native DLLs.
 
 ## Not to be confused with
 

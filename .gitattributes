@@ -1,0 +1,6 @@
+# Keep every file byte-for-byte as committed.
+#
+# This tree mixes source that must stay identical to a vendored upstream
+# (third_party/deucalion), decompiler output, embedded resource payloads and
+# reference binaries, so no end-of-line or encoding conversion is wanted.
+* -text
