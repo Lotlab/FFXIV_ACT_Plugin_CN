@@ -163,31 +163,9 @@ def dedupe_resources(groups, project):
     return kept_groups
 
 
-def prebuilt_resource_group(project):
-    """Embed raw ``*.resources`` blobs that were extracted from the shipped assembly.
-
-    ``FFXIV_ACT_Plugin.dll`` carries two empty WinForms designer resource containers
-    (`FFXIV_ACT_Plugin.{Settings,Benchmark}PropertyPage.resources`).  They are not
-    reachable from the decompiled IL, but they were in the original manifest, so the
-    extracted blobs are embedded verbatim to keep the resource table identical.
-    """
-    d = os.path.join(SRC, project)
-    if not os.path.isdir(d):
-        return []
-    names = sorted(f for f in os.listdir(d) if f.endswith(".resources"))
-    if not names:
-        return []
-    group = ["  <ItemGroup>"]
-    for name in names:
-        group.append('    <EmbeddedResource Include="%s" LogicalName="%s" />' % (name, name))
-    group.append("  </ItemGroup>")
-    return group
-
-
 def build(project, text):
     project_refs, third_party, plain = collect_references(text)
     resource_groups = dedupe_resources(collect_resource_groups(text), project)
-    resource_groups += prebuilt_resource_group(project)
 
     parts = ['<Project Sdk="Microsoft.NET.Sdk">', "  <PropertyGroup>"]
     parts.append("    <AssemblyName>%s</AssemblyName>" % project)

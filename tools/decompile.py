@@ -7,10 +7,11 @@ Pipeline
    (`costura.<name>.dll.compressed`) are extracted with `ilspycmd --resource` and
    inflated into plain assemblies, so the sibling `FFXIV_ACT_Plugin.*`, `Machina*`
    and `Newtonsoft.Json` modules are available as real files to decompile against.
-3. The two WinForms designer `.resources` blobs of the main assembly are extracted
-   verbatim (they exist in the original manifest but not in the IL).
-4. Every managed assembly is decompiled to a compilable project with
+3. Every managed assembly is decompiled to a compilable project with
    `ilspycmd -p` into `.work/out/<key>/`.
+
+The archive is not part of the repository, so pass it on the command line (or drop it
+in `reference/`) - see README section 2.
 
 After this script finishes, run `python tools/gen_projects.py` to rewrite the
 generated projects in `src/`.
@@ -28,7 +29,9 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 WORK = os.path.join(REPO, ".work")
 BIN = os.path.join(WORK, "bin")
 OUT = os.path.join(WORK, "out")
-ZIP = os.path.join(REPO, "reference", "FFXIV_ACT_Plugin_3.0.2.1_CN.zip")
+# The distribution archive is deliberately NOT committed (this repository holds no
+# binaries); pass it on the command line or drop it in reference/ or .work/reference/.
+ZIP_SEARCH = [os.path.join(REPO, "reference"), os.path.join(REPO, ".work", "reference")]
 
 ILSPY = os.path.join(os.path.expanduser("~"), ".dotnet", "tools", "ilspycmd.exe")
 
@@ -52,12 +55,6 @@ COSTURA = [
     "ffxiv_act_plugin.resource.dll",
 ]
 
-DESIGNER_RESOURCES = [
-    "FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources",
-    "FFXIV_ACT_Plugin.SettingsPropertyPage.resources",
-]
-
-
 def run(args, **kw):
     result = subprocess.run(args, capture_output=True, **kw)
     if result.returncode != 0:
@@ -67,11 +64,25 @@ def run(args, **kw):
     return result.stdout
 
 
-def unpack():
-    if not os.path.exists(ZIP):
-        raise SystemExit("missing %s" % ZIP)
+def find_archive():
+    """Locate the shipped plugin archive, honouring an explicit argv[1]."""
+    if len(sys.argv) > 1:
+        path = os.path.abspath(sys.argv[1])
+        if not os.path.exists(path):
+            raise SystemExit("no such archive: %s" % path)
+        return path
+    for directory in ZIP_SEARCH:
+        if not os.path.isdir(directory):
+            continue
+        for name in sorted(os.listdir(directory)):
+            if name.lower().endswith(".zip"):
+                return os.path.join(directory, name)
+    return None
+
+
+def unpack(zip_path):
     os.makedirs(BIN, exist_ok=True)
-    with zipfile.ZipFile(ZIP) as zf:
+    with zipfile.ZipFile(zip_path) as zf:
         for name in zf.namelist():
             print("  unpack", name)
             zf.extract(name, BIN)
@@ -103,17 +114,6 @@ def extract_costura():
         print("  inflated %-45s %8d -> %d" % (name, len(blob), len(raw)))
 
 
-def extract_designer_resources():
-    tmp = os.path.join(WORK, "res")
-    os.makedirs(tmp, exist_ok=True)
-    main = os.path.join(BIN, "ffxiv_act_plugin_main.dll")
-    for name in DESIGNER_RESOURCES:
-        run([ILSPY, "--resource", name, "-o", tmp, main])
-        shutil.copyfile(os.path.join(tmp, name),
-                        os.path.join(REPO, "src", "FFXIV_ACT_Plugin", name))
-        print("  extracted designer resource", name)
-
-
 def decompile():
     for key, filename in MODULES:
         target = os.path.join(OUT, key)
@@ -125,13 +125,19 @@ def decompile():
 
 
 def main():
-    print("[1/4] unpacking reference archive")
-    unpack()
-    print("[2/4] extracting Costura payloads")
+    archive = find_archive()
+    if not archive:
+        raise SystemExit(
+            "the plugin distribution archive was not found.\n"
+            "This repository intentionally contains no binaries, so pass it explicitly\n"
+            "or place it in reference/ or .work/reference/:\n"
+            "    python tools/decompile.py path/to/FFXIV_ACT_Plugin_3.0.2.1_CN.zip\n"
+            "tools/fetch_references.py --download can fetch it for you.")
+    print("[1/3] unpacking %s" % archive)
+    unpack(archive)
+    print("[2/3] extracting Costura payloads")
     extract_costura()
-    print("[3/4] extracting WinForms designer resources")
-    extract_designer_resources()
-    print("[4/4] decompiling managed assemblies")
+    print("[3/3] decompiling managed assemblies")
     decompile()
     print("\ndone - now run: python tools/gen_projects.py")
 

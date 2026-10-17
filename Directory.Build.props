@@ -28,4 +28,16 @@
     <BaseIntermediateOutputPath>$(RepoRoot)artifacts\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
   </PropertyGroup>
 
+  <!--
+    This repository holds no binaries, so refs/ is produced on demand by
+    tools/fetch_references.py.  Fail early with something actionable instead of
+    letting every <Reference> silently fail to resolve.
+  -->
+  <Target Name="EnsureReferenceAssemblies" BeforeTargets="ResolveAssemblyReferences"
+          Condition="'$(NeedsPluginReferences)' != 'false'">
+    <Error Condition="!Exists('$(RefsDir)Advanced Combat Tracker.exe')"
+           Code="DSH0001"
+           Text="Reference assemblies are missing from $(RefsDir). Run: python tools/fetch_references.py  (see README section 2)." />
+  </Target>
+
 </Project>

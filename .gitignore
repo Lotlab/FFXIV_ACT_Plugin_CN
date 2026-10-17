@@ -2,6 +2,12 @@
 artifacts/
 *.binlog
 
+# --- reference assemblies (produced by tools/fetch_references.py) -----------
+# This repository intentionally contains no binaries: the four compile-time
+# reference assemblies are materialised on demand, see README section 2.
+refs/
+reference/
+
 # --- decompiler working tree ------------------------------------------------
 # .work/ holds the assemblies unpacked from reference/ and the raw ilspycmd
 # output.  It is fully reproducible with tools/decompile.py.

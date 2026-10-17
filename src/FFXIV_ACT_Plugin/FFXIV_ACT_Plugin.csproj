@@ -33,10 +33,6 @@
     <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources" LogicalName="FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources" />
-    <EmbeddedResource Include="FFXIV_ACT_Plugin.SettingsPropertyPage.resources" LogicalName="FFXIV_ACT_Plugin.SettingsPropertyPage.resources" />
-  </ItemGroup>
-  <ItemGroup>
     <!--
       Single-file packaging: Costura.Fody weaves every copy-local dependency (the
       seven FFXIV_ACT_Plugin.* project outputs, Machina, Machina.FFXIV and the
