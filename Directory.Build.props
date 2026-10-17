@@ -1,0 +1,31 @@
+<Project>
+
+  <!--
+    Shared build settings for every project in the reconstructed source tree.
+
+    The decompiled assemblies all target .NET Framework 4.8, which is what
+    Advanced Combat Tracker 3.x runs on.  LangVersion is pinned to `latest`; the
+    decompiler emitted file-scoped namespaces and other modern syntax.
+  -->
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+    <RefsDir>$(RepoRoot)refs\</RefsDir>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+
+  <!--
+    Funnel every project's output into one folder so the built plugin can be
+    dropped straight into Advanced Combat Tracker's plugin directory.
+  -->
+  <PropertyGroup>
+    <BaseOutputPath>$(RepoRoot)artifacts\bin\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(RepoRoot)artifacts\obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+</Project>

@@ -1,0 +1,89 @@
+﻿# EN
+_rsv_11372_-1_1_0_0_SF15185AF_EF15185AF|Gorging on the audience has pushed Vamp Fatale beyond her limits!
+_rsv_11372_-1_1_0_1_SF15185AF_EF15185AF|Gorging on the audience has pushed Vamp Fatale beyond her limits!
+_rsv_45980_-1_1_0_0_SE2DC5B04_EE2DC5B04|Ultrasonic Spread
+_rsv_45980_-1_1_0_1_SE2DC5B04_EE2DC5B04|Ultrasonic Spread
+_rsv_45981_-1_1_0_0_SE2DC5B04_EE2DC5B04|Ultrasonic Amp
+_rsv_45981_-1_1_0_1_SE2DC5B04_EE2DC5B04|Ultrasonic Amp
+_rsv_45982_-1_1_0_0_SE2DC5B04_EE2DC5B04|Ultrasonic Spread
+_rsv_45982_-1_1_0_1_SE2DC5B04_EE2DC5B04|Ultrasonic Spread
+_rsv_45983_-1_1_0_0_SE2DC5B04_EE2DC5B04|Ultrasonic Amp
+_rsv_45983_-1_1_0_1_SE2DC5B04_EE2DC5B04|Ultrasonic Amp
+_rsv_47235_-1_1_0_0_SE2DC5B04_EE2DC5B04|Ultrasonic Spread
+_rsv_47235_-1_1_0_1_SE2DC5B04_EE2DC5B04|Ultrasonic Spread
+_rsv_4728_-1_1_0_0_S74CFC3B0_E74CFC3B0|More than Satisfied
+_rsv_4728_-1_1_0_1_S74CFC3B0_E74CFC3B0|More than Satisfied
+_rsv_4728_-1_1_1_0_S74CFC3B0_E74CFC3B0|Greatly empowered by aether drained, perhaps in excess, from the not-so-innocent.
+_rsv_4728_-1_1_1_1_S74CFC3B0_E74CFC3B0|Greatly empowered by aether drained, perhaps in excess, from the not-so-innocent.
+_rsv_4729_-1_1_0_0_S74CFC3B0_E74CFC3B0|Curse of the Bombpyre
+_rsv_4729_-1_1_0_1_S74CFC3B0_E74CFC3B0|Curse of the Bombpyre
+_rsv_4729_-1_1_1_0_S74CFC3B0_E74CFC3B0|Being fed upon by a vampette bat, which will explode in response to certain attacks.
+_rsv_4729_-1_1_1_1_S74CFC3B0_E74CFC3B0|Being fed upon by a vampette bat, which will explode in response to certain attacks.
+_rsv_4730_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell Awaits
+_rsv_4730_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell Awaits
+_rsv_4730_-1_1_1_0_S74CFC3B0_E74CFC3B0|Wounded by contact with a charnel cell. Taking damage from the same attack again will result in instant death.
+_rsv_4730_-1_1_1_1_S74CFC3B0_E74CFC3B0|Wounded by contact with a charnel cell. Taking damage from the same attack again will result in instant death.
+_rsv_4731_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4731_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4731_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4731_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4732_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4732_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4732_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4732_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4733_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4733_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4733_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4733_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4734_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4734_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4734_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4734_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4735_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4735_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4735_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4735_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4736_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4736_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4736_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4736_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4737_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4737_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4737_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4737_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4738_-1_1_0_0_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4738_-1_1_0_1_S74CFC3B0_E74CFC3B0|Hell in a Cell
+_rsv_4738_-1_1_1_0_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4738_-1_1_1_1_S74CFC3B0_E74CFC3B0|Trapped in a mortal struggle. Will be freed upon destruction of the charnel cell.
+_rsv_4739_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4739_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4739_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4739_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4740_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4740_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4740_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4740_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4741_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4741_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4741_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4741_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4742_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4742_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4742_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4742_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4743_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4743_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4743_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4743_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4744_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4744_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4744_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4744_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4745_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4745_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4745_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4745_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4746_-1_1_0_0_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4746_-1_1_0_1_S74CFC3B0_E74CFC3B0|Heel of the Cell
+_rsv_4746_-1_1_1_0_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.
+_rsv_4746_-1_1_1_1_S74CFC3B0_E74CFC3B0|Damage from those other than designated opponent is nullified.

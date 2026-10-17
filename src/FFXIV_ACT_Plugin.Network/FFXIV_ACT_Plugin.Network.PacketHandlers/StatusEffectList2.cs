@@ -1,0 +1,76 @@
+using System;
+using FFXIV_ACT_Plugin.Common.Models;
+using FFXIV_ACT_Plugin.Logfile;
+using FFXIV_ACT_Plugin.Memory;
+using Machina.FFXIV.Headers;
+
+namespace FFXIV_ACT_Plugin.Network.PacketHandlers;
+
+public class StatusEffectList2 : IPacketHandler
+{
+	private readonly INetworkBuffManager _buffManager;
+
+	private readonly ILogFormat _logFormat;
+
+	private readonly ICombatantManager _combatantManager;
+
+	private readonly ILogOutput _logOutput;
+
+	private readonly DataEvent _dataEvent;
+
+	public uint Opcode => (ushort)Server_MessageType.StatusEffectList2;
+
+	public Type PacketType => typeof(Server_StatusEffectList2);
+
+	public unsafe int PacketLength => sizeof(Server_StatusEffectList2);
+
+	public StatusEffectList2(INetworkBuffManager buffManager, ICombatantManager combatantManager, ILogFormat logFormat, ILogOutput logOutput, DataEvent dataEvent)
+	{
+		_buffManager = buffManager;
+		_combatantManager = combatantManager;
+		_logFormat = logFormat;
+		_logOutput = logOutput;
+		_dataEvent = dataEvent;
+	}
+
+	public unsafe void Process(byte[] buffer, DateTime packetDate)
+	{
+		fixed (byte* ptr = buffer)
+		{
+			Server_StatusEffectList2 server_StatusEffectList = *(Server_StatusEffectList2*)ptr;
+			uint actorID = server_StatusEffectList.MessageHeader.ActorID;
+			Server_StatusEffectListEntry* ptr2 = (Server_StatusEffectListEntry*)server_StatusEffectList.Effects;
+			uint[] array = new uint[93];
+			array[0] = server_StatusEffectList.Unknown1;
+			array[1] = server_StatusEffectList.Unknown2;
+			for (byte b = 0; b < 30; b++)
+			{
+				if (ptr2[(int)b].EffectID != 0)
+				{
+					array[3 + b * 3] = (uint)(ptr2[(int)b].EffectID + (ptr2[(int)b].OtherInfo << 16));
+					array[3 + b * 3 + 1] = BitConverter.ToUInt32(BitConverter.GetBytes(ptr2[(int)b].Duration), 0);
+					array[3 + b * 3 + 2] = ptr2[(int)b].ActorID;
+				}
+			}
+			Combatant combatantById = _combatantManager.GetCombatantById(server_StatusEffectList.MessageHeader.ActorID);
+			uint jobLevels = (uint)(server_StatusEffectList.JobID + (server_StatusEffectList.Level1 << 8) + (server_StatusEffectList.Level2 << 16) + (server_StatusEffectList.Level3 << 24));
+			string text = _logFormat.FormatStatusListMessage(server_StatusEffectList.MessageHeader.ActorID, combatantById?.Name, jobLevels, server_StatusEffectList.CurrentHP, server_StatusEffectList.MaxHP, server_StatusEffectList.CurrentMP, server_StatusEffectList.MaxMP, server_StatusEffectList.DamageShield, combatantById?.PosX, combatantById?.PosY, combatantById?.PosZ, combatantById?.Heading, array);
+			_logOutput.WriteLine(LogMessageType.StatusList, packetDate, text);
+			_dataEvent.OnParsedLogLine(LogMessageType.StatusList, text);
+			NetworkBuff[] array2 = new NetworkBuff[30];
+			for (byte b2 = 0; b2 < 30; b2++)
+			{
+				array2[b2] = new NetworkBuff();
+				array2[b2].BuffID = ptr2[(int)b2].EffectID;
+				if (array2[b2].BuffID != 0)
+				{
+					array2[b2].BuffExtra = ptr2[(int)b2].OtherInfo;
+					array2[b2].ActorID = ptr2[(int)b2].ActorID;
+					array2[b2].Duration = Math.Abs(ptr2[(int)b2].Duration);
+					array2[b2].Timestamp = packetDate;
+				}
+			}
+			_buffManager.ReplaceAllBuffsForTarget(actorID, array2, packetDate);
+		}
+	}
+}

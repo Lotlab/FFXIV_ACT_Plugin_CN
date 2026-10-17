@@ -1,0 +1,134 @@
+{
+    "job": "eureka",
+    "actions": [],
+    "statuseffects": [
+        {
+            "65F": "\u672f\u58eb\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 60,
+                    "limittodamagetype": "Magic"
+                }
+            ]
+        },
+        {
+            "660": "\u6597\u58eb\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 40
+                }
+            ]
+        },
+        {
+            "664": "\u6b66\u4eba\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 20
+                }
+            ]
+        },
+        {
+            "665": "\u65a5\u5019\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": -5
+                }
+            ]
+        },
+        {
+            "666": "\u5723\u9a91\u58eb\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": -5
+                }
+            ]
+        },
+        {
+            "678": "\u84c4\u529b",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 30,
+                    "isstacked": true
+                }
+            ]
+        },
+        {
+            "66E": "\u6587\u7406\u52c7\u6c14",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 10
+                }
+            ]
+        },
+        {
+            "674": "\u9b54\u6cd5\u7206\u53d1",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 1,
+                    "isstacked": true,
+                    "limittodamagetype": "Magic"
+                }
+            ]
+        },
+        {
+            "675": "\u6587\u7406\u53cc\u5203\u5251",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 15,
+                    "limittodamagetype": "Physical"
+                }
+            ]
+        },
+        {
+            "6CB": "\u8d24\u8005\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 35,
+                    "limittodamagetype": "Magic"
+                }
+            ]
+        },
+        {
+            "6CC": "\u5251\u8c6a\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 30,
+                    "limittodamagetype": "Magic"
+                }
+            ]
+        },
+        {
+            "6CD": "\u5f13\u5723\u7684\u8bb0\u5fc6",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 25,
+                    "limittodamagetype": "Physical"
+                }
+            ]
+        },
+        {
+            "913": "\u5438\u8840\u9b3c\u7684\u836f",
+            "reactiveproc": {
+                "type": "HealOnDamageDealt"
+            }
+        },
+        {
+            "914": "\u72fc\u4eba\u7684\u836f",
+            "reactiveproc": {
+                "type": "HealOnDamageDealt"
+            }
+        }
+    ]
+}

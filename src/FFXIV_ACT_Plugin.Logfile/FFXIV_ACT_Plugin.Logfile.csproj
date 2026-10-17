@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Logfile</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Logfile</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
+  </ItemGroup>
+</Project>

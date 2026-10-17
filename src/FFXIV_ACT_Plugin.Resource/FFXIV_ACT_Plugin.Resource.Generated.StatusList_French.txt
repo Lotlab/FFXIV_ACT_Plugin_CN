@@ -1,0 +1,4556 @@
+1|Pétrification
+2|Étourdissement
+3|Sommeil
+4|Évanouissement
+5|Amnésie
+6|Pacification
+7|Silence
+8|Hâte
+9|Lenteur
+a|Lenteur
+b|Confusion
+c|Lévitation
+d|Entrave
+e|Pesanteur
+f|Cécité
+11|Paralysie
+12|Poison
+13|Poison violent
+14|Saignée de PT
+15|Bonus de PV
+16|Malus de PV
+17|Bonus de PM
+18|Malus de PM
+19|Bonus d'attaque
+1a|Malus d'attaque
+1b|Bonus de précision
+1c|Malus de précision
+1d|Bonus de défense
+1e|Malus de défense
+1f|Bonus d'esquive
+20|Malus d'esquive
+21|Bonus de puissance magique
+22|Malus de puissance magique
+23|Bonus de magie curative
+24|Malus de magie curative
+25|Bonus de défense magique
+26|Malus de défense magique
+27|Résistance à Étourdissement
+28|Résistance à Silence
+29|Installation d'artisanat
+2a|L'Écho
+2b|Affaiblissement
+2c|Mourant
+2d|Grâce de l'artisan
+2e|Grâce du récolteur
+2f|Discrétion
+30|Repu
+31|Médicamenté
+32|Sprint
+33|Malus de force
+34|Malus de vitalité
+35|Bonus de dégâts physiques
+36|Malus de dégâts physiques
+37|Vulnérabilité physique diminuée
+38|Vulnérabilité physique augmentée
+39|Bonus de dégâts magiques
+3a|Malus de dégâts magiques
+3b|Vulnérabilité magique diminuée
+3c|Vulnérabilité magique augmentée
+3d|Bonus de dégâts
+3e|Malus de dégâts
+3f|Vulnérabilité diminuée
+40|Vulnérabilité augmentée
+41|Maîtrise critique
+42|Terreur
+43|Plombé
+44|Coups drainants
+45|Coups aspirants
+46|Coups étourdissants
+47|Rempart
+48|Convalescence
+49|Diligence
+4a|Sentinelle
+4b|Volonté d'acier
+4c|Combat acharné
+4d|Forteresse
+4e|Serment de l'épée
+4f|Volonté de fer
+50|Couverture
+51|Couvert
+52|Invincible
+53|Aguet
+54|Bain de sang
+55|Mutilation
+56|Berserk
+57|Frisson de la bataille
+58|Holmgang
+59|Représailles
+5a|Œil de la tempête
+5b|Défi
+5c|Affranchissement
+5d|Rage
+5e|Rage II
+5f|Rage III
+60|Rage IV
+61|Rage V
+62|Tacle du dragon
+63|Pieds légers
+64|Relâchement intérieur
+65|Serpents jumeaux
+66|Mantra
+67|Poings de feu
+68|Poings de terre
+69|Poings de vent
+6a|Toucher mortel
+6b|Posture de l'opo-opo
+6c|Posture du raptor
+6d|Posture du coeurl
+6e|Équilibre parfait
+6f|Vitesse de l'éclair
+70|Vitesse de l'éclair II
+71|Vitesse de l'éclair III
+72|Volée défensive
+73|Percée puissante
+74|Souffle de vie
+75|Du sang pour du sang
+76|Percée chaotique
+77|Double percée
+78|Souffle de puissance
+79|Éventration
+7a|Tir droit préparé
+7b|Œil de faucon
+7c|Morsure venimeuse
+7d|Tir furieux
+7e|Vulnérabilité physique augmentée
+7f|Diversion
+80|Rafale de coups
+81|Morsure du vent
+82|Tir droit
+83|Déluge mortel
+84|Salve fulgurante améliorée
+85|Chant rapide
+86|Chant rapide
+87|Ballade du mage
+88|Ballade du mage
+89|Péan martial
+8a|Péan martial
+8b|Requiem ennemi
+8c|Requiem ennemi
+8d|Voix de combat
+8e|Étourdissement
+8f|Vent
+90|Extra Vent
+91|Prestance du prêtre
+92|Bouclier
+93|Bouclier
+94|Vie
+95|Étourdissement
+96|Extra Médica
+97|Cuirasse
+98|Cuirasse (physique)
+99|Cuirasse (magique)
+9a|Voile des saints
+9b|Extra Soin amélioré
+9c|Méga Soin amélioré
+9d|Présence d'esprit
+9e|Récup
+9f|Sceau divin
+a0|Stoïcisme
+a1|Foudre
+a2|Extra Foudre
+a3|Méga Foudre
+a4|Nuage d'orage
+a5|Pyromane
+a6|Grand soulagement
+a7|Magie prompte
+a8|Barrière de mana
+a9|Mur de mana
+aa|Apocatastase
+ab|Ekpyrosis
+ac|Infirmité
+ad|Feu astral
+ae|Feu astral II
+af|Feu astral III
+b0|Glace ombrale
+b1|Glace ombrale II
+b2|Glace ombrale III
+b3|Bactérie
+b4|Miasmes
+b5|Maladie
+b6|Virus
+b7|Virus de l'esprit
+b8|Transfusion
+b9|Œil pour œil
+ba|Œil pour œil
+bb|Stimulation
+bc|Extra Miasmes
+bd|Extra Bactérie
+be|Éruption ténébreuse
+bf|Infection
+c0|Encouragement
+c1|Lenteur
+c2|Mur protecteur
+c3|Citadelle
+c4|Dernier bastion
+c5|Pointes de feu
+c6|Pointes de glace
+c7|Pointes de foudre
+c8|Vulnérabilité physique augmentée
+c9|Étourdissement
+ca|Vulnérabilité augmentée
+cb|Accumulation
+cc|EndoFeu
+cd|EndoGlace
+ce|EndoVent
+cf|EndoPierre
+d0|EndoFoudre
+d1|EndoEau
+d2|Glas
+d3|Couteau aiguisé
+d4|Vision véritable
+d5|Tranquillisation
+d6|Énervement
+d7|Malus de dégâts
+d8|Paralysie
+d9|Forestier
+da|Récolte améliorée
+db|Récolte abondante
+dc|Récolte de qualité
+dd|Science des végétaux
+de|Science des minéraux
+df|Grâce de Byregot
+e0|Grâce de Nophica
+e1|Prospecteur
+e2|Hâte
+e3|Séduction
+e4|Grâce de Menphina
+e5|Grâce de Nald'thal
+e6|Grâce de Llymlaen
+e7|Grâce de Thaliak
+e8|Préparation
+e9|Dendrologie
+ea|Géologie
+eb|Brûlure du vent
+ec|Choco-bec
+ed|Choco-récup
+ee|Choco-ardeur
+ef|L'Écho
+f0|Pesanteur
+f1|Bénédiction de la Lumière
+f2|Dendrologie II
+f3|Géologie II
+f4|Fracture
+f5|Sanction
+f6|Démolition
+f7|Pluie mortelle
+f8|Cercle du destin
+f9|Flèche enflammée
+fa|Brûlure
+fb|Calme intérieur
+fc|Parcimonie
+fd|Main sûre
+fe|Grands progrès
+ff|Ingéniosité
+100|Ingéniosité II
+101|Parcimonie pérenne
+102|Manipulation
+103|Innovation
+104|Récupération
+105|Zone de confort
+106|Main sûre II
+107|Bonus de dégâts
+108|Blessure physique
+109|Perforation
+10a|Concussion
+10b|Brûlure
+10c|Gelure
+10d|Brûlure du vent
+10e|Emboué
+10f|Électrocution
+110|Œdème
+111|Saignement
+112|Rétablissement
+113|Poison
+114|Voix de la valeur
+115|Voix de la ténacité
+116|Marche implacable
+117|Recouvrement
+118|Entrave
+119|Malus de dégâts physiques
+11a|Anormalité magique
+11b|Œdème
+11c|Brûlure
+11d|Gelure
+11e|Brûlure du vent
+11f|Emboué
+120|Électrocution
+121|Œdème
+122|Bonus de dégâts
+123|Cent poings
+124|Attache
+125|Bonus de vivacité
+126|Bonus de célérité
+127|Eau bilieuse
+128|Hystérie
+129|Réconfort
+12a|Dogme de survie
+12b|Dogme de survie
+12c|Bonus de dégâts
+12d|Coups critiques
+12e|Poumons bilieux
+12f|Bardanes
+130|Flux d'éther
+131|Malédiction du dragon
+132|Dragon intérieur
+133|Voix de la valeur
+134|Voix de la ténacité
+135|Marche implacable
+136|Pelotonnement
+137|Barrière terrestre
+138|Fureur tellurique
+139|Bouclier radiant
+13a|Flammes de l'enfer
+13b|Murmure de l'aurore
+13c|Alliance féerique
+13d|Illumination féerique
+13e|Lueur féerique
+13f|Lumière féerique
+140|Saignement
+141|Gungnir
+142|Voile cristallin
+143|Immunité réduite
+144|Ire de la forêt
+145|Invulnérable
+146|Charge électrique
+147|Charge glacée
+148|Cœur de la montagne
+149|Récupération robotique
+14a|Hâte
+14b|Vulnérabilité magique diminuée
+14c|Bonus de dégâts
+14d|Pourriture allagoise
+14e|Anticorps allagois
+14f|Courants de feu
+150|Séquence AB1
+151|Séquence AP1
+152|Séquence AS1
+153|Saignement
+154|Champ physique
+155|Champ éthéré
+156|Réplique
+157|Saignement
+158|Neurolien
+159|Recharge
+15a|Chair fondue
+15b|Vérole
+15c|Dissémination
+15d|Écailles d'acier
+15e|Vulnérabilité diminuée
+15f|Rancune
+160|Spjot
+161|Un nouveau monde
+162|Vivre de la terre
+163|Avoir le coup d'œil
+164|La main qui nourrit
+165|Passer maître
+166|Bonhomme de neige
+167|Feu follet
+168|À boire et à manger
+169|Union parfaite
+16a|Protections protégées
+16c|Prix d'ami
+16d|Feu du combat
+16e|Meilleur ami de l'homme
+16f|Terre et eau
+170|Être en bonnes mains
+171|Éthéroplasma
+172|Chant de la sirène
+173|Zombification
+174|Colère maternelle
+175|Insoignabilité
+176|Cristaux corrompus
+177|Morsure du feu
+178|Fournaise
+179|Chaînes infernales
+17a|Affres de la mort
+17b|Basse pression
+17c|Haute pression
+17d|Serment de l'épée
+17f|En pleine croissance
+180|Mature
+181|Fantaisie du funambule
+182|Illusion dissipée
+183|Acrophobie illusoire
+184|Fantaisie du changelin
+185|Embrochement
+186|En pleine croissance
+187|Mature
+188|Garde royale
+189|Volonté de fer
+18a|Invulnérable
+18b|Malus de dégâts physiques
+18c|Concentration
+18d|Sauvegarde
+18e|Alignement astral
+18f|Retour corporel
+190|Charge électrique
+191|Étreinte mortelle
+192|Acharnement aveugle
+193|Bonus de dégâts
+194|Charge
+195|Égarement
+196|Vulnérabilité diminuée
+197|Empoisonnement cristallin
+198|Couperet de justice
+199|Holmgang
+19a|Réaction antivirale
+19b|Bête intérieure
+19c|Élévation
+19d|Marque des vainqueurs
+19e|Solde accrue
+19f|Regain
+1a0|Transparence
+1a1|Bouclier
+1a2|Résurrection récente
+1a3|Voile de brume
+1a4|Marquage
+1a5|Dévorement
+1a6|Malus de soin
+1a7|Cauchemar
+1a8|Maléfice du néant
+1a9|Présence du néant
+1aa|Nocto-bouclier
+1ab|Lenteur +
+1ac|Hâte +
+1ad|Poussière érosive
+1ae|Désolation
+1af|Résistance à l'eau réduite
+1b0|Reflets d'eau libérés
+1b1|Reflet d'eau
+1b2|Étreinte impénétrable
+1b3|Œil diabolique
+1b4|Ronces sauvages
+1b5|Piège de pierre
+1b6|Mini
+1b7|Crapaud
+1b8|Mini
+1b9|Crapaud
+1ba|Lenteur
+1bb|Bonus de dégâts
+1bc|Vulnérabilité augmentée
+1bd|Sarment de ronces
+1be|Mielleux
+1bf|Acide corrosif
+1c0|Essaim
+1c1|Dard
+1c2|Résistance à Pétrification
+1c3|Voix du maléfice
+1c4|Cri du maléfice
+1c5|Venin allagois
+1c6|Champ allagois
+1c7|Agonie vitale
+1c8|PV maximum réduits
+1c9|Entrave +
+1ca|Bile de rapace
+1cb|Posture normale
+1cc|Posture d'attaque
+1cd|Posture de diversion
+1ce|Sangle accélérée
+1cf|Attache
+1d0|Corne-de-feu
+1d1|Griffe-de-glace
+1d2|Aile-de-foudre
+1d3|Reflet d'eau
+1d4|Transfert du néant
+1d5|Monarchie absolue
+1d6|Mogtimisation
+1d7|Nyctophobie mog
+1d8|Photophobie mog
+1d9|Tournis mog
+1da|Mogtivation
+1db|Marquage impossible
+1dc|Voile ombreux
+1dd|Manteau du Déchaîneur
+1de|Voile du Déchaîneur
+1df|Recouvrement
+1e0|Hâte +
+1e1|Sprint
+1e2|Paralysie
+1e3|Bonus de PV
+1e4|Sépia venimeux
+1e5|Œdème
+1e6|Geôle aqueuse
+1e7|Congélation
+1e8|Décalage d'ombre
+1e9|Baiser de guêpe
+1ea|Baiser de vipère
+1eb|Lame dansante
+1ec|Attaque mutilante
+1ed|Vulnérabilité physique augmentée
+1ee|Vulnérabilité magique augmentée
+1ef|Aiguillonnement
+1f0|Mudrâ
+1f1|Kassatsu
+1f2|Infirmité
+1f4|Fûton
+1f5|Doton
+1f6|Pesanteur
+1f7|Brûlure
+1f8|Attache
+1f9|Bonus de dégâts
+1fa|Vertige
+1fb|Suiton
+1fc|Croc d'ombre
+1fd|Magismobombe
+1fe|Attache
+1ff|Pyrocrapaud
+200|Électroconductivité
+201|Charge électrostatique
+202|Causalité
+203|Roulement de tonnerre
+204|Chaos
+205|Parafoudre
+206|Miroir
+207|Riposte
+208|Résistance au feu accrue
+209|Résistance à l'eau accrue
+20a|Résistance au vent accrue
+20b|Résistance à la foudre accrue
+20c|Résistance à la terre accrue
+20d|Résistance à la glace accrue
+20e|Lame glaciale
+20f|Bâton glacial
+210|Arc glacial
+211|Invulnérable
+212|Brûlure
+213|Œdème
+214|Brûlure du vent
+215|Électrocution
+216|Emboué
+217|Gelure
+218|Compagnon d'expérience
+219|Compagnon d'expérience II
+21a|Compagnon d'attaque
+21b|Compagnon d'attaque II
+21c|Compagnon attentionné
+21d|Compagnon attentioné II
+21e|Compagnon gaillard
+21f|Compagnon gaillard II
+220|Compagnon boutefeu
+221|Compagnon boutefeu II
+222|Dans les choux
+223|Installation : production
+224|Installation : finition
+225|Installation : minutie
+226|Installation : production II
+227|Installation : spécialité
+228|Installation : spécialité II
+229|Installation : minutie II
+22a|Installation : finition II
+22b|Réplique
+22c|Réplique
+22d|Réplique
+22e|Réplique
+22f|Poison
+230|Poison
+231|Lenteur
+232|Marquage
+233|Vulnérabilité augmentée
+234|Entrave
+235|Transformation
+236|Bonus de dégâts
+237|Enfoncement
+238|Instinct du pêcheur
+239|Mucus
+23a|Dans la ligne de tir
+23b|Cécité
+23c|Résistance au tranchant réduite
+23d|Résistance au contondant réduite
+23e|Électrochoc imprévisible
+23f|Charge statique
+240|Résistance à la foudre réduite
+241|Barotraumatisme
+242|À portée de tête
+243|Coups critiques
+244|Magismoparticules α
+245|Magismoparticules β
+246|Vulnérabilité magique diminuée
+247|Vulnérabilité physique diminuée
+248|Champ défensif
+249|Anti-champ défensif
+24a|Bonus de PV
+24b|Éclair ramifié
+24c|Résistance à Révélation réduite
+24d|Souffle du purgatoire
+24e|Bras du purgatoire
+24f|Flamme bleue
+250|Vortex de feu
+251|Oiseau de feu
+252|Buveur d'âme
+253|Remous de la vie
+254|Aura du Dragon-dieu
+255|ParaTéraBrasier
+256|(仮)物理シールド(ストンスキン)
+257|(仮)魔法シールド(ストンスキン)
+258|Vulnérabilité magique diminuée
+259|Vulnérabilité physique diminuée
+25a|Malédiction d'Azeyma
+25b|Pion d'Azeyma
+25c|Verglas
+25d|Gelure
+25e|Glaciation
+25f|Boule de neige
+260|Affres de la mort
+261|Étreinte mortelle
+262|Pétrification
+263|Bonne humeur
+264|Plein d'eau
+265|Kappa
+266|Dissimulation
+267|Dissimulation
+268|Invisible
+269|Irradiation
+26a|Aire d'effet augmentée
+26b|Brûlure
+26c|Pacification
+26d|Résistance au feu réduite
+26e|Gaz putride
+26f|Maladie
+270|Blessure physique
+271|Au tapis
+272|Actions bloquées
+273|Neurolien
+274|Malus de dégâts
+275|Infirmité
+276|Pesanteur
+277|Infatigable
+278|Fébrilité
+279|Panique
+27a|Silence
+27b|Choc
+27c|Marque de la désolation
+27d|Marque de la fureur
+27e|Vulnérabilité augmentée
+27f|Pyromanie
+280|Résistance au poison accrue
+281|Chocoboomerang
+282|Saignement
+283|Saignement
+284|Poulet
+285|Digestion
+286|Isolement
+287|Épuisement
+288|Recouvrement
+289|Bonus d'attaque
+28a|Bonus de puissance magique
+28b|Hâte
+28c|Bonus de PV et PM
+28d|Ivresse du combat
+28e|Fièvre du combat
+28f|Égide
+290|Invulnérable
+291|Vulnérabilité physique augmentée
+292|Vulnérabilité magique augmentée
+293|Supplice
+294|Prolongation
+295|Double
+296|Triple
+297|Halte !
+298|Marquage
+299|Marquage impossible
+29a|Électrocution
+29b|Attache
+29c|Attache
+29d|Vitesse de déplacement accrue
+29e|Résistance au feu réduite
+29f|Invulnérable
+2a0|Bonus de dégâts
+2a1|Nanoparticules
+2a2|Résine
+2a4|Camouflage
+2a5|Poison concentré
+2a6|Vent arrière
+2a7|Mur de vent
+2a8|Parade directionnelle
+2a9|Optimisation offensive
+2aa|Optimisation défensive
+2ab|Bénédiction de la terre
+2ac|Bénédiction du feu
+2ad|Résistance au vent réduite
+2ae|Poison
+2af|Bonus de dégâts
+2b0|Hypercharge
+2b1|Condensateur d'éther
+2b2|Activateur de muscle
+2b3|Cible : Vulnérabilité physique augmentée
+2b4|Cible : Malus de dégâts
+2b5|Cible : Malus de soin
+2b6|Transmission de cible impossible
+2b7|Vulnérabilité physique augmentée
+2b8|Malus de dégâts
+2b9|Malus de soin
+2ba|Charge positive
+2bb|Charge négative
+2bc|Suffocation
+2bd|Efficacité de combat diminuée
+2be|Ballonnement
+2bf|Regard draconique
+2c0|Lumière draconique
+2c1|Transformation
+2c2|Éthéroplasma lumineux
+2c3|Peine provisoire α
+2c4|Peine provisoire β
+2c5|Gravité
+2c6|Ordre d'attaque
+2c7|Fulguration
+2c8|Volonté d'acier
+2c9|Dégâts majeurs
+2ca|Vulnérabilité augmentée
+2cb|Chancellement
+2cc|Turbulence
+2cd|Domination du vent
+2ce|Domination de l'eau
+2cf|Attaque directe
+2d0|Résistance au tranchant accrue
+2d1|Résistance au perforant accrue
+2d2|Résistance au contondant accrue
+2d3|Magismobombe
+2d4|Malus de force
+2d5|Lame étripante
+2d6|Voile divin
+2d7|Voile divin
+2d8|Schiltron
+2d9|Délivrance
+2da|Abandonnement
+2db|Abandonnement II
+2dc|Abandonnement III
+2dd|Abandonnement IV
+2de|Abandonnement V
+2df|Intuition pure
+2e0|Sang du dragon
+2e1|Manalignements
+2e2|Manalignements
+2e3|Asile
+2e4|Peau d'ombre
+2e5|Fatalité
+2e6|Arme de sang
+2e7|Férocité
+2e8|Danse ténébreuse
+2e9|Prix du sang
+2ea|Esprit ténébreux
+2eb|Mur d'ombre
+2ec|Délirium
+2ed|Terre salée
+2ee|Autre victime
+2ef|Ténèbres intérieures
+2f0|Arts ténébreux
+2f1|Rétorsion
+2f2|Récolte améliorée (limitée)
+2f3|Récolte de qualité (limitée)
+2f4|Récolte abondante (limitée)
+2f5|Inspection rigoureuse
+2f6|Attention maximale
+2f7|Récolte fertile II
+2f8|Esprit résolu
+2f9|Casaquage
+2fa|Yeux de poisson
+2fb|Amorçage
+2fc|Chances de ferrage réduites
+2fd|Pêche et remise à l'eau
+2fe|Anthropomorphie
+2ff|Chiromorphie
+300|Hélicomorphie
+301|Chaînes brûlantes
+302|Attache
+305|Remotivation
+306|Au tapis
+307|Invulnérable
+308|Invulnérable
+309|Bénédiction du néant
+30a|Accord terrestre
+30b|Dissociation corps-âme
+30c|Résonnant
+30d|Ivresse éthérée
+30e|Pouvoir déchaîné
+30f|Au tapis
+310|Sang du néant
+311|Lèpre du tomberry
+312|Litanie combattante
+313|Silhouette
+314|Manipulateur d'ombre
+315|Écran de fumée
+316|Dualité
+317|Dissipation
+318|Stratagème de l'urgence
+319|Premier chakra
+31a|Deuxième chakra
+31b|Troisième chakra
+31c|Quatrième chakra
+31d|Cinquième chakra
+31e|Méga Vent
+31f|Vent féerique
+320|Attache
+321|Poison
+322|Croc-et-griffe préparé
+323|Percée tournante préparée
+324|Vulnérabilité diminuée
+325|Gant de collectionneur
+326|Vulnérabilité augmentée
+327|Éther de Bahamut
+328|Transe-Bahamut
+329|Mucus
+32a|Mort-vivant
+32b|Marcheur des limbes
+32c|Vulnérabilité magique diminuée
+32d|Danse ténébreuse
+32e|Déchaînement déchaîné
+32f|Bienfaisance II bénéfique
+330|Voie royale améliorée
+331|Voie royale élargie
+332|Voie royale doublée
+333|Résistance au tranchant réduite
+334|Résistance au perforant réduite
+335|Résistance au contondant réduite
+336|Attache
+337|Séduction
+339|Bénédiction des Douze
+33a|Tirage
+33b|Voie royale
+33c|Ajout
+33d|La Balance
+33e|Le Tronc
+33f|La Flèche
+340|L'Épieu
+341|L'Aiguière
+342|La Tour
+343|Bienfaisance aspectée
+344|Hélios aspecté
+345|Champ nocturne
+346|Conjonction supérieure
+347|Thème diurne
+348|Thème nocturne
+349|Vitesse de la lumière
+34a|Éther luminifère
+34b|Conjonction supérieure II
+34c|Invalidation
+34d|Synastrie
+34e|Synastrie
+34f|Inconscient collectif
+350|Inconscient collectif
+351|Inconscient collectif (effet)
+352|Énorme pêche
+353|Réassemblage
+354|Sous-promotion
+355|Feu rapide
+356|Tir de plombs
+357|Tir déchaîné
+358|Tir de balle amélioré
+359|Tir net amélioré
+35a|Canon Gauss
+35b|Brise-esprit
+35c|Brise-arme
+35d|Flambée
+35e|Munitions spéciales
+35f|Terre vierge
+360|Force des ténèbres
+361|Menuet du Vagabond
+362|Péon du Contemplateur
+363|Dynamisation
+364|Énochien
+365|Froideur charnelle
+366|Repoussée
+367|Nom des éléments
+36d|Sans nom
+36e|Marque du fabricant
+36f|Âme d'artisan
+370|Siffler en travaillant
+37d|Vulnérabilité augmentée
+37e|Résistance au vent réduite
+37f|Invulnérable
+380|Au tapis
+381|○削除予定
+382|Résistance à la foudre réduite
+383|Vulnérabilité physique diminuée
+384|Arrêt du temps
+385|Attache
+386|Gros lot
+387|Synthèse collectionnable
+388|Marquage
+389|Glaciation
+38a|Pouvoir des ténèbres
+38b|Bénédiction des arcanes
+38c|Éther de Bahamut
+38d|Recharge
+38e|Glas
+38f|Verglas
+390|Vulnérabilité diminuée
+391|Tirage : la Balance
+392|Tirage : le Tronc
+393|Tirage : la Flèche
+394|Tirage : l'Épieu
+395|Tirage : l'Aiguière
+396|Tirage : la Tour
+397|Décèlement
+398|Ajout : la Balance
+399|Ajout : le Tronc
+39a|Ajout : la Flèche
+39b|Ajout : l'Épieu
+39c|Ajout : l'Aiguière
+39d|Ajout : la Tour
+39e|Sommeil
+39f|Nectar
+3a0|Menace fulgurante
+3a1|Vulnérabilité diminuée
+3a2|Attache
+3a3|Résistance au contondant réduite
+3a4|Isolement
+3a5|Malus de magie curative
+3a6|Vulnérabilité physique augmentée
+3a9|Parasite
+3aa|Suffocation
+3ab|Actions bloquées
+3ac|Saignement
+3ad|Invincibilité à distance
+3ae|Invincibilité magique
+3af|Égide d'Ascalon
+3b0|Épée de l'Azur
+3b1|Bouclier de l'Azur
+3b2|Forme d'araignée
+3b3|Forme d'oiseau
+3b4|Riposte de foudre
+3b5|Riposte de feu
+3b6|Riposte de glace
+3b7|Riposte de vent
+3b8|Riposte de terre
+3b9|Riposte d'eau
+3ba|Riposte neutre
+3bb|Bonus de magie curative
+3bc|Inconscient collectif
+3bd|Enzyme digestive
+3be|Marquage
+3bf|Forme d'humain
+3c0|Chaleur
+3c1|Étreinte mortelle
+3c2|Bonus d'attaque
+3c3|Malus d'attaque
+3c4|Bonus de défense
+3c5|Malus de défense
+3c6|Bonus de vitesse
+3c7|Malus de vitesse
+3c8|Destruction arcanique
+3c9|Invulnérable
+3ca|Immunité aux créatures
+3cb|Immunité aux monstres
+3cc|Immunité aux poupées
+3cd|Immunité aux mécanismes
+3ce|Allergie aux créatures
+3cf|Allergie aux monstres
+3d0|Allergie aux poupées
+3d1|Allergie aux mécanismes
+3d2|Bonus d'attaque et de défense
+3d3|Dégâts périodiques
+3d4|Aire d'effet
+3d5|Invulnérable
+3d6|Immunité aux créatures
+3d7|Immunité aux monstres
+3d8|Immunité aux poupées
+3d9|Immunité aux mécanismes
+3da|Immobilité
+3db|Piégeage
+3dc|Paralysie
+3dd|Recouvrement
+3de|Attache
+3df|Séduction
+3e0|Stimulant offensif
+3e1|Stimulant défensif
+3e2|Phase de carnage
+3e3|Traumatisme
+3e4|Commotion cérébrale
+3e5|Commotion cérébrale
+3e6|Gobsérum de force
+3e7|Gobsérum de vitesse
+3e8|Gobsérum de furtivité
+3e9|Dépendance
+3ea|Effet secondaire
+3eb|Scientifique super musclé
+3ec|Anticoagulant
+3ed|Champ de force physique
+3ee|Champ de force magique
+3ef|Invisible
+3f0|Gobsérum de soin
+3f1|Batrachomorphose
+3f2|Attache
+3f3|Poison concentré
+3f4|Excitation
+3f5|Inversion
+3f6|Recouvrement
+3f7|Vie
+3f8|Malus de dégâts
+3f9|Bonus de dégâts physiques
+3fa|Bonus de dégâts physiques
+3fb|Bonus de dégâts magiques
+3fc|Calcul bionumérique
+3fd|Calcul de dénivelé 1
+3fe|Calcul de dénivelé 2
+3ff|Compression aqueuse
+400|Compression électrique
+401|Résistance à l'eau réduite+
+402|Résistance à la foudre réduite+
+403|Punition ultime
+404|Attaque directe
+405|Peine provisoire α ultime
+406|Peine provisoire β ultime
+407|Injonction : plus hauts PV
+408|Injonction : plus bas PV
+409|Injonction : 1 altération
+40a|Injonction : 2 altérations
+40b|Injonction : 3 altérations
+40c|Injonction : peine provisoire α
+40d|Injonction : peine provisoire β
+40e|Éventement funéraire
+40f|Conviction de la Lumière
+410|Conviction de la Lumière
+411|Conviction de la Lumière
+412|Attaque directe
+413|Attaque directe
+414|Lévitation magnétique
+415|Zombification progressive
+416|Poison concentré
+417|Confusion
+418|Attaque directe
+419|Chaleur
+41a|Bonus de points d'expérience
+41b|Marquage
+41c|Résistance au vent réduite+
+41d|Résistance à la terre réduite+
+41e|Vulnérabilité augmentée
+41f|Attache
+420|Mime
+421|Champ de plumes
+422|Super sprint
+423|Capacité de combat réduite
+424|Silence
+425|Téléportation au rabais
+426|Médailles lourdes
+427|Malus de magie curative
+428|Perte d'équilibre
+429|Marque des déchus
+42a|Haine amère
+42b|Contamination
+42c|Assimilation progressive
+42d|Assimilation
+42e|Cube
+42f|Pyramide
+430|Bombe à accélération
+431|Fluide disgestif
+432|Saignement
+433|Cœur d'homme
+434|Cœur de dragon
+435|Chaîne d'éclairs
+436|Solde accrue
+437|Gros lot
+438|Feu du combat
+439|Terre et eau
+43a|Être en bonnes mains
+43b|Union parfaite
+43c|À boire et à manger
+43d|Protections protégées
+43e|Grand embrigadement
+43f|Maléfice
+440|Cécité
+441|PV maximum réduits
+442|Malus de dégâts
+443|Hâte
+444|Amnésie
+445|Bonus de PV et PM
+446|Objets désactivés
+447|Sprint désactivé
+448|Projections désactivées
+449|Auto-récupération des PV désactivée
+44a|Transmission d'éther
+44b|Bonus de magie curative
+44c|Vulnérabilité diminuée
+44d|Crapaud
+44e|Poulet
+44f|Kappa
+450|Offuscation
+451|Citrouille
+452|Offuscation
+453|Pesanteur
+454|Dissimulation
+455|Résistance spéciale
+456|Griffe de Nidhogg
+457|Croc de Nidhogg
+458|Vitesse de déplacement accrue
+459|Actions bloquées
+45a|Maladie
+45b|Peine de mort-vivant
+45c|Hâte
+45d|Perforation
+45e|Embarquement
+45f|Stase temporelle
+460|Jugement : diffamation
+461|Jugement : peine sévère
+462|Jugement : peine collective
+463|Jugement : rapprochement
+464|Jugement : éloignement
+465|Invulnérabilité directionnelle.
+466|Régénération du torse
+467|Régénération du bras droit
+468|Régénération du bras gauche
+469|Torse régénéré
+46a|Bras droit régénéré
+46b|Bras gauche régénéré
+46c|Liberté réduite
+46d|Pyromanie
+46e|Kappa
+46f|Marque solaire
+470|Marque lunaire
+471|Résistance au feu réduite+
+472|Vulnérabilité magique augmentée
+473|Bonus de dégâts
+474|Vie
+475|Pesanteur
+476|Transmission d'éther
+477|Feu infini
+478|Glace infinie
+479|Double tranchant
+47a|Combativité
+47b|Chaînes d'ombre
+47c|Mains d'ombre
+47d|Stimulant cœur-de-loup
+47e|Congélation
+47f|Charme anti-Pixie
+480|Yeux de chat
+481|Attache
+482|Bénédiction du Roi bestial
+483|Renforcement éthéréen
+484|Bonus de dégâts magiques
+485|Résistance à l'eau réduite+
+486|Flair du combat
+487|Agonie infinie
+488|Anémie
+489|Bonus de dégâts
+48a|Agonie infinie
+48b|Coup de génie
+48c|Manipulation
+48d|Préparatifs initiaux
+48e|Sondage
+48f|Œil de requin
+490|Œil de requin II
+491|Métier de vétéran
+492|Prise abondante
+493|Trésor de la nature
+494|Ramassage sous-marin
+495|Science des océans
+496|Intervention
+497|Passe d'armes
+498|Armes dressées
+499|Relâchement bestial
+49a|Nuit noirissime
+49b|Énigme de la terre
+49c|Détermination de la terre
+49d|Énigme du feu
+49e|Fraternité méditative
+49f|Œil droit
+4a0|Œil gauche
+4a1|Fraternité combattante
+4a2|Ten Chi Jin
+4a3|Ballade du troubadour
+4a4|Critiques augmentés
+4a5|Péan du troubadour
+4a6|Menuet du troubadour
+4a7|Rempart
+4a8|Convalescence
+4a9|Rétorsion
+4aa|Anticipation
+4ab|Restreinte
+4ac|Palissade
+4ad|Tacticien
+4ae|Revigoration
+4af|Peloton
+4b0|Morsure caustique
+4b1|Morsure de la tempête
+4b2|Minne de la nature
+4b3|Embrouillement
+4b4|Rêve lucide
+4b5|Lance-flammes
+4b6|Inconscient collectif (effet)
+4b7|Largesse
+4b8|Vulnérabilité augmentée
+4b9|Portée de bras
+4ba|Giga Foudre
+4bb|Triple sort
+4bc|Extra Ruine renforcée
+4bd|Dévouement
+4be|Méga Bactérie
+4bf|Méga Miasmes
+4c0|Charge lourde
+4c1|Sponte
+4c2|Faveur divine
+4c3|Indulgence plénière
+4c4|Traité de l'excogitation
+4c5|Stratagèmes entrelacés
+4c6|Union féérique
+4c7|Union féérique
+4c8|Domination terrestre
+4c9|Bonus de dégâts
+4ca|Vulnérabilité diminuée
+4cb|Yukikaze
+4cc|Higanbana
+4cd|Kaiten
+4ce|Rétablissement
+4cf|Mokusô
+4d0|Troisième œil
+4d1|Meikyô Shisui
+4d2|VerFeu préparé
+4d3|VerTerre préparée
+4d4|Enpi amélioré
+4d5|Éparpillement amélioré
+4d6|Accélération
+4d7|Enhardissement
+4d8|Hissatsu : Chiten
+4d9|Monomachie
+4da|Monomachie
+4db|Piqué mirage préparé
+4dc|Énigme du vent
+4df|Adepte de la neutralité (diurne)
+4e0|Domination stellaire
+4e1|Chaîne de sorts
+4e2|Vrai Nord
+4e3|Réinitialisation d'auto-tourelle
+4e4|Yeux ouverts
+4e5|Marquage
+4e6|Congélation
+4e7|Résistance au feu réduite+
+4e8|Blessures
+4e9|Marche forcée
+4ea|Attache
+4eb|Vieillissement
+4ec|Résistance à la foudre réduite+
+4ee|Récolte de qualité II (limitée)
+4ef|Recouvrement
+4f0|Conviction de la Lumière
+4f1|Conviction de la Lumière
+4f2|Transparence+
+4f3|Étreinte
+4f4|Événement
+4f5|Liberté réduite
+4f6|Agitation
+4f7|Duel d'armes
+4f8|Résistance au tranchant réduite+
+4f9|Enfoncement
+4fa|Punition de Bardam
+4fb|Convergence de feu
+4fc|Convergence de glace
+4fd|Convergence de foudre
+4fe|Polarisation de feu
+4ff|Polarisation de glace
+500|Polarisation de foudre
+501|Rahu renforcé
+502|Ketu renforcé
+503|Confusion
+504|Actions bloquées
+505|Récolte de qualité II
+506|Récolte abondante II (limitée)
+507|Étreinte mortelle
+508|ALÉA de l'expérience
+509|ALÉA de l'expérience
+50a|Vril
+50b|Ruinance
+50c|Porcelet
+50d|Contrainte mentale : avancer
+50e|Contrainte mentale : reculer
+50f|Contrainte mentale : virage à gauche
+510|Contrainte mentale : virage à droite
+511|Enhardissement
+512|Fûgetsu
+513|Fûka
+514|Couverture
+515|Couvert
+516|Invincible
+517|Relâchement bestial
+518|Holmgang
+519|Holmgang
+51a|Seul survivant
+51b|Pointes de glace
+51c|Nuit noirissime
+51d|Démolition
+51e|Énigme de la terre
+51f|Détermination de la terre
+520|Percée chaotique
+521|Croc d'ombre
+522|Assassinement
+523|Kakuremi
+524|Dissimulation
+525|Trimudrâ
+526|Zanshin préparé
+527|Higanbana
+528|Meikyô Shisui
+529|Morsure caustique
+52a|Morsure de la tempête
+52b|Flambée
+52c|Foudre
+52d|Magie prompte
+52e|Méga Bactérie
+52f|Méga Miasmes
+530|Électrocution
+531|Flétrissure
+532|Récup
+533|Réconfort
+534|Chanchala
+535|Œil pour œil
+536|Œil pour œil
+537|Incantation abrégée
+538|Synastrie
+539|Synastrie
+53a|La Balance
+53b|Le Tronc
+53c|L'Aiguière
+53d|La Tour
+53e|Sprint
+53f|Étourdissement
+540|Pesanteur
+541|Entrave
+542|Lenteur
+543|Silence
+544|Sommeil
+545|Résistance à Étourdissement
+546|Résistance à Pesanteur
+547|Résistance à Entrave
+548|Résistance à Lenteur
+549|Résistance à Silence
+54a|Résistance à Sommeil
+54b|Résistance aux projections/attractions
+54c|Kappa
+54d|Inversion de gravité
+54e|Élévation
+54f|Pétrification graduelle
+550|Gravité instable
+551|魔導レビテト
+552|Voile divin
+553|Sommeil
+554|Énigme du vent
+555|Nuage d'orage
+556|Lévitation
+557|Impact préparé
+558|Requiescat
+559|Requiescat
+55a|Rage de Halone
+55b|Billot du boucher
+55c|Taillade puissante
+55d|Matérialisation incomplète
+55e|Portée de main droite
+55f|Portée de main gauche
+560|Kyoshin
+561|Absorption vitale
+562|Chaîne de sorts
+563|Almageste
+564|Lésion du vivant
+565|Lésion du défunt
+566|Outre-mort
+567|PV maximum réduits
+568|Bombe à accélération
+569|Perte d'équilibre
+56a|Emboué
+56b|Portée d'action changée
+56c|Cendres stygiennes
+56d|Séduction
+56e|Lévitation
+56f|Attache
+570|Hécatolite scintillante
+571|Chaîne de sorts
+572|Boitement
+573|Serment du bouclier
+574|Défi
+575|Férocité
+576|Bête intérieure
+577|Attache
+578|Terreur
+579|Capacité de combat réduite
+57a|Vulnérabilité augmentée
+57b|Vitesse de la lumière
+57c|Faveur divine
+57d|Invalidation
+57e|Stratagèmes entrelacés
+57f|Rafale de coups
+580|Cométéore
+581|Vitesse terminale
+582|Chanchala
+583|Bonus d'expérience de Monde désigné
+584|Vulnérabilité augmentée
+585|Énigme du feu
+586|Litanie combattante
+587|Bouclier
+588|Abaissement
+589|Piège de pierre
+58a|Isolement
+58b|Malédiction du dragon
+58c|Manœuvre de machine
+58d|Poulet pétochard
+58e|Démence
+58f|Transformation
+590|Révélation : Ne cesse pas de te mouvoir !
+591|Révélation : Détourne ton regard !
+592|Perte de courage
+593|Trempé
+594|削除予定
+595|Suffocation
+596|Combat épique
+597|Barrière des tours
+598|Barrière des tours
+599|Transformation
+59a|Hypersensibilité à la mana
+59b|Résistance au perforant réduite+
+59c|Protection de Phénix
+59d|Lohs Daih
+59e|Résonnant
+59f|Stratégie libre
+5a0|Stratégie offensive
+5a1|Stratégie défensive
+5a2|Stratégie standard
+5a3|Mécanisme automatique
+5a4|Champ de force magitek
+5a5|Masque du faux Dieu
+5a6|Masque du vrai Dieu
+5a7|Bonus d'expérience élémentaire
+5a8|Transformation
+5a9|Fûgetsu
+5aa|Fûka
+5ab|Roi des couronnes
+5ac|Reine des couronnes
+5ad|Œil droit
+5ae|Œil gauche
+5af|Lance-flammes
+5b0|Frisson de la guerre
+5b1|Débarrassage
+5b2|Cible de Lance-flammes
+5b3|Transformation
+5b4|Attache
+5b5|Bénédiction des esprits : bonus d'expérience
+5b6|Actions bloquées
+5b7|Bénédiction des esprits : bonus de combativité
+5b8|Fin d'exploration
+5b9|Tension
+5ba|Perforation
+5bb|Peinture jaune
+5bc|Peinture bleue
+5bd|Peinture noire
+5be|Peinture rouge
+5bf|Baiser fatal
+5c0|Apathie
+5c1|Cimentation
+5c2|Embourbement
+5c3|Pourriture éthéréenne
+5c4|Anticorps éthéréen
+5c5|Empoignement
+5c6|Attelage
+5c7|Chute libre
+5c8|Douleur continuelle
+5c9|Vent mauvais
+5ca|Concentration de mana
+5cb|Méga Feu chargé
+5cc|Méga Glace chargée
+5cd|Méga Foudre chargée
+5ce|Bouffon menteur
+5cf|Bouffon honnête
+5d0|Inguérissable
+5d1|Programme Orthros
+5d2|Programme force aérienne
+5d3|Programme Dadaluma
+5d4|Programme bibliotaphe
+5d5|Programme virus
+5d6|Fan club
+5d7|Royauté céleste
+5d8|Invisibilité
+5d9|Attache
+5da|Commotion
+5db|Médailles lourdes
+5dc|Médailles lourdes
+5dd|Médailles lourdes
+5de|Médailles lourdes
+5df|Médailles légères
+5e0|Médailles légères
+5e1|Médailles légères
+5e2|Médailles légères
+5e3|Poison violent
+5e4|Brûlure du vent
+5e5|Lenteur
+5e6|Sommeil
+5e7|Pétrification
+5e8|Résistance aux projections/attractions
+5e9|Étourdissement
+5ea|スリル・オブ・ウォー：効果
+5eb|Élévation
+5ec|Cimentation
+5ed|Résistance au feu accrue
+5ee|Roi des cieux
+5ef|Concussion
+5f0|Chevauchée
+5f1|Étourdissement
+5f2|Étourdissement
+5f3|Hâte +
+5f4|Cécité
+5f5|Basse pression
+5f6|Haute pression
+5f7|Flammes maudites
+5f8|Charge éthérée
+5f9|Éveil éthéré
+5fa|Transcendance
+5fb|Piste au trésor
+5fc|Éthéroplasma
+5fd|Attache aérienne
+5fe|Jeu de rôle
+5ff|Force de la pleine lune
+600|Force de la nouvelle lune
+601|Force du désespoir
+602|Pleine lune
+603|Nouvelle lune
+604|Résistance à la pleine lune
+605|Résistance à la nouvelle lune
+606|Cauchemar corporel
+607|Cauchemar corporel
+608|Bonus de dégâts physiques
+609|Vulnérabilité diminuée
+60a|Loutre choute
+60b|Volonté inflexible
+60c|Sprint
+60d|Magilithes inutilisables
+60e|Charge positive
+60f|Charge négative
+610|Lévitation magnétique
+611|Dragon ultime
+612|Faiblesse apparente
+613|Cœur brisé
+614|Exacerbation 
+615|Malus de PV+
+616|Bonus de PV (+1)
+617|Bonus de PV (+2)
+618|Bonus de PV (+3)
+619|Bonus de PV (+4)
+61a|Module d'arithmétique
+61b|Module Tartaros
+61c|Module Exterminator
+61d|Bonne réponse
+61e|Mauvaise réponse
+61f|Patronage primordial
+620|Lenteur +
+621|Métamorphose Zuijû
+622|Invulnérable
+623|Barrière anti-stase
+624|Bonus de dégâts
+625|Acariâtre
+627|Amour fraternel
+628|石化の呪い
+629|Brûlure
+62a|Fournaise
+62b|Verglas
+62c|Verglas
+62d|Adaptation
+62e|Mutation
+62f|Bonus d'expérience élémentaire
+630|Grâce de Koma-inu
+631|Grâce d'Inugami
+632|Grâce de Senri
+633|Harmonie élémentaire
+634|Mutation
+635|Mutation
+636|Lumière du néant
+637|Éveil éthéré
+638|Bonus de dégâts
+639|Adaptation
+63a|Cent poings
+63b|Pesanteur
+63c|Sommeil
+63d|Vulnérabilité augmentée
+63e|Mutation
+63f|Pyromanie
+640|Flammes du chaos
+641|Eaux du chaos
+642|Vent du chaos
+643|Vent contraire du chaos
+644|Bourbier du chaos
+645|Terre du chaos
+646|Bain de boue
+647|●弱点：雷属性
+648|Transformation
+649|Transformation
+64a|Force terrestre
+64b|Barrière magique
+64c|Barrière magique bloquée
+64d|Étincellement de l'âme
+64e|Attache
+64f|Barrière magique détériorée
+650|Désastre céleste
+651|Désastre terrestre
+652|Réminiscence Logos
+653|En action
+654|Démasqué
+655|Camouflage
+656|Coups critiques
+657|Charge électrique
+658|Boucle de programme
+659|Amnésie graduelle
+65a|Amnésie
+65b|Chaîne d'amnésie
+65c|Pétrification graduelle
+65d|Boucle
+65e|Forme humaine
+65f|Mémoire d'un prêtre guerrier
+660|Mémoire d'un protecteur intrépide
+661|Mémoire d'un soldat cuirassé
+662|Mémoire d'un gardien
+663|Mémoire d'un prêtre
+664|Mémoire d'un combattant
+665|Mémoire d'un éclaireur
+666|Mémoire d'un chevalier sacré
+667|Mémoire d'un guerrier enragé
+668|Mémoire d'un voleur
+669|Protection d'un héros vaillant
+66a|Évocation Logos : Bouclier
+66b|Évocation Logos : Barrière
+66c|Évocation Logos : Vélocité
+66d|Recharge rapide
+66e|Évocation Logos : Bravoure
+66f|Protection physique
+670|Protection magique
+671|Évocation Logos : Miroir
+672|Évocation Logos : Poison
+673|Évocation Logos : Tonification
+674|Explosion magique
+675|Évocation Logos : Double tranchant
+676|Évocation Logos : Flèche spirituelle
+677|Évocation Logos : Bannissement
+678|Accumulation
+679|Évocation Logos : Incitation
+67a|Oméga
+67b|Dépassement de limites
+67c|Programme protecteur M
+67d|Programme protecteur F
+67e|Programme de résonance : proximité
+67f|Programme de résonance : distance
+680|Bogue critique : partage
+681|Bogue critique : boucle
+682|Bogue critique : dégradation
+683|Déboguage : partage
+684|Déboguage : boucle
+685|Déboguage : dégradation
+686|Bogue latent
+687|Bogue latent : dégradation
+688|Bogue intentionnel : proximité
+689|Bogue intentionnel : distance
+68a|Oméga-M
+68b|Oméga-F
+68c|Liquéfaction
+68d|Évocation Logos : Bain de sang
+68f|Sort déphasé : Giga Retour
+690|Sort déphasé : Brasier
+691|Marche forcée
+692|Repos de Yin
+693|Répos de Yang
+694|Ordre : Méga Brèche
+695|Ordre : Plongeon
+696|Ordre : Tornade
+697|Recouvrement
+698|Attaques convergentes
+699|Cible prioritaire
+69a|Force céleste
+69b|Force terrestre
+69c|Résolution des protecteurs
+69d|Résistance au tranchant réduite
+69e|Résistance au perforant réduite
+69f|Apathie
+6a0|Noyade
+6a1|Invulnérable
+6a2|Mutation
+6a3|Mélopée fantoche
+6a4|Mutation
+6a5|Champ de protection
+6a6|Résistance à la glace réduite
+6a7|Piratage
+6a8|Boucle de programme
+6a9|Dissimulation
+6aa|Bonus d'esquive
+6ab|Flanc droit protégé
+6ac|Flanc gauche protégé
+6ad|Dos protégé
+6ae|Bras de Lumière
+6af|Bras de Ténèbres
+6b0|Robe de Lumière
+6b1|Robe de Ténèbres
+6b2|Saignement
+6b3|Remugle
+6b4|Accumulation
+6b5|Sans défense
+6b6|Forcené
+6b7|Garde puissante
+6b8|Pointes de glace
+6b9|Lumière sinistre
+6ba|Blindage
+6bb|Brûlure du vent
+6bc|Voile du Déchaîneur
+6bd|Katashiro
+6be|Attache
+6bf|Contrecoup du forcené
+6c0|Sous contrat
+6c1|Détermination
+6c2|Tension max
+6c3|Congélation
+6c4|Bonus d'expérience élémentaire
+6c5|Porteur du bouclier sacré
+6c6|Porteur de l'épée sacrée
+6c7|Protection du bouclier sacré
+6c8|Œdème
+6c9|Huile de crapaud
+6ca|Glas
+6cb|Mémoire d'un sage
+6cc|Mémoire d'une fine lame
+6cd|Mémoire d'un archer émérite
+6ce|Mémoire d'un héros illustre
+6cf|Sacrifice
+6d0|Stellation
+6d1|Résistance aux trous noirs
+6d2|Courants ascendants
+6d3|Brave
+6d4|Barrière protectrice
+6d5|Aire d'effet augmentée
+6d6|Résonance des lances
+6d7|Déséquilibre éthéré : feu
+6d8|Déséquilibre éthéré : glace
+6d9|Sang maudit
+6da|Préparatifs de téléportation terminés
+6db|Anti-résurrection
+6dc|Bénédiction des esprits
+6dd|Attache
+6de|Congélation
+6df|Vulnérabilité diminuée
+6e0|Bonus de dégâts
+6e1|Résistance à la glace accrue
+6e2|Au tapis
+6e3|Bonus de PV
+6e4|Combinaison cuirassée magitek
+6e5|Combinaison cuirassée magitek
+6e6|Bonus de dégâts
+6e7|Champ de force magitek faible
+6e8|Geôle aqueuse
+6e9|Glas
+6ea|Bonus de dégâts
+6eb|Vertu absolue
+6ec|Position d'attaque
+6ed|Position d'obstruction
+6ee|Aramitama incandescent
+6ef|Reforge
+6f0|Résistance au contondant réduite
+6f1|Reforge
+6f2|Monte impossible
+6f3|Ajisai
+6f4|Contamination magique
+6f5|Bonus de dégâts
+6f6|Vulnérabilité diminuée
+6f7|Déséquilibre éthéré : feu
+6f8|Déséquilibre éthéré : glace
+6f9|Au tapis
+6fa|Affermissement
+6fb|Brûlure
+6fc|Gelure
+6fd|Vulnérabilité augmentée
+6fe|Chaînes d'ombre
+6ff|Injection magique
+700|Amplificateur magitek
+701|Marque de mort
+702|Incandescence
+703|Incandescence
+704|Pesanteur
+705|Coups critiques
+706|Chaîne de sorts
+707|Lueur féérique
+708|Dilatation
+709|Récolte rapide
+70a|Bénédiction de la nature
+70b|Pêche variée
+70c|Pêche ciblée
+70d|Harponnage ciblé
+70e|Récupération de chutes
+70f|Cocon confessionel
+710|Déphasage incantatoire
+711|Sort déphasé : Miracle ténébreux
+712|Sort déphasé : Méga Feu ténébreux
+713|Sort déphasé : Vent infernal
+714|Sort déphasé : Œil de l'ombre
+715|Blessure physique
+716|Cascade inversée préparée
+717|Fontaine en cascade préparée
+718|Moulin à vent ascendant préparé
+719|Averse de sang préparée
+71a|Pas classique
+71b|Pas technique
+71c|Danse de l'éventail III préparée
+71d|Final classique
+71e|Final technique
+71f|Position rapprochée
+720|Partenaire de position rapprochée
+721|Tango endiablé
+722|Samba protectrice
+723|Improvisation
+724|Improvisation (bonus)
+725|Invulnérable
+726|Transformation en monstre
+727|Sans pitié
+728|Camouflage
+729|Garde royale
+72a|Nébuleuse
+72b|Aurore
+72c|Bolide
+72d|Rupture sonique
+72e|Arc de choc
+72f|Cœur de Lumière
+730|Cœur de pierre
+732|Arrachage de la jugulaire préparé
+733|Lacération de l'abdomen préparée
+734|Perforation des yeux préparée
+735|Vulnérabilité augmentée
+736|Malédiction de Ronka
+737|Fascination
+738|Fascination
+739|Attache
+73a|Eaux écrasantes
+73b|Eaux déferlantes
+73c|Eaux tournoyantes
+73d|Eaux submergeantes
+73e|Eaux fracturantes
+73f|Eaux pulvérisantes
+740|Schiltron
+741|Exaltation naissante
+742|Exaltation communicative
+743|Fardeau de survie
+744|Suspens vital
+745|Poings de plomb
+746|Anatman
+747|Feu des dragons
+748|Lance acérée
+749|Tension de la lame
+74a|Lance-toxine
+74b|Feu spirituel
+74c|Vol éternel
+74d|Vents tourbillonnants
+74e|Griffe perçante améliorée
+74f|Lumen
+750|Tempérance
+751|Tempérance
+752|Murmure des anges
+753|Illumination séraphique
+754|Roi des couronnes
+755|Reine des couronnes
+756|Divination
+757|Opposition céleste
+758|Opposition céleste (nocturne)
+759|Conjonction supérieure III
+75a|La Balance
+75b|Le Tronc
+75c|La Flèche
+75d|L'Épieu
+75e|L'Aiguière
+75f|La Tour
+760|Rencontre céleste (diurne)
+761|Rencontre céleste
+762|Horoscope
+763|Horoscope Hélios
+764|Adepte de la neutralité
+765|Eaux dévastatrices
+766|Missionnaire des Ténèbres
+767|Loi de l'infection
+768|Récitation
+769|Chaos naissant
+76a|Impact brutal
+76b|Électrocution
+76c|Bouclier ailé
+76d|Bouclier ailé
+76e|Absolution préparée
+76f|Illusion
+770|Lumière salvatrice
+771|Peau de serpent
+772|Invisibilité parfaite
+773|Faix prodigieux
+774|Attache
+775|Aire d'effet augmentée
+776|Œil droit
+777|Asile
+778|Asile
+779|Bénédiction de Vauthry
+77a|Éventration
+77b|Action en attente : 1
+77c|Nom des éléments
+77d|Voile séraphique
+77e|Exhortation
+77f|Bonus de dégâts
+780|Adepte de la neutralité (diurne)
+781|Adepte de la neutralité
+782|Bénédiction de Vauthry
+783|Bénédiction de Vauthry
+784|Bénédiction de Vauthry
+785|Bénédiction de Vauthry
+786|Grand sabot
+787|Égide de confiance
+788|Peau électrique
+789|Lumière salvatrice+
+78b|Âme de métal
+78c|Bénédiction martiale
+78d|Pacte martial
+78e|Troubadour
+78f|Ruissellement
+790|Armure tellurique
+791|Événement
+792|Sprint
+793|Murmure enchanteur
+794|Hypothermie
+795|Vénéfice de Ronka
+796|Reconnaissance
+797|Hastilude
+798|Dogme de survie
+799|Monte impossible
+79a|Flambée
+79b|Sommeil
+79c|Malus de dégâts magiques
+79d|Eaux déferlantes
+79e|Au tapis
+79f|Tacticien
+7a0|Dissimulation
+7a1|Au tapis
+7a2|Bunshin
+7a3|Assassinement préparé
+7a4|Invisibilité sans âme
+7a6|Contrainte mentale : avancer
+7a7|Contrainte mentale : reculer
+7a8|Contrainte mentale : virage à gauche
+7a9|Contrainte mentale : virage à droite
+7aa|Hâte
+7ab|Au tapis
+7ac|Actions en attente : 2
+7ad|Actions en attente : 3
+7ae|Actions en attente : 4
+7af|Résistance à Sommeil
+7b0|Casque nain
+7b1|Casque nain
+7b2|Glas
+7b3|Manafication
+7b4|Delirium de sang
+7b5|Résistance à la foudre réduite+
+7b6|Paradis retrouvé
+7b7|Grossissement
+7b8|Gigantisme
+7b9|Plein élan
+7ba|Rempart
+7bb|アルティメイタム
+7bc|アルティメイタム[被]
+7bd|Du sang pour du sang
+7be|Bain de sang
+7bf|Émancipation
+7c0|Portée de bras
+7c1|Peloton
+7c2|Projectile fantôme
+7c3|Magie prompte
+7c4|Embrouillement
+7c5|Barrière de mana
+7c6|Harmonie
+7c7|Serment de l'épée
+7c8|Cyclone chaotique préparé
+7c9|Débarrassage
+7ca|ブラッドスピラー
+7cb|クワイタス
+7cc|Delirium de sang
+7cd|Impact brutal
+7ce|バーストストライク
+7cf|フェイテッドサークル
+7d0|Cœur de Lumière
+7d1|無敵
+7d2|Arrachage de la jugulaire préparé
+7d3|Lacération de l'abdomen préparée
+7d4|Perforation des yeux préparée
+7d5|Poings de feu
+7d6|Poings de terre
+7d7|Quintessence de vent
+7d8|Énigme de la terre
+7d9|Chant guerrier
+7da|Bunshin
+7db|Décalage d'ombre
+7dc|Corps-à-corps
+7dd|Déplacement
+7de|Attaque sournoise
+7df|Absolution préparée
+7e0|ホーリースピリット効果アップ
+7e1|Tir repoussant
+7e2|Flambée
+7e3|Lance-toxine
+7e4|Intervention
+7e5|Danse de l'éventail III préparée
+7e6|Danse du sabre
+7e7|Pas classique
+7e8|Final classique
+7e9|Fascination
+7ea|Position rapprochée
+7eb|Partenaire de position rapprochée
+7ec|三連魔
+7ed|Flamme de la vie
+7ee|Vol éternel
+7ef|ヴァルエアロ
+7f0|ヴァルサンダー
+7f1|Engagement
+7f2|Divination
+7f3|Lumen
+7f4|Offrande de réconfort
+7f5|Tempérance
+7f6|Tempérance
+7f7|Loi de l'infection
+7f8|Voile séraphique
+7f9|Conjonction supérieure III
+7fa|Adepte de la neutralité (diurne)
+7fb|Adepte de la neutralité (nocturne)
+7fc|Adepte de la neutralité
+7fd|シャーク
+7fe|シャーク[被]
+7ff|Insensible à la poudre de rêve
+800|En avant
+801|Pas technique
+802|Final technique
+803|Fascination
+804|Danse de l'éventail
+805|Bouclier
+806|Voie du roi
+807|Voie de la reine
+80d|Exaltation naissante
+80e|Exaltation communicative
+80f|Giclée de sang (mêlée)
+810|Giclée de sang (distance)
+811|Aurore
+812|Giclée de sang
+813|Giclée de sang
+814|Amour paternel
+815|Dissipation
+816|Opposition céleste (diurne)
+817|Opposition céleste (nocturne)
+818|Traité de la focalisation
+819|Morsure acide
+81a|Bonus de dégâts physiques
+81b|Extra Foudre
+81c|Confiteor
+81d|Chaos intérieur
+81e|Cyclone chaotique
+81f|Blessure physique
+820|Perforation
+821|Concussion
+822|Brûlure
+823|Gelure
+824|Brûlure du vent
+825|Emboué
+826|Électrocution
+827|Œdème
+828|Saignement
+829|Poison
+82a|Vulnérabilité physique augmentée
+82b|Vulnérabilité magique augmentée
+82c|Malus de dégâts
+82d|Malus de soin
+82e|Résistance à l'eau réduite+
+82f|Résistance à la foudre réduite+
+830|Résistance au vent réduite+
+831|Résistance à la terre réduite+
+832|Résistance au feu réduite+
+833|Pesanteur
+834|Gravité instable
+835|Rétorsion
+836|Tranchant d'ombre
+837|Concussion
+838|Poison
+839|Final classique
+83a|Sort déphasé : Brasier
+83c|Débarrassé
+83d|Actions bloquées
+83e|Cercle ancien
+83f|Marquage
+840|Marquage
+841|Final classique
+842|Gobépiderme
+843|Malus d'intelligence et d'esprit
+844|Ordre défensif
+845|Cible d'ordre défensif
+846|Attaque préméditée
+847|Cactugarde
+848|PV maximum augmentés
+849|Résistance astrale diminuée
+84a|Résistance ombrale diminuée
+84b|Vulnérabilité physique augmentée
+84c|Éther de protecteur
+84d|Éther de combattant
+84e|Éther de soigneur
+84f|Volonté vacillante
+850|Marque de feu
+851|Marque de glace
+852|Surpanakha renforcée
+853|Ivresse du combat I
+854|Ivresse du combat II
+855|Ivresse du combat III
+856|Ivresse du combat IV
+857|Ivresse du combat V
+858|Flamme mortelle
+859|Peine provisoire γ ultime
+85a|Peine provisoire δ ultime
+85b|Injonction : peine provisoire γ
+85c|Injonction : peine provisoire δ
+85d|Injonction : 4 altérations
+85e|Compression aqueuse
+85f|Compression électrique
+860|Résistance à l'eau réduite+
+861|Résistance à la foudre réduite+
+862|Enigma Codex
+863|Enigma Codex
+864|Contact prohibé
+865|Contact forcé
+866|Fuite prohibée
+867|Fuite forcée
+868|Jugement : contact prohibé
+869|Jugement : contact forcé
+86a|Jugement : fuite prohibée
+86b|Jugement : fuite forcée
+86c|Morsure du feu
+86d|Huile
+86e|Pesanteur
+86f|Halte !
+871|Contrainte mentale : avancer
+872|Contrainte mentale : reculer
+873|Contrainte mentale : virage à gauche
+874|Contrainte mentale : virage à droite
+875|Stase temporelle
+876|Champ de force magitek
+878|Voile divin
+879|Voile divin
+87a|Déluge d'ombre
+87b|Missionnaire des Ténèbres
+87c|Portée de bras
+87d|Fraternité méditative
+87e|Fraternité combattante
+87f|Souffle de vie
+880|Tension de la lame
+881|Tacticien
+882|Protection du Contemplateur
+883|Testudo
+884|Fou de la gâchette
+885|Portée de bras
+886|Traité de l'excogitation
+887|ノクターナルフィールド
+888|Vengeance
+889|Restreinte
+88a|Concentration
+88b|Explosion éthérée
+88c|Largesse
+88d|Innovation
+88e|Dernières vérifications
+88f|Mémoire musculaire
+890|Supplice
+892|Brûlure
+894|Lumière salvatrice
+895|Semi-zombification
+896|Vulnérabilité diminuée
+897|Brûlure
+898|Électrocution
+899|Double ancien
+89b|Marque de conflagration
+89c|Température normale
+89d|Température +1
+89e|Chute encaissée
+89f|Barrière psychologique
+8a0|Incarnation de la fureur
+8a1|Incarnation de l'angoisse
+8a2|Fureur
+8a3|Angoisse
+8a4|Température +2
+8a5|Vulnérabilité augmentée
+8a6|Péan martial
+8a7|Menuet du Vagabond
+8a8|Menuet du Vagabond
+8a9|Ballade du mage
+8aa|Péan martial
+8ab|Sang noir du dragon
+8ac|Bonus de dégâts
+8ad|Injonction : 3 altérations
+8ae|Peine provisoire α ultime
+8af|Peine provisoire β ultime
+8b0|Injonction : peine provisoire α
+8b1|Injonction : peine provisoire β
+8b2|Vénération
+8b3|Exaltation naissante
+8b4|Parafoudre
+8b5|Charge électrique
+8b6|パニック
+8b7|Boules de foudre
+8b8|Électro-choc
+8b9|Électrocution irradiante
+8bb|Malédiction de la Souffleuse de rafales
+8bc|Malédiction du Seigneur des flammes
+8bd|Chaîne du purgatoire
+8be|Corruption de Lumière
+8bf|Corruption de Ténèbres
+8c0|Translation avant
+8c1|Translation arrière
+8c2|Translation gauche
+8c3|Translation droite
+8c4|Hélicomorphie
+8c5|Malédiction du Patriarche fulgurant
+8c6|Lenteur
+8c7|Cible d'une ruée
+8c8|Résistance au contondant réduite
+8c9|Déséquilibre
+8ca|Titubation
+8cb|Congélation graduelle
+8cc|Congélation
+8cd|Chaînes de Lumière
+8ce|Chaînes de Lumière
+8cf|Lien de Lumière
+8d0|Lien de Lumière
+8d1|Lumière excédentaire
+8d2|Griffes du Dragon divin
+8d3|Crocs du Dragon divin
+8d4|Malédiction de la Furie des neiges
+8d5|Malédiction du Dragon divin
+8d6|Bénédiction de la Lumière
+8d7|Pointes de foudre
+8d8|Volonté de tenir bon
+8d9|Tenir bon
+8da|Séduction
+8db|Chair à canon
+8dc|Température -1
+8dd|En ALÉA
+8df|En panique
+8e2|Température -2
+8e3|Température instable
+8e4|Costume
+8e5|Malédiction ardente +1
+8e6|Résistance à la Lumière réduite
+8e8|Grossissement
+8e9|Gigantisme
+8ea|Enhardissement
+8eb|Inconscient collectif
+8ec|Déchaîne-toi !
+8ed|Attache
+8ee|Attache
+8ef|Invincibilité véritable
+8f0|Programme défensif A
+8f1|Programme défensif B
+8f2|Programme défensif C
+8f3|Malédiction ardente +2
+8f4|Malédiction glaciale -1
+8f5|Élan
+8f6|Mode turbo
+8f7|Barrière éthérée
+8f8|Malédiction glaciale -2
+8f9|Sabre ardent +1
+8fa|Sabre ardent +2
+8fb|Sabre glacial -1
+8fc|Sabre glacial -2
+8fd|Affection
+8fe|Antipathie
+8ff|Marcheur des limbes véritable
+900|Entraves flottantes
+901|Zombification
+902|Module de serrage de vis
+903|Restriction : mode turbo
+904|Restriction : barrière éthérée
+905|Métamorphose berserker
+906|Berserker véritable
+907|Breuvage de prêtre guerrier
+908|Breuvage de protecteur intrépide
+909|Breuvage de vivificateur
+90a|Breuvage de mage guerrier
+90b|Breuvage de soldat cuirassé
+90c|Breuvage de gardien
+90d|Breuvage de prêtre
+90e|Breuvage de combattant
+90f|Breuvage d'éclaireur
+910|Breuvage de prêtre hérétique
+911|Breuvage de guerrier enragé
+912|Breuvage de voleur
+913|Breuvage de vampire
+914|Breuvage d'homme-loup
+915|Breuvage de chevalier sacré
+916|Seuil de la frénésie
+917|Seuil de l'abnégation
+918|Seuil de la patience
+919|Seuil de la préservation
+91a|Seuil de la contemplation
+91b|Seuil de la perception
+91c|Fontaine de magie oubliée
+91d|Bouclier oublié
+91e|Barrière oubliée
+91f|Vélocité oubliée
+920|Furtivité oubliée
+921|Miroir oublié
+922|Forgesort oublié
+923|Morsure de l'acier oubliée
+924|Bannissement oublié
+925|Bravoure oubliée
+926|Auto-potion
+927|Auto-éther
+928|Auto-remède
+929|Mur de mana oublié
+92a|Fontaine de puissance oubliée
+92b|Vulnérabilité augmentée
+92c|Rappel d'action oubliée
+92d|Breuvage des conquérants
+92e|Hastilude
+92f|Hastilude (effet)
+930|Seuil de l'indestructibilité
+931|Seuil de l'anatman
+932|Seuil de la célérité
+933|Auréole
+934|Incitation oubliée
+935|Déconstruction totale
+936|Passe-droit d'interception
+937|Passe-droit d'interception : Vigile de feu
+938|Passe-droit d'interception : Grandeur et pestilence
+939|Passe-droit d'interception : Une ruée en rouge
+93a|Passe-droit d'interception : Menace spectrale
+93b|Passe-droit d'interception : Le soulèvement des machines
+93c|Passe-droit d'interception : Le guerrier de métal
+93d|Clameur des vaillants
+93f|Légère cécité
+940|Frénésie de la bataille
+941|Faiblesse physique
+942|Faiblesse magique
+943|Résistance à la foudre réduite
+944|Bouclier absolu
+945|Marque de mort
+946|Auto-récupération des PE désactivée
+947|Gain explosif
+948|Quintuple sort
+949|Magilame
+94a|Hâte +
+94b|Combat spécial
+94c|Frénésie de la bataille
+94d|Contrainte mentale : avancer
+94e|Contrainte mentale : reculer
+94f|Contrainte mentale : virage à gauche
+950|Contrainte mentale : virage à droite
+951|Aspiration particulaire
+952|Ronce ténébreuse
+953|Malédiction particulaire
+954|Nausée
+955|Saignement
+956|Élévation
+957|Pesanteur
+958|Barillet tonnerre
+95a|Bonus de dégâts
+95b|Vulnérabilité diminuée
+95c|Transcendance scellée
+95e|Inguérissable
+95f|Saignement
+960|孤独感
+961|Brûlure
+962|Esquive augmentée
+963|Esquive réduite
+964|Malus de dégâts
+965|Incontrôlable
+966|Pointes de foudre
+967|Attache
+968|Au tapis
+969|Programme d'extermination A
+96a|Programme d'extermination B
+96b|Programme d'extermination C
+96c|Couverture
+96d|Couvert
+96f|Changement de job impossible
+970|Lumière salvatrice+
+972|Œil vif
+973|Serviteur de l'Ombre
+974|Serviteur de l'Ombre
+975|Serviteur de l'Ombre
+976|Serviteur de l'Ombre
+977|Double sombre
+978|Chaînes de rupture
+979|Chaînes d'union
+97e|Calamité des dévoyés : projection
+97f|Calamité des dévoyés : attraction
+980|Saignement
+981|Bonus de dégâts
+982|Breuvage de risque-tout
+983|Breuvage de sage
+984|Breuvage de fine lame
+985|Breuvage d'archer émérite
+986|Breuvage de héros illustre
+987|Breuvage de saint
+988|Astre flamboyant oublié
+989|Brise-armure oublié
+98a|ロスト・ウェポンブレイク
+98b|Égide d'éther oubliée
+98c|Célérité extrême oubliée
+98d|Posture de l'épée
+98e|Posture du bouclier
+98f|Inversion des masses
+990|Renforcement
+991|Anti-résurrection
+992|Mime
+993|Marque explosive
+994|Retour
+995|Giga Retour
+996|Sort déphasé : Miracle ténébreux
+997|Sort déphasé : Méga Feu ténébreux
+998|Sort déphasé : Œil de l'ombre
+99c|Sort déphasé : Éruption ténébreuse
+99d|Sort déphasé : Méga Eau ténébreuse
+99e|Sort déphasé : Méga Glace ténébreuse
+99f|Sort déphasé : Méga Vent ténébreux
+9a0|Sort déphasé : Retour
+9a1|Résistance à la glace réduite+
+9a2|Stock
+9a3|Bénédiction de la Lionne
+9a4|Association : Shiva
+9a5|Association : Titan
+9a6|Association : Loghrif
+9a7|Ennuagé
+9a8|Ennuagé
+9a9|Réduction d'éther
+9aa|Injonction reçue : déplacement de 2 cases
+9ab|Injonction reçue : déplacement de 3 cases
+9ac|Injonction reçue : déplacement de 4 cases
+9ad|Injonction reçue : déplacement de 2 cases
+9ae|Injonction reçue : déplacement de 3 cases
+9af|Injonction reçue : déplacement de 4 cases
+9b0|Exécution d'injonction : déplacement de 2 cases
+9b1|Exécution d'injonction : déplacement de 3 cases
+9b2|Exécution d'injonction : déplacement de 4 cases
+9b3|Marque de ruine II
+9b4|Prestance du prêtre
+9b5|Marque de ruine II
+9b6|Aspiré
+9b7|Marque de conflagration
+9b8|Épées spectrales
+9b9|Pose de la lame rédemptrice
+9ba|Pose du sabre singulier
+9bb|Pose des poings de feu
+9bc|Fourmillement
+9bd|Brume glaciale
+9be|Mort blanche
+9bf|Angélique
+9c0|Barrière mystique
+9c1|Cataracte divine
+9c2|Instinct profond
+9c3|Brûlure d'ypérite
+9c4|Dracoforce
+9c5|Titubation
+9c6|Frénésie spectrale
+9c7|Barrière magique
+9c8|Mini
+9c9|Enfeuillement
+9ca|Vulnérabilité diminuée
+9cb|Bonus de dégâts
+9cc|Résistance au tranchant réduite
+9cd|Carapace rouge
+9ce|Carapace bleue
+9cf|Carapace verte
+9d0|Carapace blanche
+9d1|Poing informe
+9d2|Étoile à six branches
+9d4|Glas
+9d5|Sol sanctifié
+9d6|Entrave
+9d7|Glas
+9d8|Infirmité
+9d9|PV maximums réduits
+9da|Malus de dégâts
+9db|Commandes restreintes
+9dc|Bénédiction des Reines
+9df|Marque de conflagration
+9e0|Pointes de glace
+9e1|Aspiré
+9e2|Marque de ruine III
+9e3|Sort déphasé : Quietus
+9e4|Souffle ténébreux
+9e5|Marque de ruine III
+9e6|Marque de ruine II
+9e7|Corruption
+9e9|Lance renforcée
+9ea|Bouclier renforcé
+9eb|Lance et bouclier renforcés
+9ec|Réfrigération
+9ed|不浄の侵食
+9ee|不浄の恐怖
+9ef|Tout mou
+9f1|Gant relevé
+9f3|Hache de feu
+9f4|Transformation
+9f5|Munitions spéciales
+9f6|Bonus de dégâts
+9f7|Pesanteur
+9f9|Au diapason
+9fa|Luna-optimisation défensive
+9fb|Bonus de dégâts physiques
+9fc|Bonus de dégâts magiques
+9fd|EndoFoudre
+9fe|Bouillonnement oublié
+9ff|Ravage oublié
+a00|Avalanche de sorts oubliée
+a01|Bouclier II oublié
+a02|Barrière II oubliée
+a03|Vitalité oubliée
+a04|Excellence oubliée
+a05|Vaillance héroïque
+a06|Rage sanguinaire oubliée
+a07|Éveil du sang
+a08|Mouette rieuse
+a09|L'Écho des dauphins
+a0a|Aurora dalphinus
+a0b|Tirage du destin
+a0c|Parchemin de Thaliak
+a0d|Brèche
+a0e|Aimant à foudre
+a0f|Bras droit renforcé
+a10|Bras gauche renforcé
+a11|En ALÉA
+a12|Téléportation impossible
+a13|Déguisement
+a14|Passe-droit d'interception : On arrête le progrès
+a15|Passe-droit d'interception : Zirnitrop
+a16|Passe-droit d'interception : Et n'y Hród'viens plus !
+a17|Passe-droit d'interception : Un cavalier qui surgit hors de la nuit
+a18|Passe-droit d'interception : Oiseau d'enfer
+a19|Passe-droit d'interception : Le Grand Ordonnateur
+a1a|Dessein de la Camarde
+a1b|Moissonneur d'âmes
+a1c|Gibet amélioré
+a1d|Potence améliorée
+a1e|Fauchage du néant amélioré
+a1f|Fauchage croisé amélioré
+a20|Offrande à la Mort
+a21|Lémure
+a22|Semence d'âmes
+a23|Repli préparé
+a24|Blason protecteur
+a25|Blason protecteur
+a26|Blason revigorant
+a27|Cercle arcanique
+a28|Cercle sacrificiel
+a29|Cercle de l'offrande
+a2a|Charge givrée
+a2b|Imprudence
+a2c|Kardia
+a2d|Kardion
+a2e|Eukrasia
+a2f|Diagnosis eucrasique
+a30|Eudiagnosis eucrasique
+a31|Prognosis eucrasique
+a32|Soteria
+a33|Zoe
+a34|Haima
+a35|Panhaima
+a36|Dosis eucrasique
+a37|Dosis eucrasique II
+a38|Dosis eucrasique III
+a39|Physis
+a3a|Kerachole
+a3b|Taurochole
+a3c|Physis II
+a3d|Autophysis
+a3e|Krasis
+a3f|Pneuma
+a40|Griffade primitive préparée
+a41|Comète de l'égide
+a42|Comète de la furie
+a43|Comète du salut
+a44|Dislocation adamantine
+a47|Duel à mort
+a48|Blanc : numérisation
+a49|Noir : numérisation
+a4a|Résistance blanche
+a4b|Résistance noire
+a4c|Saignement
+a4d|Dogme de survie
+a4e|Dogme de survie
+a4f|Signe fixe
+a50|Signe fixe
+a51|Signe fixe
+a52|Haimatinon
+a53|Panhaimatinon
+a54|Devant protégé
+a55|Marquage
+a56|Électrocution
+a57|Sang noir du dragon
+a58|Retour corporel
+a59|Renforce-bête
+a5a|Dosis III des Leveilleur
+a5b|Berserk manusya
+a5c|Confusion manusya
+a5d|Stop manusya
+a5e|Samanta ?
+a5f|Samanta ?
+a60|Étourdissement
+a61|Bombe à accélération
+a62|Congélation
+a64|Vol céleste : défense
+a65|Sceau céleste
+a66|Prison dimensionnelle
+a67|Résolution primordiale
+a68|Vol céleste : attaque
+a69|Attention totale
+a6a|Récolte fertile
+a6b|Récolte évangélique
+a6c|Œil du collectionneur
+a6d|Clyménos
+a6e|Aller aux Enfers
+a6f|Crapaud
+a70|Suffocation
+a71|Grâce divine
+a72|Schiltron sacré
+a73|Égide du paladin
+a74|Bénédiction du paladin
+a75|Vent de tempête
+a76|Intuition fougueuse
+a77|Barrage au sang
+a78|Digue au sang
+a79|Équilibre
+a7a|Oblation
+a7b|Cœur de corindon
+a7c|Clarté de corindon
+a7d|Catharsis de corindon
+a7e|Hypervitesse préparée
+a7f|Énigme du vent
+a80|Surchauffe
+a81|Meisui
+a82|Technique de Raijû préparée
+a83|Croc de Raijû préparé
+a84|Flèche explosive préparée
+a85|Lancer synchrone
+a86|Lancer asynchrone
+a87|Improvisation (bonus)
+a88|Frénésie des danseurs
+a89|Final improvisé
+a8a|Tillana préparé
+a8b|Danse de l'éventail IV préparée
+a8c|Danse de la pluie étoilée préparée
+a8d|Giga Ruine préparée
+a8e|Égide rayonnante
+a8f|Éclat ardent
+a90|Ravivement
+a91|Flamme éternelle
+a92|Sillage
+a93|Barrière anti-magie
+a94|Aquavoile
+a95|Tintinnabule
+a96|Loi de la protraction
+a97|Thèse des flots impétueux
+a98|Thèse des rafales hurlantes
+a99|Retirage préparé
+a9a|Maison du périsprit
+a9b|Maison du corps
+a9c|Maison de l'esprit
+a9d|Exaltation
+a9e|Macrocosme
+a9f|Floraison chaotique
+aa0|Souffle de puissance
+aa1|Lame de vaillance
+aa2|Final radieux
+aa3|Kamaitachi fantôme préparé
+aa4|Cyclone écarlate préparé
+aa5|Sillage préparé
+aa6|Douleur atroce
+aa7|Transformation
+aa9|Existence incertaine
+aaa|Arpenteur des finitudes
+aab|Ivresse éthérée
+aac|Quadruple
+aad|Choc psychologique
+aae|L'Écho+
+aaf|Poison violent
+ab0|Manœuvre d'armure magitek
+ab1|Conscience trouble
+ab2|Au portes de la mort
+ab3|Corrosion de glace
+ab4|Corrosion de feu
+ab5|Chaîne à retardement
+ab6|Malédiction contigüe
+ab7|Malédiction lointaine
+ab8|Chaîne contigüe
+ab9|Chaîne lointaine
+aba|Cœur d'homme
+abc|Amitié éternelle
+abd|Dévotion éternelle
+abe|Semence d'âmes
+abf|Manipulation magique de feu
+ac0|Manipulation magique de glace
+ac1|Manipulation magique de foudre
+ac2|Manipulation magique de poison
+ac3|Portée de grand saut sombre
+ac4|Portée de piqué brise-échine sombre
+ac5|Portée de saut insaisissable sombre
+ac6|Vengeance consumante
+ac7|Flammes enchevêtrées
+ac8|Chair empruntée
+ac9|Flamme sombre
+aca|Destin mortel
+acb|Chouchou
+acc|Souffre-douleur
+acd|Étalage des connaissances préparé
+acf|Marque de la proie
+ad0|Marque du torrent
+ad1|Marque d'oppression
+ad2|Marque déferlante avant
+ad3|Marque déferlante arrière
+ad4|Marque déferlante gauche
+ad5|Marque déferlante droite
+ad6|Œdème
+ad7|Griffe de Nidhogg
+ad8|Croc de Nidhogg
+ad9|Stigmates de Nidhogg
+ada|Féru de pêche
+adb|Pêche au vif facile
+adc|Pêche au gros
+add|Transcendance ultime
+adf|Pupilles dilatées
+ae0|Apnée
+ae2|Éclat du dynamis
+ae3|Pluton
+ae4|Eubouleus
+ae5|Courage véritable
+ae6|Pas véritable
+ae7|Faveur véritable
+ae8|Extra Médica véritable
+ae9|Cuirasse véritable
+aea|Invincibilité véritable
+aeb|Cercle de clarté
+aec|Sentinelle véritable
+aed|Rempart véritable
+aee|Rétorsion véritable
+aef|Absorption d'éther
+af0|Chlamyde maudite
+af1|Résistance élémentaire réduite
+af2|Rôle tragique
+af3|Résistance tragique
+af4|Épines d'éther
+af5|Carotte du bonheur
+af6|Carotte de la vivacité
+af7|Carotte de la chance
+af8|Carotte du tonus
+af9|Bonus de dégâts magiques
+afa|Chant enivrant
+afb|反転プログラム
+b01|Convive du banquet
+b02|Alignement terrestre
+b03|Alignement électrique
+b04|Alignement éolien
+b05|Contrevenance
+b06|Côté lunatique
+b08|Neutralisation
+b09|Désactivation
+b0a|Exhalaison venimeuse
+b0b|Lice cardinale
+b0c|Prière des Héritiers
+b0d|Dernier Vigile
+b0e|Dernier Vigile
+b0f|Bouclier de la Conquérante
+b10|Lien des Ténèbres
+b11|Aile-de-foudre
+b12|Sangles allagoises
+b13|Changement de cap : en avant
+b14|Changement de cap : en arrière
+b15|Changement de cap : à gauche
+b16|Changement de cap : à droite
+b17|Suiton
+b18|Caprice de princesse : à droite
+b19|Caprice de princesse : à gauche
+b1a|Caprice de princesse : en arrière
+b1b|Volonté de fer
+b1c|Barrière magique
+b1d|Harpé améliorée
+b1e|Mémento incantatoire
+b1f|Rappel incantatoire
+b20|Incantation réciproque
+b23|Événement
+b24|Soins diminués
+b25|Casse-montagnes préparé
+b26|Moissonneur d'âmes
+b27|Gibet amélioré
+b28|Potence préparée
+b29|Fauchage du néant amélioré
+b2a|Fauchage croisé préparé
+b2b|Harpé améliorée
+b2c|Repli préparé
+b2d|Blason protecteur
+b2e|Blason revigorant
+b2f|Lémure
+b30|Dosis eucrasique III
+b31|Diagnosis eucrasique
+b32|Prognosis eucrasique
+b33|Eukrasia
+b34|Pneuma
+b35|Haima
+b36|Haimatinon
+b37|Kardia
+b38|Kardion
+b39|Transcendance
+b3a|Chaîne à retardement
+b3b|Chaîne à retardement
+b3c|Cape de héros
+b3d|Cape de mage
+b3e|Cape de muse
+b3f|Volonté Adamas
+b40|Poison
+b42|被物理ダメージ増加
+b43|スロウ
+b44|ＨＰ自然回復無効
+b45|Malédiction contigüe
+b46|Malédiction contigüe
+b47|Malédiction contigüe
+b48|Malédiction lointaine
+b49|Malédiction lointaine
+b4a|Malédiction lointaine
+b4b|Instinct du harponneur
+b4d|Putréfaction
+b4f|Serment de paix
+b50|Vœu d'anéantissement
+b51|Vœu d'anéantissement rompu
+b52|Chaleur graduelle
+b53|Congélation graduelle
+b54|Dégâts continus : Ténèbres
+b55|Dégâts continus : Lumière
+b56|Résistance au feu réduite+
+b57|Résistance à la glace réduite+
+b58|Chronique élégiaque
+b59|Renversant
+b5a|●偽神獣の猛毒
+b5b|Mur enchanté de Tizona
+b5c|Mur enchanté de Tizona
+b5d|Déluge de Ténèbres
+b5e|Au tapis
+b5f|Malus de dégâts
+b60|Vulnérabilité augmentée
+b61|Blessure physique
+b62|Perforation
+b63|Concussion
+b64|Brûlure
+b65|Gelure
+b66|Brûlure du vent
+b67|Emboué
+b68|Électrocution
+b69|Œdème
+b6a|Saignement
+b6b|Malédiction contigüe
+b6c|Malédiction lointaine
+b6d|Malédiction des attaquants
+b6e|Malédiction des guérisseurs
+b6f|Malédiction des protecteurs
+b70|Flamme de la vie
+b71|Flammèche de la vie
+b74|La grande forme
+b75|Événement
+b76|●強制稼働
+b77|Dégâts continus
+b78|Fulguration
+b79|Résistance au feu réduite+
+b7a|Kerakeia
+b7b|Marquage
+b7c|Vulnérabilité physique augmentée
+b7d|Vulnérabilité magique augmentée
+b7e|Blessure physique
+b7f|Perforation
+b80|Concussion
+b81|Brûlure
+b82|Gelure
+b83|Brûlure du vent
+b84|Emboué
+b85|Électrocution
+b86|Œdème
+b87|Saignement
+b88|Final véritable
+b89|Étourdissement
+b8a|Volonté inébranlable
+b8b|Persévérance absolue
+b8c|精霊の加護
+b8d|Invisibilité rapide
+b8e|Caprice de princesse : en avant
+b8f|Ôgi : Namikiri préparée
+b90|Brasier amélioré
+b91|Au tapis
+b92|Serpent sifflant au vent
+b93|Loup bondissant au vent
+b94|Final radieux
+b95|Toxine mortelle
+b96|Sentiment d'isolement
+b97|Dégâts continus
+b98|Craniotomie
+b99|Sapience de sage
+b9b|PV maximums réduits
+b9c|Guide du rite sacrificiel
+b9d|Tournis
+b9e|Vertigo
+b9f|Attache
+ba0|Glas
+ba1|Soins diminués
+ba2|Soins diminués
+ba7|Sommeil
+bad|Tourment toxique
+bae|Tourment de pus
+baf|Tourment de l'avenir incertain
+bb0|Tourment de la philanthropie
+bb1|Chaîne du désespoir
+bb2|Âme de bombo
+bb3|Plume de chocobo noir
+bb4|Super sprint
+bb5|Super sprint
+bb6|Résistance à la foudre réduite+
+bb7|Événement
+bb8|Poison violent
+bb9|Poings vigoureux
+bba|Morsure de l'ombre préparée
+bbb|Holos
+bbc|Première cible
+bbd|Deuxième cible
+bbe|Troisième cible
+bbf|Pétrification
+bc0|Ultime dévotion
+bc1|Pouvoir de la Souffleuse de rafales
+bc2|Pouvoir de l'Ébranleur des terres
+bc3|Pouvoir du Seigneur des flammes
+bc4|Mur de la Souffleuse de rafales
+bc5|Vœu de la Lumière
+bc6|Bénédiction de la Lumière
+bc7|En pesée
+bc9|Lancer synchrone : Apothéose
+bca|Lancer asynchrone : Apothéose
+bcb|Confiteor préparé
+bcc|Poids total
+bcd|Garde impossible
+bce|Sommeil graduel
+bcf|Hystérie
+bd0|Séduction
+bd1|Gravure sainte
+bd2|Schiltron sacré
+bd3|●ホーリー・シェルトロン：追撃
+bd4|Confiteor préparé
+bd5|Assaut violent
+bd6|Intuition fougueuse
+bd7|Digue au sang
+bd8|●プライマルレンド実行可
+bd9|Sang noir
+bda|Arts ténébreux
+bdb|●プランジカット
+bdc|Terre salée
+bdd|Terre salée
+bde|Terre salée (néfaste)
+bdf|Rédemption du survivant
+be0|●ブラッドウェポン
+be1|Hypervitesse préparée
+be2|Sans pitié
+be3|Cartouche d'éther
+be4|Giclée de sang de protecteur
+be5|Giclée de sang de combattant
+be6|Giclée de sang de soigneur
+be7|Hypervitesse
+be8|Arrachage de la jugulaire
+be9|Lacération de l'abdomen
+bea|Perforation des yeux
+beb|Nébuleuse
+bec|Multi-taillade
+bed|Taillades multiples
+bee|Garde
+bef|Contact prohibé
+bf0|Contact forcé
+bf1|Fuite prohibée
+bf2|Fuite forcée
+bf3|Blessure physique
+bf4|Blessure physique
+bf5|Perforation
+bf6|Perforation
+bf7|Concussion
+bf8|Concussion
+bf9|Brûlure
+bfa|Brûlure
+bfb|Gelure
+bfc|Gelure
+bfd|Brûlure du vent
+bfe|Brûlure du vent
+bff|Emboué
+c00|Emboué
+c01|Électrocution
+c02|Électrocution
+c03|Œdème
+c04|Œdème
+c05|Saignement
+c06|Saignement
+c07|Doton (néfaste)
+c08|Fièvre
+c09|Poison violent
+c0a|Poison violent
+c0b|Méga Soin préparé
+c0c|●女神の加護
+c0d|Miracle de la nature
+c0e|Aquavoile
+c0f|Réconfort
+c10|Exhortation
+c11|Loi de l'infection
+c12|Intoxication
+c13|Momification
+c14|Thèse des rafales hurlantes
+c15|Thèse des flots impétueux
+c16|Récitation
+c17|Invocation Séraphin
+c18|Aile de Séraphin
+c19|Voile séraphique
+c1a|Dictame
+c1b|Bienfaisance aspectée (diurne)
+c1c|Bienfaisance aspectée (nocturne)
+c1d|Tirage : la Balance
+c1e|Tirage : l'Aiguière
+c1f|Tirage : la Tour
+c20|Macrocosme
+c21|Rivière céleste
+c22|Rivière céleste (néfaste)
+c23|Eukrasia
+c24|Dosis eucrasique III
+c25|Diagnosis eucrasique
+c26|Haima
+c27|Haimatinon
+c28|●ゾーエ
+c29|Toxikon
+c2a|●トキシコンII
+c2b|Croc de vipère
+c2c|カルディア
+c2d|カルディア[被]
+c2e|Mesotes
+c2f|Mesotes
+c30|Lype
+c31|Cui cui
+c32|Érosion de Ténèbres
+c33|Bénédiction de la Lumière
+c34|Défi
+c35|Super sprint
+c36|第一の事象記録
+c37|第二の事象記録
+c38|第三の事象記録
+c39|Bonus de dégâts
+c3a|Résistance au tranchant réduite
+c3b|Résistance au perforant réduite
+c3c|Résistance au contondant réduite
+c3d|Morsure du feu
+c3e|Entrave
+c3f|Résistance à la Lumière réduite
+c40|Résistance aux Ténèbres réduite
+c41|Inspiration poétique
+c42|Marche conquérante
+c43|Marche des conquérants
+c44|Alpha forte
+c45|Alpha mezzo forte
+c46|Flèche explosive préparée
+c47|Péon du Contemplateur
+c48|Fantaisie héroïque
+c49|Fantaisie orchestrale
+c4a|英雄のファンタジア［戦］
+c4b|英雄のファンタジア［魔］
+c4c|Chaleur
+c4d|Surchauffe
+c4e|Foreuse amorcée
+c4f|Lance-toxine amorcée
+c50|Ancre aérienne amorcée
+c51|Tronçonneuses rotatives amorcées
+c52|Tronçonneuses rotatives
+c53|Auto-tourelle Fou active
+c54|Mortier d'éther
+c55|Mortier d'éther (néfaste)
+c56|Analyse
+c57|Lame volante
+c58|Danse du sabre préparée
+c59|Danse de la pluie étoilée
+c5a|Danse tranchante
+c5b|Ovation
+c5c|Final tranchant
+c5d|Au tapis
+c5e|Malus de dégâts
+c5f|Pesanteur
+c60|Étoile à six branches
+c61|Polyglotte
+c62|Quintessence de feu
+c63|Quintessence de terre
+c64|Point vital
+c65|Élan fulgurant
+c66|Plongeon météore
+c67|メテオドライヴ
+c68|Percée céleste préparée
+c69|Vie du dragon
+c6a|Fougue des dragons anciens
+c6b|Rugissement horrible
+c6c|Vertigineux
+c6d|Briseur des cieux
+c6e|●ぶんどる：自身
+c6f|Rapine
+c70|Gôka Mekkyaku
+c71|Frisson de la bataille
+c72|Fûton
+c73|Doton
+c74|Serment du bouclier
+c75|Meisui
+c76|星遁天誅
+c77|Morts en chaîne
+c78|Seiton Tenchû préparé
+c79|Gôka Mekkyaku bloqué
+c7a|Hyôshô Ranryû bloqué
+c7b|Griffe de Raijû bloquée
+c7c|Fûton bloqué
+c7d|Doton bloqué
+c7e|Meisui bloqué
+c7f|Ôgi : Namikiri
+c80|Kaeshi Namikiri
+c81|Hissatsu : Kaiten
+c82|Kuzushi
+c83|Tendô Setsugekka préparé
+c84|Offrande à la Mort
+c85|Moisson abondante
+c86|Arrêt de mort
+c87|Intrusion de l'enfer
+c88|Mémoires
+c89|Saut insaisissable
+c8a|Phalanx
+c8b|Croc de Raijû préparé
+c8c|Feu astral
+c8d|Feu astral II
+c8e|Glace ombrale
+c8f|Glace ombrale II
+c90|Feu changeant
+c91|Glace stagnante
+c92|Brûlure
+c93|Congélation
+c94|Apocatastase
+c95|Bouillonnement
+c96|Résonance de l'âme
+c97|Symbole paradoxal
+c98|Égide rayonnante
+c99|Sillage
+c9a|Sillage
+c9b|Sillage (néfaste)
+c9c|Transe-Bahamut
+c9d|Transe-Phénix
+c9e|Vol éternel
+c9f|Flamme écarlate
+ca0|Révélation
+ca1|VerMiracle et VerBrasier préparés
+ca2|Riposte enchantée
+ca3|Zwerchhau enchanté
+ca4|Redoublement enchanté
+ca5|Riposte enchantée
+ca6|Zwerchhau enchanté
+ca7|Redoublement enchanté
+ca8|Barrière anti-magie
+ca9|Éreintage
+caa|Monomachie
+cab|Déplacement
+cac|●デプラスマン実行可
+cad|Transfert blanc
+cae|Transfert noir
+caf|●ポーション
+cb0|Revigoration
+cb1|Attache
+cb2|Lame de foi préparée
+cb4|ナルザルの天秤：死
+cb5|ナルザルの天秤：生
+cb6|Attaque sournoise
+cb7|Sur le fil
+cb8|Orogenèse
+cb9|Berserk
+cba|Lance acérée
+cbb|Souffle de vie
+cbc|Bonus de dégâts
+cbd|Poison concentré
+cbe|Décollage
+cbf|Griffes du Dragon divin
+cc0|Crocs du Dragon divin
+cc1|Sang du dragon
+cc2|Brûlure
+cc3|Brûlure
+cc4|Marque cryptique I
+cc5|Marque cryptique II
+cc6|Marque cryptique III
+cc7|Marque cryptique IV
+cc8|Flammes cryptiques I
+cc9|Flammes cryptiques II
+cca|Flammes cryptiques III
+ccb|Flammes cryptiques IV
+ccc|Portail cryptique
+ccd|Transfert forcé
+cce|Transfert impossible
+ccf|Transfert impossible
+cd0|Bénédiction nécromantique
+cd1|Écaille du dragon ancien
+cd2|Malédiction nécromantique
+cd3|Attache
+cd4|Enchevêtrement
+cd5|Diligence
+cd6|Glaciation
+cd7|Congélation
+cd8|Dégâts continus
+cd9|Champs de mèches
+cda|Écho déchu
+cdb|Grand écho déchu
+cdc|Écho damné
+cdd|Écho réprouvé
+cde|Chaîne maudite
+cdf|Malédiction dorée
+ce0|Malédiction argentée
+ce1|Mousse tonifiante
+ce2|Mousse givrée
+ce3|Mousse pétillante
+ce4|Extra Médica des Héritiers
+ce5|Excellence
+ce6|Écaille du dragon ancien
+ce7|Mur astral
+ce8|Malus de dégâts
+ce9|Mousse tonifiante
+cea|Mousse givrée
+ceb|Mousse pétillante
+cec|Sigil du vent
+ced|Sigil sacré
+cee|Double sigil du vent
+cef|Double sigil sacré
+cf0|Surcharge
+cf1|Changement éthéréen
+cf2|Mollusque parasite
+cf3|Crustacé parasite
+cf4|Incontrôlable
+cf5|Rongement cellulaire
+cf6|Conduite forcée
+cf7|Résistance aux attaques de mollusques réduite
+cf8|Résistance aux attaques de crustacés réduite
+cf9|Cellules magiques actives
+cfa|Mollusque parasite
+cfb|Résistance aux Ténèbres réduite
+cfc|Attache
+cfd|Conception magique
+cfe|Malédiction de gorgone : venin reptilien
+cff|Malédiction de gorgone : poison insidieux
+d00|Maléfice des vives-eaux
+d01|Maléfice des mortes-eaux
+d02|Concept immature : α
+d03|Concept immature : β
+d04|Concept immature : γ
+d05|Concept mature : α
+d06|Concept mature : β
+d07|Concept mature : γ
+d08|Rejet conceptuel
+d09|Conceptualisation : créature volante
+d0a|Conceptualisation : créature marine
+d0b|Conceptualisation : Raijû
+d0c|Conceptualisation : esprit des flammes
+d0d|Conceptualisation : créature venimeuse
+d0e|Conceptualisation : créature végétale
+d0f|Concept fragmentaire : oiseau immortel
+d10|Conceptualisation : oiseau immortel
+d11|Concept adverse simple
+d12|Concepts adverses multiples
+d13|Concept adverse puissant
+d14|Ciblage
+d15|Inversion magique
+d16|Dissociation corps-âme
+d17|Malédiction de gorgone : œil pétrifiant
+d18|Malédiction de gorgone : lueur pétrifiante
+d1e|Inimitié augmentée
+d1f|Dégâts continus
+d20|Vulnérabilité diminuée
+d21|Vulnérabilité augmentée
+d22|Incontrôlable
+d23|Séduction
+d24|Glas
+d25|Holos
+d26|Vulnérabilité augmentée
+d27|Recouvrement
+d28|Mithridatisation
+d2c|Résistance à la terre réduite+
+d34|Anti-résurrection
+d35|Feu astral III
+d36|Glace ombrale III
+d37|Destin victorieux
+d38|Destin victorieux
+d39|Destin amoureux
+d3a|Destin amoureux opposé
+d3b|Destin enflammé
+d3c|Destin enflammé opposé
+d3d|Lien fraternel divin
+d3e|Poison
+d3f|Double sigil du vent
+d40|Double sigil du vent
+d41|Double sigil du vent
+d42|Double sigil sacré
+d43|Double sigil sacré
+d44|Double sigil sacré
+d45|Sigil du vent
+d46|Sigil sacré
+d47|Poison
+d48|Mollusques parasites
+d49|Malus de PV
+d4a|La Flèche
+d4b|Tirage : le Tronc
+d4c|Tirage : la Flèche
+d4d|Barrière anti-dégâts
+d4e|Puissance de l'oiseau immortel
+d4f|Poison violent
+d50|Étourdissement
+d52|Déséquilibre éthéré : feu
+d53|Déséquilibre éthéré : glace
+d54|Description rituelle (ciblage)
+d55|Courage des Héritiers
+d56|Vulnérabilité magique augmentée
+d57|Vulnérabilité physique augmentée
+d58|Charge positive
+d59|Charge négative
+d5a|Charge positive
+d5b|Charge négative
+d5c|Barotraumatisme
+d5d|Attache
+d5e|Cuirasse
+d5f|Extravadanse du gentilhomme
+d60|Missile guidé P
+d61|Canon plasma longue portée
+d62|Canon plasma longue portée surchargé
+d63|Glitch : mi-distance
+d64|Glitch : distance
+d65|Bogue critique : performance
+d66|Déboguage : partage
+d67|Déboguage : boucle
+d68|Déboguage : dégradation
+d69|Déboguage : performance
+d6a|Bogue latent : partage
+d6b|Bogue latent : performance
+d6c|Dette technique : partage
+d6d|Dette technique : boucle
+d6e|Dette technique : dégradation
+d6f|Dette technique : performance
+d70|Dette technique : proximité
+d71|Dette technique : distance
+d72|Bonjour, le monde : proximité
+d73|Bonjour, le monde : distance
+d74|Poussée de dynamis
+d76|Éclat du dynamis+
+d77|Exécution : mi
+d78|Éclat du dynamis
+d79|Oméga
+d7a|Dépassement de limites
+d7b|Quatrième cible
+d7c|Canon plasma chercheur
+d7d|Canon plasma chercheur
+d7e|Oméga-M
+d7f|Liquéfaction
+d80|Boucle de programme
+d81|Entrave
+d82|Attaque ultime du gentilhomme préparée
+d83|Bénédiction d'azur
+d84|Bénédiction dorée
+d85|Cui cui
+d86|Poison
+d87|Paralysie
+d88|Lenteur
+d89|Étourdissement
+d8a|Sommeil
+d8b|Encens lumineux
+d8c|Charge d'électrochoc : avant
+d8d|Charge d'électrochoc : arrière
+d8e|Charge d'électrochoc : gauche
+d8f|Charge d'électrochoc : droite
+d90|Pesanteur
+d91|Pesanteur
+d92|Sprint des Manderville
+d93|Malédiction des flammes spectrales
+d94|Étreinte enflammée
+d95|Malédiction des flammes spectrales
+d96|Marque de ruine III
+d97|Congélation
+d98|Congélation
+d99|Congélation
+d9a|Glas
+d9b|Grosse malédiction explosive
+d9c|Malédiction explosive massive
+d9d|Malédiction explosive
+d9e|Flamme maudite
+d9f|Flamme maudite
+da0|Marque de moisson
+da1|Semi-clones inutilisables
+da2|Bonus de dégâts
+da3|Vulnérabilité diminuée
+da4|Recouvrement
+da5|Méga Lenteur
+da6|Cécité
+da7|Missile guidé P
+da8|Missile guidé P
+da9|Missile guidé P
+dab|Programme protecteur M
+dac|Programme protecteur F
+dad|Au tapis
+dae|Bébé hibou
+daf|Dette technique : proximité
+db0|Dette technique : distance
+db1|Malédiction des flammes enchaînées
+db2|Givre ancien
+db3|Canon plasma surchargé P
+db4|Canon plasma surchargé P
+db5|Canon plasma surchargé P
+db6|Canon plasma surchargé P
+db7|Œil pétrifiant de marionnette
+db8|Sporelunes
+db9|Commotion cérébrale
+dbb|Sprint des Manderville
+dbc|Vulnérabilité magique augmentée
+dbe|Mini
+dbf|Congélation
+dc0|Fumée sans feu
+dc1|Concussion
+dc2|Chaleur
+dc3|Réfrigération
+dc4|Bogue critique : partage
+dc5|Bogue critique : boucle
+dc6|Bogue critique : dégradation
+dc7|Bogue latent
+dc8|Bogue latent : dégradation
+dc9|Bogue intentionnel : proximité
+dca|Bogue intentionnel : distance
+dcc|Nombre magique
+dce|Cercle ancien
+dcf|Malédiction du feu ténébreux
+dd0|Vulnérabilité magique augmentée
+dd1|Brûlure
+dd2|Contrainte mentale : avancer
+dd3|Contrainte mentale : reculer
+dd4|Contrainte mentale : virage à gauche
+dd5|Contrainte mentale : virage à droite
+dd6|Âme de mage
+dd7|Âme d'artiste martial
+dd8|Âme de bête sauvage
+dd9|Âme de chimère
+dda|Voile étoilé
+ddb|Capture d'âme : Entrave
+ddc|Capture d'âme : Pesanteur
+ddd|Capture d'âme : action impossible
+dde|Lien pandæmoniaque
+ddf|Double lien pandæmoniaque
+de0|Attache
+de1|Pentacle de Lumière : harmonie
+de2|Pentacle de Ténèbres : harmonie
+de3|Pentacle de Lumière : dissonance
+de4|Pentacle de Ténèbres : dissonance
+de5|Vulnérabilité augmentée
+de7|Marque de disharmonie
+de8|Cible α
+de9|Cible β
+dea|Erreur système
+deb|Hurlement contre nature : dispersion
+dec|Hurlement contre nature : congrégation
+ded|Soin embranché
+dee|Ultimatum embranché
+def|Vie embranchée
+df0|Flèche spirituelle embranchée
+df1|Rempart embranché
+df2|Fureur incarnée
+df3|Jubilation incarnée
+df5|Flammes du crépuscule
+df6|Lame obscure
+df8|Polarisation ombrale
+df9|Polarisation astrale
+dfa|Marque de feu du ciel
+dfb|Marque de manifestation ombrale
+dfc|Marque de manifestation astrale
+dfd|Marque d'attaque ombrale
+dfe|Marque d'attaque astrale
+dff|Marque de croix
+e00|Marque de croix décussée
+e01|Âme enchaînée
+e02|Monde créé
+e03|Chaînes suppliciantes
+e04|Chaînes d'union
+e05|Chaleur matérielle
+e06|Présage de grand feu
+e07|Présage de courant d'air
+e08|Présage d'ignition
+e09|Facteur d'extinction
+e0a|Facteur létal
+e0b|Esprits spiritueux
+e0c|爆身変化
+e0d|Malédiction du momonga
+e0e|Malédiction du momonga
+e0f|Malédiction du momonga
+e10|Malédiction du momonga
+e11|Malédiction de la loutre choute
+e12|Malédiction de la loutre choute
+e13|Malédiction de la loutre choute
+e14|Malédiction de la loutre choute
+e15|Prière difforme : momonga
+e16|Prière difforme : loutre choute
+e17|Grand sceau de feu
+e18|Sceau de feu
+e19|Ciblage
+e1a|Flamme vengeresse
+e1b|Bûcher vengeur
+e1c|Circulation sanguine XXII
+e1d|Circulation sanguine I
+e1e|Œil incisif
+e1f|Pose imposante
+e20|Fûton
+e21|Ininflammable
+e22|Anti-facteur d'extinction
+e23|Résistance aux Ténèbres réduite
+e24|Monte impossible
+e25|Invincibilité magique
+e26|Bénédiction de vent et de foudre
+e27|Quatre saisons
+e28|Séduction
+e29|Entrave
+e2a|Charge de feu
+e2b|Charge de glace
+e2c|Charge de foudre
+e2d|Marche forcée
+e2f|Sheltron
+e30|Sheltron
+e31|マジカルブレス：雷
+e32|マジカルブレス：氷
+e33|マジカルブレス：火
+e34|Bain de boue
+e35|Grand nettoyage
+e36|Vulnérabilité physique diminuée
+e37|Vulnérabilité magique diminuée
+e38|Réprobation ailée
+e39|Bénédiction de l'Immaculé
+e3a|Canne en sucre d'orge
+e3b|Flamme mortelle
+e3c|Apokalypsis
+e3d|Saigneur du flanc
+e3e|Déchireur du flanc
+e3f|Saigneur de l'échine
+e40|Déchireur de l'échine
+e41|Déchiqueteur vorace
+e42|Déchiqueteur sanglant
+e49|Mordeur vicieux
+e4a|Mordeur frénétique
+e4b|Pivot vicieux
+e4c|Pivot frénétique
+e51|Impulsion vicieuse
+e52|Impulsion frénétique
+e53|Mortification
+e54|Prédation
+e55|Vélocité
+e56|Réminiscence
+e57|Réminiscence préparée
+e58|Lacération d'acier
+e59|Garde affaiblie
+e5a|Palette soustractive
+e5b|Sorts chromatiques 2 préparés
+e5c|Sorts chromatiques 3 préparés
+e5f|Gouttes arc-en-ciel améliorées
+e60|Combo Marteau préparé
+e61|Prisme d'étoiles préparé
+e63|Prisme d'étoiles
+e64|Barbouillage
+e65|Imagi Ciel
+e66|Enduit a tempera
+e67|Tempera grassa
+e68|Installation
+e69|Installation artistique
+e6a|Palette soustractive préparée
+e6b|Inversion de couleur
+e6c|Poison concentré
+e6d|Ça glisse
+e6e|Fulguration
+e6f|Sceau de ruine : IV
+e70|Quadruple lien pandæmoniaque
+e71|Étreinte mortelle
+e72|Contrainte mentale : avancer
+e73|Contrainte mentale : reculer
+e74|Contrainte mentale : virage à gauche
+e75|Contrainte mentale : virage à droite
+e76|Tournis
+e77|Ça dérape
+e78|Cristal en mains
+e79|Brûlure du vent
+e7a|Brûlure du vent
+e7b|Bonus de dégâts magiques
+e7c|Mode spectateur
+e7d|Virevolte
+e7e|Esquive habile
+e80|Souffle magique
+e81|Englué
+e82|Marquage
+e83|Contrainte mentale : avancer
+e84|Contrainte mentale : reculer
+e85|Contrainte mentale : virage à gauche
+e86|Contrainte mentale : virage à droite
+e87|Marche forcée
+e88|回転角2倍
+e89|Triple rotation
+e8a|回転角4倍
+e8b|Cible de bombardement
+e8c|Éthéroplasma diminutif α
+e8d|Éthéroplasma diminutif β
+e8e|Devant protégé
+e8f|Dos protégé
+e90|Flanc droit protégé
+e91|Flanc gauche protégé
+e92|Au tapis
+e93|Marque des Ténèbres
+e94|Hiéroglyphe de l'Érudit
+e95|Révérence : oiseau sacré
+e96|Révérence : tortue sacrée
+e97|Révérence : baleine sacrée
+e98|吸魔
+e99|Marche forcée
+e9b|Manipulation temporelle
+e9c|Éblouissement
+e9d|Pouvoir céleste
+e9e|Fléchette de tonnerre
+e9f|Filet de bulles : écho
+ea0|Filet de bulles
+ea2|Prison de bulles
+ea3|Cible de pilonnage hydrique
+ea4|Cible de barillet hydrique
+ea5|Englué
+ea6|拘束
+ea7|Barrière thérapeutique
+ea8|Baume oasien
+ea9|Baume oasien
+eaa|Vague caniculaire
+eab|Attache
+eac|Bonus de dégâts
+ead|Vulnérabilité diminuée
+eae|Ardeur du rroneek
+eaf|Psychose
+eb0|Big bang
+eb1|Big bounce
+eb2|Ténèbres rongeuses : Pulvérisation
+eb3|Ténèbres rongeuses : Gravité
+eb4|Ténèbres rongeuses : Dualité
+eb5|Ténèbres rongeuses : Regard
+eb6|Ténèbres rongeuses : Chaînes
+eb7|Chaîne abyssale
+eb8|Aire d'effet élargie
+eba|Anomalie gravitationnelle
+ebb|Embrasement primordial
+ebc|Lacération mortelle
+ec0|Entrave
+ec1|Œdème
+ec2|Œdème
+ec3|Électrocution
+ec6|Entrave
+ec7|Sang chaud du rroneek
+ec8|Sang chaud du br'aax
+ec9|Sang chaud du luwatena
+eca|Mature
+ecc|Agglutination de bulles
+ecd|Entrave
+ece|Quintuple rotation
+ecf|Vitesse de déplacement accrue
+ed1|Bombe à accélération
+ed2|Ténèbres rongeuses : Gravité
+ed3|Dégâts continus
+ed4|Début de commotion cérébrale
+ed5|Œdème
+ed6|Œdème
+ed7|Éclair ramifié
+ed9|Iris perçants
+eda|Bombe à accélération
+edb|Ailes renforcées
+edc|Ravisseuses renforcées
+edd|Furie
+ede|Galvanisation
+edf|Galvanisation
+ee0|Libération directionnelle
+ee1|Petit piège cristallin
+ee2|Grand piège cristallin
+ee3|Cristallisation
+ee4|Opportunité experte
+ee5|Main suprême
+ee6|Anomalie gravitationnelle
+ee7|Soumission absolue : pétrification
+ee9|Catastrophe de feu
+eea|Grande catastrophe de feu
+eeb|Petite catastrophe de feu
+eec|Catastrophe de glace
+eed|Grande catastrophe de glace
+eee|Petite catastrophe de glace
+eef|Catastrophe de foudre
+ef0|Grande catastrophe de foudre
+ef1|Malédiction du grand serpent ?
+ef2|Brûlure
+ef3|Oraison préparée
+ef4|Sépulcre préparé
+ef5|Garde extrême
+ef6|Garde extrême
+ef7|Lame d'honneur préparée
+ef8|Damnation
+ef9|Palpitations bestiales
+efa|Dévastateur préparé
+efb|Vigile ténébreux
+efc|Delirium de sang
+efd|Sillon de morgue préparé
+efe|Grande nébuleuse
+eff|Insigne fatidique préparé
+f00|Combo du cœur préparé
+f01|Grondement de la terre
+f02|Grondement du vent
+f03|Grondement du feu
+f04|Naströnd préparé
+f05|Envol du dragon préparé
+f06|Traversée céleste préparée
+f07|Lame étripante préparée
+f08|Camouflage shinobi
+f09|Dokumori
+f0a|Technique interdite
+f0b|Tenri Jindô préparé
+f0c|Tsubamegaeshi préparé
+f0d|Tengentsû
+f0e|Tengentsû : Sei
+f0f|Zanshin préparé
+f10|Tendô
+f11|Sacrificium préparé
+f12|Bourreau
+f13|Perfectio occulta
+f14|Perfectio parata
+f15|Œil de faucon
+f16|Flèche résonante préparée
+f17|Rappel radieux préparé
+f18|Hypercharge préparée
+f19|Excavation préparée
+f1a|Rafale de métal préparée
+f1b|Ultime danse préparée
+f1c|Mouvement final préparé
+f1d|Danse de l'aurore préparée
+f1e|Électrifié
+f1f|Foudre majeure
+f20|Extra Foudre majeure
+f21|Étoile ardente préparée
+f22|Lux solaris préparée
+f23|Combo Magilame préparé
+f24|Épine croisée préparée
+f25|Impact majestueux préparé
+f26|Syncristallisation préparée
+f27|Giga Chatoiement préparé
+f28|Méga Médica
+f29|Caresse divine préparée
+f2a|Impaction venimeuse préparée
+f2b|Impaction venimeuse
+f2c|Séraphisme
+f2d|Aura séraphique
+f2e|Rupture sonique préparée
+f2f|La Balance
+f30|La Flèche
+f31|L'Épieu
+f32|Le Tronc
+f33|L'Aiguière
+f34|La Tour
+f35|Oracle préparé
+f36|Hélios combiné
+f37|Signe solaire préparé
+f38|Signe solaire
+f39|Dyskrasia eucrasique
+f3a|Philosophia
+f3b|Eudémonisme
+f3c|Damné
+f3d|Trépidation bestiale préparée
+f3e|Garde ténébreuse
+f3f|Caresse divine
+f40|Caresse divine
+f41|Linceul du lémure préparé
+f42|Kunai explosifs
+f43|Connaissance des grosses proies
+f44|Au tapis
+f45|Fulguration
+f46|Toucher d'amorçage
+f47|Œil vif puissant
+f48|Cri de détermination
+f4a|Combativité
+f4b|Affection empoisonnée
+f4d|Séduction : un peu
+f4e|Séduction : beaucoup
+f4f|Séduction : passionnément
+f50|À la folie
+f51|Sacrifice d'amour
+f53|Séduction : un peu
+f54|Séduction : beaucoup
+f55|Séduction : passionnément
+f56|Séduction : soumission
+f57|ナーヴトキシン：前
+f58|ナーヴトキシン：後
+f59|ナーヴトキシン：左
+f5a|ナーヴトキシン：右
+f5b|Neuf-Vies
+f5c|Poison de l'amour α
+f5d|Poison de l'amour β
+f5e|Ballon de poison
+f5f|Résistance au poison réduite+
+f60|Gelée royale
+f61|Affection envoûtante
+f62|Triple rotation
+f63|Quintuple rotation
+f64|Poison paralysant
+f66|Terreur
+f67|Maladie
+f69|Intimidation du rroneek
+f6a|Détermination turalienne
+f6c|Bonne bouille
+f6d|Ectoplasme
+f6e|Embrouilles
+f6f|Cœur de rroneek
+f70|Palpitations de rroneek
+f71|Femme fatale
+f72|Âme du Tural
+f73|Amour du Tural
+f74|Eukrasia
+f75|VerExtra Médica
+f76|Super-muscles
+f77|Super-concentration
+f78|Super-magie
+f79|Excitation
+f7a|Surdosage
+f7b|Paralysie
+f7c|Malus de dégâts
+f7d|Infirmité
+f7e|Saignement
+f7f|Soins diminués
+f80|Illusion d'optique
+f81|Illusion d'optique
+f84|Chances de proies de grande taille augmentées
+f85|Chances de proies de petite taille augmentées
+f86|Lévitation
+f87|Bonus de dégâts
+f88|Dosis eucrasique III
+f89|Décharge croisée
+f8a|Décharge en X
+f8b|Accumulation électrique
+f8c|Paralysie électrique
+f8d|Poison violent
+f8e|Poison violent
+f8f|Au tapis
+f90|Tempérance
+f91|Tempérance
+f92|Méga Médica
+f93|Méga Médica des Héritiers
+f94|Adepte de la neutralité
+f95|Macrocosme
+f96|ドロー[1]
+f97|ドロー[2]
+f98|ドロー[3]
+f99|ドロー[4]
+f9a|ドロー[5]
+f9b|ドロー[6]
+f9c|Équilibriste
+f9d|Camouflage
+f9e|Résistance à Vague dansante réduite
+f9f|Accumulateur de foudre
+fa0|Positron
+fa1|Négatron
+fa2|Fulguroconduction éloignée
+fa3|Fulguroconduction proche
+fa4|Fulgurostatique circulaire
+fa5|Fulgurostatique annulaire
+fa6|Suraccumulation de foudre
+fa7|Bombe sulfurée
+fa8|Anti-bombe sulfurée
+fa9|Protocole inversé
+faa|Yeux capricieux
+fab|Prévisions météo : vague caniculaire
+fac|Prévisions météo : tempête électrique
+fad|Prévisions météo : tempête de vent
+fae|Prévisions météo : tempête de glace
+fb3|Chaîne de la mort
+fb4|Bombarium
+fb5|Dopage
+fb6|Surdopage
+fb7|Mégadopage
+fbd|Attaque giratoire gauche
+fbe|Attaque giratoire droite
+fbf|Attaque giratoire gauche
+fc0|Attaque giratoire droite
+fc1|Encouragements
+fc2|Protection parfaite
+fc3|Protection réduite
+fc4|Faille : côté droit
+fc5|Faille : côté gauche
+fc6|Faille : avant
+fc7|Faille : arrière
+fc8|Rencontre céleste
+fc9|Tirage : la Balance
+fca|Tirage : le Tronc
+fcb|Tirage : la Flèche
+fcc|Tirage : l'Épieu
+fcd|Tirage : l'Aiguière
+fce|Tirage : la Tour
+fcf|Projection
+fd0|Neuf-Vies : un-deux
+fd1|Neuf-Vies : Quadruple griffade
+fd2|Neuf-Vies : droite
+fd3|Neuf-Vies : gauche
+fd4|Neuf-Vies : Quadruple fauchage
+fd5|Neuf-Vies : Double fauchage
+fe0|Moulin à paroles
+fe1|Sommeil de plomb
+fe2|Sommeil de plomb
+fe3|Insomnie
+fe4|Saignement
+fe7|Charge positive
+fe8|Charge négative
+fe9|Prévisions rectifiées : vague caniculaire
+fea|Prévisions rectifiées : tempête de glace
+feb|Prévisions rectifiées : tempête électrique
+fec|Prévisions rectifiées : tempête de vent
+ffe|Réminiscence
+fff|Reptation
+1000|Écailles inflexibles
+1001|Écailles protectrices
+1002|Sang ophidien
+1003|Mortification
+1004|Sorts chromatiques 2 préparés
+1005|Sorts chromatiques 3 préparés
+1006|Palette soustractive
+1007|Symbole Mog
+1008|Symbole Marthym
+1009|Picto Pompon
+100a|Picto Ailes
+100b|Picto Griffes
+100c|Picto Crocs
+100d|Imagi Pompon
+100e|Imagi Ailes
+100f|Imagi Griffes
+1010|Imagi Crocs
+1011|Barbouillage
+1012|Enduit a tempera
+1013|Tempera grassa
+1014|Mur de gras
+1015|Mur de gras appliqué
+1016|Prisme d'étoiles préparé
+1017|Prisme d'étoiles
+1018|Prédation
+1019|Vélocité
+101a|Flammes catastrophiques
+101b|Absorption des PV
+101c|Ébauche de Pompon
+101d|Ébauche d'Ailes
+101e|Ébauche de Griffes
+101f|Ébauche de Crocs
+1020|Mimétisme
+1021|Résolution de l'Aurore
+1022|Soumission absolue : explosion
+1024|Au tapis
+1025|Hâte
+1026|Lame abominable
+1027|●攻撃回想
+1028|Accumulation d'éther
+1029|Saignement
+102a|Saignement
+102b|Ectoplasme
+102c|Chaleur graduelle
+102d|Contrôle calorifique : chaud
+102e|Contrôle calorifique : froid
+102f|Charme mielleux
+1030|Bombe à accélération
+1031|Colère mielleuse
+1033|Frénésie proche
+1034|Frénésie éloignée
+1035|Dégâts continus
+1036|Congélation
+1037|Posture rotative : gauche
+1038|Posture rotative : droite
+1039|Posture rotative : avant
+103a|Posture rotative : arrière
+103b|Posture rotative : gauche
+103c|Posture rotative : droite
+103d|Chaînes de Lumière infinie
+103e|Lien de Lumière infinie
+103f|Présage de Lumière intense
+1040|Admonestation de la prêtresse de la Lumière
+1041|Admonestation de la prêtresse des Ténèbres
+1042|Vulnérabilité physique augmentée
+1043|Étourdissement
+1044|Résistance à la Lumière réduite+
+1045|Marque de mort explosive
+1046|Marquage fatal enchaîné
+1047|Hystérie
+1048|Rempart
+1049|Sang chaud du rroneek
+104a|Ardeur du br'aax
+104b|Sort déphasé : Extra Retour
+104c|Extra Retour
+104d|Écailles renforcées
+104e|Sort déphasé : Quietus
+104f|Barrière de flammes
+1050|バインド
+1051|Barrière de Ténèbres : intérieur
+1052|Barrière de Ténèbres : extérieur
+1053|Voile de Ténèbres
+1054|Déploiement arcanique
+1055|Enlacement ténébreux
+1056|Vapeurs caustiques
+1057|En entraînement
+1058|Rage incandescente
+1059|Chaîne de rage
+105a|Soumission absolue : explosion étendue
+105b|Soumission absolue : explosion violente
+105c|Soumission absolue : explosion
+105d|Vent du levant
+105e|Vent du ponant
+105f|Recouvrement
+1060|Combat décisif α
+1061|Combat décisif α
+1062|Combat décisif β
+1063|Combat décisif β
+1064|Combat décisif γ
+1065|Combat décisif γ
+1066|Destro-frappes
+1070|Sort déphasé : Retour
+1071|Foulée
+1072|Amnésie
+1073|Envoûtement du feu
+1074|Envoûtement de la glace
+1075|Tentation du feu
+1076|Tentation de la glace
+1078|Tsubamegaeshi préparé
+1079|Tsubamegaeshi préparé
+107a|Tsubamegaeshi préparé
+107b|Lévitation
+107c|Miracle de la matière
+1081|Égide de glace
+1082|Maître fantôme
+1083|Équipe optimale
+1084|Changement de job impossible
+1085|Passion du combat
+1086|Assistant
+1087|Défense
+1088|Prière
+1089|Prière protectrice
+108a|Promesse
+108b|Fureur
+108c|Brutalité
+108d|Coups de pied
+108e|Posture
+108f|Posture athlétique
+1090|Ciblage
+1091|Ciblage sûr
+1092|Freelance fantôme
+1093|Magi Licorne
+1094|Lied arrêté
+1095|Shirahadori
+1096|Hymne militaire
+1097|Menuet vaillant
+1098|Magi Stop
+1099|Héroïque
+109a|Contrecoup héroïque
+109b|Cloche de combat
+109c|Cloche d'attaque
+109d|Pluie salvatrice
+109e|Illusion fugace
+109f|Apparition intense
+10a0|Force éthérée
+10a1|Cloche de détente
+10a2|Flottement
+10a3|Magi Bâillonnement
+10a4|Magi Accélération offensive
+10a5|Magi Accélération athlétique
+10a6|Anti-résurrection
+10a7|Résurrection impossible
+10a8|Déclin
+10a9|Prédiction : jugement divin
+10aa|Prédiction : purification
+10ab|Prédiction : bénédiction
+10ac|Prédiction : météorites
+10ad|Prédiction fallacieuse
+10ae|Bénédiction
+10af|Récupération
+10b0|Récupération prédite
+10b1|Châtiment
+10b2|Rajeunissement
+10b3|Immortalité
+10b4|Magi Élan
+10b5|Vigilance
+10b6|Agression
+10b7|Désarmement
+10b8|Couchant nébuleux
+10b9|Oraison préparée
+10ba|Sépulcre préparé
+10bb|Frappe de bouclier
+10bc|Chaos intérieur préparé
+10bd|Dévastateur préparé
+10be|Trépidation bestiale préparée
+10bf|Palpitations bestiales
+10c0|Punition réciproque préparée
+10c1|Brise-montagne préparé
+10c2|Sillon de morgue préparé
+10c3|インペイルメント実行可
+10c4|ハートコンボ実行可
+10c5|Insigne fatidique préparé
+10c6|Insigne fatidique
+10c7|Cœur de corindon
+10c8|Catharsis de corindon
+10c9|ラフディバイド
+10ca|プシュケー
+10cb|ブラッドドロー
+10cc|絶空拳
+10cd|Grondement du feu
+10ce|Traversée céleste préparée
+10cf|Dokumori
+10d0|Doton
+10d1|Zeshô Meppô préparé
+10d2|Kuzushi jaku
+10d3|Guillotine tortionnaire préparée
+10d4|Arrêt de mort
+10d5|Perfectio parata
+10d8|Rappel héroïque
+10d9|Liens de l'aurore
+10da|Danse de l'aurore
+10db|Couronne de feu
+10dc|Couronne de glace
+10dd|Astres élémentaires
+10de|クリムゾンサイクロン
+10df|Calcination
+10e0|Forte
+10e1|Épine croisée préparée
+10e2|Syncristallisation préparée
+10e3|アンガジェマン実行可
+10e4|Dessin rapide
+10e5|ハート・オブ・ミゼリ
+10e6|Giga Chatoiement préparé
+10e7|Séraphisme
+10e8|Reine des couronnes
+10e9|Roi des couronnes
+10ea|Épicycle
+10eb|Rétrogradation préparée
+10ec|Oracle préparé
+10ed|Léthargie
+10ee|Eau abjecte
+10ef|Geôle de glace
+10f0|Marque inférieure de la hache
+10f1|Marque supérieure de la hache
+10f2|Marque de la lance
+10f3|Descellage
+10f4|Entrave
+10f5|Pesanteur
+10f6|Trésor maudit
+10f7|Trésor maudit
+10f8|Trésor maudit
+10f9|Sou maudit
+10fa|Obligation d'achat
+10fb|Obligation d'achat
+10fc|Obligation d'achat
+10fd|Fureur
+10fe|Au tapis
+10ff|Souverain ténébreux
+1100|Couvert
+1101|Flottement forcé
+1102|Cible de comète
+1103|Défense ténébreuse
+1104|Attaque ténébreuse
+1105|Portée d'action changée
+1106|Paladin fantôme
+1107|Berserker fantôme
+1108|Moine fantôme
+1109|Rôdeur fantôme
+110a|Samouraï fantôme
+110b|Barde fantôme
+110c|Géomancien fantôme
+110d|Chronomancien fantôme
+110e|Artilleur fantôme
+110f|Alchimiste fantôme
+1110|Devin fantôme
+1111|Voleur fantôme
+1112|Malus de dégâts
+1113|Malus de dégâts
+1114|Marque de mort
+1115|Déphasage incantatoire
+1116|Étourdissement
+1117|Vulnérabilité augmentée
+1118|Charge
+1119|Décollage
+111a|Étourdissement
+111b|Poison violent
+111c|Absorption vitale
+111d|ドレッドセンチネル
+111e|Mémoire de foudre
+111f|Résistance au feu réduite+
+1120|Panier rempli
+1121|Super sprint
+1122|Résistance à la foudre réduite
+1125|Châtiment du vent
+1126|Châtiment de la terre
+1127|Fléau de la terre
+1128|Fléau du vent
+1129|Entrave terrestre
+112a|Résonance du vent
+112b|Résonance de la terre
+112c|Fléau du loup solitaire proche
+112d|Fléau du loup solitaire éloigné
+112e|Cosmosprint
+112f|Giga Ruine préparée
+1130|Assaut écarlate préparé
+1132|Illumination séraphique
+1133|Assaut écarlate préparé
+1134|Naströnd préparé
+1135|Gain de puissance
+1137|Bonus de dégâts
+1139|Marque de contributeur exemplaire
+113a|Invulnérable
+113c|Sagacité des Prœufs
+113d|Fortune des Prœufs
+113e|Hameçon additionnel
+113f|Marque de contributeur exemplaire
+1140|Résistance à Interruption
+1141|Posture rotative : avant
+1142|Posture rotative : arrière
+1143|Posture rotative : gauche
+1144|Posture rotative : droite
+1145|Posture rotative : avant
+1146|Posture rotative : arrière
+1147|Posture rotative : gauche
+1148|Bénédiction des Prœufs
+1149|Posture rotative : droite
+114a|Posture rotative : avant
+114b|Posture rotative : arrière
+114c|Posture rotative : gauche
+114d|Posture rotative : droite
+114e|Posture rotative : gauche
+1150|Encouragements
+1151|Étourdissement
+1154|Vulnérabilité diminuée
+1155|Recherche étendue préparée
+1156|Combat décisif : Tritonien
+1157|Combat décisif : Néregat
+1158|Combat décisif : Phobos
+1159|Toxicité brûlante
+115a|Toxicité glaciale
+115b|Boule de neige
+115c|Poison minéral
+115d|Pétrification
+115e|Agent explosif proche
+115f|Agent explosif éloigné
+1160|Surcharge thermique
+1161|Coup de chaud
+1162|Emblème ailé
+1163|Couleurs chaudes
+1164|Couleurs froides
+1165|Mousse collante
+1166|Accumulation thermique
+1167|Résistance au feu accrue
+1168|Résistance à la foudre réduite+
+1169|Félin vexé
+116a|Aux armes
+116b|Face programmée
+116c|Enfer du disco
+116d|Enfer du disco
+116e|Bombe sonore α
+116f|Bombe sonore β
+1170|Groove parfait
+1172|Mise à mort épineuse I
+1173|Mise à mort épineuse II
+1174|Mise à mort épineuse III
+1175|Mise à mort épineuse IV
+1176|Silence
+1177|Pose réussie
+1178|Pose ratée
+1179|Marquage
+117a|Droit d'entrée à la Tour fourchue
+117b|Gravité figée
+117c|Ravage
+117d|Vélocité
+117e|Célérité extrême
+117f|Courage
+1180|Émoussement
+1181|Extra Cuirasse
+1182|Diabrosis
+1183|Action de rôle JcJ : Ravage
+1184|Action de rôle JcJ : Rempart
+1185|Action de rôle JcJ : Plein élan
+1186|Action de rôle JcJ : Bain de sang
+1187|Action de rôle JcJ : Vélocité
+1188|Action de rôle JcJ : Châtiment
+1189|Action de rôle JcJ : Célérité extrême
+118a|Action de rôle JcJ : Courage
+118b|Action de rôle JcJ : Œil d'aigle
+118c|Action de rôle JcJ : Comète
+118d|PvPロールアクション：バリア
+118e|Action de rôle JcJ : Émoussement
+118f|Action de rôle JcJ : Soin
+1190|Action de rôle JcJ : Extra Cuirasse
+1191|Action de rôle JcJ : Diabrosis
+1192|Économie d'énergie
+1193|Mise à mort épineuse I
+1194|Mise à mort épineuse II
+1195|Mise à mort épineuse III
+1196|Mise à mort épineuse IV
+1197|Brûlure
+1198|Électrocution
+119d|Entraves flottantes
+119e|Entrave
+119f|Brûlure
+11a0|Morsure du feu
+11a1|Transfert de pilote
+11a2|Malus de dégâts
+11a4|Action de rôle JcJ : Projectile fantôme
+11a5|Exhaltation du champion
+11a6|Noirceur de l'au-delà
+11a7|Fardeau de l'au-delà
+11a8|Sprint
+11b9|Malédiction pétrificante
+11ba|Bonus de dégâts
+11bb|Invulnérable
+11bc|Résistance au perforant réduite
+11be|Astreinte du bourreau α
+11bf|Astreinte du bourreau β
+11c0|Astreinte du bourreau γ
+11c1|Astreinte du bourreau δ
+11c2|Astreinte du condamné α
+11c3|Astreinte du condamné β
+11c4|Astreinte du condamné γ
+11c5|Astreinte du condamné δ
+11c6|Délivrance du condamné
+11c7|Charge positive
+11c8|Charge négative
+11c9|Troubles sensoriels
+11ca|Main à la pâte
+11cb|Travail forcé
+11cc|Travail intense
+11cd|Travail acharné
+11ce|Glas
+11cf|Écho de Ténèbres
+11d0|Écho de Lumière
+11d1|Concordance d'âmes
+11d2|Chaînes de flammes
+11d3|Chaînes incandescentes
+11d4|Menottes d'admonestation : Soin
+11d5|Menottes d'admonestation : Aptitudes
+11d6|Jardin de flammes
+11d7|Accumulation de péchés
+11d8|Paroxysme du péché
+11d9|Absolution
+11da|Bonus de dégâts de feu
+11db|Bonus de dégâts de ténèbres
+11dc|Bonus de dégâts de lumière
+11dd|Steak à point
+11de|Pression du Gardien
+11e2|Attache
+11e3|Pointes de feu
+11e4|Tir préventif
+11e5|Paradis transcendé
+11e7|Enfeuillé
+11e8|Lumière nocturne de la quiétude
+11e9|Électrocution
+11ea|Mystiféecation
+11eb|Bénédiction des prêtres
+11ec|Bénédiction des moines
+11ed|Charme de purification
+11ee|Temps de recharge réduit
+11ef|Encens inutilisable
+11f2|Glas
+1202|Destro-frappes
+1203|Rayon extracteur opérationnel
+1204|Ruée plasma opérationnelle
+1205|Lame chargée
+1207|Cendres déflagrantes : dispersion
+1208|Cendres détonantes : congrégation
+1209|Cendres calcinantes
+120a|Tenir bon
+1211|Immunisé aux rafales
+1213|Furie
+1214|Jardinage en cours
+122c|Poison violent
+124b|Glas
+1264|Transformation
+1265|Super sprint
+1266|Bonus de PV
+126e|Hâte
+126f|Portée de plasma hyperconducteur
+1270|Surcharge turbo
+1272|Fruit de morbol
+1273|Protection du Monarque
+1274|Chaînes aqueuses proches
+1275|Chaînes aqueuses éloignées
+1276|Cible de déferlement soudain
+1277|Éther amplifié
+1278|Éther décuplé
+1279|Bombe ailée
+127a|Enfer carcéral : séquelles
+127b|Enfer carcéral : sentence
+127c|Enfer carcéral : sentence
+127d|Enfer carcéral : sentence
+127e|Enfer carcéral : sentence
+127f|Enfer carcéral : sentence
+1280|Enfer carcéral : sentence
+1281|Enfer carcéral : sentence
+1282|Enfer carcéral : sentence
+1283|Enfer carcéral : défi
+1284|Enfer carcéral : défi
+1285|Enfer carcéral : défi
+1286|Enfer carcéral : défi
+1287|Enfer carcéral : défi
+1288|Enfer carcéral : défi
+1289|Enfer carcéral : défi
+128a|Enfer carcéral : défi
+128b|Cellules déflagrantes avant
+128c|Cellules déflagrantes arrière
+128d|Cellules détonantes
+128e|Cellules détonantes : explosion violente
+128f|Cellules détonantes : explosion directionnelle
+1290|Cellules enchaînées α
+1291|Cellules enchaînées α (néfastes)
+1292|Cellules enchaînées β
+1293|Cellules enchaînées β (néfastes)
+1294|連環細胞
+1295|連環細胞［害］
+1296|Facteur de régénération
+1297|Cellules déflagrantes avant
+1298|Cellules déflagrantes arrière
+1299|Cellules détonantes
+129a|Cellules détonantes : explosion violente
+129b|Cellules létales
+129c|Cellules dispersées
+129d|Magie du grand serpent
+129e|Magie du grand serpent éloignée
+129f|Magie du grand serpent proche
+12a0|Ardeur du combat
+12a1|Cellules mutantes α
+12a2|Mutation cellulaire
+12a3|Cellules mutantes β
+12a4|Malédiction du grand serpent
+12a5|Augure : est
+12a6|Augure : ouest
+12a7|Augure : est, ouest
+12a8|Augure : sud
+12a9|Augure : est, sud
+12aa|Augure : ouest, sud
+12ab|Augure : est, ouest, sud
+12ac|Augure : nord
+12ad|Augure : est, nord
+12ae|Augure : ouest, nord
+12af|Augure : est, ouest, nord
+12b0|Augure : sud, nord
+12b1|Augure : est, sud, nord
+12b2|Augure : ouest, sud, nord
+12b3|Augure : est, ouest, sud, nord
+12b4|Magi Blindage
+12b5|Magi Lame renforcée
+12b6|Magi Lame Brasier
+12b7|Magi Lame Brasier
+12b8|Défense de fer
+12b9|Coup fatal renforcé
+12ba|Danse du sabre
+12bb|Tango enchanteur
+12bc|Boogie-woogie
+12bd|Valse mystérieuse
+12be|Pas leste
+12bf|Pas leste offensif
+12c0|Position fermée
+12c1|Envoûtement intense
+12c2|Envoûtement
+12c3|Chevalier mage fantôme
+12c4|Gladiateur fantôme
+12c5|Danseur fantôme
+12d5|Charge positive
+12d6|Charge négative
+12d7|Charge positive
+12d8|Charge négative
+12d9|Ondulation enflammée coordonnée
+12da|Ondulation hydrique coordonnée
+12db|Ondulation enflammée Xtrême
+12dc|Ondulation hydrique Xtrême
+12dd|Geôle aqueuse
+12de|ハイドロエーテル
+12df|En territoire ennemi
+12e0|Bonus de Transcendance
+12e4|Picto Papillons
+12e5|Lévitation magnétique
+12e6|Pesanteur magnétique
+12e7|Cosmomain sûre
+12e8|Barrière chevaleresque
+12e9|Prière divine
+12ea|Vélocité chevaleresque protectrice
+12eb|Vélocité chevaleresque athlétique
+12ec|Malédiction des flammes enchaînées α
+12ed|Malédiction des flammes enchaînées β
+130c|Téléportation perfide
+130d|Téléportation perfide
+130e|Téléportation perfide
+130f|Téléportation perfide
+1312|Corrosion par le néant
+1313|Malédiction de l'emporte-tombe
+1314|Maudit par l'emporte-tombe
+1315|●ターゲット
+1316|●ターゲット対象外
+1317|_rsv_4887_-1_3_0_0_S74CFC3B0_E74CFC3B0
+1318|_rsv_4888_-1_3_0_0_S74CFC3B0_E74CFC3B0
+131c|Œil d'aigle embranché
+131e|Sommeil
+135b|Vulnérabilité diminuée
+1365|Bénédiction des neiges
+1366|Augure : est
+1367|Augure : ouest
+1368|Cible de barillet hydrique
+136c|Amour fraternel
+136d|Événement
+136e|Ondulation enflammée
+136f|Ondulation hydrique
+1370|Cellules détonantes : explosion directionnelle
+1384|Super laser extracteur préparé
+13b3|Étourdissement
+13b4|Pesanteur
+13b5|Résistance au feu réduite+
+13b6|Résistance aux Ténèbres réduite
+13b7|Prison de bulle
+13bb|Cartouche de sang
+13c2|Piège de pierre
+13d6|_rsv_5078_-1_3_0_0_S74CFC3B0_E74CFC3B0
+13d7|Téléportation perfide
+13d8|Téléportation perfide
+13d9|Téléportation perfide
+13da|Téléportation perfide
+13db|_rsv_5083_-1_3_0_0_S74CFC3B0_E74CFC3B0
+1418|_rsv_5144_-1_3_0_0_S74CFC3B0_E74CFC3B0
+1420|Charge lourde
+1436|Marche forcée
+1440|Glas
+1441|Glas
+1443|Glas
+1447|Détections des mouvements
+1448|Contrainte mentale : avancer
+1449|Contrainte mentale : reculer
+144a|Contrainte mentale : virage à gauche
+144b|Contrainte mentale : virage à droite
+14df|Lumière guide
+14e6|_rsv_5350_-1_3_0_0_S74CFC3B0_E74CFC3B0
+14e7|_rsv_5351_-1_3_0_0_S74CFC3B0_E74CFC3B0
+14e8|Cape du crépuscule de Lumière
+14e9|Cape du crépuscule de Ténèbres
+14eb|Cercle de soin
+14ed|Défié au combat
+14ee|Défié au combat
+14ef|Défié au combat
+14f0|Défié au combat
+14f1|Défié au combat
+14f2|Défié au combat
+14f3|Défié au combat
+14f4|Défié au combat
+14f5|Défie au combat
+14f6|Défie au combat
+14f7|Défie au combat
+14f8|Défie au combat
+14f9|Défie au combat
+14fa|Défie au combat
+14fb|Défie au combat
+14fc|Défie au combat
+1500|Défense absolue
+1501|Défense absolue
+1516|Sigil du vent d'est
+1517|Sigil du vent d'ouest
+151f|Ensecrètement
+1524|Cartouche de formule
+1525|Rempli de formule
+1540|ライトクローク
+1541|ダーククローク
+154c|_rsv_5452_-1_3_0_0_S74CFC3B0_E74CFC3B0
+154d|_rsv_5453_-1_3_0_0_S74CFC3B0_E74CFC3B0
+154e|_rsv_5454_-1_3_0_0_S74CFC3B0_E74CFC3B0
+1558|_rsv_5464_-1_3_0_0_S74CFC3B0_E74CFC3B0
+155b|Vulnérabilité diminuée
+1561|Glas
+159b|Casse-montagnes
+15a5|Lésion du vivant
+15a6|Lésion du défunt
+15a7|Cri du maléfice
+15a8|Éclair ramifié
+15a9|Compression aqueuse
+15aa|Bombe à accélération
+15ab|Flammes du chaos
+15ac|Eaux du chaos

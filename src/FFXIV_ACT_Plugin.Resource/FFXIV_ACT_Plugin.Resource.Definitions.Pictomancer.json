@@ -1,0 +1,235 @@
+{
+    "job": "pictomancer",
+    "actions": [
+        {
+            "875a": "\u706b\u708e\u4e4b\u7ea2",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "875b": "\u75be\u98ce\u4e4b\u7eff",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "875c": "\u6d41\u6c34\u4e4b\u84dd",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8760": "\u70c8\u708e\u4e4b\u7ea2",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8774": "\u83ab\u53e4\u529b\u6fc0\u6d41",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "876e": "\u7ed2\u7403\u6784\u60f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "876f": "\u7fc5\u8180\u6784\u60f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8761": "\u70c8\u98ce\u4e4b\u7eff",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8762": "\u6fc0\u6c34\u4e4b\u84dd",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8776": "\u91cd\u9524\u6572\u7ae0",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "875d": "\u51b0\u7ed3\u4e4b\u84dd\u9752",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8763": "\u51b0\u51bb\u4e4b\u84dd\u9752",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "875e": "\u98de\u77f3\u4e4b\u7eaf\u9ec4",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "875f": "\u95ea\u96f7\u4e4b\u54c1\u7ea2",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8764": "\u575a\u77f3\u4e4b\u7eaf\u9ec4",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8765": "\u9707\u96f7\u4e4b\u54c1\u7ea2",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8766": "\u795e\u5723\u4e4b\u767d",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8777": "\u91cd\u9524\u63a0\u5237",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8778": "\u91cd\u9524\u629b\u5149",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8767": "\u5f57\u661f\u4e4b\u9ed1",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8780": "\u5f69\u8679\u70b9\u6ef4",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8770": "\u517d\u722a\u6784\u60f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8771": "\u5c16\u7259\u6784\u60f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8775": "\u9a6c\u8482\u6069\u60e9\u7f5a",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "8779": "\u5929\u661f\u68f1\u5149",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ],
+            "heal": [
+                {
+                    "potency": 400
+                }
+            ]
+        }
+    ],
+    "statuseffects": [
+        {
+            "e66": "\u5766\u57f9\u62c9\u6d82\u5c42",
+            "damageshield": {
+                "type": "TargetHpPercent",
+                "amount": 20
+            }
+        },
+        {
+            "e65": "\u661f\u7a7a\u6784\u60f3",
+            "potency": [
+                {
+                    "type": "DamageDoneMultiplier",
+                    "amount": 5
+                }
+            ]
+        },
+        {
+            "e67": "\u6cb9\u6027\u5766\u57f9\u62c9\u6d82\u5c42",
+            "damageshield": {
+                "type": "TargetHpPercent",
+                "amount": 10
+            }
+        }
+    ]
+}

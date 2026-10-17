@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin</RootNamespace>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Logfile\FFXIV_ACT_Plugin.Logfile.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Memory\FFXIV_ACT_Plugin.Memory.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Network\FFXIV_ACT_Plugin.Network.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Parse\FFXIV_ACT_Plugin.Parse.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Resource\FFXIV_ACT_Plugin.Resource.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Advanced Combat Tracker">
+      <HintPath>$(RefsDir)Advanced Combat Tracker.exe</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Machina">
+      <HintPath>$(RefsDir)Machina.dll</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Machina.FFXIV">
+      <HintPath>$(RefsDir)Machina.FFXIV.dll</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources" LogicalName="FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.SettingsPropertyPage.resources" LogicalName="FFXIV_ACT_Plugin.SettingsPropertyPage.resources" />
+  </ItemGroup>
+</Project>

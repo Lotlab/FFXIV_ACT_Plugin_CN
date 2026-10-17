@@ -1,0 +1,335 @@
+{
+    "job": "monk",
+    "actions": [
+        {
+            "35": "\u8fde\u51fb",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "36": "\u6b63\u62f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "38": "\u5d29\u62f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "40": "\u94c1\u5c71\u9760",
+            "damage": [
+                {
+                    "potency": 180
+                }
+            ]
+        },
+        {
+            "3D": "\u53cc\u638c\u6253",
+            "damage": [
+                {
+                    "potency": 420
+                }
+            ]
+        },
+        {
+            "3E": "\u7834\u574f\u795e\u51b2",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "42": "\u7834\u788e\u62f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "46": "\u5730\u70c8\u52b2",
+            "damage": [
+                {
+                    "potency": 150
+                }
+            ]
+        },
+        {
+            "64a3": "\u7a7a\u9e23\u62f3",
+            "damage": [
+                {
+                    "potency": 100
+                }
+            ]
+        },
+        {
+            "4059": "\u56db\u9762\u811a",
+            "damage": [
+                {
+                    "potency": 140
+                }
+            ]
+        },
+        {
+            "4A": "\u53cc\u9f99\u811a",
+            "damage": [
+                {
+                    "potency": 320
+                }
+            ]
+        },
+        {
+            "DDB": "\u9634\u9633\u6597\u6c14\u65a9",
+            "damage": [
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64a4": "\u5fc5\u6740\u6280",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "DD7": "\u6597\u9b42\u65cb\u98ce\u811a",
+            "damage": [
+                {
+                    "potency": 1200,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 780
+                }
+            ]
+        },
+        {
+            "DD9": "\u82cd\u6c14\u70ae",
+            "damage": [
+                {
+                    "potency": 800,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 520
+                }
+            ]
+        },
+        {
+            "64a5": "\u7ffb\u5929\u811a",
+            "damage": [
+                {
+                    "potency": 600
+                }
+            ]
+        },
+        {
+            "651a": "\u7206\u88c2\u811a",
+            "damage": [
+                {
+                    "potency": 600,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 390
+                }
+            ]
+        },
+        {
+            "405A": "\u4e07\u8c61\u6597\u6c14\u5708",
+            "damage": [
+                {
+                    "potency": 160
+                }
+            ]
+        },
+        {
+            "405C": "\u516d\u5408\u661f\u5bfc\u811a",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "64a7": "\u7834\u574f\u795e\u811a",
+            "damage": [
+                {
+                    "potency": 120
+                }
+            ]
+        },
+        {
+            "64a8": "\u51e4\u51f0\u821e",
+            "damage": [
+                {
+                    "potency": 900,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 585
+                }
+            ]
+        },
+        {
+            "64a9": "\u68a6\u5e7b\u6597\u821e",
+            "damage": [
+                {
+                    "potency": 1500,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 975
+                }
+            ]
+        },
+        {
+            "9050": "\u91d1\u521a\u5468\u5929",
+            "heal": [
+                {
+                    "potency": 300
+                }
+            ]
+        },
+        {
+            "9051": "\u733f\u821e\u8fde\u51fb",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "9052": "\u9f99\u989a\u6b63\u62f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "9053": "\u8c79\u88ad\u5d29\u62f3",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "9054": "\u771f\u7a7a\u6ce2",
+            "damage": [
+                {
+                    "potency": 900,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 585
+                }
+            ]
+        },
+        {
+            "9055": "\u7edd\u7a7a\u62f3",
+            "damage": [
+                {
+                    "potency": 1040,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 676
+                }
+            ]
+        },
+        {
+            "9056": "\u4e7e\u5764\u6597\u6c14\u5f39",
+            "damage": [
+                {
+                    "potency": 1400,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 910
+                }
+            ]
+        }
+    ],
+    "statuseffects": [
+        {
+            "65": "\u53cc\u638c\u6253",
+            "potency": [
+                {
+                    "type": "damagedonemultiplier",
+                    "amount": 15
+                }
+            ]
+        },
+        {
+            "66": "\u771f\u8a00",
+            "potency": [
+                {
+                    "type": "healreceivemultiplier",
+                    "amount": 10
+                }
+            ]
+        },
+        {
+            "bb9": "\u529f\u529b",
+            "potency": [
+                {
+                    "type": "damagedonemultiplier",
+                    "amount": 0,
+                    "amountbyte": 2
+                }
+            ]
+        },
+        {
+            "49b": "\u91d1\u521a\u6781\u610f",
+            "potency": [
+                {
+                    "type": "DamageReceivedMultiplier",
+                    "amount": -20
+                }
+            ]
+        },
+        {
+            "49D": "\u7ea2\u83b2\u6781\u610f",
+            "potency": [
+                {
+                    "type": "damagedonemultiplier",
+                    "amount": 0,
+                    "amountbyte": 2
+                }
+            ]
+        },
+        {
+            "4A1": "\u4e49\u7ed3\u91d1\u5170\uff1a\u653b\u51fb",
+            "potency": [
+                {
+                    "type": "damagedonemultiplier",
+                    "amount": 5
+                }
+            ]
+        },
+        {
+            "49c": "\u91d1\u521a\u51b3\u610f",
+            "timeproc": {
+                "type": "hot",
+                "potency": 100,
+                "maxticks": 5
+            }
+        }
+    ]
+}

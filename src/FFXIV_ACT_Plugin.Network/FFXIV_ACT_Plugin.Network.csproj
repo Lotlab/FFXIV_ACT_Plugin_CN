@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Network</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Network</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Logfile\FFXIV_ACT_Plugin.Logfile.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Memory\FFXIV_ACT_Plugin.Memory.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Resource\FFXIV_ACT_Plugin.Resource.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Machina">
+      <HintPath>$(RefsDir)Machina.dll</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="Machina.FFXIV">
+      <HintPath>$(RefsDir)Machina.FFXIV.dll</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

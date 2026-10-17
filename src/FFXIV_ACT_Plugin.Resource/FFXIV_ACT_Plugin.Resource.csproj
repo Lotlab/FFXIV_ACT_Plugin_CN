@@ -1,0 +1,176 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Resource</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Resource</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>$(RefsDir)Newtonsoft.Json.dll</HintPath>
+      <SpecificVersion>false</SpecificVersion>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Bard.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.BlackMage.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.BlueMage.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Chocobo.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Dancer.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.DarkKnight.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Dragoon.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Eureka.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Gunbreaker.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.JobRole.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.LimitBreak.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Machinist.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Monk.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Ninja.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.NPC.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Paladin.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Pictomancer.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Reaper.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.RedMage.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Sage.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Samurai.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Scholar.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Summoner.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Viper.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.Warrior.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Definitions.WhiteMage.json" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionCategoryList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Chinese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_TraditionalChinese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_French.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_German.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Japanese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.MapList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.51_en.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.51_kr.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_cloud_chaotic.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.11.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R10S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R11S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R12S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R9S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R4S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P11S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P12S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P5S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P8S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P7S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P6S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P10S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P9S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M5S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M6S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M7S.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Chinese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_TraditionalChinese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_German.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Chinese_2.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_French.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Japanese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Korean.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ItemList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.MountList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ItemActionList.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_German.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Chinese_2.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_French.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Japanese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Korean.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_English.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_French.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_German.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_Japanese.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_Korean.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Korean.txt" />
+    <None Remove="FFXIV_ACT_Plugin.Resource.Generated.WorldList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Astrologian.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Bard.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Bard.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.BlackMage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.BlackMage.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.BlueMage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.BlueMage.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Chocobo.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Chocobo.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Dancer.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Dancer.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.DarkKnight.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.DarkKnight.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Dragoon.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Dragoon.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Eureka.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Eureka.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Gunbreaker.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Gunbreaker.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.JobRole.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.JobRole.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.LimitBreak.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.LimitBreak.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Machinist.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Machinist.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Monk.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Monk.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Ninja.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Ninja.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.NPC.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.NPC.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Paladin.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Paladin.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Pictomancer.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Pictomancer.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Reaper.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Reaper.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.RedMage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.RedMage.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Sage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Sage.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Samurai.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Samurai.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Scholar.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Scholar.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Summoner.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Summoner.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Viper.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Viper.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.Warrior.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.Warrior.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Definitions.WhiteMage.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.WhiteMage.json" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionCategoryList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionCategoryList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Chinese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Chinese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_TraditionalChinese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_TraditionalChinese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_French.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_French.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_German.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_German.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Japanese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Japanese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.MapList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.MapList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.51_en.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.51_en.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.51_kr.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.51_kr.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_cloud_chaotic.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_cloud_chaotic.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.11.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_7.11.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R10S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R10S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R11S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R11S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R12S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R12S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R9S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R9S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R4S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_R4S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P11S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P11S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P12S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P12S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P5S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P5S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P8S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P8S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P7S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P7S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P6S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P6S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P10S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P10S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P9S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_P9S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M5S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M5S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M6S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M6S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M7S.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.Override.global_M7S.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Chinese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Chinese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_TraditionalChinese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_TraditionalChinese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_German.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_German.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_French.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_French.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Japanese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Japanese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Korean.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.StatusList_Korean.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ItemList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ItemList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.MountList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.MountList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ItemActionList.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ItemActionList.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_German.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_German.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_French.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_French.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Japanese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Japanese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Korean.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ActionList_Korean.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_English.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_French.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_French.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_German.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_German.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_Japanese.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_Japanese.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_Korean.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.TerritoryList_Korean.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Korean.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.ContentFinderList_Korean.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Resource.Generated.WorldList_English.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.WorldList_English.txt" />
+  
+  </ItemGroup>
+</Project>

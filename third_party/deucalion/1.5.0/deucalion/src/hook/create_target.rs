@@ -1,0 +1,824 @@
+//! It doesn't actually matter what function this is hooking, as long as it's
+//! right before the giant switch that processes packets.
+
+use std::{
+    arch::asm,
+    mem,
+    sync::{
+        LazyLock, OnceLock,
+        atomic::{AtomicPtr, Ordering},
+    },
+};
+
+use anyhow::{Context, Result, bail, format_err};
+use log::{debug, error, info, warn};
+use pelite::{
+    pattern as pat,
+    pe64::{PeObject, PeView},
+};
+use retour::RawDetour;
+use tokio::sync::mpsc;
+
+use super::{
+    Channel, HookError,
+    packet::{self, DEUCALION_DEFER_IPC},
+    waitgroup,
+};
+use crate::{
+    hook::mov_disasm::{self, Register},
+    procloader::{find_pattern_matches, get_ffxiv_handle},
+    rpc,
+};
+
+/// Constants initialized once during hook setup
+#[derive(Debug, Clone)]
+struct HookConstants {
+    parent_ptr: usize,
+    packet_reg: Register,
+    original_reg: Register,
+}
+
+// Once initialized, it's important to keep this in memory so that any
+// stray calls to the hook still have a valid trampoline to call.
+static DETOUR: LazyLock<CustomDetour> = LazyLock::new(CustomDetour::new);
+
+/// Non-volatile registers that need to be preserved across the detour call.
+type Nonvolatiles = [usize; 7];
+
+fn get_register_value(regs: &Nonvolatiles, reg: Register) -> usize {
+    match reg {
+        Register::Rbx => regs[0],
+        Register::Rdi => regs[1],
+        Register::Rsi => regs[2],
+        Register::R12 => regs[3],
+        Register::R13 => regs[4],
+        Register::R14 => regs[5],
+        Register::R15 => regs[6],
+        Register::Rdx => {
+            error!("Requested value for volatile register Rdx from Nonvolatiles array");
+            0
+        }
+    }
+}
+
+/// Overriding with a custom signature for create_target is not supported. If
+/// this has changed, it is likely that the hook is broken in a way that just
+/// a signature change won't fix.
+const CREATE_TARGET_SIG: &str = "E8 ${ ' } 41 83 ? ? (48 | 49 | 4C | 4D) (89 | 8B) ? 41 81";
+const CREATE_TARGET_SIG_ALT: &str = "E8 ${ ' } 41 83 ? ? 41 81 ? ? ? ? ? 0F 87 ?? ?? ?? ??";
+const REG_FINDER_FALLBACK: &str = "45 33 C0 (48 | 49 | 4C | 4D) (89 | 8B) ? 41 8D 48 08 E8 ${ ' }";
+/// Custom static detour designed specifically for CreateTarget. If the
+/// signature of the function being hooked changes non-trivially this will
+/// need to be updated.
+///
+/// Implementation mostly borrowed from retour::StaticDetour.
+/// Copyright (C) 2017 Elliott Linder.
+pub struct CustomDetour {
+    /// Closure arguments: (source_actor, return_addr, nonvolatile_regs)
+    #[allow(clippy::type_complexity)]
+    closure: AtomicPtr<Box<dyn Fn(usize, usize, &Nonvolatiles) -> usize>>,
+    detour: AtomicPtr<RawDetour>,
+}
+
+impl CustomDetour {
+    fn new() -> Self {
+        CustomDetour {
+            closure: AtomicPtr::new(std::ptr::null_mut()),
+            detour: AtomicPtr::new(std::ptr::null_mut()),
+        }
+    }
+
+    /// Initializes the detour and sets the closure to be called when the detour
+    /// is enabled.
+    pub unsafe fn initialize<D>(&self, target: *const (), closure: D) -> Result<()>
+    where
+        D: Fn(usize, usize, &Nonvolatiles) -> usize + Send + 'static,
+    {
+        let mut detour = unsafe { Box::new(RawDetour::new(target, create_target as *const ())?) };
+        self.detour
+            .compare_exchange(
+                std::ptr::null_mut(),
+                &mut *detour,
+                Ordering::SeqCst,
+                Ordering::SeqCst,
+            )
+            .map_err(|_| HookError::AlreadyInitialized)?;
+
+        self.closure.store(Box::into_raw(Box::new(Box::new(closure))), Ordering::SeqCst);
+        mem::forget(detour);
+        Ok(())
+    }
+
+    /// Enables the detour.
+    pub unsafe fn enable(&self) -> Result<()> {
+        unsafe {
+            self.detour
+                .load(Ordering::SeqCst)
+                .as_ref()
+                .ok_or(HookError::NotInitialized)?
+                .enable()?;
+        }
+        Ok(())
+    }
+
+    /// Disables the detour.
+    pub unsafe fn disable(&self) -> Result<()> {
+        unsafe {
+            self.detour
+                .load(Ordering::SeqCst)
+                .as_ref()
+                .ok_or(HookError::NotInitialized)?
+                .disable()?;
+        }
+        Ok(())
+    }
+
+    /// Calls the trampoline for the function being hooked. Tries to preserve
+    /// non-volatile registers for any downstream consumers.
+    unsafe fn call_trampoline(
+        &self,
+        source_actor: usize,
+        nonvolatile_regs: &Nonvolatiles,
+    ) -> Result<usize> {
+        let trampoline: fn(usize) -> usize = unsafe {
+            mem::transmute(
+                self.detour
+                    .load(Ordering::SeqCst)
+                    .as_ref()
+                    .ok_or(HookError::NotInitialized)?
+                    .trampoline(),
+            )
+        };
+        // Custom calling convention for the trampoline: Pass in nonvolatile
+        // registers in addition to rcx.
+        let result: usize;
+        unsafe {
+            asm!(
+                "# Preserve all non-volatile registers before calling the trampoline",
+                "push rbx", "push rdi", "push rsi", "push r12", "push r13", "push r14", "push r15",
+                "sub rsp, 40",
+                "mov rbx, qword ptr [r10]",
+                "mov rdi, qword ptr [r10+8]",
+                "mov rsi, qword ptr [r10+16]",
+                "mov r12, qword ptr [r10+24]",
+                "mov r13, qword ptr [r10+32]",
+                "mov r14, qword ptr [r10+40]",
+                "mov r15, qword ptr [r10+48]",
+                "call rax",
+                "add rsp, 40",
+                "pop r15", "pop r14", "pop r13", "pop r12", "pop rsi", "pop rdi", "pop rbx",
+                in("rax") trampoline as usize,
+                in("rcx") source_actor,
+                in("r10") nonvolatile_regs.as_ptr(),
+                lateout("rax") result,
+            );
+        }
+        Ok(result)
+    }
+
+    /// Helper for calling the trampoline with error handling.
+    unsafe fn call_original(&self, source_actor: usize, nonvolatile_regs: &Nonvolatiles) -> usize {
+        unsafe {
+            self.call_trampoline(source_actor, nonvolatile_regs).unwrap_or_else(|e| {
+                error!("{e}");
+                0
+            })
+        }
+    }
+
+    /// Calls the closure that was set for the detour.
+    unsafe fn call_closure(
+        &self,
+        source_actor: usize,
+        return_addr: usize,
+        nonvolatile_regs: &Nonvolatiles,
+    ) -> Result<usize> {
+        let closure = unsafe {
+            self.closure.load(Ordering::SeqCst).as_ref().ok_or(HookError::NotInitialized)?
+        };
+        Ok(closure(source_actor, return_addr, nonvolatile_regs))
+    }
+
+    fn drop_internal(&self) {
+        let previous = self.closure.swap(std::ptr::null_mut(), Ordering::Relaxed);
+        if !previous.is_null() {
+            mem::drop(unsafe { Box::from_raw(previous) });
+        }
+
+        let previous = self.detour.swap(std::ptr::null_mut(), Ordering::Relaxed);
+        if !previous.is_null() {
+            unsafe {
+                let _ = Box::from_raw(previous);
+            };
+        }
+    }
+}
+
+impl Drop for CustomDetour {
+    fn drop(&mut self) {
+        self.drop_internal();
+    }
+}
+
+unsafe extern "C" {
+    #[link_name = "llvm.returnaddress"]
+    unsafe fn return_address(a: i32) -> *const u8;
+}
+
+unsafe extern "system" fn create_target(mut source_actor: usize) -> usize {
+    unsafe {
+        let mut nonvolatile_regs = [0; 7];
+        asm!(
+            "# Ensure non-volatile registers are preserved before this section",
+            "mov qword ptr [rax], rbx",
+            "mov qword ptr [rax+8], rdi",
+            "mov qword ptr [rax+16], rsi",
+            "mov qword ptr [rax+24], r12",
+            "mov qword ptr [rax+32], r13",
+            "mov qword ptr [rax+40], r14",
+            "mov qword ptr [rax+48], r15",
+            in("rax") nonvolatile_regs.as_mut_ptr(),
+            inout("rcx") source_actor,
+        );
+
+        let return_addr = return_address(0);
+
+        DETOUR
+            .call_closure(source_actor, return_addr as usize, &nonvolatile_regs)
+            .unwrap_or_else(|e| {
+                error!("Error in CreateTarget closure: {e}");
+                0
+            })
+    }
+}
+
+#[derive(Clone)]
+pub struct Hook {
+    data_tx: mpsc::UnboundedSender<rpc::Payload>,
+    deobf_queue_rx: crossbeam_channel::Receiver<packet::Packet>,
+    wg: waitgroup::WaitGroup,
+    constants: OnceLock<HookConstants>,
+}
+
+impl Hook {
+    pub fn new(
+        data_tx: mpsc::UnboundedSender<rpc::Payload>,
+        deobf_queue_rx: crossbeam_channel::Receiver<packet::Packet>,
+        wg: waitgroup::WaitGroup,
+    ) -> Result<Hook> {
+        Ok(Hook { data_tx, deobf_queue_rx, wg, constants: OnceLock::new() })
+    }
+
+    pub fn setup(&self, pe_image: PeView) -> Result<()> {
+        let (target_rva, parent_rva, orig_reg, pack_reg) = infer_create_target_details(pe_image)?;
+        self.initialize_detour(target_rva, parent_rva, orig_reg, pack_reg)
+    }
+
+    fn initialize_detour(
+        &self,
+        target_rva: usize,
+        parent_rva: usize,
+        original_reg: Register,
+        packet_reg: Register,
+    ) -> Result<()> {
+        let ffxiv_handle = get_ffxiv_handle()?;
+        let fn_ptr = ffxiv_handle.wrapping_add(target_rva);
+        let parent_ptr = ffxiv_handle.wrapping_add(parent_rva) as usize;
+
+        debug!("Inferred registers: packet_reg={packet_reg:?}, original_reg={original_reg:?}");
+
+        let constants = HookConstants {
+            parent_ptr,
+            packet_reg,
+            original_reg,
+        };
+
+        self.constants
+            .set(constants)
+            .map_err(|_| format_err!("Could not initialize CreateTarget hook"))?;
+
+        let self_clone = self.clone();
+        unsafe {
+            DETOUR.initialize(fn_ptr as *const (), move |a, b, c| {
+                self_clone.hook_handler(a, b, c)
+            })?;
+            DETOUR.enable()?;
+        }
+
+        Ok(())
+    }
+
+    unsafe fn hook_handler(
+        &self,
+        source_actor: usize,
+        return_addr: usize,
+        nonvolatile_regs: &Nonvolatiles,
+    ) -> usize {
+        let _guard = self.wg.add();
+        let return_addr = return_addr as *const u8;
+
+        let constants = match self.constants.get() {
+            Some(constants) => constants,
+            None => {
+                warn!("CreateTarget hook called before initialization. No data will be processed.");
+                return unsafe { DETOUR.call_original(source_actor, nonvolatile_regs) };
+            }
+        };
+        let parent_ptr = constants.parent_ptr as *const u8;
+        let packet_data = get_register_value(nonvolatile_regs, constants.packet_reg);
+        let original_data = get_register_value(nonvolatile_regs, constants.original_reg);
+
+        // Ensure the return address is within the range of the packet dispatch
+        // function
+        unsafe {
+            if parent_ptr.offset_from(return_addr).abs() > 0x2000 {
+                return DETOUR.call_original(source_actor, nonvolatile_regs);
+            }
+        }
+
+        let mut actual_packet_data = packet_data as *mut u8;
+        if unsafe { *(actual_packet_data.byte_offset(4) as *const u16) } != DEUCALION_DEFER_IPC {
+            // Could not read the packet data normally, so just use the original
+            // packet data. We should be guarded against invalid data being
+            // sent out since there is an opcode and a source actor check.
+            actual_packet_data = original_data as *mut u8
+        };
+
+        let mut packet_sent = false;
+        for expected_packet in self.deobf_queue_rx.try_iter() {
+            debug!(
+                "Replacing with actual packet data: {:?}",
+                actual_packet_data
+            );
+            match unsafe {
+                packet::reconstruct_deobfuscated_packet(
+                    expected_packet,
+                    source_actor as u32,
+                    actual_packet_data,
+                )
+            } {
+                Ok(packet::Packet::Ipc(data)) => {
+                    let _ = self.data_tx.send(rpc::Payload {
+                        op: rpc::MessageOps::Recv,
+                        ctx: Channel::Zone as u32,
+                        data,
+                    });
+                    packet_sent = true;
+                    break;
+                }
+                Ok(_) => unreachable!("Reconstruct should only send Ipc packets"),
+                Err(e) => {
+                    warn!(
+                        "Failed to reconstruct deobfuscated packet. \
+                        Skipping to the next packet in the queue: {e}."
+                    );
+                }
+            }
+        }
+        if !packet_sent {
+            // If we went through the entire queue (or if it's empty)
+            // without sending a matching, corresponding packet, then
+            // give up.
+            let opcode: u16 = unsafe { *(actual_packet_data.byte_offset(2) as *const u16) };
+            warn!("Processing deobfuscated packet {opcode}, but no packet was expected");
+        }
+
+        unsafe { DETOUR.call_original(source_actor, nonvolatile_regs) }
+    }
+
+    pub fn shutdown() {
+        if let Err(e) = unsafe { DETOUR.disable() } {
+            error!("Error disabling CreateTarget hook: {e}");
+        }
+    }
+}
+
+pub fn infer_create_target_details(pe_image: PeView) -> Result<(usize, usize, Register, Register)> {
+    match infer_via_pathway_1(pe_image) {
+        Ok(details) => {
+            info!("Matched CreateTarget Normal pathway");
+            return Ok(details);
+        }
+        Err(e) => debug!("CreateTarget Normal pathway failed: {e}"),
+    }
+
+    match infer_via_pathway_2(pe_image) {
+        Ok(details) => {
+            info!("Matched CreateTarget Alternative pathway");
+            return Ok(details);
+        }
+        Err(e) => debug!("CreateTarget Alternative pathway failed: {e}"),
+    }
+
+    bail!("Could not match any CreateTarget pathway")
+}
+
+fn infer_via_pathway_1(pe_image: PeView) -> Result<(usize, usize, Register, Register)> {
+    let pat = pat::parse(CREATE_TARGET_SIG).context("Internal Normal sig error")?;
+
+    let target_rva = find_pattern_matches("CreateTarget", &pat, pe_image, true)?[0];
+    let parent_rva = find_pattern_matches("CreateTargetCaller", &pat, pe_image, false)?[0];
+
+    let offset = parent_rva + 9;
+    let mov_bytes = &pe_image.image()[offset..offset + 3];
+
+    let (original_reg, packet_reg) = mov_disasm::disassemble_mov_instruction(mov_bytes)?;
+
+    Ok((target_rva, parent_rva, original_reg, packet_reg))
+}
+
+fn infer_via_pathway_2(pe_image: PeView) -> Result<(usize, usize, Register, Register)> {
+    let pat_alt = pat::parse(CREATE_TARGET_SIG_ALT).context("Internal Alt sig error")?;
+
+    let target_rva = find_pattern_matches("CreateTarget", &pat_alt, pe_image, true)?[0];
+    let parent_rva = find_pattern_matches("CreateTargetCallerAlt", &pat_alt, pe_image, false)?[0];
+
+    let pat_fallback = pat::parse(REG_FINDER_FALLBACK).context("Internal Fallback sig error")?;
+    let fallback_rva =
+        find_pattern_matches("RegisterFinderFallback", &pat_fallback, pe_image, false)?[0];
+
+    let offset = fallback_rva + 3;
+    let mov_bytes = &pe_image.image()[offset..offset + 3];
+
+    let (src, dest) = mov_disasm::disassemble_mov_instruction(mov_bytes)?;
+
+    if dest != mov_disasm::Register::Rdx {
+        bail!("Fallback mov instruction does not target Rdx: {:?}", dest);
+    }
+    Ok((target_rva, parent_rva, src, src))
+}
+
+#[cfg(test)]
+mod tests {
+    use std::arch::asm;
+
+    use pelite::{pattern, pe::PeView};
+
+    use crate::{
+        hook::{
+            create_target::{
+                CREATE_TARGET_SIG, CREATE_TARGET_SIG_ALT, DETOUR, Nonvolatiles, REG_FINDER_FALLBACK,
+            },
+            mov_disasm::{Register, disassemble_mov_instruction},
+        },
+        procloader::{find_pattern_matches, get_ffxiv_handle},
+    };
+
+    const FAKE_PACKET_PTR: usize = 0x12345678;
+    const FAKE_ORIGINAL_PTR: usize = 0x12000000;
+    const FAKE_SOURCE_ACTOR: u32 = 0x11110000;
+    const FAKE_OPCODE: u32 = 0x420;
+
+    #[inline(never)]
+    fn create_target_72x(mut source_actor: u32) -> u32 {
+        let packet_data: usize;
+        unsafe {
+            asm!(
+                "mov {0}, rsi",
+                out(reg) packet_data,
+                inout("rcx") source_actor,
+            );
+        }
+
+        source_actor + packet_data as u32
+    }
+
+    #[inline(never)]
+    unsafe extern "system" fn parent_72x() {
+        let packet_data: usize;
+        let dummy_result: u32;
+        let case: u32;
+
+        unsafe {
+            asm!(
+                "mov rsi, {packet_ptr}",
+                "mov edi, {source_actor}",
+                "mov r15d, {opcode}",
+                "mov edx, r15d",
+                "mov ecx, edi",
+                "call {func}",
+                "add r15d, 0xFFFFFF9Ah",
+                "cmp r15d, 381h",
+                ".byte 0x0F, 0x87, 0, 0, 0, 0", // ja (long) to next instruction
+                "nop",
+                packet_ptr = const FAKE_PACKET_PTR,
+                source_actor = const FAKE_SOURCE_ACTOR,
+                opcode = const FAKE_OPCODE,
+                func = sym create_target_72x,
+                out("rax") dummy_result,
+                out("rsi") packet_data,
+                out("r15d") case,
+            );
+        }
+        assert_eq!(packet_data, FAKE_PACKET_PTR);
+        assert_eq!(case, FAKE_OPCODE - 102);
+        assert_eq!(dummy_result, FAKE_SOURCE_ACTOR + FAKE_PACKET_PTR as u32);
+    }
+
+    #[inline(never)]
+    fn create_target_731(mut source_actor: u32) -> u32 {
+        let packet_data: usize;
+        let original_data: usize;
+        unsafe {
+            asm!(
+                "mov {0}, rdi",
+                "mov {1}, r13",
+                out(reg) packet_data,
+                out(reg) original_data,
+                inout("rcx") source_actor,
+            );
+        }
+
+        source_actor + packet_data as u32 + original_data as u32
+    }
+
+    #[inline(never)]
+    unsafe extern "system" fn parent_731() {
+        let packet_data: usize;
+        let dummy_result: u32;
+        let case: u32;
+
+        unsafe {
+            asm!(
+                "mov r13, {orig_ptr}",
+                "mov rdi, {packet_ptr}",
+                "mov esi, {source_actor}",
+                "mov r15d, {opcode}",
+                "mov edx, r15d",
+                "mov ecx, esi",
+                "call {func}",
+                "add r15d, 0xFFFFFF9Ah",
+                "mov rdi, r13",
+                "cmp r15d, 380h",
+                orig_ptr = const FAKE_ORIGINAL_PTR,
+                packet_ptr = const FAKE_PACKET_PTR,
+                source_actor = const FAKE_SOURCE_ACTOR,
+                opcode = const FAKE_OPCODE,
+                func = sym create_target_731,
+                out("rax") dummy_result,
+                out("rdi") packet_data,
+                out("r15d") case,
+            );
+        }
+        // Packet ptr was overwritten with the original packet ptr in this case
+        assert_eq!(packet_data, FAKE_ORIGINAL_PTR);
+        assert_eq!(case, FAKE_OPCODE - 102);
+        assert_eq!(
+            dummy_result,
+            FAKE_SOURCE_ACTOR + FAKE_PACKET_PTR as u32 + FAKE_ORIGINAL_PTR as u32
+        );
+    }
+
+    #[inline(never)]
+    fn create_target_731h(mut source_actor: u32) -> u32 {
+        let packet_data: usize;
+        let original_data: usize;
+        unsafe {
+            asm!(
+                "mov {0}, rdi",
+                "mov {1}, r12",
+                out(reg) packet_data,
+                out(reg) original_data,
+                inout("rcx") source_actor,
+            );
+        }
+
+        source_actor + packet_data as u32 + original_data as u32
+    }
+
+    #[inline(never)]
+    unsafe extern "system" fn parent_731h() {
+        let packet_data: usize;
+        let dummy_result: u32;
+        let case: u32;
+
+        unsafe {
+            asm!(
+                "mov r12, {orig_ptr}",
+                "mov rdi, {packet_ptr}",
+                "mov r14d, {source_actor}",
+                "mov r13d, {opcode}",
+                "mov edx, r13d",
+                "mov ecx, r14d",
+                "call {func}",
+                "add r13d, 0xFFFFFF9Bh",
+                "mov rdi, r12",
+                "cmp r13d, 380h",
+                orig_ptr = const FAKE_ORIGINAL_PTR,
+                packet_ptr = const FAKE_PACKET_PTR,
+                source_actor = const FAKE_SOURCE_ACTOR,
+                opcode = const FAKE_OPCODE,
+                func = sym create_target_731h,
+                out("rax") dummy_result,
+                out("rdi") packet_data,
+                out("r13d") case,
+            );
+        }
+        // Packet ptr was overwritten with the original packet ptr in this case
+        assert_eq!(packet_data, FAKE_ORIGINAL_PTR);
+        assert_eq!(case, FAKE_OPCODE - 101);
+        assert_eq!(
+            dummy_result,
+            FAKE_SOURCE_ACTOR + FAKE_PACKET_PTR as u32 + FAKE_ORIGINAL_PTR as u32
+        );
+    }
+
+    #[inline(never)]
+    #[allow(dead_code)]
+    fn random_handler_sub() {
+        // Dummy
+    }
+
+    #[inline(never)]
+    #[allow(dead_code)]
+    unsafe extern "system" fn random_handler() {
+        unsafe {
+            asm!(
+                ".byte 0x45, 0x33, 0xC0", // xor r8d, r8d
+                ".byte 0x48, 0x8B, 0xD7", // mov rdx, rdi
+                ".byte 0x41, 0x8D, 0x48, 0x08", // lea ecx, [r8+8]
+                "call {func}",
+                ".byte 0xE9, 0, 0, 0, 0", // jmp
+                "add rsp, 0x28", // Just in case
+                "ret",
+                func = sym random_handler_sub,
+            );
+        }
+    }
+
+    /// Test function that checks if the stack is 16-byte aligned when called.
+    /// If this fails, it will either trigger the assert or cause a status
+    /// access violation
+    #[inline(never)]
+    fn stack_alignment_checker(mut source_actor: u32) -> u32 {
+        let stack_ptr: usize;
+        unsafe {
+            asm!("mov {}, rsp", out(reg) stack_ptr, inout("rcx") source_actor);
+        }
+        assert_eq!(stack_ptr % 16, 0, "DANGER: Misaligned stack pointer!");
+        source_actor
+    }
+
+    #[inline(never)]
+    unsafe extern "system" fn parent_stack_alignment() {
+        let dummy_result: u32;
+        unsafe {
+            asm!(
+                "mov ecx, {source_actor}",
+                "call {func}",
+                source_actor = const FAKE_SOURCE_ACTOR,
+                func = sym stack_alignment_checker,
+                out("rax") dummy_result,
+            );
+        }
+        assert_eq!(dummy_result, FAKE_SOURCE_ACTOR);
+    }
+
+    #[test]
+    fn test_parent_72x() {
+        unsafe { parent_72x() };
+    }
+
+    #[test]
+    fn test_parent_731() {
+        unsafe { parent_731() };
+    }
+
+    #[test]
+    fn test_parent_731h() {
+        unsafe { parent_731h() };
+    }
+
+    #[test]
+    fn test_create_target_sig() {
+        // It's not actually FFXIV, but it should work in test
+        let current_handle = get_ffxiv_handle().unwrap();
+        let pe_image = unsafe { PeView::module(current_handle) };
+        let pat = pattern::parse(CREATE_TARGET_SIG).unwrap();
+        let sig: &[pattern::Atom] = &pat;
+        let rvas = find_pattern_matches("CreateTarget", sig, pe_image, false).unwrap();
+        assert!(rvas.len() >= 2);
+
+        println!("Testing CreateTarget sig compatibility for patch 7.30h/7.31");
+        let addr = current_handle.wrapping_add(rvas[0]);
+        let parent_731_ptr = parent_731 as *const u8;
+        assert!((parent_731_ptr..parent_731_ptr.wrapping_add(100)).contains(&addr));
+
+        println!("Testing if correct registers are extracted from 7.30h/7.31");
+        let mov_bytes = unsafe { core::slice::from_raw_parts(addr.wrapping_add(9), 3) };
+        let (original_reg, packet_reg) = disassemble_mov_instruction(mov_bytes).unwrap();
+        assert_eq!(original_reg, Register::R13);
+        assert_eq!(packet_reg, Register::Rdi);
+
+        println!("Testing CreateTarget sig compatibility for patch 7.30/7.31h");
+        let addr = current_handle.wrapping_add(rvas[1]);
+        let parent_731h_ptr = parent_731h as *const u8;
+        assert!((parent_731h_ptr..parent_731h_ptr.wrapping_add(100)).contains(&addr));
+
+        println!("Testing if correct registers are extracted from 7.30/7.31h");
+        let mov_bytes = unsafe { core::slice::from_raw_parts(addr.wrapping_add(9), 3) };
+        let (original_reg, packet_reg) = disassemble_mov_instruction(mov_bytes).unwrap();
+        assert_eq!(original_reg, Register::R12);
+        assert_eq!(packet_reg, Register::Rdi);
+    }
+
+    #[test]
+    fn test_create_target_alt_sig() {
+        let current_handle = get_ffxiv_handle().unwrap();
+        let pe_image = unsafe { PeView::module(current_handle) };
+
+        println!("Testing alternate CreateTarget sig compatibility for patch 7.2x/7.41");
+        let pat_alt = pattern::parse(CREATE_TARGET_SIG_ALT).unwrap();
+        let sig_alt: &[pattern::Atom] = &pat_alt;
+        let rvas_alt = find_pattern_matches("CreateTargetAlt", sig_alt, pe_image, false).unwrap();
+        // Since the alternative sig is more specific, it should match the parent_72x assembly
+        assert!(!rvas_alt.is_empty());
+        let addr_alt = current_handle.wrapping_add(rvas_alt[0]);
+
+        let parent_72x_ptr = parent_72x as *const u8;
+        assert!((parent_72x_ptr..parent_72x_ptr.wrapping_add(100)).contains(&addr_alt));
+
+        println!("Testing fallback register finder sig compatibility");
+        let pat_fallback = pattern::parse(REG_FINDER_FALLBACK).unwrap();
+        let sig_fallback: &[pattern::Atom] = &pat_fallback;
+        let rvas_fallback =
+            find_pattern_matches("RegisterFinderFallback", sig_fallback, pe_image, false).unwrap();
+        assert!(!rvas_fallback.is_empty());
+        let addr_fallback = current_handle.wrapping_add(rvas_fallback[0]);
+
+        let parent_fallback_ptr = random_handler as *const u8;
+        assert!(
+            (parent_fallback_ptr..parent_fallback_ptr.wrapping_add(100)).contains(&addr_fallback)
+        );
+
+        println!("Testing register extraction from fallback");
+        let mov_bytes = unsafe { core::slice::from_raw_parts(addr_fallback.wrapping_add(3), 3) };
+        let (src, dest) = disassemble_mov_instruction(mov_bytes).unwrap();
+        assert_eq!(dest, Register::Rdx);
+        assert_eq!(src, Register::Rdi);
+    }
+
+    fn validate_detour(
+        create_target: fn(u32) -> u32,
+        parent_fn: unsafe extern "system" fn(),
+        nonvolatile_validator: fn(&Nonvolatiles),
+    ) {
+        DETOUR.drop_internal();
+        let closure = move |source_actor, return_addr, nonvolatile_regs: &Nonvolatiles| {
+            nonvolatile_validator(nonvolatile_regs);
+            assert!(return_addr != 0);
+            assert_eq!(source_actor, FAKE_SOURCE_ACTOR as usize);
+            unsafe { DETOUR.call_original(source_actor, nonvolatile_regs) }
+        };
+        unsafe {
+            DETOUR.initialize(create_target as *const (), closure).unwrap();
+            DETOUR.enable().unwrap();
+            parent_fn();
+            DETOUR.disable().unwrap();
+        }
+    }
+
+    #[test]
+    fn test_detours() {
+        println!("Testing CreateTarget detour for patch 7.2x");
+        validate_detour(create_target_72x, parent_72x, |nonvolatile_regs| {
+            assert_eq!(
+                super::get_register_value(nonvolatile_regs, Register::Rsi),
+                FAKE_PACKET_PTR
+            );
+        });
+
+        // The 7.30h case is the same as 7.31
+        println!("Testing CreateTarget detour for patch 7.31");
+        validate_detour(create_target_731, parent_731, |nonvolatile_regs| {
+            assert_eq!(
+                super::get_register_value(nonvolatile_regs, Register::Rdi),
+                FAKE_PACKET_PTR
+            );
+            assert_eq!(
+                super::get_register_value(nonvolatile_regs, Register::R13),
+                FAKE_ORIGINAL_PTR
+            );
+        });
+        // The 7.30 case is the same as 7.31h
+        println!("Testing CreateTarget detour for patch 7.31h");
+        validate_detour(create_target_731h, parent_731h, |nonvolatile_regs| {
+            assert_eq!(
+                super::get_register_value(nonvolatile_regs, Register::Rdi),
+                FAKE_PACKET_PTR
+            );
+            assert_eq!(
+                super::get_register_value(nonvolatile_regs, Register::R12),
+                FAKE_ORIGINAL_PTR
+            );
+        });
+
+        // Test stack alignment in trampoline calls
+        println!("Testing CreateTarget detour stack alignment");
+        validate_detour(
+            stack_alignment_checker,
+            parent_stack_alignment,
+            |_nonvolatile_regs| {},
+        );
+    }
+}
