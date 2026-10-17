@@ -182,15 +182,20 @@ ILONLY、32 位必需/优先、强名称签名等）与原始完全一致：
 ```powershell
 rustup toolchain install nightly
 cd third_party/deucalion/1.5.0
-cargo build --release --locked -p deucalion     # -> target/release/deucalion.dll
+cargo build --release --locked              # 整个 workspace
+cargo build --release --locked -p deucalion # 只编译库，产物更小
 ```
 
 两个版本都已在本仓库内**实际编译通过**（rustc 1.97.1-nightly、x86_64-pc-windows-msvc）：
 
-| 版本 | 产物 | 大小 |
-| --- | --- | --- |
-| 1.5.0 | `deucalion/1.5.0/target/release/deucalion.dll` | 2,376,192 B |
-| 1.2.1 | `deucalion/1.2.1/target/release/deucalion.dll` | 2,366,976 B |
+| 版本 | 构建方式 | 产物 `deucalion.dll` | 上游 release 资源 |
+| --- | --- | --- | --- |
+| 1.5.0 | workspace 根目录 | 3,002,880 B | 2,975,744 B |
+| 1.5.0 | `-p deucalion` | 2,376,192 B | — |
+| 1.2.1 | `-p deucalion` | 2,366,976 B | 3,153,144 B |
+
+1.5.0 在 workspace 根目录构建出的体积与上游发布资源相差不到 1%，说明 vendored 源码对应
+的就是发行时的构建方式。
 
 三点需要注意：
 

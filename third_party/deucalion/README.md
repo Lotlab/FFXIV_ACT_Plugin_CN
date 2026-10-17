@@ -32,8 +32,12 @@ profile, crate or `.cargo/config.toml` upstream.
 
 ```powershell
 cd 1.5.0
-cargo build --release -p deucalion      # -> target/release/deucalion.dll
+cargo build --release --locked              # whole workspace
+# or just the library, which yields a smaller DLL:
+cargo build --release --locked -p deucalion
 ```
+
+Both write `target/release/deucalion.dll` (the workspace shares one target directory).
 
 Requirements and gotchas:
 
@@ -58,10 +62,21 @@ that building inside its own directory yields a smaller binary), then
 ```
 rustup toolchain install nightly          # rustc 1.97.1-nightly, x86_64-pc-windows-msvc
 cd 1.5.0
-cargo build --release --locked -p deucalion   # -> target/release/deucalion.dll
+cargo build --release --locked              # workspace build -> target/release/deucalion.dll
+cargo build --release --locked -p deucalion # library-only  -> target/release/deucalion.dll
 cd ../1.2.1
-cargo build --release --locked -p deucalion   # -> target/release/deucalion.dll
+cargo build --release --locked -p deucalion # library-only  -> target/release/deucalion.dll
 ```
+
+| Tag | Build | `deucalion.dll` | Upstream release asset |
+| --- | --- | --- | --- |
+| 1.5.0 | workspace root | 3,002,880 B | `deucalion.dll` 2,975,744 B |
+| 1.5.0 | `-p deucalion` | 2,376,192 B | — |
+| 1.2.1 | `-p deucalion` | 2,366,976 B | `deucalion.dll` 3,153,144 B |
+
+The workspace-root build of 1.5.0 lands within 1 % of the released asset, which confirms
+the vendored source reproduces the shipped build mode (the smaller `-p deucalion` result
+is the CI's second, size-optimised step).
 
 Upstream commits **no `Cargo.lock`**, so dependency versions float. With today's
 crates.io the resolution pulls `tokio-util 0.7.20`, whose additional
