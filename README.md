@@ -34,7 +34,9 @@ refs/                               编译所需的外部程序集（第三方�
   Newtonsoft.Json.dll               JSON 库
 third_party/deucalion/              vendored 的上游 Rust 源码，见下方 §5
 tools/                              反编译与校验脚本，见下方 §4
-artifacts/                          构建输出（已被 .gitignore 忽略）
+  PluginLoadTest/                   单文件投放加载测试
+artifacts/dist/Release/             ★ 单文件投放产物（已被 .gitignore 忽略）
+artifacts/bin/Release/              各工程原始输出（已被 .gitignore 忽略）
 .work/                              反编译中间产物（已被 .gitignore 忽略）
 ```
 
@@ -52,24 +54,45 @@ artifacts/                          构建输出（已被 .gitignore 忽略）
 dotnet build FFXIV_ACT_Plugin.sln -c Release
 ```
 
-所有工程的输出会集中到同一个目录，可直接作为插件部署：
+构建产物分两处：
 
 ```
-artifacts/bin/Release/
+artifacts/bin/Release/          各工程原始输出（诊断用）
+artifacts/dist/Release/         ★ 单文件投放产物
   FFXIV_ACT_Plugin.dll
-  FFXIV_ACT_Plugin.Common.dll
-  FFXIV_ACT_Plugin.Config.dll
-  FFXIV_ACT_Plugin.Logfile.dll
-  FFXIV_ACT_Plugin.Memory.dll
-  FFXIV_ACT_Plugin.Network.dll
-  FFXIV_ACT_Plugin.Parse.dll
-  FFXIV_ACT_Plugin.Resource.dll
 ```
 
-把上述 DLL 与 `deucalion-<版本>.distrib.dll` 一起放入 ACT 的插件目录即可运行。
+把 `artifacts/dist/Release/FFXIV_ACT_Plugin.dll` 单独一个文件，加上
+`deucalion-<版本>.distrib.dll` 放进 ACT 插件目录即可运行——**不需要**同级放置
+`FFXIV_ACT_Plugin.*.dll`、`Machina*.dll` 或 `Newtonsoft.Json.dll`，它们都已经织入主 DLL。
 
 当前状态：**0 error / 4 warning**（两个 `CS0169`、两个 `CS0414`，都是反编译代码里
 未被使用的字段，与原始二进制行为一致）。
+
+### 单文件投放验证
+
+[`tools/PluginLoadTest`](tools/PluginLoadTest/Program.cs) 会把主 DLL 单独复制到一个空目录、
+以 ACT 加载插件的方式加载它，并强制解析全部内嵌程序集（从 `Assembly.Load(byte[])` 载入的
+程序集 `Location` 为空，以此判定它确实来自内嵌资源）：
+
+```powershell
+dotnet build tools/PluginLoadTest/PluginLoadTest.csproj -c Release
+artifacts/loadtest/Release/PluginLoadTest.exe artifacts/dist/Release/FFXIV_ACT_Plugin.dll
+```
+
+```
+siblings      : 0 other file(s) in the folder
+bundled assemblies
+  OK   Advanced Combat Tracker          not bundled, supplied by the host
+  OK   FFXIV_ACT_Plugin.Common          v3.0.0.0  <embedded>
+  ... (7 个 FFXIV_ACT_Plugin.* 全部 <embedded>)
+  OK   Machina                          v2.3.1.3  <embedded>
+  OK   Machina.FFXIV                    v2.4.7.1  <embedded>
+  OK   Newtonsoft.Json                  v13.0.0.0 <embedded>
+  OK   Newtonsoft.Json round-trip       {"hello":"world"}
+
+PASS - 10 assemblies resolved from the embedded resources, nothing on disk
+```
 
 ### 关于 `refs/Advanced Combat Tracker.exe`
 
@@ -77,41 +100,31 @@ artifacts/bin/Release/
 `refs/Advanced Combat Tracker.exe` 是手头可用的 **3.8.0.283**，引用时显式设置了
 `<SpecificVersion>false</SpecificVersion>`，用于替代编译。插件实际使用的 ACT API
 在这两个版本之间没有变化，因此可以编译通过；若要严格对齐，可换成 3.8.5.288 的同名文件。
+ACT 是宿主程序集，引用时标记 `<Private>false</Private>`，不会被复制或织入。
 
 `refs/Machina.dll`（2.3.1.3）、`refs/Machina.FFXIV.dll`（2.4.7.1）与
-`refs/Newtonsoft.Json.dll`（13.0.0.0）是从原插件内嵌资源中提取的**完全相同**的版本。
+`refs/Newtonsoft.Json.dll`（13.0.0.0）是从原插件内嵌资源中提取的**完全相同**的版本，
+标记为 copy-local 以便 Costura 织入。
 
 ## 3. 相对原始二进制所做的改动
 
 反编译产物与原始二进制在声明层面完全一致（见 §4 的校验结果），只有以下几处是**有意**
 的调整；每一处都在源码/工程文件中留有注释：
 
-1. **移除 Costura 打包器。**
+1. **Costura 打包器改为在构建期重新织入。**
    原始 `FFXIV_ACT_Plugin.dll` 通过 Costura/Fody 把 `FFXIV_ACT_Plugin.*`、`Machina*`、
    `Newtonsoft.Json` 共 10 个程序集以 deflate 压缩内嵌，运行时由
    `Costura.AssemblyLoader` 在 `AssemblyResolve` 中解出。
-   本仓库改为把它们作为真正的工程引用 / 文件引用，因此：
-   * 删除了 `src/FFXIV_ACT_Plugin/Costura/`、`ProcessedByFody.cs` 与 10 个
-     `costura.*.compressed` 资源；
-   * 删除了构造函数里的 `AssemblyLoader.Attach();` 调用（原处保留了说明注释）。
 
-   **注意这不是“必须去掉才能编译”的改动。** `Attach()` 只是注册
-   `AssemblyResolve` 事件，而该事件仅在常规探测失败后才触发；同级程序集都在插件目录时
-   Costura 根本不会被调用，保留它并不会让新编译的子工程失效。移除它的理由是**让仓库内
-   的源码成为唯一真相来源**：
+   本仓库保留了这一分发方式，但在主工程用 `PackageReference` + `FodyWeavers.xml`
+   重新启用 Costura.Fody，让它在**构建时**把 `ProjectReference` 的输出织进去，而不是
+   把原来的 `costura.*.compressed` 二进制和反编译出来的 `AssemblyLoader.cs` 提交进仓库。
+   这样单文件投放能力与原版一致，同时内嵌的每一份都是本仓库源码编译出来的。
 
-   * `Costura/AssemblyLoader.cs` 是 Costura.Fody 编译期织入产物的反编译结果，不是插件
-     源码；
-   * 那 10 个 `costura.*.compressed` 是不透明的原始二进制（约 3.2 MB）。若保留，仓库里
-     会同时存在两份同名子程序集——一份由 `src/` 编译、一份是内嵌原件——读者无法判断
-     实际运行的是哪一份，改动 `src/` 也可能因部署方式不同而毫无效果；
-   * Costura 会把一部分运行行为交给没有对应源码的二进制，破坏“产物可由仓库源码解释”
-     这一验收前提。
-
-   代价是**失去单文件投放**：原来只需一个 `FFXIV_ACT_Plugin.dll`，现在必须把 §2 列出的
-   8 个 DLL 一起放进 ACT 插件目录。若确实需要单文件分发，正确做法是在主工程重新启用
-   Costura.Fody（`PackageReference` + `FodyWeavers.xml`），由它在构建时把
-   `ProjectReference` 的输出重新织入，而不是把反编译出来的 `AssemblyLoader.cs` 放回去。
+   与原始二进制的差异仅在生成物层面：Fody 6.x 的 loader 实现与 3.3.2 不同，并额外内嵌了
+   它自己的运行时辅助程序集 `Costura.dll` 与索引资源 `costura.metadata`；Fody 标记类也从
+   `ProcessedByFody` 改名为 `FFXIV_ACT_Plugin_ProcessedByFody`。这三项都不影响行为
+   （§4 的校验已把它们列为允许差异，加载测试也验证了实际可加载）。
 2. **去重内嵌资源。**
    原始 `FFXIV_ACT_Plugin.Resource.dll` 中
    `...Generated.ActionList_Chinese.txt` 与 `...Generated.StatusList_Chinese.txt`
@@ -133,9 +146,10 @@ artifacts/bin/Release/
 | 脚本 | 作用 |
 | --- | --- |
 | [`tools/decompile.py`](tools/decompile.py) | 解压 `reference/` 的 zip → 用 `ilspycmd --resource` + zlib 解出 10 个 Costura 内嵌程序集 → 用 `ilspycmd -p` 把 8 个托管程序集反编译成可编译工程（输出到 `.work/out/`） |
-| [`tools/gen_projects.py`](tools/gen_projects.py) | 把 ilspycmd 生成的工程改写成最终的 `src/**/*.csproj`：同级程序集改为 `ProjectReference`，第三方程序集改为指向 `refs/` 的 `Reference`，并处理资源去重、设计器资源嵌入 |
+| [`tools/gen_projects.py`](tools/gen_projects.py) | 把 ilspycmd 生成的工程改写成最终的 `src/**/*.csproj`：同级程序集改为 `ProjectReference`，第三方程序集改为指向 `refs/` 的 copy-local `Reference`（以便 Costura 织入），并写入 Costura.Fody 配置、单文件 staging 目标、资源去重与设计器资源嵌入 |
 | [`tools/verify_reconstruction.py`](tools/verify_reconstruction.py) | 校验：把原始 DLL 与重新编译出的 DLL 的元数据表（TypeDef / MethodDef / Field / Property / Event / ManifestResource）逐表比对 |
 | [`tools/compare_pe_flags.py`](tools/compare_pe_flags.py) | 校验：比对原始与重新编译产物的 PE / CLR 头标志（目标平台、ILONLY、32 位优先、强名称等） |
+| [`tools/PluginLoadTest`](tools/PluginLoadTest/Program.cs) | 功能校验：把单文件产物放进空目录加载，强制解析全部内嵌程序集并实测 Newtonsoft.Json 可用 |
 | [`tools/analyze_build.py`](tools/analyze_build.py) | 汇总 `dotnet build` 的报错/告警 |
 
 复现步骤（需要 `dotnet tool install -g ilspycmd`）：
@@ -146,6 +160,9 @@ python tools/gen_projects.py
 dotnet build FFXIV_ACT_Plugin.sln -c Release
 python tools/verify_reconstruction.py
 python tools/compare_pe_flags.py
+
+dotnet build tools/PluginLoadTest/PluginLoadTest.csproj -c Release
+artifacts/loadtest/Release/PluginLoadTest.exe artifacts/dist/Release/FFXIV_ACT_Plugin.dll
 ```
 
 校验结果：
@@ -163,9 +180,9 @@ FFXIV_ACT_Plugin.Resource  types=59    methods=350   fields=173   synth=3    OK
 8/8 assemblies verified with an identical declaration surface
 ```
 
-* 校验允许的差异只有三类：被移除的 `Costura.*` / `ProcessedByFody`，被去重的两条
-  `*_Chinese.txt`，以及当前 Roslyn 自动注入的
-  `EmbeddedAttribute` / `RefSafetyRulesAttribute`。
+* 校验允许的差异只有三类：被去重的两条 `*_Chinese.txt`、当前 Roslyn 自动注入的
+  `EmbeddedAttribute` / `RefSafetyRulesAttribute`，以及 Fody 6.x 重新生成的
+  `Costura.AssemblyLoader` 与 `FFXIV_ACT_Plugin_ProcessedByFody` 标记类。
 * `synth=` 一列是编译器自动生成的名字（闭包类 `<>c__DisplayClass*`、lambda
   `<...>b__*`、缓存委托字段等）。因为重新编译时 Roslyn 会重新编号这些名字
   （例如 `foreach` 变量在反编译源码里必须改名为 `x2` 才能通过作用域检查），

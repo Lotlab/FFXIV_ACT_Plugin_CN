@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
@@ -44,10 +44,10 @@ public class FFXIV_ACT_Plugin : IActPluginV1, IDisposable
 
 	public FFXIV_ACT_Plugin()
 	{
-		// NOTE (decompilation): the original binary called Costura.AssemblyLoader.Attach()
-		// here to resolve the sibling modules from embedded compressed resources.  In this
-		// reconstruction those modules are ordinary project references, so the Costura
-		// bootstrap (and its resources) were removed.
+		// NOTE (decompilation): the original binary also called Costura.AssemblyLoader.Attach()
+		// here.  That call was redundant - Costura.Fody attaches its resolver from the woven
+		// module initializer (which this build does too) and Attach() is idempotent - so it was
+		// dropped instead of re-adding a reference to generated code in hand-written source.
 	}
 
 	public void InitPlugin(TabPage pluginScreenSpace, Label pluginStatusText)

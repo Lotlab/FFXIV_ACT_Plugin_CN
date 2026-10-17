@@ -14,12 +14,12 @@
     <Reference Include="Machina">
       <HintPath>$(RefsDir)Machina.dll</HintPath>
       <SpecificVersion>false</SpecificVersion>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
     <Reference Include="Machina.FFXIV">
       <HintPath>$(RefsDir)Machina.FFXIV.dll</HintPath>
       <SpecificVersion>false</SpecificVersion>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
 </Project>

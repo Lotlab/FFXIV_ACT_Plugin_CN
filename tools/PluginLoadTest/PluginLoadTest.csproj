@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!--
+    A tiny .NET Framework harness that proves the freshly built
+    FFXIV_ACT_Plugin.dll really is self-contained.
+
+    It deliberately does NOT reference the plugin at compile time - everything goes
+    through reflection - so it can load whatever DLL it is pointed at.
+  -->
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <AssemblyName>PluginLoadTest</AssemblyName>
+    <RootNamespace>PluginLoadTest</RootNamespace>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <!-- keep this harness out of the plugin output folder -->
+    <BaseOutputPath>$(RepoRoot)artifacts\loadtest\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(RepoRoot)artifacts\obj\PluginLoadTest\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+</Project>

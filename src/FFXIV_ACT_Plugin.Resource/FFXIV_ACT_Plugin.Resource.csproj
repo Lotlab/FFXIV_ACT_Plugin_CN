@@ -11,7 +11,7 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(RefsDir)Newtonsoft.Json.dll</HintPath>
       <SpecificVersion>false</SpecificVersion>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>

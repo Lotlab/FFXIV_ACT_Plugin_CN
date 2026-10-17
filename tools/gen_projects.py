@@ -35,12 +35,45 @@ EXTRA_PROPS = {
     "FFXIV_ACT_Plugin.Common": ["<UseWindowsForms>true</UseWindowsForms>"],
 }
 
-# third-party binaries that live in refs/
+# Costura.Fody turns the main project into the single shipping
+# FFXIV_ACT_Plugin.dll.  Keep this in sync with src/FFXIV_ACT_Plugin/FodyWeavers.xml.
+COSTURA_REFERENCES = """  <ItemGroup>
+    <!--
+      Single-file packaging: Costura.Fody weaves every copy-local dependency (the
+      seven FFXIV_ACT_Plugin.* project outputs, Machina, Machina.FFXIV and the
+      transitively required Newtonsoft.Json) into FFXIV_ACT_Plugin.dll as
+      `costura.*.compressed` resources, and injects the assembly resolver that loads
+      them at runtime.  This is how the shipped plugin was built.
+    -->
+    <PackageReference Include="Fody" Version="6.9.3" PrivateAssets="all" />
+    <PackageReference Include="Costura.Fody" Version="6.2.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!--
+    Stage the woven DLL on its own, so the single-file deliverable is not mixed in
+    with the sibling project outputs that share artifacts/bin.  This directory is
+    exactly what gets copied into ACT's plugin folder (plus the deucalion DLLs).
+  -->
+  <Target Name="StageSingleFilePlugin" AfterTargets="Build">
+    <PropertyGroup>
+      <SingleFileStageDir>$(RepoRoot)artifacts\\dist\\$(Configuration)\\</SingleFileStageDir>
+    </PropertyGroup>
+    <RemoveDir Directories="$(SingleFileStageDir)" />
+    <MakeDir Directories="$(SingleFileStageDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SingleFileStageDir)" />
+    <Message Importance="high" Text="Single-file plugin staged: $(SingleFileStageDir)$(TargetFileName)" />
+  </Target>
+"""
+
+# third-party binaries that live in refs/ -> (file name, copy local?)
+# Advanced Combat Tracker is the *host* process assembly: it must never be copied or
+# embedded.  Everything else has to be copy-local so Costura.Fody embeds it, which is
+# what makes single-file deployment work.
 THIRDPARTY = {
-    "Advanced Combat Tracker": "Advanced Combat Tracker.exe",
-    "Machina": "Machina.dll",
-    "Machina.FFXIV": "Machina.FFXIV.dll",
-    "Newtonsoft.Json": "Newtonsoft.Json.dll",
+    "Advanced Combat Tracker": ("Advanced Combat Tracker.exe", False),
+    "Machina": ("Machina.dll", True),
+    "Machina.FFXIV": ("Machina.FFXIV.dll", True),
+    "Newtonsoft.Json": ("Newtonsoft.Json.dll", True),
 }
 
 # framework references that the .NET Framework SDK provides by default
@@ -59,12 +92,17 @@ def collect_references(text):
             project_refs.append(
                 '    <ProjectReference Include="..\\%s\\%s.csproj" />' % (name, name))
         elif name in THIRDPARTY:
+            file_name, copy_local = THIRDPARTY[name]
+            note = ("" if copy_local else
+                    "      <!-- host assembly: never copy or embed -->\n")
             third_party.append(
                 "    <Reference Include=\"%s\">\n"
                 "      <HintPath>$(RefsDir)%s</HintPath>\n"
                 "      <SpecificVersion>false</SpecificVersion>\n"
-                "      <Private>false</Private>\n"
-                "    </Reference>" % (name, THIRDPARTY[name]))
+                "%s"
+                "      <Private>%s</Private>\n"
+                "    </Reference>" % (name, file_name, note,
+                                      "true" if copy_local else "false"))
         else:
             raise SystemExit("unmapped hint-path reference %r" % name)
     for name in PLAIN_REF_RE.findall(text):
@@ -167,6 +205,8 @@ def build(project, text):
         parts.extend(sorted(refs))
         parts.append("  </ItemGroup>")
     parts.extend(resource_groups)
+    if project == "FFXIV_ACT_Plugin":
+        parts.append(COSTURA_REFERENCES.rstrip("\n"))
     parts.append("</Project>")
     return "\n".join(parts) + "\n"
 
@@ -180,7 +220,9 @@ def main():
         dst_dir = os.path.join(SRC, project)
         os.makedirs(dst_dir, exist_ok=True)
         dst = os.path.join(dst_dir, project + ".csproj")
-        with open(dst, "w", encoding="utf-8", newline="\r\n") as fh:
+        # LF, like the ilspycmd-generated sources: .gitattributes is `* -text`, so
+        # writing CRLF here would record whole-file churn on every regeneration
+        with open(dst, "w", encoding="utf-8", newline="\n") as fh:
             fh.write(build(project, text))
         print("wrote", os.path.relpath(dst, REPO))
 

@@ -1,0 +1,13 @@
+<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+  <!--
+    Costura bundles the plugin and all of its dependencies into a single
+    FFXIV_ACT_Plugin.dll, which is how the shipped plugin is distributed.
+
+    Every copy-local reference is embedded, except the host process assembly
+    (Advanced Combat Tracker.exe, marked Private=false in the csproj).
+
+    IncludeDebugSymbols is off because the shipped plugin did not carry the
+    sibling PDBs either; embedding them would add ~2 MB for no benefit.
+  -->
+  <Costura IncludeDebugSymbols="false" />
+</Weavers>

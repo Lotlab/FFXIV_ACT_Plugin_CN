@@ -17,17 +17,18 @@
     <Reference Include="Advanced Combat Tracker">
       <HintPath>$(RefsDir)Advanced Combat Tracker.exe</HintPath>
       <SpecificVersion>false</SpecificVersion>
+      <!-- host assembly: never copy or embed -->
       <Private>false</Private>
     </Reference>
     <Reference Include="Machina">
       <HintPath>$(RefsDir)Machina.dll</HintPath>
       <SpecificVersion>false</SpecificVersion>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
     <Reference Include="Machina.FFXIV">
       <HintPath>$(RefsDir)Machina.FFXIV.dll</HintPath>
       <SpecificVersion>false</SpecificVersion>
-      <Private>false</Private>
+      <Private>true</Private>
     </Reference>
     <Reference Include="System.Windows.Forms.DataVisualization" />
   </ItemGroup>
@@ -35,4 +36,30 @@
     <EmbeddedResource Include="FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources" LogicalName="FFXIV_ACT_Plugin.BenchmarkPropertyPage.resources" />
     <EmbeddedResource Include="FFXIV_ACT_Plugin.SettingsPropertyPage.resources" LogicalName="FFXIV_ACT_Plugin.SettingsPropertyPage.resources" />
   </ItemGroup>
+  <ItemGroup>
+    <!--
+      Single-file packaging: Costura.Fody weaves every copy-local dependency (the
+      seven FFXIV_ACT_Plugin.* project outputs, Machina, Machina.FFXIV and the
+      transitively required Newtonsoft.Json) into FFXIV_ACT_Plugin.dll as
+      `costura.*.compressed` resources, and injects the assembly resolver that loads
+      them at runtime.  This is how the shipped plugin was built.
+    -->
+    <PackageReference Include="Fody" Version="6.9.3" PrivateAssets="all" />
+    <PackageReference Include="Costura.Fody" Version="6.2.0" PrivateAssets="all" />
+  </ItemGroup>
+
+  <!--
+    Stage the woven DLL on its own, so the single-file deliverable is not mixed in
+    with the sibling project outputs that share artifacts/bin.  This directory is
+    exactly what gets copied into ACT's plugin folder (plus the deucalion DLLs).
+  -->
+  <Target Name="StageSingleFilePlugin" AfterTargets="Build">
+    <PropertyGroup>
+      <SingleFileStageDir>$(RepoRoot)artifacts\dist\$(Configuration)\</SingleFileStageDir>
+    </PropertyGroup>
+    <RemoveDir Directories="$(SingleFileStageDir)" />
+    <MakeDir Directories="$(SingleFileStageDir)" />
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(SingleFileStageDir)" />
+    <Message Importance="high" Text="Single-file plugin staged: $(SingleFileStageDir)$(TargetFileName)" />
+  </Target>
 </Project>
