@@ -17,7 +17,10 @@ The only deltas that are allowed are the deliberate changes documented in README
 * FFXIV_ACT_Plugin.Resource ships each duplicated `*_Chinese.txt` payload once
   instead of twice;
 * current Roslyn injects the `EmbeddedAttribute` / `RefSafetyRulesAttribute` helper
-  types into every assembly.
+  types into every assembly;
+* the non-injection capture work adds the packet deobfuscation types and the capture
+  settings that the 3.0.2.1 build dropped (see README §4).  Those additions are listed
+  in FEATURE_TYPES / FEATURE_MEMBERS below so that any *other* drift still fails.
 
 Usage:  python tools/verify_reconstruction.py [--statements]
 """
@@ -62,6 +65,45 @@ ROSELYN_HELPERS = {"EmbeddedAttribute", "RefSafetyRulesAttribute"}
 # separately instead of failing the comparison.
 SYNTHESIZED = re.compile(
     r"^(<>|<[^<>]+>b__|<[^<>]+>d__|<Module>|<PrivateImplementationDetails>|<0>__)")
+
+# --- the feature additions --------------------------------------------------
+# Types introduced by the restored packet-capture / deobfuscation support.  A type
+# listed here allows its fields, methods and properties through as well.
+FEATURE_TYPES = {
+    "FFXIV_ACT_Plugin.Network": {
+        "FirewallManager",              # restored 2.7.2.6 raw-socket helper
+    },
+}
+
+# Members added to pre-existing types.
+FEATURE_MEMBERS = {
+    "FFXIV_ACT_Plugin": {
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::label4",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::cboFilterIP",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::cboRefreshNetwork",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::chkUsePcap",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::chkUseDeucalion",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::chkDisableSocketFilter",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::cmdAddFirewallRule",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::_firewallManager",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::cmdAddFirewallRule_Click",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::RefreshNetworkList",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::cboRefreshNetwork_Click",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::cboFilterIP_SelectedIndexChanged",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::chkUsePcap_CheckedChanged",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::chkUseDeucalion_CheckedChanged",
+        "FFXIV_ACT_Plugin.SettingsPropertyPage::chkDisableSocketFilter_CheckedChanged",
+    },
+    "FFXIV_ACT_Plugin.Config": {
+        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::NetworkIP",
+        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseWinPCap",
+        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseSocketFilter",
+        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseDeucalion",
+    },
+}
+
+# Properties have no owner in the dumped table, so they are matched by name.
+FEATURE_PROPERTIES = {}
 
 
 def is_synthesized(name):
@@ -185,6 +227,8 @@ def allowed_type(assembly, name):
     if assembly == "FFXIV_ACT_Plugin" and short.endswith("ProcessedByFody"):
         return True                         # Fody weaving marker; Fody 6.x prefixes the
                                             # class with the assembly name
+    if short in FEATURE_TYPES.get(assembly, ()):
+        return True                         # packet deobfuscation support
     return False
 
 
@@ -194,6 +238,10 @@ def allowed_delta(assembly, table, name):
             return True
         if assembly == "FFXIV_ACT_Plugin.Resource" and name.endswith("_Chinese.txt"):
             return True
+    if table == "Property" and name in FEATURE_PROPERTIES.get(assembly, ()):
+        return True
+    if name in FEATURE_MEMBERS.get(assembly, ()):
+        return True
     if table in ("Field", "MethodDef", "Property", "Event") and "::" in name:
         return allowed_type(assembly, name.split("::")[0])
     return allowed_type(assembly, name)

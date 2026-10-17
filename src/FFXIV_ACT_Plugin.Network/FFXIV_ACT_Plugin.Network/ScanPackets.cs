@@ -1,12 +1,14 @@
 #define TRACE
 using System;
 using System.Diagnostics;
+using System.Net;
 using System.Text;
 using FFXIV_ACT_Plugin.Config;
 using FFXIV_ACT_Plugin.Memory;
 using Machina.FFXIV;
 using Machina.FFXIV.Deucalion;
 using Machina.FFXIV.Headers.Opcodes;
+using Machina.FFXIV.Oodle;
 using Machina.Infrastructure;
 
 namespace FFXIV_ACT_Plugin.Network;
@@ -61,13 +63,36 @@ public class ScanPackets : IScanPackets, IDisposable
 			int processId = _processManager.Current.ProcessId;
 			if (_settingsMediator.DataCollectionSettings != null && processId != 0)
 			{
-				OpcodeManager.Instance.SetRegion((GameRegion)_settingsMediator.DataCollectionSettings.RegionID);
-				DeucalionInjector.GameRegion = (GameRegion)_settingsMediator.DataCollectionSettings.RegionID;
+				DataCollectionSettingsEventArgs settings = _settingsMediator.DataCollectionSettings;
+				OpcodeManager.Instance.SetRegion((GameRegion)settings.RegionID);
+				DeucalionInjector.GameRegion = (GameRegion)settings.RegionID;
 				_packetHandlerMediator.LoadPacketHandlers();
 				_monitor = new FFXIVNetworkMonitor();
+				_monitor.MonitorType = (settings.UseWinPCap ? NetworkMonitorType.WinPCap : NetworkMonitorType.RawSocket);
 				_monitor.ProcessID = (uint)processId;
 				_monitor.ProcessIDList.Add((uint)processId);
-				_monitor.UseDeucalion = true;
+				if (!string.IsNullOrWhiteSpace(settings.NetworkIP))
+				{
+					if (IPAddress.TryParse(settings.NetworkIP, out IPAddress localIp))
+					{
+						_monitor.LocalIP = localIp;
+					}
+					else
+					{
+						Trace.WriteLine("Ignoring unparsable capture address [" + settings.NetworkIP + "].", "FFXIV_ACT_Plugin");
+					}
+				}
+				if (settings.UseSocketFilter)
+				{
+					_monitor.UseRemoteIpFilter = true;
+				}
+				_monitor.OodleImplementation = OodleImplementation.FfxivTcp;
+				string gameFile = _processManager.Current.GameFile;
+				if (!string.IsNullOrEmpty(gameFile))
+				{
+					_monitor.OodlePath = (gameFile.EndsWith("\\ffxiv.exe", StringComparison.OrdinalIgnoreCase) ? gameFile.Replace("\\ffxiv.exe", "\\ffxiv_dx11.exe") : gameFile);
+				}
+				_monitor.UseDeucalion = settings.UseDeucalion;
 				_monitor.MessageReceivedEventHandler = (TCPConnection connection, long epoch, byte[] message) =>
 				{
 					NetworkMessageReceived(connection, epoch, message);

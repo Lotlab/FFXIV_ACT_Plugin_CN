@@ -170,6 +170,7 @@ public class FFXIV_ACT_Plugin : IActPluginV1, IDisposable
 		_iocContainer.Register<IZoneMapProcessor, ZoneMapProcessor>().AsSingleton();
 		_iocContainer.Register<INetworkBuffManager, NetworkBuffManager>().AsSingleton();
 		_iocContainer.Register<INetworkMarkerManager, NetworkMarkerManager>().AsSingleton();
+		_iocContainer.Register<FirewallManager>().AsSingleton();
 		_iocContainer.Register<ParseMediator>().AsSingleton();
 		_iocContainer.Register<ParseStrategyFactory>().AsSingleton();
 		_iocContainer.Register<IReportCombatData, ReportCombatData>().AsSingleton();

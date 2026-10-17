@@ -12,4 +12,8 @@
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Memory\FFXIV_ACT_Plugin.Memory.csproj" />
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Resource\FFXIV_ACT_Plugin.Resource.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- Re-creates the ACT firewall exception for the raw-socket capture path. -->
+    <PackageReference Include="WindowsFirewallHelper" Version="1.6.3.46" />
+  </ItemGroup>
 </Project>
