@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Common</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Common</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Advanced Combat Tracker">
+      <HintPath>$(ActAssemblyPath)</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>

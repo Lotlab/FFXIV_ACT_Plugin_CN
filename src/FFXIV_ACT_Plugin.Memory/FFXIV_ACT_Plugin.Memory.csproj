@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Memory</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Memory</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Memory.Signatures_Global.txt" LogicalName="FFXIV_ACT_Plugin.Memory.Signatures_Global.txt" />
+    <EmbeddedResource Include="FFXIV_ACT_Plugin.Memory.Signatures_TraditionalChinese.txt" LogicalName="FFXIV_ACT_Plugin.Memory.Signatures_TraditionalChinese.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Common/FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Config/FFXIV_ACT_Plugin.Config.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Logfile/FFXIV_ACT_Plugin.Logfile.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Resource/FFXIV_ACT_Plugin.Resource.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,60 @@
+{
+    "job": "limit break",
+    "actions": [],
+    "statuseffects": [
+        {
+            "C2": "\u94dc\u5899\u94c1\u76fe",
+            "potency": [
+                {
+                    "type": "damagereceivedmultiplier",
+                    "amount": -20
+                }
+            ]
+        },
+        {
+            "C3": "\u575a\u5b88\u8981\u585e",
+            "potency": [
+                {
+                    "type": "damagereceivedmultiplier",
+                    "amount": -40
+                }
+            ]
+        },
+        {
+            "C4": "\u7ec8\u6781\u5821\u5792",
+            "potency": [
+                {
+                    "type": "damagereceivedmultiplier",
+                    "amount": -80
+                }
+            ]
+        },
+        {
+            "35F": "\u539f\u521d\u5927\u5730",
+            "potency": [
+                {
+                    "type": "damagereceivedmultiplier",
+                    "amount": -80
+                }
+            ]
+        },
+        {
+            "360": "\u6697\u9ed1\u4e4b\u529b",
+            "potency": [
+                {
+                    "type": "damagereceivedmultiplier",
+                    "amount": -80
+                }
+            ]
+        },
+        {
+            "78B": "\u7075\u9b42\u4e4b\u9752",
+            "potency": [
+                {
+                    "type": "damagereceivedmultiplier",
+                    "amount": -80
+                }
+            ]
+        }
+    ]
+}

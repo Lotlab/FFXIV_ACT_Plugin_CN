@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Local dependencies fetched by scripts/fetch-deps.sh (not redistributable)
+/lib/Advanced Combat Tracker.exe
+
+# Build artefacts
+/artifacts/
+
+# Reference binaries provided as restoration input
+/reference/

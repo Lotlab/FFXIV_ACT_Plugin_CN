@@ -1,0 +1,1114 @@
+128|Limsa Lominsa - Le Tillac
+129|Limsa Lominsa - L'Entrepont
+130|Ul'dah - Faubourg de Nald
+131|Ul'dah - Faubourg de Thal
+132|Nouvelle Gridania
+133|Vieille Gridania
+134|Noscea centrale
+135|Basse-Noscea
+136|Brumée
+137|Noscea orientale
+138|Noscea occidentale
+139|Haute-Noscea
+140|Thanalan occidental
+141|Thanalan central
+142|Halatali
+144|Gold Saucer
+145|Thanalan oriental
+146|Thanalan méridional
+147|Thanalan septentrional
+148|Forêt centrale
+149|Festin des loups
+151|Monde des Ténèbres
+152|Forêt de l'est
+153|Forêt du sud
+154|Forêt du nord
+155|Hautes terres du Coerthas central
+156|Mor Dhona
+159|Palais du Vagabond
+160|Phare de Sirius
+167|Château d'Amdapor
+171|Forteresse de Dzemael
+172|Val d'Aurum
+174|Dédale antique
+176|Geôle de Mordion
+177|Auberge de L'Artimon
+178|Le Sablier
+179|Le Perchoir
+180|Noscea extérieure
+181|Limsa Lominsa
+182|Ul'dah - Faubourg de Nald
+183|Nouvelle Gridania
+188|Palais du Vagabond
+189|Château d'Amdapor
+190|Forêt centrale
+191|Forêt de l'est
+192|Forêt du sud
+193|Secteur central RCI-06
+194|Réseau de régénération RCI-06
+195|Pont principal RCI-06
+196|Cœur de Bahamut
+198|Salon de l'Amiral
+204|Salle de commandement du Carquois
+205|Chaire du Lotus
+210|Hall d'argent
+212|Refuge des sables
+214|Noscea centrale
+215|Thanalan occidental
+216|Thanalan central
+219|Forêt centrale
+220|Forêt du sud
+221|Haute-Noscea
+222|Basse-Noscea
+223|Hautes terres du Coerthas central
+225|Forêt centrale
+226|Forêt centrale
+227|Forêt centrale
+228|Forêt du nord
+229|Forêt du sud
+230|Forêt centrale
+231|Forêt du sud
+232|Forêt du sud
+233|Forêt centrale
+234|Forêt de l'est
+235|Forêt du sud
+236|Forêt du sud
+237|Forêt centrale
+238|Vieille Gridania
+239|Forêt centrale
+240|Forêt du nord
+241|Site impérial d'exploration supérieur
+242|Site impérial d'exploration inférieur
+243|Le Ragnarok
+244|Cylindre propulseur du Ragnarok
+245|Noyau central du Ragnarok
+246|Pont principal RCI-04
+247|Pont principal du Ragnarok
+248|Thanalan central
+249|Basse-Noscea
+250|Jetée de l'Antre des loups
+251|Ul'dah - Faubourg de Nald
+252|Noscea centrale
+253|Thanalan central
+254|Ul'dah - Faubourg de Nald
+255|Thanalan occidental
+256|Thanalan oriental
+257|Thanalan oriental
+258|Thanalan central
+259|Ul'dah - Faubourg de Nald
+260|Thanalan méridional
+261|Thanalan méridional
+262|Basse-Noscea
+263|Noscea occidentale
+264|Basse-Noscea
+265|Basse-Noscea
+266|Thanalan oriental
+267|Thanalan occidental
+268|Thanalan oriental
+269|Thanalan occidental
+270|Thanalan central
+271|Thanalan central
+272|Noscea centrale
+273|Thanalan occidental
+274|Ul'dah - Faubourg de Nald
+275|Thanalan oriental
+276|Salle des convocations
+277|Forêt de l'est
+278|Thanalan occidental
+279|Basse-Noscea
+280|Noscea occidentale
+281|Briseur de marées
+282|Maisonnette - Brumée
+283|Pavillon - Brumée
+284|Villa - Brumée
+285|Noscea centrale
+286|Mer de Rhotano
+287|Basse-Noscea
+288|Mer de Rhotano
+289|Forêt de l'est
+290|Forêt de l'est
+291|Forêt du sud
+292|Cratère des tisons
+293|Le Nombril
+294|Hurlœil
+295|Cratère des tisons
+296|Le Nombril
+297|Hurlœil
+298|Hautes terres du Coerthas central
+299|Mor Dhona
+300|Mor Dhona
+301|Hautes terres du Coerthas central
+302|Hautes terres du Coerthas central
+303|Forêt de l'est
+304|Hautes terres du Coerthas central
+305|Mor Dhona
+306|Thanalan méridional
+307|Basse-Noscea
+308|Mor Dhona
+309|Mor Dhona
+310|Noscea orientale
+311|Noscea orientale
+312|Thanalan méridional
+313|Hautes terres du Coerthas central
+314|Thanalan central
+315|Mor Dhona
+316|Hautes terres du Coerthas central
+317|Forêt du sud
+318|Thanalan méridional
+319|Forêt centrale
+320|Forêt centrale
+321|Forêt du nord
+322|Hautes terres du Coerthas central
+323|Thanalan méridional
+324|Forêt du nord
+325|Noscea extérieure
+326|Mor Dhona
+327|Noscea orientale
+328|Haute-Noscea
+329|Palais du Vagabond
+330|Noscea occidentale
+331|Hurlœil (abord)
+335|Mor Dhona
+338|Sous-sol éorzéen
+339|Brumée
+340|Lavandière
+341|La Coupe
+342|Maisonnette - Lavandière
+343|Pavillon - Lavandière
+344|Villa - Lavandière
+345|Maisonnette - La Coupe
+346|Pavillon - La Coupe
+347|Villa - La Coupe
+348|Porta Decumana
+349|Mines de Clochecuivre
+350|Manoir des Haukke
+351|Refuge des roches
+353|Pont Ohashi
+354|Salle de bal de Titania
+355|Ombrage du Météore
+356|L'Écheveau
+357|Secteur central RCI-03
+358|Salle de contrôle RCI-03
+359|Briseur de marées
+360|Halatali
+361|Île de Crèvecarène
+362|Bivouac de Brayflox
+363|Vestiges de la cité d'Amdapor
+364|Lisière de ronces
+365|Vigile de Pierre
+366|Traversée du Griffon
+367|Temple enseveli de Qarn
+368|Le Saint affligé
+369|Hall des Bestiarii
+370|Premier pont RCI-03
+372|Tour de Syrcus
+373|Hypogée de Tam-Tara
+374|Arbre du jugement
+375|Arbre du jugement
+376|Ruines frontalières
+377|Amphithéâtre d'Akh Afah
+378|Amphithéâtre d'Akh Afah
+379|Mor Dhona
+380|Ombrage du Météore
+381|L'Écheveau
+382|Secteur central RCI-03
+383|Salle de contrôle RCI-03
+384|Chambre individuelle - Brumée
+385|Chambre individuelle - Lavandière
+386|Chambre individuelle - La Coupe
+387|Sastasha
+388|Square des chocobos
+389|Square des chocobos
+390|Square des chocobos
+391|Square des chocobos
+392|Sanctuaire des Douze
+393|Sanctuaire des Douze
+394|Forêt du sud
+395|Salle de réception
+396|Château d'Amdapor
+397|Hautes terres du Coerthas occidental
+398|Avant-pays dravanien
+399|Arrière-pays dravanien
+400|L'Écume des cieux de Dravania
+401|L'Écume des cieux d'Abalathia
+402|Azys Lla
+403|Ala Mhigo
+404|Limsa Lominsa - L'Entrepont
+405|Noscea occidentale
+406|Noscea occidentale
+407|Mer de Rhotano
+408|Noscea orientale
+409|Limsa Lominsa - Le Tillac
+410|Thanalan septentrional
+411|Noscea orientale
+412|Haute-Noscea
+413|Noscea occidentale
+414|Noscea orientale
+415|Basse-Noscea
+417|Square des chocobos
+418|Ishgard - L'Assise
+419|Ishgard - Les Contreforts
+420|Nalloncques
+423|Atelier de compagnie - Brumée
+424|Atelier de compagnie - La Coupe
+425|Atelier de compagnie - Lavandière
+426|La Chrysalide
+427|Scolasticat Saint-Endalim
+428|Siège du capitaine général
+429|Les Neuf-Nuages
+430|Le Continuum fractal
+431|Rocher des tréfonds
+432|Thok ast Thok
+433|Manoir des Fortemps
+436|L'Immensité bleue
+437|Réacteur de singularité
+439|Carrière de Lesteplume
+440|Salle des sentences
+442|Le Poing du Père
+443|Le Poignet du Père
+444|Le Bras du Père
+445|Le Fardeau du Père
+446|Thok ast Thok
+447|L'Immensité bleue
+448|Réacteur de singularité
+449|Le Poing du Père
+450|Le Poignet du Père
+451|Le Bras du Père
+452|Le Fardeau du Père
+453|Noscea occidentale
+454|Haute-Noscea
+455|L'Écume des cieux d'Abalathia
+456|Salle des sentences
+457|Amphithéâtre d'Akh Afah
+458|Ishgard - L'Assise
+459|Azys Lla
+460|Halatali
+461|L'Écume des cieux d'Abalathia
+462|Salle des offrandes
+463|Caverne de Matoya
+464|Avant-pays dravanien
+465|Thanalan oriental
+466|Haute-Noscea
+467|Hautes terres du Coerthas occidental
+468|Hautes terres du Coerthas central
+469|Hautes terres du Coerthas central
+470|Hautes terres du Coerthas occidental
+471|Noscea orientale
+472|Hautes terres du Coerthas occidental
+473|Forêt du sud
+474|Limsa Lominsa - Le Tillac
+475|Hautes terres du Coerthas central
+476|Arrière-pays dravanien
+477|Hautes terres du Coerthas occidental
+478|Idyllée
+479|Hautes terres du Coerthas occidental
+480|Mor Dhona
+481|Avant-pays dravanien
+482|Avant-pays dravanien
+483|Thanalan septentrional
+484|Basse-Noscea
+485|Arrière-pays dravanien
+486|Noscea extérieure
+487|Hautes terres du Coerthas central
+488|Hautes terres du Coerthas central
+489|Hautes terres du Coerthas occidental
+490|Île de Crèvecarène
+491|Thanalan méridional
+492|L'Écume des cieux d'Abalathia
+493|Hautes terres du Coerthas occidental
+494|Thanalan oriental
+495|Basse-Noscea
+496|Hautes terres du Coerthas central
+497|Hautes terres du Coerthas occidental
+498|Hautes terres du Coerthas occidental
+499|Ishgard - Les Contreforts
+500|Hautes terres du Coerthas central
+501|L'Écume des cieux de Dravania
+502|Ruines frontalières
+503|Arrière-pays dravanien
+504|Salle des développeurs
+505|Alexander
+506|Square des chocobos
+507|Cœur d'Azys Lla
+508|Arche du néant
+509|Temple d'Araya
+510|Phare de Sirius
+511|Arboretum Sainte-Mocianne
+512|Le Diadème
+513|La Voûte
+514|Le Diadème
+515|Le Diadème
+517|Unité de contention S1P7
+519|Vestiges de la cité d'Amdapor
+520|Le Poing du Fils
+521|Le Poignet du Fils
+522|Le Bras du Fils
+523|Le Fardeau du Fils
+524|Unité de contention S1P7
+529|Le Poing du Fils
+530|Le Poignet du Fils
+531|Le Bras du Fils
+532|Le Fardeau du Fils
+533|Hautes terres du Coerthas central
+534|Caserne de l'ordre des Deux Vipères
+535|Caserne des Immortels
+536|Caserne du Maelstrom
+537|La Louverie (The Fold)
+538|La Louverie (The Fold)
+539|La Louverie (The Fold)
+540|La Louverie (The Fold)
+541|La Louverie (The Fold)
+542|La Louverie (The Fold)
+543|La Louverie (The Fold)
+544|La Louverie (The Fold)
+545|La Louverie (The Fold)
+546|La Louverie (The Fold)
+547|La Louverie (The Fold)
+548|La Louverie (The Fold)
+549|La Louverie (The Fold)
+550|La Louverie (The Fold)
+551|La Louverie (The Fold)
+552|Noscea occidentale
+553|Alexander
+554|Champs de la Gloire
+556|Cité défendue de Mhach
+557|Île de Crèvecarène
+558|Aquapole
+559|Avancée de la Foi
+560|Laboratoire de magismologie
+561|Palais des morts
+562|Palais des morts
+563|Palais des morts
+564|Palais des morts
+565|Palais des morts
+566|Avancée de la Foi
+567|Le Paddock
+568|Cabine de Leofard
+569|Avancée de la Foi
+570|Palais des morts
+571|Manoir hanté
+573|Le Mât de hune (hall)
+574|Plaine-aux-Lys (hall)
+575|Le Souffle de la Sultane (hall)
+576|Unité de contention P1P6
+577|Unité de contention P1P6
+578|Grande bibliothèque de Gubal
+579|Arène Triple Triade
+580|Les Yeux du Créateur
+581|Le Souffle du Créateur
+582|Le Cœur du Créateur
+583|L'Âme du Créateur
+584|Les Yeux du Créateur
+585|Le Souffle du Créateur
+586|Le Cœur du Créateur
+587|L'Âme du Créateur
+588|Le Cœur du Créateur
+589|Square des chocobos
+590|Square des chocobos
+591|Square des chocobos
+592|Cratère des tisons
+593|Palais des morts
+594|Palais des morts
+595|Palais des morts
+596|Palais des morts
+597|Palais des morts
+598|Palais des morts
+599|Palais des morts
+600|Palais des morts
+601|Palais des morts
+602|Palais des morts
+603|Palais des morts
+604|Palais des morts
+605|Palais des morts
+606|Palais des morts
+607|Palais des morts
+608|Le Mât de hune (appartement)
+609|Plaine-aux-Lys (appartement)
+610|Le Souffle de la Sultane (appartement)
+611|Clinique pédiatrique de l'Académie médicale de Frondale
+612|Les Marges
+613|Mer de Rubis
+614|Yanxia
+617|Sohm Al
+620|Les Pics
+621|Les Lacs
+622|Steppe d'Azim
+624|Le Diadème
+625|Le Diadème
+627|Dun Scaith
+628|Kugane
+629|Auberge du Bokairo
+633|Ruines frontalières
+634|Yanxia
+635|L'Étendue de Rhalgr
+636|Salle de contrôle d'Oméga
+637|Unité de contention Z1P9
+638|Unité de contention Z1P9
+639|Salle d'accueil du Bazar de Rubis
+640|Les Marges
+641|Shirogane
+647|Les Marges
+648|Les Marges
+649|Maisonnette - Shirogane
+650|Pavillon - Shirogane
+651|Villa - Shirogane
+652|Chambre individuelle - Shirogane
+653|Atelier de compagnie - Shirogane
+654|Kobai Goten (hall)
+655|Kobai Goten (appartement)
+656|Le Diadème
+657|Mer de Rubis
+658|Fissure interdimensionnelle
+659|L'Étendue de Rhalgr
+662|Château de Kugane
+663|Temple du Poing
+664|Kugane
+665|Kugane
+666|Ul'dah - Faubourg de Thal
+667|Kugane
+668|Thanalan oriental
+669|Thanalan méridional
+670|Les Marges
+671|Les Marges
+672|Mor Dhona
+673|Sohm Al
+674|Crique aux tributs
+675|Noscea occidentale
+676|Grande bibliothèque de Gubal
+677|Crique aux tributs
+678|Les Marges
+679|Aérodrome royal
+680|Le Misère
+681|Cercle des Intrépides
+682|Quartier enclavé de Doma
+683|Grand autel de Djanan Qhat
+684|Les Lacs
+685|Yanxia
+686|Les Lacs
+687|Les Lacs
+688|Steppe d'Azim
+690|Fissure interdimensionnelle
+691|Deltastice v1.0
+692|Deltastice v2.0
+693|Deltastice v3.0
+694|Deltastice v4.0
+695|Deltastice v1.0
+696|Deltastice v2.0
+697|Deltastice v3.0
+698|Deltastice v4.0
+699|Hautes terres du Coerthas central
+700|Ishgard - L'Assise
+701|Rocher des tréfonds
+702|Laboratoire de magismologie
+703|Les Marges
+704|Ombrage du Météore
+705|Ul'dah - Faubourg de Thal
+706|Ul'dah - Faubourg de Thal
+707|Cité défendue de Mhach
+708|Mer de Rhotano
+709|Hautes terres du Coerthas occidental
+710|Kugane
+711|Mer de Rubis
+712|Canaux perdus d'Uznair
+713|Steppe d'Azim
+714|Force de Bardam
+715|L'Écume des cieux de Dravania
+716|Les Pics
+717|Jetée de l'Antre des loups
+718|Steppe d'Azim
+719|Émanation
+720|Émanation
+721|Château d'Amdapor
+722|Vestiges de la cité d'Amdapor
+723|Steppe d'Azim
+724|Fissure interdimensionnelle
+725|Canaux perdus d'Uznair
+726|Mer de Rubis
+727|Ménagerie royale
+728|Geôle de Mordion
+729|Astragalos
+730|Transparence
+732|Eurêka Anemos
+733|Abîme infini de Bahamut
+734|Cité royale de Rabanastre
+735|Salle de répétition du Prima Vista
+736|Pont du Prima Vista
+737|Palais royal d'Ala Mhigo
+738|Laboratoire impérial d'étude sur les Résonnants
+739|Quartier enclavé de Doma
+740|Ménagerie royale
+741|Sanctuaire des Douze
+742|Couvercle des enfers
+743|Le Continuum fractal
+744|Kienkan
+746|Clairière de Jade
+748|Sigmastice v1.0
+749|Sigmastice v2.0
+750|Sigmastice v3.0
+751|Sigmastice v4.0
+752|Sigmastice v1.0
+753|Sigmastice v2.0
+754|Sigmastice v3.0
+755|Sigmastice v4.0
+756|Fissure interdimensionnelle
+757|Mer de Rubis
+758|Clairière de Jade
+759|Quartier enclavé de Doma
+760|Les Marges
+761|Domaine du roi des cieux
+762|Domaine du roi des cieux
+763|Eurêka Pagos
+764|Sanctuaire Reisen
+768|Compas de l'Hirondelle
+769|L'Escarre
+770|Pilier des Cieux
+771|Pilier des Cieux
+772|Pilier des Cieux
+773|Pilier des Cieux
+774|Pilier des Cieux
+775|Pilier des Cieux
+776|Le Phare de Ridorana
+777|Fantasmagorie d'Ultima
+778|Castrum Fluminis
+779|Castrum Fluminis
+780|Pilier des Cieux
+781|Chemin du sanctuaire Reisen
+782|Pilier des Cieux
+783|Pilier des Cieux
+784|Pilier des Cieux
+785|Pilier des Cieux
+786|Castrum Fluminis
+787|Cataractes de Ridorana
+788|Arboretum Sainte-Mocianne
+790|Ul'dah - Faubourg de Nald
+791|Gorge dérobée
+792|Chutes de Belah'dia
+794|Temple sacré d'Uznair
+795|Eurêka Pyros
+796|Ciel azur
+797|Steppe d'Azim
+798|Psistice v1.0
+799|Psistice v2.0
+800|Fissure interdimensionnelle
+801|Fissure interdimensionnelle
+802|Psistice v1.0
+803|Psistice v2.0
+804|Fissure interdimensionnelle
+805|Fissure interdimensionnelle
+806|Pont Ohashi
+807|Fissure interdimensionnelle
+808|Fissure interdimensionnelle
+809|Manoir hanté
+810|Fond des enfers
+811|Fond des enfers
+812|Fissure interdimensionnelle
+813|Grand-Lac
+814|Kholusia
+815|Amh Araeng
+816|Il Mheg
+817|Rak'tika
+818|La Tempête
+819|Cristarium
+820|Eulmore
+821|Dohn Mheg
+822|Mont Gulg
+823|Enchevêtrement des Qitari
+824|Sanctuaire du Grand Serpent
+825|Sanctuaire du Grand Serpent
+826|Monastère d'Orbonne
+827|Eurêka Hydatos
+828|Salle de répétition du Prima Vista
+829|Quartier général de l'Alliance
+830|Les Ténèbres de Ghimlyt
+831|Tables des Manderville
+832|Gold Saucer
+833|Hurlœil (abord)
+834|Hurlœil
+836|Puits de Malikah
+837|Holminster
+838|Amaurote
+839|Forêt de l'est
+840|Macle de Syrcus
+841|Akadaemia Anydre
+842|Gorge de Syrcus
+843|Les Pendants
+844|L'Observatoire
+845|Salle de bal de Titania
+846|Couronne de l'Immaculé
+847|Râle de l'Agonie
+848|Couronne de l'Immaculé
+849|Cœur d'Éden
+850|Halo pinaculaire
+851|Fosse de Nérée
+852|Mont Atlas
+853|Cœur d'Éden
+854|Halo pinaculaire
+855|Fosse de Nérée
+856|Mont Atlas
+857|Cœur d'Éden
+858|Salle de bal de Titania
+859|Confessionnal de Toupasa l'ancien
+860|Amh Araeng
+861|Grand-Lac
+862|Grand-Lac
+863|Eulmore
+864|Kholusia
+865|Vieille Gridania
+866|Hautes terres du Coerthas occidental
+867|Noscea orientale
+868|Les Pics
+869|Il Mheg
+870|Kholusia
+871|Rak'tika
+872|Amh Araeng
+873|Salle de bal de Titania
+874|Rak'tika
+875|Rak'tika
+876|Mines des Nabaath
+877|Grand-Lac
+878|Le Grand Vide
+879|Donjon hypogéen du Lyhe Ghiah
+880|Couronne de l'Immaculé
+881|Râle de l'Agonie
+882|Réplique de l'usine désaffectée
+884|Cosmos coruscant
+885|Râle de l'Agonie
+886|Azurée
+887|Univers différentiel
+888|Onsal Hakair
+889|Lyhe Mheg
+890|Lyhe Mheg
+891|Lyhe Mheg
+892|Lyhe Mheg
+893|Palais impérial
+894|Lyhe Mheg
+895|Entrée des ruines mécaniques
+896|Réplique de l'usine désaffectée
+897|Les Nuées de Brandons
+898|Anamnesis Anydre
+899|Cité croulante de Nym
+900|L'Ambition
+901|Le Diadème
+902|Plaine foudroyée de Gandof
+903|Bassin cendreux
+904|Pont supérieur d'Éden
+905|Grand Glacier
+906|Plaine foudroyée de Gandof
+907|Bassin cendreux
+908|Pont supérieur d'Éden
+909|Grand Glacier
+911|Mémoire de Cid
+912|Les Nuées de Brandons
+913|Salle de contrôle
+914|Antichambre de l'épreuve
+915|Gangos
+916|Traversée de Norvrandt
+917|Base militaire des Pantins
+918|Anamnesis Anydre
+919|Rocasternes
+920|Front sud de Bozja
+921|Clinique pédiatrique de l'Académie médicale de Frondale
+922|Le Trône du Sacrifice
+923|Le Trône du Sacrifice
+924|Jardin secret du Lyhe Ghiah
+925|Large de Rocasternes
+926|Large de Rocasternes
+928|Base militaire des Pantins
+929|Le Diadème
+931|Le Trône du Sacrifice
+932|La Tempête
+933|Atelier abandonné de Matoya
+934|Cale sèche de Castrum Marinum
+935|Cale sèche de Castrum Marinum
+936|Delubrum Reginae
+937|Delubrum Reginae
+938|Paglth'an
+939|Le Diadème
+940|Arène Triple Triade
+941|Arène Triple Triade
+942|Sphère de l'absence
+943|Château de Ganlag
+944|Prison d'Eulmore
+945|Jardin du désespoir
+946|Sphère de l'absence
+947|Château de Ganlag
+948|Prison d'Eulmore
+949|Jardin du désespoir
+950|Ponton du Gardien-G
+951|Ponton du Gardien-G
+952|Tour de Zott
+954|Le Nombril
+955|Vestiges oubliés
+956|Le Labyrinthos
+957|Thavnair
+958|Garlemald
+959|Mare Lamentorum
+960|Ultima Thulé
+961|Elpis
+962|Vieille Sharlayan
+963|Radz-at-Han
+964|Vestiges oubliés
+965|Le Grand Vide
+966|Tour de la Contingence
+967|Cale sèche de Castrum Marinum
+968|Interstice du chant onirique
+969|Tour de Babil
+970|Vanaspati
+971|Repaire des Lémures
+973|L'Issue aux Impasses
+974|Hyperborée
+975|Hauts plateaux de Zadnor
+976|Risette-sur-lune
+977|Ruines frontalières
+978|Prisme de l'Aitia
+979|Empyrée
+980|Maisonnette - Empyrée
+981|Pavillon - Empyrée
+982|Villa - Empyrée
+983|Chambre individuelle - Empyrée
+984|Atelier de compagnie - Empyrée
+985|Le Coin de l'Âtre (hall)
+986|Rêve électrique de Stigma-4
+987|Salon principal
+990|Chambre à coucher
+991|Ponton du Gardien-G
+992|Prison lunaire
+993|Prison lunaire
+994|Banquet cauchemardesque
+995|Cristal-mère
+996|Cristal-mère
+997|Orée de la fin
+998|Orée de la fin
+999|Le Coin de l'Âtre (appartement)
+1000|Ludodrome
+1001|Salle des opérations
+1002|Limbes du Pandæmonium - Parvis
+1003|Limbes du Pandæmonium - Parvis
+1004|Limbes du Pandæmonium - Cloaque
+1005|Limbes du Pandæmonium - Cloaque
+1006|Limbes du Pandæmonium - Fournaise
+1007|Limbes du Pandæmonium - Fournaise
+1008|Limbes du Pandæmonium - Abîme
+1009|Limbes du Pandæmonium - Abîme
+1010|Magna Glacies
+1011|Garlemald
+1012|Magna Glacies
+1013|Confins de l'univers
+1014|Elpis
+1015|Forêt centrale
+1016|Sastasha
+1017|Compas de l'Hirondelle
+1018|La Voûte
+1019|Les Pics
+1020|Gouffre hurlant
+1021|Vigile du Crépuscule
+1022|Arboretum Sainte-Mocianne
+1023|Avant-pays dravanien
+1024|Porte des Dieux
+1025|Limbes du Pandæmonium - Parvis
+1026|Confins de l'univers
+1027|Ultima Thulé
+1028|Prison lunaire
+1029|Orée de la fin
+1030|Cristal-mère
+1031|Le Propylée
+1032|Le Palestre
+1033|Le Cœur volcanique
+1034|Le Petit Nuage
+1036|Sastasha
+1037|Hypogée de Tam-Tara
+1038|Mines de Clochecuivre
+1039|Mille Gueules de Toto-Rak
+1040|Manoir des Haukke
+1041|Bivouac de Brayflox
+1042|Vigile de Pierre
+1043|Castrum Meridianum
+1044|Praetorium
+1045|Cratère des tisons
+1046|Le Nombril
+1047|Hurlœil
+1048|Porta Decumana
+1049|Thanalan occidental
+1050|Legs d'Alzadaal
+1051|Tour de Babil
+1052|Porta Decumana
+1053|Porta Decumana
+1054|Domaine divin - Aglaé
+1055|Île sans nom
+1056|Legs d'Alzadaal
+1057|Archives interdites du Noumène
+1058|Le Palestre
+1059|Le Cœur volcanique
+1060|Le Petit Nuage
+1061|Omphalos
+1062|Manteneige
+1063|Gardien du lac
+1064|Sohm Al
+1065|L'Aire
+1066|La Voûte
+1067|Lisière de ronces
+1068|Avancée de la Foi
+1069|Canalisations sildiennes
+1070|Château de Troïa
+1071|Toison des tempêtes
+1072|Toison des tempêtes
+1073|Élysée
+1075|Canalisations sildiennes annexes
+1076|Canalisations sildiennes annexes
+1077|Territoire de Zero
+1078|Appartements du palais du Meghaduta
+1079|Prisme de l'Aitia
+1081|Bloc des créatures extrêmement nocives
+1082|Bloc des créatures extrêmement nocives
+1083|Bloc des organismes parasites
+1084|Bloc des organismes parasites
+1085|Bloc des créations arborescentes
+1086|Bloc des créations arborescentes
+1087|Laboratoire d'études des secrets du vivant
+1088|Laboratoire d'études des secrets du vivant
+1089|Château de Troïa
+1091|Château de Troïa
+1092|Toison des tempêtes
+1093|Laboratoire d'études des secrets du vivant
+1094|Demeure de la femme à tête de citrouille
+1095|Mont du Supplice
+1096|Mont du Supplice
+1097|Lapis Manalis
+1098|Sylve sylphe sibylline
+1099|Eurêka Orthos
+1100|Eurêka Orthos
+1101|Eurêka Orthos
+1102|Eurêka Orthos
+1103|Eurêka Orthos
+1104|Eurêka Orthos
+1105|Eurêka Orthos
+1106|Eurêka Orthos
+1107|Eurêka Orthos
+1108|Eurêka Orthos
+1109|Grande bibliothèque de Gubal
+1110|Laboratoire de magismologie
+1111|L'Antitour
+1112|Sohr Khai
+1113|Xelphatol
+1114|Muraille de Baelsar
+1115|Tour de Babil
+1116|Le Traquenard oriental
+1117|Le Traquenard oriental
+1118|Domaine divin - Euphrosyne
+1119|Lapis Manalis
+1120|Garlemald
+1122|Fissure interdimensionnelle
+1123|Elpis Gymnasion
+1124|Eurêka Orthos
+1125|Khadga
+1126|Île de Haam
+1127|La Louverie (The Fold)
+1128|La Louverie (The Fold)
+1129|La Louverie (The Fold)
+1136|Temple d'Araya
+1137|Mont Rokkon
+1138|Les Sables sanglants
+1139|Les Sables sanglants
+1140|Hypercube de Golbez
+1141|Hypercube de Golbez
+1142|Mer du Chant des sirènes
+1143|Force de Bardam
+1144|Château de Doma
+1145|Castrum Abania
+1146|Ala Mhigo
+1147|Nappe stagnante
+1148|Nappe stagnante
+1149|Maternité démoniaque
+1150|Maternité démoniaque
+1151|Prétoire des Quatorze
+1152|Prétoire des Quatorze
+1153|Trône divin
+1154|Trône divin
+1155|Mont Rokkon annexe
+1156|Mont Rokkon annexe
+1158|Maternité démoniaque
+1159|Hypercube de Golbez
+1160|Gare de Senatus
+1161|Chambre d'Estinien
+1162|Lune rouge
+1163|L'Ambition
+1164|Souterrain lunaire
+1165|Blunderville
+1166|Interstice du chant onirique
+1167|Ihuykatumu
+1168|Cœur de la lune rouge
+1169|Cœur de la lune rouge
+1170|Salle de l'Aurore
+1171|Refuge des Cavernes célestes
+1172|Cité engloutie de Skalla
+1173|L'Escarre
+1174|Les Ténèbres de Ghimlyt
+1176|Île d'Aloalo
+1177|Île de Haam
+1178|Domaine divin - Thalie
+1179|Île d'Aloalo annexe
+1180|Île d'Aloalo annexe
+1181|Cœur de la lune rouge
+1182|Domaine divin - Thalie
+1183|Temple d'Araya
+1184|Souterrain lunaire
+1185|Tuliyollal
+1186|Solution Neuf
+1187|Urqopacha
+1188|Kozama'uka
+1189|Yak T'el
+1190|Shaaloani
+1191|L'Hoirie recouvrée
+1192|La Mémoire vivante
+1193|Worqor Zormor
+1194|Cénote des Cieux infinis
+1195|Worqor Lar Dor
+1196|Worqor Lar Dor
+1197|Square du Blunderville
+1198|L'Avant-garde
+1199|Alexandrie
+1200|Sommet de la Gardienne de l'Éternité
+1201|Sommet de la Gardienne de l'Éternité
+1202|Écliptique dimensionnelle
+1203|Vallée des Pampas
+1204|Parc-aux-Errants
+1205|Cabines de Proue
+1206|Pont du navire
+1207|Le Repaire
+1208|L'Origenèse
+1209|Cénote Ja Ja Gural
+1210|Salle de l'Aurore
+1211|Yak T'el
+1212|Yak T'el
+1213|Solution Neuf
+1214|L'Écume des cieux d'Abalathia
+1215|Bivouac de Brayflox
+1216|Force de Bardam
+1217|Ala Mhigo
+1218|Khadga
+1219|L'Avant-garde
+1220|Sommet de la Gardienne de l'Éternité
+1221|Écliptique dimensionnelle
+1222|Profondeurs du cénote des Cieux infinis
+1223|Trois Queues
+1224|Locaux de la Société de l'Arcadion
+1225|Ring des Griffes félines
+1226|Ring des Griffes félines
+1227|Ring de l'Amour mielleux
+1228|Ring de l'Amour mielleux
+1229|Ring du Bombardement brutal
+1230|Ring du Bombardement brutal
+1231|Ring du Tonnerre terrifiant
+1232|Ring du Tonnerre terrifiant
+1233|Sous-sol du vieux manoir
+1234|Palais au parfum onirique
+1235|Thanalan central
+1236|Thanalan méridional
+1237|Sinus Ardorum
+1238|Avenirs réécrits
+1241|Sphère de l'absence
+1242|Yuweyawata
+1243|Écliptique dimensionnelle
+1244|Shaaloani
+1245|Halatali
+1246|Traverse de Zorgor
+1247|Marché des étoiles
+1248|Jeuno - La première perambulation
+1252|Île de Lunule méridionale
+1253|Marché des étoiles
+1254|Yuweyawata
+1255|Salle d'audition des Affranchis
+1256|Ring des Chorégraphies endiablées
+1257|Ring des Chorégraphies endiablées
+1258|Ring de l'Inspiration artistique
+1259|Ring de l'Inspiration artistique
+1260|Site de construction du huitième étage
+1261|Site de construction du huitième étage
+1262|Ring du Champion lupin
+1263|Ring du Champion lupin
+1264|Bas Jeuno
+1265|Bas Jeuno
+1266|Gardienne de l'Immémorial
+1267|Temple enseveli de Qarn
+1268|Salle de repos
+1269|Ville fantôme
+1270|Salle du trône séculaire
+1271|Salle du trône séculaire
+1273|Ruines frontalières
+1274|Salle du trône séculaire
+1275|Salle du trône séculaire
+1276|Site de construction du huitième étage
+1277|Pont du navire
+1278|Ville fantôme
+1279|Coffre d'Oneiron
+1280|Sanctuaire des pèlerins
+1281|Sanctuaire des pèlerins
+1282|Sanctuaire des pèlerins
+1283|Sanctuaire des pèlerins
+1284|Sanctuaire des pèlerins
+1285|Sanctuaire des pèlerins
+1286|Sanctuaire des pèlerins
+1287|Sanctuaire des pèlerins
+1288|Sanctuaire des pèlerins
+1289|Sanctuaire des pèlerins
+1290|Sanctuaire des pèlerins
+1291|Phaenna
+1292|Mésoterminal
+1293|Le Rivage redoutable
+1294|Le Rivage redoutable
+1295|Nécropole intemporelle
+1296|Nécropole intemporelle
+1297|Autel de Zirgorteh
+1298|Pâtisserie de la Valention
+1299|Division d'entreposage 10-29
+1300|Plaines venteuses
+1301|Plaines venteuses
+1303|Gouffre hurlant
+1304|San d'Oria - La deuxième perambulation
+1305|Manoir hanté
+1306|Plaines venteuses
+1307|Voie ferroviaire
+1308|Voie ferroviaire
+1309|Marché des étoiles
+1310|Oizys
+1311|Sanctuaire des pèlerins
+1312|Nécropole intemporelle
+1313|Worqor Chirteh
+1314|Sillage brumeux
+1315|Contes du Camelot
+1316|Contes du Camelot
+1317|Contes du Camelot annexes
+1319|Auxesia
+1320|Ring fatal
+1321|Ring fatal
+1322|Ring extrême
+1323|Ring extrême
+1324|Ring du champion
+1325|Ring du champion
+1326|Ring arcadien
+1327|Ring arcadien
+1328|Tréno
+1330|Forteresse de Dzemael
+1331|Val d'Aurum
+1332|Tréno
+1333|Sanctuaire des pèlerins
+1334|Vestiges d'Alexandrie
+1335|Gold Saucer
+1336|Alentours du lac aux Nénuphars
+1337|Appartements de la belle demoiselle
+1338|Gare de Bendini
+1344|Trois Queues
+1345|Le Clyteum
+1357|La Bibliothèque Harmonia
+1358|La Bibliothèque Harmonia
+1361|Domaine du néant
+1362|Domaine du néant
+1363|Sigmastice v4.0
+1366|Vigile du Crépuscule
+1367|Palais aux Marées violettes
+1368|Windurst - La troisième perambulation
+1369|Banquet cauchemardesque
+1370|Banquet cauchemardesque
+1372|Transparence
+1373|Domaine du néant
+1384|Marché des étoiles

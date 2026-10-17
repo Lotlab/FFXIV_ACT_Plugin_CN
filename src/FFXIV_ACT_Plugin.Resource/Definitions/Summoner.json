@@ -1,0 +1,647 @@
+{
+    "job": "summoner",
+    "actions": [
+        {
+            "a3": "\u6bc1\u706d",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "3F66": "\u533b\u672f",
+            "heal": [
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64F3": "\u7ea2\u5b9d\u77f3\u4e4b\u8f89",
+            "damage": [
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64D0": "\u7ea2\u5b9d\u77f3\u6bc1\u706d",
+            "damage": [
+                {
+                    "potency": 340
+                }
+            ]
+        },
+        {
+            "B5": "\u6e83\u70c2\u7206\u53d1",
+            "damage": [
+                {
+                    "potency": 340
+                }
+            ]
+        },
+        {
+            "407c": "\u80fd\u91cf\u5438\u6536",
+            "damage": [
+                {
+                    "potency": 200
+                }
+            ]
+        },
+        {
+            "64F4": "\u9ec4\u5b9d\u77f3\u4e4b\u8f89",
+            "damage": [
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64D1": "\u9ec4\u5b9d\u77f3\u6bc1\u706d",
+            "damage": [
+                {
+                    "potency": 240
+                }
+            ]
+        },
+        {
+            "64F5": "\u7eff\u5b9d\u77f3\u4e4b\u8f89",
+            "damage": [
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64D2": "\u7eff\u5b9d\u77f3\u6bc1\u706d",
+            "damage": [
+                {
+                    "potency": 160
+                }
+            ]
+        },
+        {
+            "407F": "\u8ff8\u88c2",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "64D6": "\u7ea2\u5b9d\u77f3\u8ff8\u88c2",
+            "damage": [
+                {
+                    "potency": 160
+                }
+            ]
+        },
+        {
+            "64D7": "\u9ec4\u5b9d\u77f3\u8ff8\u88c2",
+            "damage": [
+                {
+                    "potency": 110
+                }
+            ]
+        },
+        {
+            "64D8": "\u7eff\u5b9d\u77f3\u8ff8\u88c2",
+            "damage": [
+                {
+                    "potency": 70
+                }
+            ]
+        },
+        {
+            "AC": "\u6bc1\u574f",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "64F6": "\u71c3\u706b\u5f3a\u88ad",
+            "damage": [
+                {
+                    "potency": 500
+                }
+            ]
+        },
+        {
+            "64D3": "\u7ea2\u5b9d\u77f3\u6bc1\u574f",
+            "damage": [
+                {
+                    "potency": 380
+                }
+            ]
+        },
+        {
+            "64D4": "\u9ec4\u5b9d\u77f3\u6bc1\u574f",
+            "damage": [
+                {
+                    "potency": 270
+                }
+            ]
+        },
+        {
+            "64D5": "\u7eff\u5b9d\u77f3\u6bc1\u574f",
+            "damage": [
+                {
+                    "potency": 170
+                }
+            ]
+        },
+        {
+            "64F7": "\u788e\u5ca9",
+            "damage": [
+                {
+                    "potency": 500
+                }
+            ]
+        },
+        {
+            "DFA": "\u75db\u82e6\u6838\u7206",
+            "damage": [
+                {
+                    "potency": 220
+                }
+            ]
+        },
+        {
+            "64F8": "\u5927\u6c14\u98ce\u65a9",
+            "damage": [
+                {
+                    "potency": 100
+                }
+            ]
+        },
+        {
+            "64F9": "\u5730\u72f1\u4e4b\u706b\u708e",
+            "damage": [
+                {
+                    "potency": 600,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 300
+                }
+            ]
+        },
+        {
+            "64FA": "\u5927\u5730\u4e4b\u6012",
+            "damage": [
+                {
+                    "potency": 600,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 300
+                }
+            ]
+        },
+        {
+            "64FB": "\u5927\u6c14\u7206\u53d1",
+            "damage": [
+                {
+                    "potency": 600,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 300
+                }
+            ]
+        },
+        {
+            "407E": "\u80fd\u91cf\u62bd\u53d6",
+            "damage": [
+                {
+                    "potency": 100
+                }
+            ]
+        },
+        {
+            "DFB": "\u6bc1\u8361",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "64D9": "\u7ea2\u5b9d\u77f3\u6bc1\u8361",
+            "damage": [
+                {
+                    "potency": 410
+                }
+            ]
+        },
+        {
+            "64DA": "\u9ec4\u5b9d\u77f3\u6bc1\u8361",
+            "damage": [
+                {
+                    "potency": 300
+                }
+            ]
+        },
+        {
+            "64DB": "\u7eff\u5b9d\u77f3\u6bc1\u8361",
+            "damage": [
+                {
+                    "potency": 180
+                }
+            ]
+        },
+        {
+            "64DC": "\u661f\u6781\u8109\u51b2",
+            "damage": [
+                {
+                    "potency": 500
+                }
+            ]
+        },
+        {
+            "64DD": "\u661f\u6781\u6838\u7206",
+            "damage": [
+                {
+                    "potency": 180
+                }
+            ]
+        },
+        {
+            "DFE": "\u6b7b\u661f\u6838\u7206",
+            "damage": [
+                {
+                    "potency": 500,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 250
+                }
+            ]
+        },
+        {
+            "1D02": "\u6bc1\u7edd",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "1D04": "\u771f\u9f99\u6ce2",
+            "damage": [
+                {
+                    "potency": 150
+                }
+            ]
+        },
+        {
+            "1D19": "\u6b7b\u4ea1\u8f6e\u56de",
+            "damage": [
+                {
+                    "potency": 1300,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 650
+                }
+            ]
+        },
+        {
+            "64df": "\u7ea2\u5b9d\u77f3\u4e4b\u4eea",
+            "damage": [
+                {
+                    "potency": 620
+                }
+            ]
+        },
+        {
+            "64e0": "\u9ec4\u5b9d\u77f3\u4e4b\u4eea",
+            "damage": [
+                {
+                    "potency": 340
+                }
+            ]
+        },
+        {
+            "64e1": "\u7eff\u5b9d\u77f3\u4e4b\u4eea",
+            "damage": [
+                {
+                    "potency": 280
+                }
+            ]
+        },
+        {
+            "64e2": "\u4e09\u91cd\u707e\u7978",
+            "damage": [
+                {
+                    "potency": 120
+                }
+            ]
+        },
+        {
+            "64E3": "\u7ea2\u5b9d\u77f3\u707e\u7978",
+            "damage": [
+                {
+                    "potency": 190
+                }
+            ]
+        },
+        {
+            "64E4": "\u9ec4\u5b9d\u77f3\u707e\u7978",
+            "damage": [
+                {
+                    "potency": 130
+                }
+            ]
+        },
+        {
+            "64E5": "\u7eff\u5b9d\u77f3\u707e\u7978",
+            "damage": [
+                {
+                    "potency": 90
+                }
+            ]
+        },
+        {
+            "4082": "\u7075\u6cc9\u4e4b\u708e",
+            "damage": [
+                {
+                    "potency": 580
+                }
+            ]
+        },
+        {
+            "4083": "\u70bc\u72f1\u4e4b\u708e",
+            "damage": [
+                {
+                    "potency": 240
+                }
+            ]
+        },
+        {
+            "64e6": "\u82cf\u751f\u4e4b\u708e",
+            "heal": [
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "4087": "\u8d64\u7130",
+            "damage": [
+                {
+                    "potency": 150
+                }
+            ]
+        },
+        {
+            "4086": "\u5929\u542f",
+            "damage": [
+                {
+                    "potency": 1300,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 650
+                }
+            ]
+        },
+        {
+            "64E8": "\u7ea2\u5b9d\u77f3\u707e\u53d8",
+            "damage": [
+                {
+                    "potency": 210
+                }
+            ]
+        },
+        {
+            "64E9": "\u9ec4\u5b9d\u77f3\u707e\u53d8",
+            "damage": [
+                {
+                    "potency": 140
+                }
+            ]
+        },
+        {
+            "64EA": "\u7eff\u5b9d\u77f3\u707e\u53d8",
+            "damage": [
+                {
+                    "potency": 100
+                }
+            ]
+        },
+        {
+            "64EB": "\u6df1\u7ea2\u65cb\u98ce",
+            "damage": [
+                {
+                    "potency": 560,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 224
+                }
+            ]
+        },
+        {
+            "651D": "\u6df1\u7ea2\u5f3a\u88ad",
+            "damage": [
+                {
+                    "potency": 560,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 224
+                }
+            ]
+        },
+        {
+            "64EC": "\u5c71\u5d29",
+            "damage": [
+                {
+                    "potency": 160,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 64
+                }
+            ]
+        },
+        {
+            "64ED": "\u87ba\u65cb\u6c14\u6d41",
+            "damage": [
+                {
+                    "potency": 520,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 208
+                }
+            ]
+        },
+        {
+            "64FC": "\u5730\u72f1\u4e4b\u706b\u708e",
+            "damage": [
+                {
+                    "potency": 800,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64FD": "\u5927\u5730\u4e4b\u6012",
+            "damage": [
+                {
+                    "potency": 800,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "64FE": "\u5927\u6c14\u7206\u53d1",
+            "damage": [
+                {
+                    "potency": 800,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 400
+                }
+            ]
+        },
+        {
+            "907e": "\u574f\u6b7b\u7206\u53d1",
+            "damage": [
+                {
+                    "potency": 500
+                }
+            ]
+        },
+        {
+            "907f": "\u707c\u70ed\u4e4b\u95ea",
+            "damage": [
+                {
+                    "potency": 700
+                }
+            ]
+        },
+        {
+            "9085": "\u65e5\u5149\u666e\u7167",
+            "heal": [
+                {
+                    "potency": 500
+                }
+            ]
+        },
+        {
+            "9082": "\u7075\u6781\u8109\u51b2",
+            "damage": [
+                {
+                    "potency": 640
+                }
+            ]
+        },
+        {
+            "9083": "\u7075\u6781\u6838\u7206",
+            "damage": [
+                {
+                    "potency": 300
+                }
+            ]
+        },
+        {
+            "9084": "\u70c8\u65e5\u6838\u7206",
+            "damage": [
+                {
+                    "potency": 1000,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 500
+                }
+            ]
+        },
+        {
+            "9086": "\u70c8\u65e5\u9f99\u795e\u8ff8\u53d1",
+            "damage": [
+                {
+                    "potency": 1400,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 560
+                }
+            ]
+        },
+        {
+            "9081": "\u5149\u8292",
+            "damage": [
+                {
+                    "potency": 160
+                }
+            ]
+        },
+        {
+            "9087": "\u4f17\u751f\u79bb\u7edd",
+            "damage": [
+                {
+                    "potency": 1500,
+                    "targetindex": 0
+                },
+                {
+                    "potency": 750
+                }
+            ]
+        }
+    ],
+    "statuseffects": [
+        {
+            "74C": "\u4e0d\u6b7b\u9e1f\u4e4b\u7ffc",
+            "timeproc": {
+                "type": "hot",
+                "potency": 100,
+                "maxticks": 7
+            }
+        },
+        {
+            "A91": "\u82cf\u751f\u4e4b\u708e",
+            "timeproc": {
+                "type": "hot",
+                "potency": 200,
+                "maxticks": 5
+            }
+        },
+        {
+            "a92": "\u87ba\u65cb\u6c14\u6d41",
+            "timeproc": {
+                "type": "grounddamage",
+                "potency": 30,
+                "maxticks": 15
+            }
+        },
+        {
+            "a8f": "\u707c\u70ed\u4e4b\u5149",
+            "potency": [
+                {
+                    "type": "damagedonemultiplier",
+                    "amount": 5
+                }
+            ]
+        },
+        {
+            "a8e": "\u5b88\u62a4\u4e4b\u5149",
+            "damageshield": {
+                "type": "TargetHpPercent",
+                "amount": 20
+            }
+        }
+    ]
+}

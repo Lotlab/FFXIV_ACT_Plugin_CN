@@ -1,0 +1,9 @@
+﻿2016|Realm Reborn red
+f540a|x-potion 
+f540e|vial of x-ether 
+f540f|bottle of elixir 
+f5428|flask of potent poisoning potion 
+f543d|mega-potion of dexterity 
+f5441|x-potion of strength 
+f5442|x-potion of dexterity 
+f5444|x-potion of intelligence 

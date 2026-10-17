@@ -1,0 +1,28 @@
+<Project>
+
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <Nullable>disable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Deterministic>true</Deterministic>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>portable</DebugType>
+    <!-- The restored sources come from decompiled IL; keep the warnings that
+         are inherent to that (unused locals, never assigned fields, ...) quiet
+         so that real problems stay visible. -->
+    <NoWarn>$(NoWarn);CS0162;CS0168;CS0169;CS0219;CS0414;CS0649;CS0672;CS1591</NoWarn>
+  </PropertyGroup>
+
+  <!-- 'Advanced Combat Tracker.exe' is the host application.  It is not
+       redistributable from this repository; scripts/fetch-deps.sh downloads the
+       matching release into lib/. -->
+  <PropertyGroup>
+    <ActReferenceDir Condition="'$(ActReferenceDir)' == ''">$(MSBuildThisFileDirectory)lib</ActReferenceDir>
+    <ActAssemblyPath>$(ActReferenceDir)/Advanced Combat Tracker.exe</ActAssemblyPath>
+  </PropertyGroup>
+
+</Project>

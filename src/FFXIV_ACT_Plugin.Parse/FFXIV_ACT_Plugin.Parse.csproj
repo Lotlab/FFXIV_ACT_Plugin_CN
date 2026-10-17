@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Parse</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Parse</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Common/FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Config/FFXIV_ACT_Plugin.Config.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Logfile/FFXIV_ACT_Plugin.Logfile.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Resource/FFXIV_ACT_Plugin.Resource.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>FFXIV_ACT_Plugin.Resource</AssemblyName>
+    <RootNamespace>FFXIV_ACT_Plugin.Resource</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Common/FFXIV_ACT_Plugin.Common.csproj" />
+    <ProjectReference Include="../FFXIV_ACT_Plugin.Config/FFXIV_ACT_Plugin.Config.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- generated resource tables + job definitions; LogicalName is significant,
+         the code loads them by name (see FFXIV_ACT_Plugin.Resource.ResourceFile). -->
+    <EmbeddedResource Include="Definitions/*.json" LogicalName="FFXIV_ACT_Plugin.Resource.Definitions.%(Filename)%(Extension)" />
+    <EmbeddedResource Include="Generated/*.txt" LogicalName="FFXIV_ACT_Plugin.Resource.Generated.%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

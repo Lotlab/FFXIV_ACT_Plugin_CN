@@ -1,0 +1,14 @@
+<Weavers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="FodyWeavers.xsd">
+  <!--
+    The released plugin is a single redistributable file: every managed
+    dependency is embedded as a compressed resource and resolved at runtime by
+    the Costura assembly loader.
+
+    Advanced Combat Tracker is the host process and must never be embedded.
+    Costura itself is a build-time dependency only.
+  -->
+  <Costura
+    ExcludeAssemblies="Advanced Combat Tracker;Costura"
+    IncludeDebugSymbols="false"
+    CreateTemporaryAssemblies="false" />
+</Weavers>
