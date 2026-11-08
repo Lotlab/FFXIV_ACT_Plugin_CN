@@ -1,0 +1,14 @@
+<Project>
+
+  <!--
+    The six region-neutral assemblies are produced by tools/prepare_upstream.py.
+    Fail with an actionable message instead of a wall of missing-reference errors.
+  -->
+  <Target Name="CheckUpstreamAssemblies"
+          BeforeTargets="ResolveAssemblyReferences"
+          Condition="'$(MSBuildProjectName)' == 'FFXIV_ACT_Plugin' or '$(MSBuildProjectName)' == 'FFXIV_ACT_Plugin.Network'">
+    <Error Condition="!Exists('$(UpstreamDir)FFXIV_ACT_Plugin.Common.dll')"
+           Text="Upstream assemblies are missing from $(UpstreamDir). Run: python tools/prepare_upstream.py" />
+  </Target>
+
+</Project>

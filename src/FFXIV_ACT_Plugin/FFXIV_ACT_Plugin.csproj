@@ -7,13 +7,17 @@
   <ItemGroup>
     <ProjectReference Include="..\..\third_party\machina\Machina.FFXIV\Machina.FFXIV.csproj" />
     <ProjectReference Include="..\..\third_party\machina\Machina\Machina.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Logfile\FFXIV_ACT_Plugin.Logfile.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Memory\FFXIV_ACT_Plugin.Memory.csproj" />
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Network\FFXIV_ACT_Plugin.Network.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Parse\FFXIV_ACT_Plugin.Parse.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Resource\FFXIV_ACT_Plugin.Resource.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Stripped and CN-patched upstream assemblies; see tools/prepare_upstream.py. -->
+    <Reference Include="FFXIV_ACT_Plugin.Common"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Common.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Config"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Config.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Logfile"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Logfile.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Memory"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Memory.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Parse"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Parse.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Resource"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Resource.dll</HintPath></Reference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
   <ItemGroup>
     <!-- host process assembly: compile-time reference only, never
@@ -27,10 +31,10 @@
   <ItemGroup>
     <!--
       Single-file packaging: Costura.Fody weaves every copy-local dependency (the
-      seven FFXIV_ACT_Plugin.* project outputs, Machina, Machina.FFXIV and the
-      transitively required Newtonsoft.Json) into FFXIV_ACT_Plugin.dll as
-      `costura.*.compressed` resources, and injects the assembly resolver that loads
-      them at runtime.  This is how the shipped plugin was built.
+      six stripped/patched upstream assemblies, this repository's Network and
+      Unscrambler outputs, Machina, Machina.FFXIV, Newtonsoft.Json and
+      WindowsFirewallHelper) into FFXIV_ACT_Plugin.dll as `costura.*.compressed`
+      resources, and injects the assembly resolver that loads them at runtime.
     -->
     <PackageReference Include="Fody" Version="6.9.3" PrivateAssets="all" />
     <PackageReference Include="Costura.Fody" Version="6.2.0" PrivateAssets="all" />

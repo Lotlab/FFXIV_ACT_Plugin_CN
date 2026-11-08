@@ -1,9 +1,0 @@
-<Project Sdk="Microsoft.NET.Sdk">
-  <PropertyGroup>
-    <AssemblyName>FFXIV_ACT_Plugin.Config</AssemblyName>
-    <RootNamespace>FFXIV_ACT_Plugin.Config</RootNamespace>
-  </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
-  </ItemGroup>
-</Project>

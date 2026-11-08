@@ -6,13 +6,16 @@
   <ItemGroup>
     <ProjectReference Include="..\..\third_party\machina\Machina.FFXIV\Machina.FFXIV.csproj" />
     <ProjectReference Include="..\..\third_party\machina\Machina\Machina.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Common\FFXIV_ACT_Plugin.Common.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Config\FFXIV_ACT_Plugin.Config.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Logfile\FFXIV_ACT_Plugin.Logfile.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Memory\FFXIV_ACT_Plugin.Memory.csproj" />
-    <ProjectReference Include="..\FFXIV_ACT_Plugin.Resource\FFXIV_ACT_Plugin.Resource.csproj" />
     <!-- Deobfuscates packet-capture traffic (see NetworkPacketUnscrambler). -->
     <ProjectReference Include="..\FFXIV_ACT_Plugin.Unscrambler\FFXIV_ACT_Plugin.Unscrambler.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Stripped and CN-patched upstream assemblies; see tools/prepare_upstream.py. -->
+    <Reference Include="FFXIV_ACT_Plugin.Common"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Common.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Config"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Config.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Logfile"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Logfile.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Memory"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Memory.dll</HintPath></Reference>
+    <Reference Include="FFXIV_ACT_Plugin.Resource"><HintPath>$(UpstreamDir)FFXIV_ACT_Plugin.Resource.dll</HintPath></Reference>
   </ItemGroup>
   <ItemGroup>
     <!-- Re-creates the ACT firewall exception for the raw-socket capture path. -->

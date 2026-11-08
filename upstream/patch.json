@@ -1,0 +1,40 @@
+{
+  "comment": "CN adaptation applied to the stripped upstream assemblies. Everything here is derived from the TundraWork 3.0.2.1 CN binary; see README section 8.",
+  "strip": [
+    "FFXIV_ACT_Plugin.Common",
+    "FFXIV_ACT_Plugin.Config",
+    "FFXIV_ACT_Plugin.Logfile",
+    "FFXIV_ACT_Plugin.Memory",
+    "FFXIV_ACT_Plugin.Parse",
+    "FFXIV_ACT_Plugin.Resource"
+  ],
+  "assemblies": [
+    {
+      "assembly": "FFXIV_ACT_Plugin.Config",
+      "addFields": [
+        { "type": "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs", "name": "NetworkIP", "fieldType": "string" },
+        { "type": "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs", "name": "UseWinPCap", "fieldType": "bool" },
+        { "type": "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs", "name": "UseSocketFilter", "fieldType": "bool" },
+        { "type": "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs", "name": "UseDeucalion", "fieldType": "bool" }
+      ]
+    },
+    {
+      "assembly": "FFXIV_ACT_Plugin.Logfile",
+      "fixFormatVersion": true
+    },
+    {
+      "assembly": "FFXIV_ACT_Plugin.Parse",
+      "replaceStrings": [
+        { "from": "Real DoT Tick", "to": "真实持续伤害" },
+        { "from": "Real HoT Tick", "to": "真实持续治疗" }
+      ],
+      "addEnumMembers": [
+        { "type": "FFXIV_ACT_Plugin.Parse.Job", "name": "Bst", "value": 45 }
+      ]
+    },
+    {
+      "assembly": "FFXIV_ACT_Plugin.Resource",
+      "replaceResourcesFrom": "../cn/resource"
+    }
+  ]
+}

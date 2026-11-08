@@ -19,6 +19,16 @@
   </PropertyGroup>
 
   <!--
+    The six region-neutral assemblies are not compiled here: they come from the
+    ravahn release selected in upstream/lock.json, stripped and patched by
+    tools/prepare_upstream.py.  The path deliberately has no version in it, so
+    bumping the upstream release needs no project-file change.
+  -->
+  <PropertyGroup>
+    <UpstreamDir>$(RepoRoot)artifacts\upstream\current\</UpstreamDir>
+  </PropertyGroup>
+
+  <!--
     Funnel every project's output into one folder so the built plugin can be
     dropped straight into Advanced Combat Tracker's plugin directory.
   -->

@@ -1,8 +1,11 @@
-"""Verify the reconstructed sources still describe the same assemblies.
+"""Verify the two assemblies this repository still compiles.
 
-For every shipped assembly the *metadata surface* is dumped from the original DLL and
-from the freshly built DLL, and the two are compared table by table
-(TypeDef / MethodDef / Field / Property / Event / ManifestResource).
+Only ``FFXIV_ACT_Plugin`` and ``FFXIV_ACT_Plugin.Network`` are built from source; the
+other six are the pinned upstream binaries with the CN patch applied by
+``tools/prepare_upstream.py``.  For the two built assemblies the *metadata surface* is
+dumped from the original CN DLL and from the freshly built DLL, and the two are
+compared table by table (TypeDef / MethodDef / Field / Property / Event /
+ManifestResource).
 
 A metadata comparison is used rather than a text diff because recompiling the
 decompiled sources with a current Roslyn cannot reproduce the original toolchain's
@@ -40,15 +43,13 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ORIGINAL = os.path.join(REPO, ".work", "bin")
 BUILT = os.path.join(REPO, "artifacts", "bin", "Release")
 
+# Only the two assemblies this repository still compiles.  Common / Config /
+# Logfile / Memory / Parse / Resource come from the pinned upstream release,
+# stripped and patched by tools/prepare_upstream.py; their provenance is checked
+# there (sha256 of the release plus the patch manifest), not by a decompiler diff.
 PAIRS = [
     ("FFXIV_ACT_Plugin", "ffxiv_act_plugin_main.dll", "FFXIV_ACT_Plugin.dll"),
-    ("FFXIV_ACT_Plugin.Common", "ffxiv_act_plugin.common.dll", "FFXIV_ACT_Plugin.Common.dll"),
-    ("FFXIV_ACT_Plugin.Config", "ffxiv_act_plugin.config.dll", "FFXIV_ACT_Plugin.Config.dll"),
-    ("FFXIV_ACT_Plugin.Logfile", "ffxiv_act_plugin.logfile.dll", "FFXIV_ACT_Plugin.Logfile.dll"),
-    ("FFXIV_ACT_Plugin.Memory", "ffxiv_act_plugin.memory.dll", "FFXIV_ACT_Plugin.Memory.dll"),
     ("FFXIV_ACT_Plugin.Network", "ffxiv_act_plugin.network.dll", "FFXIV_ACT_Plugin.Network.dll"),
-    ("FFXIV_ACT_Plugin.Parse", "ffxiv_act_plugin.parse.dll", "FFXIV_ACT_Plugin.Parse.dll"),
-    ("FFXIV_ACT_Plugin.Resource", "ffxiv_act_plugin.resource.dll", "FFXIV_ACT_Plugin.Resource.dll"),
 ]
 
 TABLES = ["TypeDef", "MethodDef", "Field", "Property", "Event", "ManifestResource"]
@@ -98,18 +99,9 @@ FEATURE_MEMBERS = {
         "FFXIV_ACT_Plugin.SettingsPropertyPage::chkUseDeucalion_CheckedChanged",
         "FFXIV_ACT_Plugin.SettingsPropertyPage::chkDisableSocketFilter_CheckedChanged",
     },
-    "FFXIV_ACT_Plugin.Config": {
-        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::NetworkIP",
-        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseWinPCap",
-        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseSocketFilter",
-        "FFXIV_ACT_Plugin.Config.DataCollectionSettingsEventArgs::UseDeucalion",
-    },
     "FFXIV_ACT_Plugin.Network": {
         "FFXIV_ACT_Plugin.Network.ScanPackets::_unscrambler",
         "FFXIV_ACT_Plugin.Network.ScanPackets::_unscramblePackets",
-    },
-    "FFXIV_ACT_Plugin.Parse": {
-        "FFXIV_ACT_Plugin.Parse.Job::Bst",      # 7.57 Beastmaster class job
     },
 }
 
