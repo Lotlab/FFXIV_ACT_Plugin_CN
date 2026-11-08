@@ -47,8 +47,9 @@
     Machina.FFXIV's DeucalionInjector loads a native `deucalion-<version>.dll` from the
     plugin folder at runtime, and this build of the plugin has no updater that could
     fetch one (ACT_PluginUpdate.UpdateCheckClicked_Version is empty in the CN build).
-    Those DLLs ride along as Content items of the machina submodule, so they are staged
-    next to the plugin.
+    prepare_upstream.py unpacks them from the pinned upstream release, so their bytes are
+    anchored by upstream/lock.json's sha256 rather than by whichever machina revision
+    happens to be checked out.
   -->
   <Target Name="StagePluginFolder" AfterTargets="Build">
     <PropertyGroup>
@@ -57,9 +58,8 @@
     <RemoveDir Directories="$(PluginStageDir)" />
     <MakeDir Directories="$(PluginStageDir)" />
     <ItemGroup>
-      <!-- whatever the pinned machina revision ships; these are the same binaries the
-           shipped plugin zip contained -->
-      <DeucalionPayload Include="$(RepoRoot)third_party\machina\Machina.FFXIV\Deucalion\Distrib\*.dll" />
+      <!-- unpacked from the pinned upstream release by tools/prepare_upstream.py -->
+      <DeucalionPayload Include="$(UpstreamDir)deucalion-*.dll" />
     </ItemGroup>
     <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(PluginStageDir)" />
     <Copy SourceFiles="@(DeucalionPayload)" DestinationFolder="$(PluginStageDir)"

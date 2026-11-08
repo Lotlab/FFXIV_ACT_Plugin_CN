@@ -5,14 +5,16 @@ Pipeline
 --------
 1. Download ``FFXIV_ACT_Plugin_<version>.zip`` (cached under ``.work/cache``) and
    verify the sha256 recorded in ``upstream/lock.json``.
-2. Unpack ``FFXIV_ACT_Plugin.dll`` and extract the ten Costura payloads with
-   ``tools/AssemblyPatcher``.
+2. Unpack ``FFXIV_ACT_Plugin.dll`` (plus the native ``deucalion-*.distrib.dll``
+   payloads, which are renamed to the ``deucalion-<version>.dll`` Machina loads) and
+   extract the ten Costura payloads with ``tools/AssemblyPatcher``.
 3. Strip the strong name from the six ``FFXIV_ACT_Plugin.*`` assemblies and rewrite
    the references between them (see README section 3).
 4. Apply ``upstream/patch.json``: Config fields, Logfile FormatVersion, Parse
    strings/enum, and the CN resource payloads from ``cn/resource``.
-5. Copy the result to ``artifacts/upstream/current/`` where the project files expect
-   it (``$(UpstreamDir)``).  The path has no version in it, so moving to a newer
+5. Copy the result (and the native payloads) to ``artifacts/upstream/current/`` where
+   the project files expect it (``$(UpstreamDir)``); ``stamp.json`` records the release
+   hashes, every assembly and both native payloads.  The path has no version in it, so moving to a newer
    upstream release only touches ``upstream/lock.json`` (or ``--version``).
 
 ``--version`` is a trial switch: it downloads that release, skips the recorded hash
@@ -24,6 +26,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -34,6 +37,10 @@ REPO = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 UPSTREAM = os.path.join(REPO, "upstream")
 WORK = os.path.join(REPO, ".work", "upstream")
 CACHE = os.path.join(REPO, ".work", "cache")
+
+# The release zip also carries the native deucalion payloads; ACT's packaging adds the
+# ``.distrib`` suffix, and Machina.FFXIV loads them as ``deucalion-<version>.dll``.
+NATIVE_PAYLOAD = re.compile(r"^deucalion-([0-9.]+)\.distrib\.dll$")
 PATCHER_PROJECT = os.path.join(REPO, "tools", "AssemblyPatcher", "AssemblyPatcher.csproj")
 PATCHER = os.path.join(REPO, "artifacts", "bin", "Release", "AssemblyPatcher.dll")
 
@@ -136,10 +143,20 @@ def main():
 
     plugin = os.path.join(work, "plugin", "FFXIV_ACT_Plugin.dll")
     os.makedirs(os.path.dirname(plugin), exist_ok=True)
+    natives = []
     with zipfile.ZipFile(archive) as zip_file:
         with zip_file.open("FFXIV_ACT_Plugin.dll") as source, open(plugin, "wb") as target:
             shutil.copyfileobj(source, target)
+        for name in sorted(zip_file.namelist()):
+            match = NATIVE_PAYLOAD.match(name)
+            if not match:
+                continue
+            target = os.path.join(work, "plugin", "deucalion-%s.dll" % match.group(1))
+            with zip_file.open(name) as source, open(target, "wb") as handle:
+                shutil.copyfileobj(source, handle)
+            natives.append(target)
     log("  plugin: %s" % os.path.relpath(plugin, REPO))
+    log("  native: %s" % (", ".join(os.path.basename(p) for p in natives) or "none"))
 
     log("[2/5] build AssemblyPatcher")
     run(["dotnet", "build", PATCHER_PROJECT, "-c", "Release", "-v", "q"])
@@ -177,7 +194,8 @@ def main():
 
     shutil.rmtree(out, ignore_errors=True)
     os.makedirs(out, exist_ok=True)
-    stamp = {"version": version, "asset": asset, "sha256": archive_sha, "assemblies": {}}
+    stamp = {"version": version, "asset": asset, "sha256": archive_sha,
+             "assemblies": {}, "native": {}}
     for assembly in patch["strip"]:
         source = os.path.join(stripped, ASSEMBLY_FILES[assembly])
         target = os.path.join(out, assembly + ".dll")
@@ -185,6 +203,13 @@ def main():
         digest = sha256(target)
         stamp["assemblies"][assembly] = digest
         log("  %-34s %10d bytes  %s" % (assembly, os.path.getsize(target), digest[:16]))
+
+    for source in natives:
+        target = os.path.join(out, os.path.basename(source))
+        shutil.copyfile(source, target)
+        digest = sha256(target)
+        stamp["native"][os.path.basename(target)] = digest
+        log("  %-34s %10d bytes  %s" % (os.path.basename(target), os.path.getsize(target), digest[:16]))
 
     with open(os.path.join(out, "stamp.json"), "w", encoding="utf-8") as handle:
         json.dump(stamp, handle, indent=2)
