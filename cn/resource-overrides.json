@@ -1,0 +1,6 @@
+{
+  "comment": "Manual deltas on top of the ffxiv-datamining-cn dump, applied by tools/generate_cn_resources.py. Only add rows here when the CSV dump is genuinely wrong or incomplete for the CN client - data that merely changed between patches must not be pinned here. Key is the payload name without the FFXIV_ACT_Plugin.Resource. prefix; values are {key: text} (or {key: [field, ...]} for MapList) to add/overwrite, and {key: null} to drop.",
+  "Generated.WorldList_English.txt": {
+    "1168": "黄金港"
+  }
+}

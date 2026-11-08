@@ -2,7 +2,7 @@
     "job": "gunbreaker",
     "actions": [
         {
-            "3F09": "\u5229\u5203\u65a9",
+            "3F09": "利刃斩",
             "damage": [
                 {
                     "potency": 300
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "3F0B": "\u6b8b\u66b4\u5f39",
+            "3F0B": "残暴弹",
             "damage": [
                 {
                     "potency": 240,
@@ -24,7 +24,7 @@
             ]
         },
         {
-            "3F0D": "\u6076\u9b54\u5207",
+            "3F0D": "恶魔切",
             "damage": [
                 {
                     "potency": 100
@@ -32,7 +32,7 @@
             ]
         },
         {
-            "3F0F": "\u95ea\u96f7\u5f39",
+            "3F0F": "闪雷弹",
             "damage": [
                 {
                     "potency": 150
@@ -40,7 +40,7 @@
             ]
         },
         {
-            "3F10": "\u5371\u9669\u9886\u57df",
+            "3F10": "危险领域",
             "damage": [
                 {
                     "potency": 250
@@ -48,7 +48,7 @@
             ]
         },
         {
-            "3F11": "\u8fc5\u8fde\u65a9",
+            "3F11": "迅连斩",
             "damage": [
                 {
                     "potency": 240,
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "3F22": "\u7206\u53d1\u51fb",
+            "3F22": "爆发击",
             "damage": [
                 {
                     "potency": 420
@@ -65,7 +65,7 @@
             ]
         },
         {
-            "3F15": "\u6076\u9b54\u6740",
+            "3F15": "恶魔杀",
             "damage": [
                 {
                     "potency": 100,
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "3F19": "\u97f3\u901f\u7834",
+            "3F19": "音速破",
             "damage": [
                 {
                     "potency": 340
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "3F12": "\u70c8\u7259",
+            "3F12": "烈牙",
             "damage": [
                 {
                     "potency": 440
@@ -90,7 +90,7 @@
             ]
         },
         {
-            "3F13": "\u731b\u517d\u722a",
+            "3F13": "猛兽爪",
             "damage": [
                 {
                     "potency": 500
@@ -98,7 +98,7 @@
             ]
         },
         {
-            "3F16": "\u51f6\u79bd\u722a",
+            "3F16": "凶禽爪",
             "damage": [
                 {
                     "potency": 560
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "3F1F": "\u5f13\u5f62\u51b2\u6ce2",
+            "3F1F": "弓形冲波",
             "damage": [
                 {
                     "potency": 150
@@ -114,7 +114,7 @@
             ]
         },
         {
-            "3F1C": "\u6495\u5589",
+            "3F1C": "撕喉",
             "damage": [
                 {
                     "potency": 220
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "3F1D": "\u88c2\u819b",
+            "3F1D": "裂膛",
             "damage": [
                 {
                     "potency": 260
@@ -130,7 +130,7 @@
             ]
         },
         {
-            "3F1E": "\u7a7f\u76ee",
+            "3F1E": "穿目",
             "damage": [
                 {
                     "potency": 300
@@ -138,7 +138,7 @@
             ]
         },
         {
-            "3F23": "\u547d\u8fd0\u4e4b\u73af",
+            "3F23": "命运之环",
             "damage": [
                 {
                     "potency": 300
@@ -146,7 +146,7 @@
             ]
         },
         {
-            "3F25": "\u7206\u7834\u9886\u57df",
+            "3F25": "爆破领域",
             "damage": [
                 {
                     "potency": 800
@@ -154,7 +154,7 @@
             ]
         },
         {
-            "649F": "\u8d85\u9ad8\u901f",
+            "649F": "超高速",
             "damage": [
                 {
                     "potency": 180
@@ -162,7 +162,7 @@
             ]
         },
         {
-            "64a0": "\u500d\u653b",
+            "64a0": "倍攻",
             "damage": [
                 {
                     "potency": 1000,
@@ -174,7 +174,7 @@
             ]
         },
         {
-            "9047": "\u5927\u661f\u4e91",
+            "9047": "大星云",
             "heal": [
                 {
                     "potency": 0
@@ -182,7 +182,7 @@
             ]
         },
         {
-            "9048": "\u547d\u8fd0\u4e4b\u5370",
+            "9048": "命运之印",
             "damage": [
                 {
                     "potency": 120
@@ -190,7 +190,7 @@
             ]
         },
         {
-            "9049": "\u5d1b\u8d77\u4e4b\u5fc3",
+            "9049": "崛起之心",
             "damage": [
                 {
                     "potency": 800,
@@ -202,7 +202,7 @@
             ]
         },
         {
-            "904a": "\u652f\u914d\u4e4b\u5fc3",
+            "904a": "支配之心",
             "damage": [
                 {
                     "potency": 900,
@@ -214,7 +214,7 @@
             ]
         },
         {
-            "904b": "\u7ec8\u7ed3\u4e4b\u5fc3",
+            "904b": "终结之心",
             "damage": [
                 {
                     "potency": 1000,
@@ -228,7 +228,7 @@
     ],
     "statuseffects": [
         {
-            "727": "\u65e0\u60c5",
+            "727": "无情",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -237,14 +237,14 @@
             ]
         },
         {
-            "76a": "\u6b8b\u66b4\u5f39",
+            "76a": "残暴弹",
             "damageshield": {
                 "type": "HealPercent",
                 "amount": 100
             }
         },
         {
-            "728": "\u4f2a\u88c5",
+            "728": "伪装",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -253,7 +253,7 @@
             ]
         },
         {
-            "72A": "\u661f\u4e91",
+            "72A": "星云",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -262,7 +262,7 @@
             ]
         },
         {
-            "72B": "\u6781\u5149",
+            "72B": "极光",
             "timeproc": {
                 "type": "hot",
                 "potency": "300",
@@ -270,7 +270,7 @@
             }
         },
         {
-            "72D": "\u97f3\u901f\u7834",
+            "72D": "音速破",
             "timeproc": {
                 "type": "dot",
                 "potency": "120",
@@ -278,7 +278,7 @@
             }
         },
         {
-            "72E": "\u5f13\u5f62\u51b2\u6ce2",
+            "72E": "弓形冲波",
             "timeproc": {
                 "type": "dot",
                 "potency": "60",
@@ -286,7 +286,7 @@
             }
         },
         {
-            "72F": "\u5149\u4e4b\u5fc3",
+            "72F": "光之心",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -301,7 +301,7 @@
             ]
         },
         {
-            "730": "\u77f3\u4e4b\u5fc3",
+            "730": "石之心",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -310,7 +310,7 @@
             ]
         },
         {
-            "a7b": "\u521a\u7389\u4e4b\u5fc3",
+            "a7b": "刚玉之心",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -319,7 +319,7 @@
             ]
         },
         {
-            "a7c": "\u521a\u7389\u4e4b\u6e05",
+            "a7c": "刚玉之清",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -328,7 +328,7 @@
             ]
         },
         {
-            "a7d": "\u521a\u7389\u4e4b\u51c0",
+            "a7d": "刚玉之净",
             "timeproc": {
                 "type": "groundheal",
                 "potency": 900,
@@ -336,7 +336,7 @@
             }
         },
         {
-            "efe": "\u5927\u661f\u4e91",
+            "efe": "大星云",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",

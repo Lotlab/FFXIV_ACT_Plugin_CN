@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Rebuild ``cn/resource`` from a CN release zip.
 
-The CN Resource assembly is the upstream one with 43 embedded payloads replaced.
-This script answers "which payloads?" for whatever CN build you point it at:
+``cn/resource`` is normally *generated* from the ffxiv-datamining-cn CSV dump by
+``tools/generate_cn_resources.py``; use that for routine updates.  This script is the
+bootstrap / cross-check path: it answers "which payloads does a CN build replace?" for
+whatever CN release you point it at, which is what ``generate_cn_resources.py --check``
+compares against.
 
 1. unpack ``FFXIV_ACT_Plugin.dll`` from the CN zip and extract its Costura payloads;
 2. dump every embedded resource of the CN ``FFXIV_ACT_Plugin.Resource.dll``;
@@ -13,12 +16,13 @@ This script answers "which payloads?" for whatever CN build you point it at:
 
 Typical use when moving to a new CN client release:
 
-    python tools/prepare_upstream.py --version 3.0.3.4
-    python tools/refresh_cn_resources.py path/to/FFXIV_ACT_Plugin_3.0.3.4_CN.zip
-    python tools/prepare_upstream.py --version 3.0.3.4
+    python tools/generate_cn_resources.py --csv ../ffxiv-automatic-data/csv
+    python tools/prepare_upstream.py
 
-(The first prepare only exists to fetch the matching upstream raw assemblies; the
-second one applies the refreshed resource set.)
+and, when you want to diff the generated data against a real CN build:
+
+    python tools/extract_cn_reference.py path/to/FFXIV_ACT_Plugin_CN.zip
+    python tools/generate_cn_resources.py --check .work/bin
 """
 import argparse
 import json

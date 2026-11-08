@@ -2,7 +2,7 @@
     "job": "scholar",
     "actions": [
         {
-            "45CD": "\u6bc1\u706d",
+            "45CD": "毁灭",
             "damage": [
                 {
                     "potency": 150
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "BE": "\u533b\u672f",
+            "BE": "医术",
             "heal": [
                 {
                     "potency": 450
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "B9": "\u9f13\u821e\u6fc0\u52b1\u4e4b\u7b56",
+            "B9": "鼓舞激励之策",
             "heal": [
                 {
                     "potency": 300
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "BA": "\u58eb\u6c14\u9ad8\u626c\u4e4b\u7b56",
+            "BA": "士气高扬之策",
             "heal": [
                 {
                     "potency": 200
@@ -34,7 +34,7 @@
             ]
         },
         {
-            "45CE": "\u6bc1\u574f",
+            "45CE": "毁坏",
             "damage": [
                 {
                     "potency": 240
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "A7": "\u80fd\u91cf\u5438\u6536",
+            "A7": "能量吸收",
             "damage": [
                 {
                     "potency": 100
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "BD": "\u751f\u547d\u6d3b\u6027\u6cd5",
+            "BD": "生命活性法",
             "heal": [
                 {
                     "potency": 600
@@ -63,7 +63,7 @@
             ]
         },
         {
-            "409B": "\u7834\u9635\u6cd5",
+            "409B": "破阵法",
             "damage": [
                 {
                     "potency": 165
@@ -71,7 +71,7 @@
             ]
         },
         {
-            "DFF": "\u4e0d\u5c48\u4e0d\u6320\u4e4b\u7b56",
+            "DFF": "不屈不挠之策",
             "heal": [
                 {
                     "potency": 400
@@ -79,7 +79,7 @@
             ]
         },
         {
-            "E00": "\u6c14\u708e\u6cd5",
+            "E00": "气炎法",
             "damage": [
                 {
                     "potency": 220
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "1D0B": "\u9b54\u708e\u6cd5",
+            "1D0B": "魔炎法",
             "damage": [
                 {
                     "potency": 240
@@ -95,7 +95,7 @@
             ]
         },
         {
-            "409D": "\u6b7b\u708e\u6cd5",
+            "409D": "死炎法",
             "damage": [
                 {
                     "potency": 255
@@ -103,7 +103,7 @@
             ]
         },
         {
-            "40A0": "\u5f02\u60f3\u7684\u7965\u5149",
+            "40A0": "异想的祥光",
             "heal": [
                 {
                     "potency": 320
@@ -111,7 +111,7 @@
             ]
         },
         {
-            "40A3": "\u6170\u85c9",
+            "40A3": "慰藉",
             "heal": [
                 {
                     "potency": 250
@@ -119,7 +119,7 @@
             ]
         },
         {
-            "6509": "\u6781\u708e\u6cd5",
+            "6509": "极炎法",
             "damage": [
                 {
                     "potency": 320
@@ -127,7 +127,7 @@
             ]
         },
         {
-            "650a": "\u88c2\u9635\u6cd5",
+            "650a": "裂阵法",
             "damage": [
                 {
                     "potency": 180
@@ -135,7 +135,7 @@
             ]
         },
         {
-            "650b": "\u751f\u547d\u56de\u751f\u6cd5",
+            "650b": "生命回生法",
             "heal": [
                 {
                     "potency": 0
@@ -143,7 +143,7 @@
             ]
         },
         {
-            "322": "\u4ed9\u5149\u7684\u62e5\u62b1",
+            "322": "仙光的拥抱",
             "heal": [
                 {
                     "potency": 180
@@ -151,7 +151,7 @@
             ]
         },
         {
-            "409F": "\u5f02\u60f3\u7684\u7965\u5149",
+            "409F": "异想的祥光",
             "heal": [
                 {
                     "potency": 320
@@ -159,7 +159,7 @@
             ]
         },
         {
-            "40A4": "\u70bd\u5929\u7684\u5e55\u5e18",
+            "40A4": "炽天的幕帘",
             "heal": [
                 {
                     "potency": 180
@@ -167,7 +167,7 @@
             ]
         },
         {
-            "40A2": "\u6170\u85c9",
+            "40A2": "慰藉",
             "heal": [
                 {
                     "potency": 250
@@ -175,7 +175,7 @@
             ]
         },
         {
-            "9095": "\u610f\u6c14\u8f69\u6602\u4e4b\u7b56",
+            "9095": "意气轩昂之策",
             "heal": [
                 {
                     "potency": 200
@@ -183,7 +183,7 @@
             ]
         },
         {
-            "9097": "\u663e\u7075\u4e4b\u7ae0",
+            "9097": "显灵之章",
             "heal": [
                 {
                     "potency": 360
@@ -191,7 +191,7 @@
             ]
         },
         {
-            "9098": "\u964d\u4e34\u4e4b\u7ae0",
+            "9098": "降临之章",
             "heal": [
                 {
                     "potency": 240
@@ -201,7 +201,7 @@
     ],
     "statuseffects": [
         {
-            "B3": "\u6bd2\u83cc",
+            "B3": "毒菌",
             "timeproc": {
                 "type": "dot",
                 "potency": 20,
@@ -210,7 +210,7 @@
             }
         },
         {
-            "BD": "\u731b\u6bd2\u83cc",
+            "BD": "猛毒菌",
             "timeproc": {
                 "type": "dot",
                 "potency": 40,
@@ -219,7 +219,7 @@
             }
         },
         {
-            "317": "\u8f6c\u5316",
+            "317": "转化",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -229,13 +229,13 @@
             ]
         },
         {
-            "318": "\u5e94\u6025\u6218\u672f",
+            "318": "应急战术",
             "reactiveproc": {
                 "type": "HealOnHealCast"
             }
         },
         {
-            "4C5": "\u8fde\u73af\u8ba1",
+            "4C5": "连环计",
             "multiplier": [
                 {
                     "type": "criticalreceived",
@@ -244,7 +244,7 @@
             ]
         },
         {
-            "767": "\u86ca\u6bd2\u6cd5",
+            "767": "蛊毒法",
             "timeproc": {
                 "type": "dot",
                 "potency": 85,
@@ -253,7 +253,7 @@
             }
         },
         {
-            "a96": "\u751f\u547d\u56de\u751f\u6cd5",
+            "a96": "生命回生法",
             "potency": [
                 {
                     "type": "HealReceiveMultiplier",
@@ -262,7 +262,7 @@
             ]
         },
         {
-            "a98": "\u75be\u98ce\u4e4b\u8ba1",
+            "a98": "疾风之计",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -271,7 +271,7 @@
             ]
         },
         {
-            "798": "\u91ce\u6218\u6cbb\u7597\u9635",
+            "798": "野战治疗阵",
             "timeproc": {
                 "type": "groundheal",
                 "potency": "100",
@@ -279,7 +279,7 @@
             }
         },
         {
-            "12B": "\u91ce\u6218\u6cbb\u7597\u9635",
+            "12B": "野战治疗阵",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -288,7 +288,7 @@
             ]
         },
         {
-            "13B": "\u4ed9\u5149\u7684\u4f4e\u8bed",
+            "13B": "仙光的低语",
             "timeproc": {
                 "type": "hot",
                 "potency": 80,
@@ -296,7 +296,7 @@
             }
         },
         {
-            "13D": "\u5f02\u60f3\u7684\u5e7b\u5149",
+            "13D": "异想的幻光",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -311,7 +311,7 @@
             ]
         },
         {
-            "4C7": "\u5f02\u60f3\u7684\u878d\u5149",
+            "4C7": "异想的融光",
             "timeproc": {
                 "type": "groundheal",
                 "potency": "300",
@@ -319,7 +319,7 @@
             }
         },
         {
-            "752": "\u5929\u4f7f\u7684\u4f4e\u8bed",
+            "752": "天使的低语",
             "timeproc": {
                 "type": "hot",
                 "potency": 80,
@@ -327,7 +327,7 @@
             }
         },
         {
-            "753": "\u70bd\u5929\u7684\u5e7b\u5149",
+            "753": "炽天的幻光",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -341,7 +341,7 @@
             ]
         },
         {
-            "4C4": "\u6df1\u8c0b\u8fdc\u8651\u4e4b\u7b56",
+            "4C4": "深谋远虑之策",
             "timeproc": {
                 "type": "groundheal",
                 "potency": 800,
@@ -349,28 +349,28 @@
             }
         },
         {
-            "129": "\u9f13\u821e",
+            "129": "鼓舞",
             "damageshield": {
                 "type": "HealPercent",
                 "amount": 180
             }
         },
         {
-            "77e": "\u6fc0\u52b1",
+            "77e": "激励",
             "damageshield": {
                 "type": "HealPercent",
                 "amount": 180
             }
         },
         {
-            "77d": "\u70bd\u5929\u7684\u5e55\u5e18",
+            "77d": "炽天的幕帘",
             "damageshield": {
                 "type": "HealPercent",
                 "amount": 100
             }
         },
         {
-            "f2b": "\u57cb\u4f0f\u4e4b\u6bd2",
+            "f2b": "埋伏之毒",
             "timeproc": {
                 "type": "dot",
                 "potency": 140,
@@ -379,7 +379,7 @@
             }
         },
         {
-            "f2d": "\u70bd\u5929\u4e4b\u5149",
+            "f2d": "炽天之光",
             "timeproc": {
                 "type": "hot",
                 "potency": 100,

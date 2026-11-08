@@ -3,7 +3,7 @@
     "actions": [],
     "statuseffects": [
         {
-            "65F": "\u672f\u58eb\u7684\u8bb0\u5fc6",
+            "65F": "术士的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -13,7 +13,7 @@
             ]
         },
         {
-            "660": "\u6597\u58eb\u7684\u8bb0\u5fc6",
+            "660": "斗士的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -22,7 +22,7 @@
             ]
         },
         {
-            "664": "\u6b66\u4eba\u7684\u8bb0\u5fc6",
+            "664": "武人的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -31,7 +31,7 @@
             ]
         },
         {
-            "665": "\u65a5\u5019\u7684\u8bb0\u5fc6",
+            "665": "斥候的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -40,7 +40,7 @@
             ]
         },
         {
-            "666": "\u5723\u9a91\u58eb\u7684\u8bb0\u5fc6",
+            "666": "圣骑士的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -49,7 +49,7 @@
             ]
         },
         {
-            "678": "\u84c4\u529b",
+            "678": "蓄力",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -59,7 +59,7 @@
             ]
         },
         {
-            "66E": "\u6587\u7406\u52c7\u6c14",
+            "66E": "文理勇气",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -68,7 +68,7 @@
             ]
         },
         {
-            "674": "\u9b54\u6cd5\u7206\u53d1",
+            "674": "魔法爆发",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -79,7 +79,7 @@
             ]
         },
         {
-            "675": "\u6587\u7406\u53cc\u5203\u5251",
+            "675": "文理双刃剑",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -89,7 +89,7 @@
             ]
         },
         {
-            "6CB": "\u8d24\u8005\u7684\u8bb0\u5fc6",
+            "6CB": "贤者的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -99,7 +99,7 @@
             ]
         },
         {
-            "6CC": "\u5251\u8c6a\u7684\u8bb0\u5fc6",
+            "6CC": "剑豪的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -109,7 +109,7 @@
             ]
         },
         {
-            "6CD": "\u5f13\u5723\u7684\u8bb0\u5fc6",
+            "6CD": "弓圣的记忆",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",
@@ -119,13 +119,13 @@
             ]
         },
         {
-            "913": "\u5438\u8840\u9b3c\u7684\u836f",
+            "913": "吸血鬼的药",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             }
         },
         {
-            "914": "\u72fc\u4eba\u7684\u836f",
+            "914": "狼人的药",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             }

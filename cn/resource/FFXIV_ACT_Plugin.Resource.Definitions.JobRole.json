@@ -2,7 +2,7 @@
     "job": "job role",
     "actions": [
         {
-            "1D6F": "\u96ea\u4ec7",
+            "1D6F": "雪仇",
             "damage": [
                 {
                     "potency": 210
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "1D75": "\u5185\u4e39",
+            "1D75": "内丹",
             "heal": [
                 {
                     "potency": 800
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "5750": "\u5931\u4f20\u8000\u661f",
+            "5750": "失传耀星",
             "damage": [
                 {
                     "potency": 300
@@ -28,7 +28,7 @@
     ],
     "statuseffects": [
         {
-            "988": "\u5931\u4f20\u8000\u661f",
+            "988": "失传耀星",
             "timeproc": {
                 "type": "dot",
                 "potency": "350",
@@ -37,7 +37,7 @@
             }
         },
         {
-            "4A7": "\u94c1\u58c1",
+            "4A7": "铁壁",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -46,7 +46,7 @@
             ]
         },
         {
-            "4A9": "\u96ea\u4ec7",
+            "4A9": "雪仇",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -55,7 +55,7 @@
             ]
         },
         {
-            "31": "\u5f3a\u5316\u836f",
+            "31": "强化药",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -68,7 +68,7 @@
             ]
         },
         {
-            "2a": "\u8d85\u8d8a\u4e4b\u529b",
+            "2a": "超越之力",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -81,7 +81,7 @@
             ]
         },
         {
-            "2b": "\u8870\u5f31",
+            "2b": "衰弱",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -94,7 +94,7 @@
             ]
         },
         {
-            "2c": "\u6fd2\u6b7b",
+            "2c": "濒死",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -107,13 +107,13 @@
             ]
         },
         {
-            "54": "\u6d74\u8840",
+            "54": "浴血",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             }
         },
         {
-            "4ab": "\u7275\u5236",
+            "4ab": "牵制",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -128,7 +128,7 @@
             ]
         },
         {
-            "4b3": "\u660f\u4e71",
+            "4b3": "昏乱",
             "potency": [
                 {
                     "type": "damagedonemultiplier",

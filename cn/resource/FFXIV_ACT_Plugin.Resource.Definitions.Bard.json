@@ -2,7 +2,7 @@
     "job": "bard",
     "actions": [
         {
-            "61": "\u5f3a\u529b\u5c04\u51fb",
+            "61": "强力射击",
             "damage": [
                 {
                     "potency": 160
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "62": "\u76f4\u7ebf\u5c04\u51fb",
+            "62": "直线射击",
             "damage": [
                 {
                     "potency": 200
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "64": "\u6bd2\u54ac\u7bad",
+            "64": "毒咬箭",
             "damage": [
                 {
                     "potency": 100
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "6E": "\u5931\u8840\u7bad",
+            "6E": "失血箭",
             "damage": [
                 {
                     "potency": 130
@@ -34,7 +34,7 @@
             ]
         },
         {
-            "6A": "\u8fde\u73e0\u7bad",
+            "6A": "连珠箭",
             "damage": [
                 {
                     "potency": 110
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "906e": "\u5e7f\u57df\u7fa4\u5c04",
+            "906e": "广域群射",
             "damage": [
                 {
                     "potency": 0
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "71": "\u98ce\u8680\u7bad",
+            "71": "风蚀箭",
             "damage": [
                 {
                     "potency": 60
@@ -58,7 +58,7 @@
             ]
         },
         {
-            "75": "\u6b7b\u4ea1\u7bad\u96e8",
+            "75": "死亡箭雨",
             "damage": [
                 {
                     "potency": 100
@@ -66,7 +66,7 @@
             ]
         },
         {
-            "228A": "\u5b8c\u7f8e\u97f3\u8c03",
+            "228A": "完美音调",
             "damage": [
                 {
                     "potency": 0
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "DE6": "\u4e5d\u5929\u8fde\u7bad",
+            "DE6": "九天连箭",
             "damage": [
                 {
                     "potency": 260
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "DE8": "\u4f36\u7259\u4fd0\u9f7f",
+            "DE8": "伶牙俐齿",
             "damage": [
                 {
                     "potency": 100
@@ -90,7 +90,7 @@
             ]
         },
         {
-            "DEA": "\u4fa7\u98ce\u8bf1\u5bfc\u7bad",
+            "DEA": "侧风诱导箭",
             "damage": [
                 {
                     "potency": 400
@@ -98,7 +98,7 @@
             ]
         },
         {
-            "1CEE": "\u70c8\u6bd2\u54ac\u7bad",
+            "1CEE": "烈毒咬箭",
             "damage": [
                 {
                     "potency": 150
@@ -106,7 +106,7 @@
             ]
         },
         {
-            "1CEF": "\u72c2\u98ce\u8680\u7bad",
+            "1CEF": "狂风蚀箭",
             "damage": [
                 {
                     "potency": 100
@@ -114,7 +114,7 @@
             ]
         },
         {
-            "1CF1": "\u8f89\u714c\u7bad",
+            "1CF1": "辉煌箭",
             "damage": [
                 {
                     "potency": 280
@@ -122,7 +122,7 @@
             ]
         },
         {
-            "406E": "\u5f71\u566c\u7bad",
+            "406E": "影噬箭",
             "damage": [
                 {
                     "potency": 0
@@ -130,7 +130,7 @@
             ]
         },
         {
-            "406F": "\u7206\u53d1\u5c04\u51fb",
+            "406F": "爆发射击",
             "damage": [
                 {
                     "potency": 220
@@ -138,7 +138,7 @@
             ]
         },
         {
-            "4070": "\u7edd\u5cf0\u7bad",
+            "4070": "绝峰箭",
             "damage": [
                 {
                     "potency": 0
@@ -146,7 +146,7 @@
             ]
         },
         {
-            "64b7": "\u767e\u9996\u9f99\u7259\u7bad",
+            "64b7": "百首龙牙箭",
             "damage": [
                 {
                     "potency": 140
@@ -154,7 +154,7 @@
             ]
         },
         {
-            "64b8": "\u7206\u7834\u7bad",
+            "64b8": "爆破箭",
             "damage": [
                 {
                     "potency": 350
@@ -166,7 +166,7 @@
             ]
         },
         {
-            "906f": "\u788e\u5fc3\u7bad",
+            "906f": "碎心箭",
             "damage": [
                 {
                     "potency": 180
@@ -174,7 +174,7 @@
             ]
         },
         {
-            "9070": "\u5171\u9e23\u7bad",
+            "9070": "共鸣箭",
             "damage": [
                 {
                     "potency": 640,
@@ -186,7 +186,7 @@
             ]
         },
         {
-            "9071": "\u5149\u660e\u795e\u7684\u8fd4\u573a\u4f59\u97f3",
+            "9071": "光明神的返场余音",
             "damage": [
                 {
                     "potency": 0
@@ -196,7 +196,7 @@
     ],
     "statuseffects": [
         {
-            "8AA": "\u519b\u795e\u7684\u8d5e\u7f8e\u6b4c",
+            "8AA": "军神的赞美歌",
             "multiplier": [
                 {
                     "type": "directhit",
@@ -205,7 +205,7 @@
             ]
         },
         {
-            "8D": "\u6218\u6597\u4e4b\u58f0",
+            "8D": "战斗之声",
             "multiplier": [
                 {
                     "type": "directhit",
@@ -214,7 +214,7 @@
             ]
         },
         {
-            "8A8": "\u653e\u6d6a\u795e\u7684\u5c0f\u6b65\u821e\u66f2",
+            "8A8": "放浪神的小步舞曲",
             "multiplier": [
                 {
                     "type": "criticalhit",
@@ -223,7 +223,7 @@
             ]
         },
         {
-            "7C": "\u6bd2\u54ac\u7bad",
+            "7C": "毒咬箭",
             "timeproc": {
                 "type": "dot",
                 "potency": "15",
@@ -232,7 +232,7 @@
             }
         },
         {
-            "81": "\u98ce\u8680\u7bad",
+            "81": "风蚀箭",
             "timeproc": {
                 "type": "dot",
                 "potency": "20",
@@ -241,7 +241,7 @@
             }
         },
         {
-            "4B0": "\u70c8\u6bd2\u54ac\u7bad",
+            "4B0": "烈毒咬箭",
             "timeproc": {
                 "type": "dot",
                 "potency": "20",
@@ -250,7 +250,7 @@
             }
         },
         {
-            "4B1": "\u72c2\u98ce\u8680\u7bad",
+            "4B1": "狂风蚀箭",
             "timeproc": {
                 "type": "dot",
                 "potency": "25",
@@ -259,7 +259,7 @@
             }
         },
         {
-            "7D": "\u731b\u8005\u5f3a\u51fb",
+            "7D": "猛者强击",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -268,7 +268,7 @@
             ]
         },
         {
-            "8A9": "\u8d24\u8005\u7684\u53d9\u4e8b\u8c23",
+            "8A9": "贤者的叙事谣",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -277,7 +277,7 @@
             ]
         },
         {
-            "78E": "\u884c\u541f",
+            "78E": "行吟",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -286,7 +286,7 @@
             ]
         },
         {
-            "4B2": "\u5927\u5730\u795e\u7684\u6292\u60c5\u604b\u6b4c",
+            "4B2": "大地神的抒情恋歌",
             "potency": [
                 {
                     "type": "healreceivemultiplier",
@@ -295,7 +295,7 @@
             ]
         },
         {
-            "b94": "\u5149\u660e\u795e\u7684\u6700\u7ec8\u4e50\u7ae0",
+            "b94": "光明神的最终乐章",
             "potency": [
                 {
                     "type": "damagedonemultiplier",

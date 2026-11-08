@@ -2,7 +2,7 @@
     "job": "astrologian",
     "actions": [
         {
-            "E0C": "\u51f6\u661f",
+            "E0C": "凶星",
             "damage": [
                 {
                     "potency": 150
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "E0A": "\u5409\u661f",
+            "E0A": "吉星",
             "heal": [
                 {
                     "potency": 500
@@ -18,7 +18,7 @@
             ]
         },
         {
-            "E10": "\u9633\u661f",
+            "E10": "阳星",
             "heal": [
                 {
                     "potency": 400
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "E1E": "\u5148\u5929\u7980\u8d4b",
+            "E1E": "先天禀赋",
             "heal": [
                 {
                     "potency": 0
@@ -34,7 +34,7 @@
             ]
         },
         {
-            "E1A": "\u798f\u661f",
+            "E1A": "福星",
             "heal": [
                 {
                     "potency": 800
@@ -42,7 +42,7 @@
             ]
         },
         {
-            "E0B": "\u5409\u661f\u76f8\u4f4d",
+            "E0B": "吉星相位",
             "heal": [
                 {
                     "potency": 250
@@ -50,7 +50,7 @@
             ]
         },
         {
-            "E11": "\u9633\u661f\u76f8\u4f4d",
+            "E11": "阳星相位",
             "heal": [
                 {
                     "potency": 250
@@ -58,7 +58,7 @@
             ]
         },
         {
-            "E1F": "\u91cd\u529b",
+            "E1F": "重力",
             "damage": [
                 {
                     "potency": 120
@@ -66,7 +66,7 @@
             ]
         },
         {
-            "E0E": "\u707e\u661f",
+            "E0E": "灾星",
             "damage": [
                 {
                     "potency": 160
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "40A9": "\u5929\u661f\u51b2\u65e5",
+            "40A9": "天星冲日",
             "heal": [
                 {
                     "potency": 200
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "2084": "\u661f\u4f53\u7206\u8f70",
+            "2084": "星体爆轰",
             "damage": [
                 {
                     "potency": 0
@@ -95,7 +95,7 @@
             ]
         },
         {
-            "1D12": "\u7978\u661f",
+            "1D12": "祸星",
             "damage": [
                 {
                     "potency": 190
@@ -103,7 +103,7 @@
             ]
         },
         {
-            "40AB": "\u715e\u661f",
+            "40AB": "煞星",
             "damage": [
                 {
                     "potency": 230
@@ -111,7 +111,7 @@
             ]
         },
         {
-            "40AC": "\u5929\u661f\u4ea4\u9519",
+            "40AC": "天星交错",
             "heal": [
                 {
                     "potency": 200
@@ -119,7 +119,7 @@
             ]
         },
         {
-            "40AD": "\u5929\u5bab\u56fe",
+            "40AD": "天宫图",
             "heal": [
                 {
                     "potency": 0
@@ -127,7 +127,7 @@
             ]
         },
         {
-            "40AE": "\u5929\u5bab\u56fe",
+            "40AE": "天宫图",
             "heal": [
                 {
                     "potency": 0
@@ -135,7 +135,7 @@
             ]
         },
         {
-            "42FF": "\u5409\u661f\u76f8\u4f4d",
+            "42FF": "吉星相位",
             "heal": [
                 {
                     "potency": 200
@@ -143,7 +143,7 @@
             ]
         },
         {
-            "4300": "\u9633\u661f\u76f8\u4f4d",
+            "4300": "阳星相位",
             "heal": [
                 {
                     "potency": 200
@@ -151,7 +151,7 @@
             ]
         },
         {
-            "650f": "\u843d\u9677\u51f6\u661f",
+            "650f": "落陷凶星",
             "damage": [
                 {
                     "potency": 270
@@ -159,7 +159,7 @@
             ]
         },
         {
-            "6510": "\u4e2d\u91cd\u529b",
+            "6510": "中重力",
             "damage": [
                 {
                     "potency": 140
@@ -167,7 +167,7 @@
             ]
         },
         {
-            "6512": "\u5927\u5b87\u5b99",
+            "6512": "大宇宙",
             "damage": [
                 {
                     "potency": 150
@@ -179,7 +179,7 @@
             ]
         },
         {
-            "6513": "\u5c0f\u5b87\u5b99",
+            "6513": "小宇宙",
             "heal": [
                 {
                     "potency": 0
@@ -187,7 +187,7 @@
             ]
         },
         {
-            "1d14": "\u738b\u51a0\u4e4b\u9886\u4e3b",
+            "1d14": "王冠之领主",
             "damage": [
                 {
                     "potency": 400
@@ -195,7 +195,7 @@
             ]
         },
         {
-            "1d15": "\u738b\u51a0\u4e4b\u8d35\u5987",
+            "1d15": "王冠之贵妇",
             "heal": [
                 {
                     "potency": 400
@@ -203,7 +203,7 @@
             ]
         },
         {
-            "90a5": "\u795e\u8c15",
+            "90a5": "神谕",
             "damage": [
                 {
                     "potency": 860,
@@ -215,7 +215,7 @@
             ]
         },
         {
-            "90a6": "\u9633\u661f\u5408\u76f8",
+            "90a6": "阳星合相",
             "heal": [
                 {
                     "potency": 250
@@ -225,7 +225,7 @@
     ],
     "statuseffects": [
         {
-            "343": "\u5409\u661f\u76f8\u4f4d",
+            "343": "吉星相位",
             "timeproc": {
                 "type": "hot",
                 "potency": 250,
@@ -233,7 +233,7 @@
             }
         },
         {
-            "344": "\u9633\u661f\u76f8\u4f4d",
+            "344": "阳星相位",
             "timeproc": {
                 "type": "hot",
                 "potency": 150,
@@ -241,7 +241,7 @@
             }
         },
         {
-            "346": "\u70e7\u707c",
+            "346": "烧灼",
             "timeproc": {
                 "type": "dot",
                 "potency": 50,
@@ -250,7 +250,7 @@
             }
         },
         {
-            "34B": "\u70bd\u707c",
+            "34B": "炽灼",
             "timeproc": {
                 "type": "dot",
                 "potency": 60,
@@ -259,7 +259,7 @@
             }
         },
         {
-            "34E": "\u661f\u4f4d\u5408\u56fe",
+            "34E": "星位合图",
             "timeproc": {
                 "type": "groundheal",
                 "potency": 0,
@@ -267,7 +267,7 @@
             }
         },
         {
-            "3BC": "\u547d\u8fd0\u4e4b\u8f6e",
+            "3BC": "命运之轮",
             "timeproc": {
                 "type": "hot",
                 "potency": "100",
@@ -275,7 +275,7 @@
             }
         },
         {
-            "759": "\u711a\u707c",
+            "759": "焚灼",
             "timeproc": {
                 "type": "dot",
                 "potency": 70,
@@ -284,7 +284,7 @@
             }
         },
         {
-            "75B": "\u4e16\u754c\u6811\u4e4b\u5e72",
+            "75B": "世界树之干",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -294,7 +294,7 @@
             ]
         },
         {
-            "75C": "\u653e\u6d6a\u795e\u4e4b\u7bad",
+            "75C": "放浪神之箭",
             "potency": [
                 {
                     "type": "healreceivemultiplier",
@@ -303,7 +303,7 @@
             ]
         },
         {
-            "75E": "\u6cb3\u6d41\u795e\u4e4b\u74f6",
+            "75E": "河流神之瓶",
             "timeproc": {
                 "type": "hot",
                 "potency": 200,
@@ -311,14 +311,14 @@
             }
         },
         {
-            "75F": "\u5efa\u7b51\u795e\u4e4b\u5854",
+            "75F": "建筑神之塔",
             "damageshield": {
                 "type": "potency",
                 "amount": 400
             }
         },
         {
-            "75A": "\u592a\u9633\u795e\u4e4b\u8861",
+            "75A": "太阳神之衡",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -328,7 +328,7 @@
             ]
         },
         {
-            "75D": "\u6218\u4e89\u795e\u4e4b\u67aa",
+            "75D": "战争神之枪",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -337,7 +337,7 @@
             ]
         },
         {
-            "756": "\u5360\u535c",
+            "756": "占卜",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -347,7 +347,7 @@
             ]
         },
         {
-            "764": "\u4e2d\u95f4\u5b66\u6d3e",
+            "764": "中间学派",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -356,14 +356,14 @@
             ]
         },
         {
-            "781": "\u4e2d\u95f4\u5b66\u6d3e",
+            "781": "中间学派",
             "damageshield": {
                 "type": "HealPercent",
                 "amount": 125
             }
         },
         {
-            "762": "\u5929\u5bab\u56fe",
+            "762": "天宫图",
             "timeproc": {
                 "type": "groundheal",
                 "potency": 200,
@@ -371,7 +371,7 @@
             }
         },
         {
-            "763": "\u9633\u661f\u5929\u5bab\u56fe",
+            "763": "阳星天宫图",
             "timeproc": {
                 "type": "groundheal",
                 "potency": 400,
@@ -379,7 +379,7 @@
             }
         },
         {
-            "757": "\u5929\u661f\u51b2\u65e5",
+            "757": "天星冲日",
             "timeproc": {
                 "type": "hot",
                 "potency": 100,
@@ -387,7 +387,7 @@
             }
         },
         {
-            "351": "\u547d\u8fd0\u4e4b\u8f6e",
+            "351": "命运之轮",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -396,7 +396,7 @@
             ]
         },
         {
-            "a9c": "\u7cbe\u795e\u4e4b\u5ea7",
+            "a9c": "精神之座",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -409,7 +409,7 @@
             ]
         },
         {
-            "a9d": "\u64e2\u5347",
+            "a9d": "擢升",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -423,7 +423,7 @@
             }
         },
         {
-            "a9e": "\u5927\u5b87\u5b99",
+            "a9e": "大宇宙",
             "timeproc": {
                 "type": "groundheal",
                 "potency": 0,
@@ -431,14 +431,14 @@
             }
         },
         {
-            "761": "\u5929\u661f\u4ea4\u9519",
+            "761": "天星交错",
             "damageshield": {
                 "type": "HealPercent",
                 "amount": 200
             }
         },
         {
-            "f36": "\u9633\u661f\u5408\u76f8",
+            "f36": "阳星合相",
             "timeproc": {
                 "type": "hot",
                 "potency": 175,
@@ -446,7 +446,7 @@
             }
         },
         {
-            "f38": "\u592a\u9633\u661f\u5ea7",
+            "f38": "太阳星座",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",

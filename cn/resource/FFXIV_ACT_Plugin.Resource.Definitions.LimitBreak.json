@@ -3,7 +3,7 @@
     "actions": [],
     "statuseffects": [
         {
-            "C2": "\u94dc\u5899\u94c1\u76fe",
+            "C2": "铜墙铁盾",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -12,7 +12,7 @@
             ]
         },
         {
-            "C3": "\u575a\u5b88\u8981\u585e",
+            "C3": "坚守要塞",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -21,7 +21,7 @@
             ]
         },
         {
-            "C4": "\u7ec8\u6781\u5821\u5792",
+            "C4": "终极堡垒",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -30,7 +30,7 @@
             ]
         },
         {
-            "35F": "\u539f\u521d\u5927\u5730",
+            "35F": "原初大地",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -39,7 +39,7 @@
             ]
         },
         {
-            "360": "\u6697\u9ed1\u4e4b\u529b",
+            "360": "暗黑之力",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",
@@ -48,7 +48,7 @@
             ]
         },
         {
-            "78B": "\u7075\u9b42\u4e4b\u9752",
+            "78B": "灵魂之青",
             "potency": [
                 {
                     "type": "damagereceivedmultiplier",

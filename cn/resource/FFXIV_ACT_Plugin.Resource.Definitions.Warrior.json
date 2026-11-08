@@ -2,7 +2,7 @@
     "job": "warrior",
     "actions": [
         {
-            "1F": "\u91cd\u5288",
+            "1F": "重劈",
             "damage": [
                 {
                     "potency": 240
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "25": "\u51f6\u6b8b\u88c2",
+            "25": "凶残裂",
             "damage": [
                 {
                     "potency": 190,
@@ -19,7 +19,7 @@
             ]
         },
         {
-            "29": "\u8d85\u538b\u65a7",
+            "29": "超压斧",
             "damage": [
                 {
                     "potency": 110
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "2E": "\u98de\u65a7",
+            "2E": "飞斧",
             "damage": [
                 {
                     "potency": 150
@@ -35,7 +35,7 @@
             ]
         },
         {
-            "2A": "\u66b4\u98ce\u65a9",
+            "2A": "暴风斩",
             "damage": [
                 {
                     "potency": 220,
@@ -49,7 +49,7 @@
             ]
         },
         {
-            "28": "\u6218\u6817",
+            "28": "战栗",
             "heal": [
                 {
                     "potency": 0
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "31": "\u539f\u521d\u4e4b\u9b42",
+            "31": "原初之魂",
             "damage": [
                 {
                     "potency": 330
@@ -65,7 +65,7 @@
             ]
         },
         {
-            "404E": "\u79d8\u94f6\u66b4\u98ce",
+            "404E": "秘银暴风",
             "damage": [
                 {
                     "potency": 100,
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "33": "\u94a2\u94c1\u65cb\u98ce",
+            "33": "钢铁旋风",
             "damage": [
                 {
                     "potency": 160
@@ -82,7 +82,7 @@
             ]
         },
         {
-            "2D": "\u66b4\u98ce\u788e",
+            "2D": "暴风碎",
             "damage": [
                 {
                     "potency": 220,
@@ -91,7 +91,7 @@
             ]
         },
         {
-            "DDD": "\u88c2\u77f3\u98de\u73af",
+            "DDD": "裂石飞环",
             "damage": [
                 {
                     "potency": 0
@@ -99,7 +99,7 @@
             ]
         },
         {
-            "DE0": "\u6cf0\u7136\u81ea\u82e5",
+            "DE0": "泰然自若",
             "heal": [
                 {
                     "potency": 1200
@@ -107,7 +107,7 @@
             ]
         },
         {
-            "DDE": "\u5730\u6bc1\u4eba\u4ea1",
+            "DDE": "地毁人亡",
             "damage": [
                 {
                     "potency": 0
@@ -115,7 +115,7 @@
             ]
         },
         {
-            "1CDA": "\u731b\u653b",
+            "1CDA": "猛攻",
             "damage": [
                 {
                     "potency": 150
@@ -123,7 +123,7 @@
             ]
         },
         {
-            "1CDB": "\u52a8\u4e71",
+            "1CDB": "动乱",
             "damage": [
                 {
                     "potency": 420
@@ -131,7 +131,7 @@
             ]
         },
         {
-            "1CDC": "\u6446\u8131",
+            "1CDC": "摆脱",
             "heal": [
                 {
                     "potency": 300
@@ -139,7 +139,7 @@
             ]
         },
         {
-            "404F": "\u6df7\u6c8c\u65cb\u98ce",
+            "404F": "混沌旋风",
             "damage": [
                 {
                     "potency": 0
@@ -147,7 +147,7 @@
             ]
         },
         {
-            "4051": "\u72c2\u9b42",
+            "4051": "狂魂",
             "damage": [
                 {
                     "potency": 0
@@ -155,7 +155,7 @@
             ]
         },
         {
-            "6498": "\u7fa4\u5c71\u9686\u8d77",
+            "6498": "群山隆起",
             "damage": [
                 {
                     "potency": 150
@@ -163,7 +163,7 @@
             ]
         },
         {
-            "6499": "\u86ee\u8352\u5d29\u88c2",
+            "6499": "蛮荒崩裂",
             "damage": [
                 {
                     "potency": 0
@@ -171,7 +171,7 @@
             ]
         },
         {
-            "903c": "\u539f\u521d\u7684\u6012\u9707",
+            "903c": "原初的怒震",
             "damage": [
                 {
                     "potency": 700,
@@ -183,7 +183,7 @@
             ]
         },
         {
-            "903d": "\u5c3d\u6bc1",
+            "903d": "尽毁",
             "damage": [
                 {
                     "potency": 0
@@ -193,7 +193,7 @@
     ],
     "statuseffects": [
         {
-            "56": "\u72c2\u66b4",
+            "56": "狂暴",
             "multiplier": [
                 {
                     "type": "criticalhit",
@@ -206,7 +206,7 @@
             ]
         },
         {
-            "499": "\u539f\u521d\u7684\u89e3\u653e",
+            "499": "原初的解放",
             "multiplier": [
                 {
                     "type": "criticalhit",
@@ -221,7 +221,7 @@
             ]
         },
         {
-            "57": "\u6218\u6817",
+            "57": "战栗",
             "potency": [
                 {
                     "type": "HealReceiveMultiplier",
@@ -230,7 +230,7 @@
             ]
         },
         {
-            "A75": "\u6218\u573a\u98ce\u66b4",
+            "A75": "战场风暴",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -239,7 +239,7 @@
             ]
         },
         {
-            "2DF": "\u539f\u521d\u7684\u76f4\u89c9",
+            "2DF": "原初的直觉",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -251,7 +251,7 @@
             }
         },
         {
-            "5A": "\u66b4\u98ce\u788e",
+            "5A": "暴风碎",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -260,7 +260,7 @@
             ]
         },
         {
-            "a79": "\u6cf0\u7136\u81ea\u82e5",
+            "a79": "泰然自若",
             "timeproc": {
                 "type": "hot",
                 "potency": 200,
@@ -268,7 +268,7 @@
             }
         },
         {
-            "59": "\u590d\u4ec7",
+            "59": "复仇",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived",
                 "amount": 55
@@ -281,13 +281,13 @@
             ]
         },
         {
-            "741": "\u539f\u521d\u7684\u52c7\u731b",
+            "741": "原初的勇猛",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             }
         },
         {
-            "742": "\u539f\u521d\u7684\u6b66\u731b",
+            "742": "原初的武猛",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -301,13 +301,13 @@
             }
         },
         {
-            "8B3": "\u539f\u521d\u7684\u52c7\u731b",
+            "8B3": "原初的勇猛",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             }
         },
         {
-            "A76": "\u539f\u521d\u7684\u8840\u6c14",
+            "A76": "原初的血气",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             },
@@ -319,14 +319,14 @@
             ]
         },
         {
-            "5b1": "\u6446\u8131",
+            "5b1": "摆脱",
             "damageshield": {
                 "type": "TargetHpPercent",
                 "amount": 15
             }
         },
         {
-            "83C": "\u6301\u7eed\u6446\u8131",
+            "83C": "持续摆脱",
             "timeproc": {
                 "type": "hot",
                 "potency": 100,
@@ -334,7 +334,7 @@
             }
         },
         {
-            "a77": "\u539f\u521d\u7684\u8840\u6f6e",
+            "a77": "原初的血潮",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -343,14 +343,14 @@
             ]
         },
         {
-            "a78": "\u539f\u521d\u7684\u8840\u70df",
+            "a78": "原初的血烟",
             "damageshield": {
                 "type": "potency",
                 "amount": 400
             }
         },
         {
-            "ef8": "\u622e\u7f6a",
+            "ef8": "戮罪",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived",
                 "amount": 55
@@ -363,7 +363,7 @@
             ]
         },
         {
-            "f3c": "\u8ba8\u7f6a",
+            "f3c": "讨罪",
             "timeproc": {
                 "type": "hot",
                 "potency": 400,

@@ -2,7 +2,7 @@
     "job": "npc",
     "actions": [
         {
-            "156": "\u5438\u9b42",
+            "156": "吸魂",
             "damage": [
                 {
                     "potency": 0
@@ -15,7 +15,7 @@
             ]
         },
         {
-            "2D4": "\u6d88\u5316",
+            "2D4": "消化",
             "damage": [
                 {
                     "potency": 0
@@ -28,7 +28,7 @@
             ]
         },
         {
-            "4DA": "\u6b7b\u5211",
+            "4DA": "死刑",
             "damage": [
                 {
                     "potency": 0
@@ -36,7 +36,7 @@
             ]
         },
         {
-            "5CD": "\u9519\u4e71\u4e4b\u58f0",
+            "5CD": "错乱之声",
             "damage": [
                 {
                     "potency": 0
@@ -44,28 +44,7 @@
             ]
         },
         {
-            "64A": "\u55dc\u8840\u5251",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ],
-            "heal": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "67B": "\u4e0d\u51c0\u7684\u7634\u6c14",
-            "heal": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "7DA": "\u6708\u6d41\u7535\u5708",
+            "64A": "嗜血剑",
             "damage": [
                 {
                     "potency": 0
@@ -78,7 +57,7 @@
             ]
         },
         {
-            "80A": "\u7ed2\u7ed2\u6cbb\u7597",
+            "67B": "不净的瘴气",
             "heal": [
                 {
                     "potency": 0
@@ -86,15 +65,7 @@
             ]
         },
         {
-            "89C": "\u5403\u9999\u8549",
-            "heal": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "923": "\u5438\u53d6",
+            "7DA": "月流电圈",
             "damage": [
                 {
                     "potency": 0
@@ -107,7 +78,23 @@
             ]
         },
         {
-            "964": "\u795e\u9b42\u98a0\u5012",
+            "80A": "绒绒治疗",
+            "heal": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "89C": "吃香蕉",
+            "heal": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "923": "吸取",
             "damage": [
                 {
                     "potency": 0
@@ -120,7 +107,7 @@
             ]
         },
         {
-            "9FF": "\u6708\u6d41\u7535\u5708",
+            "964": "神魂颠倒",
             "damage": [
                 {
                     "potency": 0
@@ -133,31 +120,7 @@
             ]
         },
         {
-            "D0E": "\u8111\u9ad3\u5438\u98df",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "D5B": "\u4ee5\u592a\u5206\u914d",
-            "heal": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "FDC": "\u7206\u70b8",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "128B": "\u67d3\u8840\u5251",
+            "9FF": "月流电圈",
             "damage": [
                 {
                     "potency": 0
@@ -170,7 +133,31 @@
             ]
         },
         {
-            "13CC": "\u55dc\u8840\u54ac",
+            "D0E": "脑髓吸食",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "D5B": "以太分配",
+            "heal": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "FDC": "爆炸",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "128B": "染血剑",
             "damage": [
                 {
                     "potency": 0
@@ -183,79 +170,7 @@
             ]
         },
         {
-            "13CF": "\u9707\u8111\u65a9",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "1731": "\u5929\u7a7a\u4e4b\u79cd",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "1734": "\u60e9\u7f5a",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "3279": "\u5f15\u7206\u8bb0\u5fc6\u6c61\u67d3S",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "35AA": "\u521d\u59cb\u5316",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "4107": "\u5927\u5730\u4e4b\u8f70",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "4129": "\u5927\u9646\u4e4b\u91cd",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "4B9D": "\u4e91\u95f4\u653e\u7535",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "4DB7": "\u8fde\u9501\u53cd\u5c04\uff1a\u51b0\u971c\u65a9",
-            "damage": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "4EB0": "\u6708\u6d41\u7535\u5708",
+            "13CC": "嗜血咬",
             "damage": [
                 {
                     "potency": 0
@@ -268,23 +183,7 @@
             ]
         },
         {
-            "50F8": "\u5931\u4f20\u6108\u7597",
-            "heal": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "50F9": "\u5931\u4f20\u5723\u7597",
-            "heal": [
-                {
-                    "potency": 0
-                }
-            ]
-        },
-        {
-            "5609": "\u8bc5\u5492\u5f0f\u6ce2\u52a8\u70ae",
+            "13CF": "震脑斩",
             "damage": [
                 {
                     "potency": 0
@@ -292,7 +191,7 @@
             ]
         },
         {
-            "5738": "\u5f71\u4e4b\u55b7\u53d1",
+            "1731": "天空之种",
             "damage": [
                 {
                     "potency": 0
@@ -300,7 +199,108 @@
             ]
         },
         {
-            "5B34": "\u6148\u60b2\u56db\u5200\u6d41",
+            "1734": "惩罚",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "3279": "引爆记忆污染S",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "35AA": "初始化",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "4107": "大地之轰",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "4129": "大陆之重",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "4B9D": "云间放电",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "4DB7": "连锁反射：冰霜斩",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "4EB0": "月流电圈",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ],
+            "heal": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "50F8": "失传愈疗",
+            "heal": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "50F9": "失传圣疗",
+            "heal": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "5609": "诅咒式波动炮",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "5738": "影之喷发",
+            "damage": [
+                {
+                    "potency": 0
+                }
+            ]
+        },
+        {
+            "5B34": "慈悲四刀流",
             "damage": [
                 {
                     "potency": 0
@@ -310,7 +310,7 @@
     ],
     "statuseffects": [
         {
-            "CA": "\u53d7\u4f24\u52a0\u91cd",
+            "CA": "受伤加重",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -325,7 +325,7 @@
             ]
         },
         {
-            "AC": "\u865a\u5f31",
+            "AC": "虚弱",
             "potency": [
                 {
                     "type": "healreceivemultiplier",
@@ -334,7 +334,7 @@
             ]
         },
         {
-            "107": "\u4f24\u5bb3\u63d0\u9ad8",
+            "107": "伤害提高",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -343,7 +343,7 @@
             ]
         },
         {
-            "15C": "\u9b54\u529b\u98de\u6563",
+            "15C": "魔力飞散",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -353,7 +353,7 @@
             ]
         },
         {
-            "179": "\u706b\u72f1\u4e4b\u9501",
+            "179": "火狱之锁",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -362,7 +362,7 @@
             ]
         },
         {
-            "1BB": "\u4f24\u5bb3\u63d0\u9ad8",
+            "1BB": "伤害提高",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -381,7 +381,7 @@
             ]
         },
         {
-            "1B6": "\u7f29\u5c0f",
+            "1B6": "缩小",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -416,7 +416,7 @@
             ]
         },
         {
-            "20E": "\u51b0\u971c\u4e4b\u5251",
+            "20E": "冰霜之剑",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -425,7 +425,7 @@
             ]
         },
         {
-            "2A9": "\u653b\u51fb\u5f62\u6001",
+            "2A9": "攻击形态",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -434,7 +434,7 @@
             ]
         },
         {
-            "24F": "\u9752\u84dd\u4e4b\u708e",
+            "24F": "青蓝之炎",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -449,7 +449,7 @@
             ]
         },
         {
-            "274": "\u4f24\u5bb3\u964d\u4f4e",
+            "274": "伤害降低",
             "potency": [
                 {
                     "type": "DamagedoneMultiplier",
@@ -459,7 +459,7 @@
             ]
         },
         {
-            "2AA": "\u9632\u5fa1\u5f62\u6001",
+            "2AA": "防御形态",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -468,7 +468,7 @@
             ]
         },
         {
-            "2AB": "\u571f\u4e4b\u52a0\u62a4",
+            "2AB": "土之加护",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -477,7 +477,7 @@
             ]
         },
         {
-            "2CA": "\u53d7\u4f24\u52a0\u91cd",
+            "2CA": "受伤加重",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -487,7 +487,7 @@
             ]
         },
         {
-            "2B7": "\u7269\u7406\u53d7\u4f24\u52a0\u91cd",
+            "2B7": "物理受伤加重",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -498,7 +498,7 @@
             ]
         },
         {
-            "2B8": "\u4f24\u5bb3\u964d\u4f4e",
+            "2B8": "伤害降低",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -508,7 +508,7 @@
             ]
         },
         {
-            "2B9": "\u6cbb\u7597\u9b54\u6cd5\u6548\u679c\u964d\u4f4e",
+            "2B9": "治疗魔法效果降低",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -518,7 +518,7 @@
             ]
         },
         {
-            "32C": "\u9b54\u6cd5\u53d7\u4f24\u51cf\u8f7b",
+            "32C": "魔法受伤减轻",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -528,7 +528,7 @@
             ]
         },
         {
-            "3A5": "\u9b54\u6cd5\u6cbb\u7597\u529b\u964d\u4f4e",
+            "3A5": "魔法治疗力降低",
             "potency": [
                 {
                     "type": "HealDoneMultiplier",
@@ -537,7 +537,7 @@
             ]
         },
         {
-            "3EB": "\u808c\u8089\u79d1\u5b66\u5bb6",
+            "3EB": "肌肉科学家",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -546,7 +546,7 @@
             ]
         },
         {
-            "3F8": "\u4f24\u5bb3\u964d\u4f4e",
+            "3F8": "伤害降低",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -561,7 +561,7 @@
             ]
         },
         {
-            "472": "\u9b54\u6cd5\u53d7\u4f24\u52a0\u91cd",
+            "472": "魔法受伤加重",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -572,7 +572,7 @@
             ]
         },
         {
-            "59C": "\u4e0d\u6b7b\u9e1f\u7684\u52a0\u62a4",
+            "59C": "不死鸟的加护",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -581,7 +581,7 @@
             ]
         },
         {
-            "82C": "\u4f24\u5bb3\u964d\u4f4e",
+            "82C": "伤害降低",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -601,7 +601,7 @@
             ]
         },
         {
-            "91C": "\u5931\u4f20\u9b54\u6cc9",
+            "91C": "失传魔泉",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -610,7 +610,7 @@
             ]
         },
         {
-            "9B5": "\u7834\u706d\u4e4b\u5370\uff1a\u8d30",
+            "9B5": "破灭之印：贰",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -619,47 +619,47 @@
             ]
         },
         {
-            "C6": "\u51b0\u68d8\u5c4f\u969c",
+            "C6": "冰棘屏障",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived",
                 "amount": 50
             }
         },
         {
-            "C5": "\u706b\u68d8\u5c4f\u969c",
+            "C5": "火棘屏障",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived",
                 "amount": 50
             }
         },
         {
-            "156": "\u5bf9\u5c04",
+            "156": "对射",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived"
             }
         },
         {
-            "1DD": "\u6c34\u795e\u7684\u62ab\u98ce",
+            "1DD": "水神的披风",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived",
                 "amount": 50
             }
         },
         {
-            "1DE": "\u6c34\u795e\u7684\u9762\u7eb1",
+            "1DE": "水神的面纱",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived",
                 "amount": 50
             }
         },
         {
-            "8D7": "\u7535\u68d8\u5c4f\u969c",
+            "8D7": "电棘屏障",
             "reactiveproc": {
                 "type": "DamageOnDamageReceived"
             }
         },
         {
-            "B0C": "\u62c2\u6653\u7684\u7948\u7977",
+            "B0C": "拂晓的祈祷",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -669,7 +669,7 @@
             ]
         },
         {
-            "b5f": "\u4f24\u5bb3\u964d\u4f4e",
+            "b5f": "伤害降低",
             "potency": [
                 {
                     "type": "DamageDoneMultiplier",

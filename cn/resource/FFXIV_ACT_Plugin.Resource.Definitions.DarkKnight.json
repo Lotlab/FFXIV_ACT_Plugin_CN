@@ -2,7 +2,7 @@
     "job": "dark knight",
     "actions": [
         {
-            "E21": "\u91cd\u65a9",
+            "E21": "重斩",
             "damage": [
                 {
                     "potency": 300
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "E27": "\u5438\u6536\u65a9",
+            "E27": "吸收斩",
             "damage": [
                 {
                     "potency": 240,
@@ -19,7 +19,7 @@
             ]
         },
         {
-            "E25": "\u91ca\u653e",
+            "E25": "释放",
             "damage": [
                 {
                     "potency": 120
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "E28": "\u4f24\u6b8b",
+            "E28": "伤残",
             "damage": [
                 {
                     "potency": 150
@@ -35,7 +35,7 @@
             ]
         },
         {
-            "E30": "\u566c\u9b42\u65a9",
+            "E30": "噬魂斩",
             "damage": [
                 {
                     "potency": 260,
@@ -49,7 +49,7 @@
             ]
         },
         {
-            "4052": "\u6697\u9ed1\u6ce2\u52a8",
+            "4052": "暗黑波动",
             "damage": [
                 {
                     "potency": 100
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "4054": "\u521a\u9b42",
+            "4054": "刚魂",
             "damage": [
                 {
                     "potency": 120,
@@ -66,7 +66,7 @@
             ]
         },
         {
-            "4053": "\u6697\u9ed1\u950b",
+            "4053": "暗黑锋",
             "damage": [
                 {
                     "potency": 300
@@ -74,7 +74,7 @@
             ]
         },
         {
-            "E39": "\u5438\u8840\u6df1\u6e0a",
+            "E39": "吸血深渊",
             "damage": [
                 {
                     "potency": 240
@@ -87,7 +87,7 @@
             ]
         },
         {
-            "E3B": "\u7cbe\u96d5\u6012\u65a9",
+            "E3B": "精雕怒斩",
             "damage": [
                 {
                     "potency": 540
@@ -100,7 +100,7 @@
             ]
         },
         {
-            "1CE0": "\u8840\u6e85",
+            "1CE0": "血溅",
             "damage": [
                 {
                     "potency": 600
@@ -108,7 +108,7 @@
             ]
         },
         {
-            "1CDF": "\u5bc2\u706d",
+            "1CDF": "寂灭",
             "damage": [
                 {
                     "potency": 240
@@ -116,7 +116,7 @@
             ]
         },
         {
-            "45f3": "\u6697\u5f71\u6ce2\u52a8",
+            "45f3": "暗影波动",
             "damage": [
                 {
                     "potency": 160
@@ -124,7 +124,7 @@
             ]
         },
         {
-            "4056": "\u6697\u5f71\u950b",
+            "4056": "暗影锋",
             "damage": [
                 {
                     "potency": 460
@@ -132,7 +132,7 @@
             ]
         },
         {
-            "649C": "\u8150\u79fd\u9ed1\u6697",
+            "649C": "腐秽黑暗",
             "damage": [
                 {
                     "potency": 375
@@ -144,7 +144,7 @@
             ]
         },
         {
-            "649d": "\u6697\u5f71\u4f7f\u8005",
+            "649d": "暗影使者",
             "damage": [
                 {
                     "potency": 450
@@ -156,7 +156,7 @@
             ]
         },
         {
-            "9040": "\u8840\u7ea2\u4e71",
+            "9040": "血红乱",
             "damage": [
                 {
                     "potency": 620
@@ -164,7 +164,7 @@
             ]
         },
         {
-            "9041": "\u62a5\u5e94",
+            "9041": "报应",
             "damage": [
                 {
                     "potency": 720
@@ -172,7 +172,7 @@
             ]
         },
         {
-            "9042": "\u622e\u5c71",
+            "9042": "戮山",
             "damage": [
                 {
                     "potency": 820
@@ -180,7 +180,7 @@
             ]
         },
         {
-            "9043": "\u523a\u7a7f",
+            "9043": "刺穿",
             "damage": [
                 {
                     "potency": 300
@@ -188,7 +188,7 @@
             ]
         },
         {
-            "9044": "\u63a0\u5f71\u7684\u8511\u89c6",
+            "9044": "掠影的蔑视",
             "damage": [
                 {
                     "potency": 750
@@ -202,7 +202,7 @@
     ],
     "statuseffects": [
         {
-            "2ED": "\u8150\u79fd\u5927\u5730",
+            "2ED": "腐秽大地",
             "timeproc": {
                 "type": "grounddamage",
                 "potency": "50",
@@ -211,7 +211,7 @@
             }
         },
         {
-            "2EB": "\u6697\u5f71\u5899",
+            "2EB": "暗影墙",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -220,7 +220,7 @@
             ]
         },
         {
-            "2EF": "\u6697\u9ed1",
+            "2EF": "暗黑",
             "potency": [
                 {
                     "type": "damagedonemultiplier",
@@ -229,7 +229,7 @@
             ]
         },
         {
-            "766": "\u6697\u9ed1\u5e03\u9053",
+            "766": "暗黑布道",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -244,7 +244,7 @@
             ]
         },
         {
-            "2EA": "\u5f03\u660e\u6295\u6697",
+            "2EA": "弃明投暗",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -259,7 +259,7 @@
             ]
         },
         {
-            "a7a": "\u732e\u5949",
+            "a7a": "献奉",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
@@ -268,20 +268,20 @@
             ]
         },
         {
-            "49a": "\u81f3\u9ed1\u4e4b\u591c",
+            "49a": "至黑之夜",
             "damageshield": {
                 "type": "TargetHpPercent",
                 "amount": 25
             }
         },
         {
-            "32B": "\u6b7b\u800c\u4e0d\u50f5",
+            "32B": "死而不僵",
             "reactiveproc": {
                 "type": "HealOnDamageDealt"
             }
         },
         {
-            "efb": "\u6697\u5f71\u536b",
+            "efb": "暗影卫",
             "potency": [
                 {
                     "type": "DamageReceivedMultiplier",
