@@ -29,7 +29,7 @@
         { "from": "Real HoT Tick", "to": "真实持续治疗" }
       ],
       "addEnumMembers": [
-        { "type": "FFXIV_ACT_Plugin.Parse.Job", "name": "Bst", "value": 45 }
+        { "type": "FFXIV_ACT_Plugin.Parse.Job", "name": "Bst", "value": 43 }
       ]
     },
     {
