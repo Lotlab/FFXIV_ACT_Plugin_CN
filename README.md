@@ -34,6 +34,7 @@ upstream/
   patch.json                         CN 补丁清单（字段 / 字符串 / 枚举 / 资源目录）
 cn/
   resource/                          CN 专属内嵌资源（与上游不同的部分）
+  resource-overrides.json            CSV 生成之后的手工补丁（见 §3.4）
 src/
   FFXIV_ACT_Plugin/                  主插件（CN UI + 我们的功能）
   FFXIV_ACT_Plugin.Network/          抓包路径 + 反混淆
@@ -44,7 +45,8 @@ third_party/
   deucalion/                         原生 payload 对应源码（子模块）
 tools/
   prepare_upstream.py                下载 → 解包 → 剥离 → 打补丁（--version 可换版本）
-  refresh_cn_resources.py            从 CN 发行包重建 cn/resource
+  generate_cn_resources.py           从 ffxiv-datamining-cn 的 CSV 生成 cn/resource
+  refresh_cn_resources.py            从 CN 发行包重建 cn/resource（现在只用于比对基准）
   extract_cn_reference.py            解出 CN 原始程序集，供元数据比对
   build_deucalion.py                 从子模块重建原生 DLL（见 §6）
   AssemblyPatcher/                   Mono.Cecil 工具（extract / strip / patch / resources / dump）
@@ -89,7 +91,7 @@ dotnet build FFXIV_ACT_Plugin.sln -c Release
 ```
 FFXIV_ACT_Plugin.dll        单文件托管插件（织入六个上游件 + Network + Unscrambler +
                             Machina* + Newtonsoft.Json + WindowsFirewallHelper）
-deucalion-1.2.1.dll         原生 payload
+deucalion-1.2.1.dll         原生 payload（从上游发行包解出，见 §6）
 deucalion-1.5.0.dll
 ```
 
@@ -106,6 +108,7 @@ deucalion-1.5.0.dll
 | `Advanced Combat Tracker` | `PackageReference`，仅编译期引用 |
 | `Newtonsoft.Json` | `PackageReference` |
 | `WindowsFirewallHelper` | `PackageReference` |
+| `deucalion-{1.2.1,1.5.0}.dll` | `prepare_upstream.py` 从上游发行包解出 → `artifacts/upstream/current/` |
 | `Fody` / `Costura.Fody` | `PackageReference`，单文件打包 |
 
 上游 `Common` 针对较高版本的 ACT 编译，本仓库用的是 NuGet 上可获得的版本，构建时会有一条
@@ -150,7 +153,7 @@ asm.Write(path, new WriterParameters { StrongNameKeyPair = null });
 **为什么替换资源，而不是重建 Resource 程序集**：Resource 的代码与上游完全一致，它只是按
 名字在运行时加载内嵌资源的容器，重建不会带来任何编译期校验（资源名是字符串），只会把
 反编译代码重新拉回维护面。替换 blob 保留上游代码，数据更新退化成文件拷贝；patcher 也支持
-新增上游没有的资源名。将来若改成从游戏数据生成资源，仍然只需把结果放进 `cn/resource/`。
+新增上游没有的资源名。
 
 ### 3.3 为什么修改签过名的程序集是可接受的
 
@@ -163,6 +166,68 @@ Cecil 改写后签名块会失效或缺失，但 CLR 加载不受影响；实测
 
 代价是这些程序集不再是“原样”的上游件。`prepare_upstream.py` 每次都从原始包重新生成，
 `upstream/lock.json` 的 sha256 保证底座可追溯。
+
+### 3.4 `cn/resource` 的数据从哪来
+
+`cn/resource/` 里的 36 个文件由 `tools/generate_cn_resources.py` 从
+[ffxiv-datamining-cn](https://github.com/thewakingsands/ffxiv-datamining-cn) 的 CSV 生成，
+不再依赖任何 CN 发行包：
+
+| 内嵌资源 | 来源 sheet | 键 / 值 |
+| --- | --- | --- |
+| `Generated.ActionList_{Chinese,English}.txt` | `Action` | 十六进制 action id / `Name`（空名行不输出） |
+| `Generated.StatusList_{Chinese,English}.txt` | `Status` | 十六进制 status id / `Name` |
+| `Generated.MapList_English.txt` | `Map` + `PlaceName` | 十六进制 map id / `PlaceName{Region}`、`PlaceName`、`PlaceName{Sub}` |
+| `Generated.TerritoryList_English.txt` | `TerritoryType` + `PlaceName` | 十进制 territory id / `PlaceName` |
+| `Generated.ContentFinderList_English.txt` | `ContentFinderCondition` | 十进制 **territory** id / `Name` |
+| `Generated.WorldList_English.txt` | `World` + `WorldDCGroupType` | 十进制 world id / `Name`（只留 CN 大区） |
+| `Generated.ActionCategoryList_English.txt` | `Action` | 十六进制 action id / `ActionCategory`（十进制数字串） |
+| `Definitions.*.json` | `Action` / `Status` | 只替换每个条目的技能名 / 状态名，威力与效果数据保持原值 |
+
+几个反推出来的细节：
+
+* `ContentFinderList` 的键是 `ContentFinderCondition.TerritoryType`，不是副本 id。运行时
+  `TerritoryList` 会把这张表垫在 territory 名表下面，于是副本区域显示副本名、其余显示地名；
+  因此 PvP（`PvP=True`）与副本外内容（金碟、无人岛、多变迷宫等 `ContentType`）不写入，
+  同一 territory 有多条时取 id 最小的一条。
+* `ActionCategoryList` 的值上游写的是十进制数字串，而 `ActionList.LoadActionCategories` 用
+  `int.Parse(..., NumberStyles.HexNumber)` 解析。生成器刻意照抄这个写法，保证行为不漂移。
+* `Definitions.*.json` 的威力 / 连击 / DoT 系数无法从 CSV 得到（`Action` sheet 早已没有威力
+  列），这部分继续沿用已有手写数据，生成器只做名字本地化；`LimitTo` 是按名字匹配的，所以
+  名字必须和 `ActionList_*` 用同一份 CSV，这一点由生成器保证。
+* CSV 与 CN 客户端不一致的极少数条目放在 `cn/resource-overrides.json`，例如 `World` 1168
+  （客户端显示“黄金港”，sheet 里是未翻译的“クガネ”且 `Region` 为 0）。
+
+更新流程：
+
+```
+python tools/generate_cn_resources.py --csv <ffxiv-datamining-cn>/csv
+python tools/prepare_upstream.py          # 把 cn/resource 打进上游 Resource
+dotnet build FFXIV_ACT_Plugin.sln -c Release
+```
+
+`--check` 会和从 CN 发行包解出的资源逐条比对，输出 `same / drift / new / lost`：正常情况是
+`lost` 为 0，`drift`/`new` 全部来自版本更新（新职业、新副本、改名）。`--dry-run` 只报告不写盘。
+
+### 3.5 `Generated.Override.global_*.txt` 为什么保留
+
+`cn/resource/` 里另有 8 个 override 载荷（`global_P5S`–`global_P12S`），它们是唯一无法从
+CSV 生成、只能取自 CN 发行包的数据，**有意保留**：
+
+* 用途是替换“加密字符串”：sheet 里部分条目的名字本身是
+  `_rsv_<id>_<语言>_<参数>_S<hash>_E<hash>` 令牌，客户端运行时用字符串表解析，而 CSV 里
+  只有令牌。`ResourceFile.LoadResourceDictionary` 加载 `ActionList_*` / `StatusList_*` 时，
+  会用 override 的**键**去匹配条目名字，命中就把名字换成 override 的值——所以它是按
+  **当期版本 / 当期副本**生效的，不是常量表。
+* 上游（ravahn）也维护同一套文件（3.0.3.4 共 23 个，含 `7.51` 五语言与全部 P/M/R 副本），
+  我们的 8 个是其中 P5S–P12S 的中文本地化对应物。令牌里带语言位（中文 `-1_4_`、英文
+  `-1_1_`），上游英文那份匹配不上中文名，所以不能用上游替代。
+* 现状：这 3795 个键与当前 CSV 里的 129 个令牌（118 技能 + 11 状态，当期 R12S 那批）
+  **一个都不匹配**，因此当前不改变任何显示；但只要客户端再次把对应 id 变成令牌，它们就
+  立即生效，成本仅 281 KB。
+* 当前 R12S 的 128 条令牌明文只有 NewMoe 的 `global_R12S.txt` 提供（中文明文，CSV 里
+  不存在），本项目**不采纳**：那属于每期副本都要跟进的额外维护面。因此这些名字在 ACT 里
+  仍显示为 `_rsv_...` 令牌，与上游英文版行为一致。
 
 ## 4. 本仓库编译的部分
 
@@ -224,23 +289,27 @@ Unscrambler 官方程序集只针对 net10.0，因此 `FFXIV_ACT_Plugin.Unscramb
 
 ## 6. `deucalion`（Rust 原生 DLL）
 
-`deucalion-<版本>.distrib.dll` 是 Rust 编译的原生 DLL，没有托管元数据，因此以子模块引入
-逐字节对应的上游源码：
+`deucalion-<版本>.dll` 是 Rust 编译的原生 DLL，没有托管元数据。**它不是本插件编译出来的**，
+也不需要 Rust 工具链：`tools/prepare_upstream.py` 直接从已 pin 的上游发行包里解出
+`deucalion-<版本>.distrib.dll`，改名为 `deucalion-<版本>.dll` 放进
+`artifacts/upstream/current/`，构建时由 `StagePluginFolder` 拷到投放目录。这样原生 payload
+的字节由 `upstream/lock.json` 的 sha256 锚定，而不是取决于 machina 子模块指针指向哪个提交；
+`stamp.json` 的 `native` 字段记录解出的两个文件哈希。
 
-* <https://github.com/ff14wed/deucalion>（GPL-3.0）
-* `third_party/deucalion/1.5.0`、`1.2.1` 分别对应上游同名 tag
-* 上游产物名为 `deucalion.dll`；`.distrib` 后缀是 ACT 打包时加的，插件注入前会改名
-* 二进制与上游 release 资源 sha256 一致
+细节：
 
-它不是本插件的编译输入，保留是为了让“子模块版本 → 发行二进制”可查、可复现。重建：
+* 上游产物名为 `deucalion.dll`；`.distrib` 后缀是 ACT 打包时加的，插件注入前会改名；
+* `Machina.FFXIV` 的 `DeucalionInjector` 在运行时从插件目录加载它们，而本构建没有能自动
+  下载它们的更新器（CN 版 `ACT_PluginUpdate.UpdateCheckClicked_Version` 是空实现）；
+* 同名二进制在上游 release、CN release 与 machina 子模块的 `Deucalion/Distrib/` 里目前
+  sha256 完全一致，我们以上游 release 为准。
 
-```powershell
-python tools/build_deucalion.py
-python tools/build_deucalion.py --lib-only
-```
+源码与重建（**可选**，只用于核对二进制）：
 
-脚本会把 `tokio-util` 钉回发版时的版本，并需要 nightly Rust、MSVC 与 Windows SDK。详见
-`third_party/deucalion/README.md`。
+* <https://github.com/ff14wed/deucalion>（GPL-3.0），
+  `third_party/deucalion/1.5.0`、`1.2.1` 对应上游同名 tag
+* `python tools/build_deucalion.py`（需要 nightly Rust、MSVC 与 Windows SDK），脚本会把
+  `tokio-util` 钉回发版时的版本；详见 `third_party/deucalion/README.md`
 
 ## 7. 验证
 
@@ -281,9 +350,9 @@ dotnet tool install -g ilspycmd
 2. 先试跑 `python tools/prepare_upstream.py --version <版本>`。它会跳过 lock 里的哈希校验、
    打印 zip 的 sha256，并直接刷新 `current/`；
 3. 把打印出的 sha256 连同 `version` / `asset` 写进 `upstream/lock.json`，之后的构建即可复现；
-4. 用新的 CN 发行包重建资源：
-   `python tools/refresh_cn_resources.py path/to/CN.zip`。它对比 CN 与上游原始 Resource，
-   重写 `cn/resource/`（新增 / 变更 / 清理），并报告 CN 删除但 patcher 还不能删除的资源；
+4. 用新的 CN 数据重建资源（见 §3.4）：
+   `python tools/generate_cn_resources.py --csv <ffxiv-datamining-cn>/csv`。
+   需要拿 CN 发行包当基准比对时才用 `tools/refresh_cn_resources.py path/to/CN.zip`；
 5. 如果上游改了补丁涉及的成员，调整 `upstream/patch.json`（补丁目标不存在时 patcher 会直接
    报错，不会静默跳过）；
 6. 对比新的 CN 主程序集与上游 main（`ilspycmd` 反编译即可），把 CN 的 UI/默认值差异合并进
@@ -294,9 +363,15 @@ dotnet tool install -g ilspycmd
 
 * 六个上游程序集来自 [ravahn/FFXIV_ACT_Plugin](https://github.com/ravahn/FFXIV_ACT_Plugin)
   的发行版（该仓库不提供源码，只有发行物、`Definitions/`、`Overrides/`）。
-* `src/` 的 main 与 Network 源码、以及 `cn/resource/` 的 CN 数据，来自
+* `src/` 的 main 与 Network 源码来自
   [TundraWork/FFXIV_ACT_Plugin_CN](https://github.com/TundraWork/FFXIV_ACT_Plugin_CN)
-  发行包的反编译与提取。
+  发行包的反编译。
+* `cn/resource/` 的技能 / 状态 / 地图 / 区域 / 副本 / 大区名表由
+  `tools/generate_cn_resources.py` 从
+  [thewakingsands/ffxiv-datamining-cn](https://github.com/thewakingsands/ffxiv-datamining-cn)
+  的 CSV 生成（见 §3.4）；`Definitions.*.json` 的威力 / 连击 / DoT 系数与
+  `Generated.Override.*` 仍取自 TundraWork 发行包——前者 CSV 里已无对应列，后者按游戏字符串
+  id 索引，两者都无法从 CSV 还原。
 * `third_party/machina/` 为 [Lotlab/machina](https://github.com/Lotlab/machina) 子模块，
   上游 [ravahn/machina](https://github.com/ravahn/machina)（GPL-3.0）。
 * `third_party/Unscrambler.CN/` 为 [Latihas/Unscrambler](https://github.com/Latihas/Unscrambler)
