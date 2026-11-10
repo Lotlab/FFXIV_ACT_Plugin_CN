@@ -14,5 +14,5 @@
 	branch = main
 [submodule "third_party/Unscrambler.CN"]
 	path = third_party/Unscrambler.CN
-	url = https://github.com/Latihas/Unscrambler.git
-	branch = main
+	url = https://github.com/Lotlab/Unscrambler.git
+	branch = cn-758
