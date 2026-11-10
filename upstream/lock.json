@@ -1,7 +1,7 @@
 {
-  "version": "3.0.2.1",
+  "version": "3.0.3.4",
   "repo": "ravahn/FFXIV_ACT_Plugin",
-  "asset": "FFXIV_ACT_Plugin_3.0.2.1.zip",
-  "sha256": "48f712d47c0e8be13ac0e0e43bc3173568d3717494b9d8be731aed133e8a503a",
-  "comment": "FFXIV_ACT_Plugin.dll inside this zip is decompressed at build time; the seven FFXIV_ACT_Plugin.* assemblies it embeds are stripped and patched by tools/prepare_upstream.py."
+  "asset": "FFXIV_ACT_Plugin_3.0.3.4.zip",
+  "sha256": "089306e497dd4b8fb79290472f006b889fd21fc3d3816ce41ef9a0300feb2d11",
+  "comment": "FFXIV_ACT_Plugin.dll inside this zip is decompressed at build time; the seven FFXIV_ACT_Plugin.* assemblies it embeds are stripped and patched by tools/prepare_upstream.py. This release is the FFXIV 7.57 hotfix; it also carries the only deucalion payload upstream still ships (1.5.1), which is why Machina resolves the payload by version instead of a region-keyed name."
 }

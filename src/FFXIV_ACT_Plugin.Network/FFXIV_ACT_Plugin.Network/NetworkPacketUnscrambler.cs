@@ -7,6 +7,7 @@ using System.IO;
 using Unscrambler;
 using Unscrambler.Constants;
 using Unscrambler.Derivation;
+using Unscrambler.Derivation.Versions;
 using Unscrambler.Unscramble;
 
 namespace FFXIV_ACT_Plugin.Network;
@@ -41,6 +42,9 @@ public sealed class NetworkPacketUnscrambler : INetworkPacketUnscrambler
 
 	/// <summary>7.30 added the opcode-dependent key and the Unscrambler73 layout.</summary>
 	private static readonly DateTime Unscrambler73Version = new DateTime(2025, 7, 30);
+
+	/// <summary>7.40 changed the initialiser packet layout, so the derivation moved to KeyGenerator74.</summary>
+	private static readonly DateTime KeyGenerator74Version = new DateTime(2025, 12, 9);
 
 	private readonly object _sync = new object();
 
@@ -100,7 +104,7 @@ public sealed class NetworkPacketUnscrambler : INetworkPacketUnscrambler
 
 				try
 				{
-					_keyGenerator = KeyGeneratorFactory.ForGameVersion(version);
+					_keyGenerator = CreateKeyGenerator(constants);
 					_unscrambler = UnscramblerFactory.ForGameVersion(version);
 				}
 				catch (Exception ex)
@@ -247,6 +251,28 @@ public sealed class NetworkPacketUnscrambler : INetworkPacketUnscrambler
 			_scratch = new byte[needed];
 		}
 		return _scratch;
+	}
+
+	/// <summary>
+	/// Creates the key generator for the given client constants.
+	///
+	/// The upstream <c>KeyGeneratorFactory</c> keeps a hard-coded table of client versions,
+	/// which has to be extended in the submodule for every patch (and hotfix) before the plugin
+	/// can use its data.  The layout only changed twice, though - 7.3 added the opcode-based
+	/// key and 7.4 changed the initialiser packet - so pick by client date and let a new patch
+	/// reuse the current layout until the derivation itself changes.
+	/// </summary>
+	private static IKeyGenerator CreateKeyGenerator(VersionConstants constants)
+	{
+		DateTime date = ParseClientDate(constants.GameVersion);
+
+		IKeyGenerator generator =
+			date >= KeyGenerator74Version ? (IKeyGenerator)new KeyGenerator74() :
+			date >= Unscrambler73Version ? new KeyGenerator73() :
+			new KeyGenerator72();
+
+		generator.Initialize(constants);
+		return generator;
 	}
 
 	private static DateTime ParseClientDate(string version)

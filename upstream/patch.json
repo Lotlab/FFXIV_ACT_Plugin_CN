@@ -1,5 +1,5 @@
 {
-  "comment": "CN adaptation applied to the stripped upstream assemblies. Everything here is derived from the TundraWork 3.0.2.1 CN binary; see README section 8.",
+  "comment": "CN adaptation applied to the stripped upstream assemblies. Everything here is derived from the TundraWork CN binary for the same upstream release; see README section 8.",
   "strip": [
     "FFXIV_ACT_Plugin.Common",
     "FFXIV_ACT_Plugin.Config",

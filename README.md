@@ -91,11 +91,12 @@ dotnet build FFXIV_ACT_Plugin.sln -c Release
 ```
 FFXIV_ACT_Plugin.dll        单文件托管插件（织入六个上游件 + Network + Unscrambler +
                             Machina* + Newtonsoft.Json + WindowsFirewallHelper）
-deucalion-1.2.1.dll         原生 payload（从上游发行包解出，见 §6）
-deucalion-1.5.0.dll
+deucalion-1.5.1.dll         原生 payload（从上游发行包解出，见 §6）
 ```
 
-这个目录就是完整的投放目录。
+这个目录就是完整的投放目录。上游自 3.0.3.4 起只发 `deucalion-1.5.1`，更早的版本不再随包；
+`StagePluginFolder` 按 `deucalion-*.dll` 兜底，Machina 端按“目录里存在的最新版本”选择
+（繁体中文区仍固定在 1.2.1，需要时自己把旧 payload 放进目录）。
 
 ### 依赖
 
@@ -108,7 +109,7 @@ deucalion-1.5.0.dll
 | `Advanced Combat Tracker` | `PackageReference`，仅编译期引用 |
 | `Newtonsoft.Json` | `PackageReference` |
 | `WindowsFirewallHelper` | `PackageReference` |
-| `deucalion-{1.2.1,1.5.0}.dll` | `prepare_upstream.py` 从上游发行包解出 → `artifacts/upstream/current/` |
+| `deucalion-1.5.1.dll` | `prepare_upstream.py` 从上游发行包解出 → `artifacts/upstream/current/` |
 | `Fody` / `Costura.Fody` | `PackageReference`，单文件打包 |
 
 上游 `Common` 针对较高版本的 ACT 编译，本仓库用的是 NuGet 上可获得的版本，构建时会有一条
@@ -277,15 +278,19 @@ ActorCast 等）做异或/减法混淆。deucalion 读到的是游戏已经解�
 （CN fork）和 [perchbirdd/Unscrambler](https://github.com/perchbirdd/Unscrambler)（密钥推导）：
 
 * CN fork 提供 `VersionConstants`、被混淆 opcode 表和 `Data/<版本>/` 密钥推导表；
-* 上游提供 `Derivation/` 和 `KeyGeneratorFactory`；CN fork 本身没有这部分，因为 IINACT 是
-  注入式插件，可以直接 hook 拿到 key，而外部抓包必须从初始化包推导；
+* 上游提供 `Derivation/`（各版本的 `KeyGenerator72/73/74`）；CN fork 本身没有这部分，因为
+  IINACT 是注入式插件，可以直接 hook 拿到 key，而外部抓包必须从初始化包推导；
 * 客户端版本取自 `ffxivgame.ver`，密钥在初始化包（`InitZone` 或混淆初始化 opcode）到达时
-  生成；
-* 只在非注入模式下启用；版本不在 CN fork 里时关闭反混淆并在“测试游戏连接”里说明原因。
+  生成；7.4 起 `InitZone` 不再能推导密钥，只用混淆初始化包；
+* 只在非注入模式下启用；版本在 `VersionConstants` 里找不到时关闭反混淆并在“测试游戏连接”
+  里说明原因；
+* 用哪个 `KeyGenerator` 由客户端**日期**决定（`NetworkPacketUnscrambler.CreateKeyGenerator`），
+  不走上游那个按版本字符串硬编码的 `KeyGeneratorFactory`，否则每个补丁都要改子模块。
 
 Unscrambler 官方程序集只针对 net10.0，因此 `FFXIV_ACT_Plugin.Unscrambler` 把两个子模块的
-相关源码编成 net48 程序集，并用 `Compat/` 补齐缺失 API。CN 客户端更新后，把
-`third_party/Unscrambler.CN` 子模块更新到新提交即可。
+相关源码编成 net48 程序集，并用 `Compat/` 补齐缺失 API。CN 客户端更新后，给
+`third_party/Unscrambler.CN` 补一份 `Constants/Constants<补丁>.cs` + `Data/<客户端版本>/*.bin`
+（做法见 §8.3），本仓库的 csproj 用通配符引用，不需要改工程文件。
 
 ## 6. `deucalion`（Rust 原生 DLL）
 
@@ -294,13 +299,17 @@ Unscrambler 官方程序集只针对 net10.0，因此 `FFXIV_ACT_Plugin.Unscramb
 `deucalion-<版本>.distrib.dll`，改名为 `deucalion-<版本>.dll` 放进
 `artifacts/upstream/current/`，构建时由 `StagePluginFolder` 拷到投放目录。这样原生 payload
 的字节由 `upstream/lock.json` 的 sha256 锚定，而不是取决于 machina 子模块指针指向哪个提交；
-`stamp.json` 的 `native` 字段记录解出的两个文件哈希。
+`stamp.json` 的 `native` 字段记录解出的文件哈希。
 
 细节：
 
 * 上游产物名为 `deucalion.dll`；`.distrib` 后缀是 ACT 打包时加的，插件注入前会改名；
 * `Machina.FFXIV` 的 `DeucalionInjector` 在运行时从插件目录加载它们，而本构建没有能自动
   下载它们的更新器（CN 版 `ACT_PluginUpdate.UpdateCheckClicked_Version` 是空实现）；
+* 上游会轮换 payload 版本（3.0.3.4 只带 1.5.1，3.0.2.x 带 1.2.1 + 1.5.0）。CN fork 的
+  `DeucalionInjector` 因此改成“取 `DeucalionPath` 里存在的最新版本”，并按版本核 SHA-256
+  （`_payloadChecksums`）；新增 payload 时把文件名和哈希补进那两张表即可。繁体中文区仍固定
+  用 1.2.1；
 * 同名二进制在上游 release、CN release 与 machina 子模块的 `Deucalion/Distrib/` 里目前
   sha256 完全一致，我们以上游 release 为准。
 
@@ -341,7 +350,24 @@ PASS - CN packet deobfuscation works end to end
 dotnet tool install -g ilspycmd
 ```
 
-## 8. 切换上游版本
+## 8. 跟进新的客户端补丁
+
+补丁日要动的东西固定是四类，全部是数据，`src/` 的代码只在反混淆的密钥选择上有一部分耦合。
+下面按 7.58（CN `2026.11.03.0000.0000`）为例。
+
+### 8.1 四类随客户端变的数据
+
+| 数据 | 位置 | 来源 |
+| --- | --- | --- |
+| 中文资源（技能/状态/地图/副本/大区名） | `cn/resource/` | `tools/generate_cn_resources.py` 从最新 CSV dump 生成 |
+| CN opcode 表 | `third_party/machina/Machina.FFXIV/Headers/Opcodes/Chinese.txt` | <https://github.com/Yarukon/FFXIVNetworkOpcodes> `output/CN_<版本>/machina.txt` |
+| Oodle 函数签名 | `third_party/machina/Machina.FFXIV/Memory/SigScan.cs` | 对 `ffxiv_dx11.exe` 重新扫；签名写错会导致非注入抓包拿不到 Oodle 状态 |
+| 反混淆常量 + 六张表 | `third_party/Unscrambler.CN` 的 `Constants/Constants<版本>.cs` 与 `Data/<客户端版本>/*.bin` | 反汇编 + 从 exe dump；见 8.3 |
+
+FFXIV 每个补丁都会重新随机 opcode，所以 opcode 表必然要换；资源多数补丁只改几条名字；
+Oodle 与反混淆常量则看编译器有没有改写法。
+
+### 8.2 上游二进制
 
 上游版本没有写死在任何工程文件里：`artifacts/upstream/current/` 只是“当前选中的那一版”，
 换版本不需要改 csproj。
@@ -350,14 +376,59 @@ dotnet tool install -g ilspycmd
 2. 先试跑 `python tools/prepare_upstream.py --version <版本>`。它会跳过 lock 里的哈希校验、
    打印 zip 的 sha256，并直接刷新 `current/`；
 3. 把打印出的 sha256 连同 `version` / `asset` 写进 `upstream/lock.json`，之后的构建即可复现；
-4. 用新的 CN 数据重建资源（见 §3.4）：
-   `python tools/generate_cn_resources.py --csv <ffxiv-datamining-cn>/csv`。
-   需要拿 CN 发行包当基准比对时才用 `tools/refresh_cn_resources.py path/to/CN.zip`；
-5. 如果上游改了补丁涉及的成员，调整 `upstream/patch.json`（补丁目标不存在时 patcher 会直接
+4. 如果上游改了补丁涉及的成员，调整 `upstream/patch.json`（补丁目标不存在时 patcher 会直接
    报错，不会静默跳过）；
+5. 核对上游包里的 `deucalion-*.distrib.dll`：版本变了要给 Machina 的 `DeucalionInjector`
+   补文件名和 SHA-256（见 §6）；
 6. 对比新的 CN 主程序集与上游 main（`ilspycmd` 反编译即可），把 CN 的 UI/默认值差异合并进
-   `src/FFXIV_ACT_Plugin`；
-7. `dotnet build`，跑 §7 的验证。
+   `src/FFXIV_ACT_Plugin`。
+
+### 8.3 客户端相关的数据怎么来
+
+1. **CSV**：`ffxiv-automatic-data-fetcher` 把新版本的 `ffxiv_dx11.exe`、`ffxivgame.ver` 和
+   sqpack 拉到 `history/<客户端版本>/game/`，再由 `ffxiv_csv_loader` 展开成
+   `ffxiv-automatic-data/csv/`；`tools/generate_cn_resources.py` 的默认 `--csv` 就指向它。
+2. **opcode**：同一套工具会产出 `ffxiv-automatic-data/opcode/<客户端版本>.json`
+   （旧 opcode → 新 opcode 的置换表）。Named 表以 Yarukon 的 `machina.txt` 为准；两者应
+   一致。旧的具名表可以用这份 diff 推导新一版，再和 Yarukon 对一下。
+3. **Oodle 签名**：对 exe 跑一遍 12 条签名（按 `SigScan.cs` 的语义：`**` 通配、匹配末尾
+   紧跟 `e8` 的 rel32）。FFXIV 会换寄存器，例如 7.58 把 UDP/TCP train 的判据从 `r13d` 改成
+   `r12d`。`SigScan` 支持每类签名的候选列表（`FallbackSignatures`），旧写法保留为 primary，
+   新写法作为 fallback，这样同一份代码能同时支持前后两个补丁。
+4. **反混淆常量**：`Unscrambler.CN` 里的 `CodeGenerator` / `DataGenerator` 是作者的工具，
+   但它的启发式是逐补丁写的，补丁一变就会崩（7.58 就崩在 `imul` 扫描上）。实际做法是直接
+   读 `ffxiv_dx11.exe` 的反汇编：
+
+   * 派生函数按 `set` 分成三个分支，每个分支里 `cmp $max` / `imul $radix` 给出该表的
+     `TableMax` 与 `TableRadixes`，末尾 `mov 0x<addr>(...,%r8,4)` 给出 `TableOffsets`；
+   * 共享尾段给出 `MidTable`（`8 * (seed % N)` 里的 N → `N*8` 字节）与 `DayTable`
+     （`% N` → `N*4` 字节）；
+   * `OpcodeKeyTable` 在包派发函数里：`% N` 后接 `mov 0x<addr>(...%rcx,4)`；
+   * 自检办法：`TableOffset[i] + radix[i]*max[i]*4` 应正好等于下一张表的起始地址，
+     `MidTableOffset + MidTableSize` 应等于 `TableOffsets[0]`，`DayTableOffset + DayTableSize`
+     应落在 `OpcodeKeyTableOffset` 之前；
+   * `ObfuscationEnabledMode` / `UnknownObfuscationInitOpcode` 用包派发函数里的
+     `cmp $<值>,%bl` / `cmp $<opcode>,%r15d` 确认；
+   * `InitZone` / `FateInfo` 的 opcode 与各包长度取 Yarukon 的 `opcodes.json` 与
+     `thewakingsands/matcha`（`NetworkMonitor.cs` 里的 `packet.Length != N`）。
+5. **验证数据**：用 `KeyGenerator74` 从合成初始化包派生密钥，再用一份独立的
+   “按反汇编重写的派生函数”算一遍，两边密钥必须一致；opcode key 也必须落在表内。
+
+### 8.4 密钥实现的选择
+
+上游 `KeyGeneratorFactory` 的 `switch` 是按客户端版本字符串硬编码的，每来一个补丁都要改
+一次子模块，否则 `ForGameVersion` 直接抛异常。`NetworkPacketUnscrambler` 现在按客户端日期
+选实现（7.3 起用 opcode key、7.4 起换初始化包布局），只有派生算法真的变时才需要动代码。
+
+### 8.5 收尾
+
+1. `python tools/prepare_upstream.py`（用 lock 里的版本，跳版本后不带 `--version`）；
+2. `dotnet build`；
+3. 跑 §7 的验证：`verify_reconstruction.py`、`PluginLoadTest`、`UnscramblerSmokeTest`；
+4. 到游戏里各抓一次非注入（Npcap/原始套接字，走反混淆）与注入（Deucalion）路径，
+   确认伤害、状态、副本名正常。
+
+## 9. 许可与来源
 
 ## 9. 许可与来源
 
